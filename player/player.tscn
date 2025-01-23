@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxnpaj3s1fpv3"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_ocd3p"]
+[ext_resource type="Texture2D" uid="uid://c5u8oxfxskqkf" path="res://entities/player/characterspritesheet.png" id="3_3iyct"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dx55h"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8mvl"]
+size = Vector2(43.5, 12)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(11, -2)
+script = ExtResource("1_ocd3p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-11, 1)
+texture = ExtResource("3_3iyct")
+hframes = 6
+vframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-11, 2)
+shape = SubResource("CapsuleShape2D_dx55h")
+debug_color = Color(2.21401e-06, 0.582951, 0.788909, 0.42)
+
+[node name="sword" type="Area2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sword"]
+visible = false
+position = Vector2(28, -19.125)
+shape = SubResource("RectangleShape2D_a8mvl")
+debug_color = Color(0.825185, 0.345085, 0.522685, 0.42)
