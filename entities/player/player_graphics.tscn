@@ -178,6 +178,8 @@ libraries = {
 autoplay = "idle"
 
 [node name="Sword" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
 
 [node name="SwordCollision" type="CollisionShape2D" parent="Sword"]
 position = Vector2(22, -4)

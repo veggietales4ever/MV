@@ -7,3 +7,6 @@ res://entities/entity.tscn
 res://entities/player/player.tscn
 res://entities/player/player_graphics.tscn
 res://entities/player/player.gd
+res://entities/enemy/gold enemy/gold_enemy.gd
+res://entities/objects/crate.tscn
+res://entities/objects/crate.gd
