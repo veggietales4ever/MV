@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6l2ws7xaaugs"]
+[gd_scene load_steps=15 format=3 uid="uid://b6l2ws7xaaugs"]
 
 [ext_resource type="Script" path="res://world/test_world.gd" id="1_1v0ag"]
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="2_84ahu"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b4un251a3ymxs" path="res://palettes/cc-29-1x.png" id="7_l66sd"]
 [ext_resource type="PackedScene" uid="uid://b5sq44ikmlo84" path="res://entities/enemy/gold enemy/gold_enemy.tscn" id="8_ce1bp"]
 [ext_resource type="PackedScene" uid="uid://lfu4j7l58qi7" path="res://entities/objects/crate.tscn" id="9_wbocp"]
+[ext_resource type="PackedScene" uid="uid://dc28t7tiqn540" path="res://entities/objects/coin.tscn" id="10_0f5ev"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyck2"]
 texture = ExtResource("3_nd7su")
@@ -258,3 +259,9 @@ position = Vector2(107, 359)
 
 [node name="crate2" parent="crates" instance=ExtResource("9_wbocp")]
 position = Vector2(574, 358)
+
+[node name="Coin" parent="." instance=ExtResource("10_0f5ev")]
+position = Vector2(157, 107)
+
+[node name="Coin2" parent="." instance=ExtResource("10_0f5ev")]
+position = Vector2(393, 131)

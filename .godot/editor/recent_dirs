@@ -1,5 +1,6 @@
-res://control
+res://global
 res://entities/objects
+res://control
 res://entities
 res://entities/enemy/gold enemy
 res://entities/enemy

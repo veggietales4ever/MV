@@ -8,3 +8,6 @@ res://entities/player/player_graphics.tscn
 res://entities/enemy/enemy.tscn
 res://entities/objects/crate.tscn
 res://control/camera_2d.gd
+res://entities/objects/coin.tscn
+res://entities/objects/coin.gd
+res://global/player_data.gd
