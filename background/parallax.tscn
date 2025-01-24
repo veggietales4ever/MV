@@ -1,72 +1,65 @@
-[gd_scene load_steps=7 format=3 uid="uid://b01m1ujtexeix"]
+[gd_scene load_steps=6 format=3 uid="uid://b01m1ujtexeix"]
 
-[ext_resource type="Texture2D" uid="uid://cgvv8ic0o46c0" path="res://assets/parallax_forest/1920x1080/layers/layer5.png" id="1_fkhvs"]
-[ext_resource type="Script" path="res://background/scroll_controller.gd" id="2_3281d"]
-[ext_resource type="Texture2D" uid="uid://bju7hiq88bui0" path="res://assets/parallax_forest/1920x1080/layers/layer4.png" id="2_rrr8e"]
-[ext_resource type="Texture2D" uid="uid://dw2qx7wuvxkvk" path="res://assets/parallax_forest/1920x1080/layers/layer3.png" id="3_s03b2"]
-[ext_resource type="Texture2D" uid="uid://bevxrdidsi141" path="res://assets/parallax_forest/1920x1080/layers/layer2.png" id="4_dnjdo"]
-[ext_resource type="Texture2D" uid="uid://x1lvdei3r4cg" path="res://assets/parallax_forest/1920x1080/layers/layer1.png" id="5_bq7kk"]
+[ext_resource type="Texture2D" uid="uid://cgvv8ic0o46c0" path="res://background/parallax_forest/1920x1080/layers/layer5.png" id="1_fkhvs"]
+[ext_resource type="Texture2D" uid="uid://bju7hiq88bui0" path="res://background/parallax_forest/1920x1080/layers/layer4.png" id="2_rrr8e"]
+[ext_resource type="Texture2D" uid="uid://dw2qx7wuvxkvk" path="res://background/parallax_forest/1920x1080/layers/layer3.png" id="3_s03b2"]
+[ext_resource type="Texture2D" uid="uid://bevxrdidsi141" path="res://background/parallax_forest/1920x1080/layers/layer2.png" id="4_dnjdo"]
+[ext_resource type="Texture2D" uid="uid://x1lvdei3r4cg" path="res://background/parallax_forest/1920x1080/layers/layer1.png" id="5_bq7kk"]
 
 [node name="Parallax" type="Node2D"]
 position = Vector2(-1, -1)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scale = Vector2(2, 2)
-scroll_scale = Vector2(0.1, 0)
-repeat_size = Vector2(287.583, 0)
+scroll_scale = Vector2(0.01, 0)
+repeat_size = Vector2(161, 0)
 repeat_times = 3
 
 [node name="FarBack" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(287.583, 162.75)
-scale = Vector2(0.299913, 0.301389)
+position = Vector2(80.75, 60.75)
+scale = Vector2(0.0841146, 0.1125)
 texture = ExtResource("1_fkhvs")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scale = Vector2(2, 2)
-scroll_scale = Vector2(0.2, 0)
-repeat_size = Vector2(1920, 0)
+scroll_scale = Vector2(0.03, 0)
+repeat_size = Vector2(159.2, 0)
 repeat_times = 3
 
 [node name="TreesBack" type="Sprite2D" parent="Parallax2D2"]
-position = Vector2(288.361, 163.25)
-scale = Vector2(0.2356, 0.302315)
+position = Vector2(79.9306, 60.625)
+scale = Vector2(0.0650609, 0.113657)
 texture = ExtResource("2_rrr8e")
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
 scale = Vector2(2, 2)
-scroll_scale = Vector2(0.3, 0)
-repeat_size = Vector2(1920, 0)
+scroll_scale = Vector2(0.1, 0)
+repeat_size = Vector2(161.11, 0)
 repeat_times = 3
 
 [node name="TreesClose" type="Sprite2D" parent="Parallax2D3"]
-position = Vector2(287.833, 164.25)
-scale = Vector2(0.228454, 0.302315)
+position = Vector2(80.9167, 60.625)
+scale = Vector2(0.0641077, 0.112732)
 texture = ExtResource("3_s03b2")
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.4, 0)
-repeat_size = Vector2(1920, 0)
+repeat_size = Vector2(161.54, 0)
 repeat_times = 3
 
 [node name="Foreground" type="Sprite2D" parent="Parallax2D4"]
-position = Vector2(287.975, 274)
-scale = Vector2(0.298984, 0.249401)
+position = Vector2(81.8689, 104.25)
+scale = Vector2(0.0839908, 0.106715)
 texture = ExtResource("4_dnjdo")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.5, 0)
-repeat_size = Vector2(1920, 0)
+repeat_size = Vector2(162.29, 0)
 repeat_times = 3
 
 [node name="Front" type="Sprite2D" parent="Parallax2D5"]
-position = Vector2(288.225, 296.63)
-scale = Vector2(0.298724, 0.327094)
+position = Vector2(80.3627, 112.065)
+scale = Vector2(0.084518, 0.12285)
 texture = ExtResource("5_bq7kk")
-
-[node name="ScrollController" type="Node2D" parent="."]
-script = ExtResource("2_3281d")
-
-[node name="Camera2D" type="Camera2D" parent="ScrollController"]
-position_smoothing_enabled = true

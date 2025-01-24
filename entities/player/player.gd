@@ -67,6 +67,13 @@ func get_input():
 	# Attacking
 	if Input.is_action_just_pressed("attack"):
 		attacking = true
+		
+	# Sword
+	if direction.x > 0:
+		$PlayerGraphics/Sword.position.x = 1
+	if direction.x < 0:
+		$PlayerGraphics/Sword.position.x = -50
+		
 
 func apply_movement(delta):
 	# Left / Right movement
