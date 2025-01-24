@@ -37,6 +37,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	apply_gravity(delta)
 	
+	if is_on_floor() and $PlayerGraphics/AnimationPlayer.current_animation == "jump_attack":
+		attacking = false # Reset attacking when landing from jump attack
+	
 	if can_move:
 		get_input()
 		apply_movement(delta)
@@ -103,6 +106,8 @@ func apply_movement(delta):
 		dash_tween.connect("finished", on_dash_finish)
 		gravity_multiplier = 0
 		
+	if is_on_floor() and attacking and $PlayerGraphics/AnimationPlayer.current_animation == 'jump_attack':
+		attacking = false
 		
 	#var on_floor = is_on_floor()
 	move_and_slide()
@@ -119,4 +124,3 @@ func on_dash_finish():
 
 func _on_attack_finished():
 	attacking = false
-	faster_fall = false

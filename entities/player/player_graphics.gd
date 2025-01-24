@@ -18,11 +18,12 @@ func update_sprite(direction, on_floor, crouching, attacking):
 	# State
 	var state = 'idle'
 	
-	#Prioritize attacking
+	#Prioritize attacking but avoid ground attack after landing
 	if attacking:
-		state = 'attack'
-	if attacking and not on_floor:
-		state = 'jump_attack'
+		if not on_floor:
+			state = 'jump_attack'
+		elif on_floor and animation_player.current_animation != 'jump_attack':
+			state = 'attack'
 	elif crouching:
 		state = 'crouching'
 	elif not on_floor:
@@ -33,8 +34,6 @@ func update_sprite(direction, on_floor, crouching, attacking):
 	animation_player.play(state)
 	
 func _on_animation_finished(anim_name):
-	if anim_name == 'attack':
+	if anim_name == 'attack' or anim_name == 'jump_attack':
+		emit_signal("attack_finished")
 		animation_player.play('idle')
-		emit_signal("attack_finished")
-	if anim_name == 'jump_attack':
-		emit_signal("attack_finished")
