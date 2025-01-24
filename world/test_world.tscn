@@ -189,10 +189,10 @@ script = ExtResource("1_1v0ag")
 position = Vector2(160, 47)
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -43.0
-offset_top = -280.0
-offset_right = 397.0
-offset_bottom = 151.0
+offset_left = -3.0
+offset_top = -68.0
+offset_right = 291.0
+offset_bottom = 180.0
 texture = ExtResource("2_wnf50")
 
 [node name="TileMap" type="TileMap" parent="."]
