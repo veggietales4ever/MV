@@ -11,3 +11,4 @@ res://control/camera_2d.gd
 res://entities/objects/coin.tscn
 res://entities/objects/coin.gd
 res://global/player_data.gd
+res://default_bus_layout.tres
