@@ -1,7 +1,8 @@
 6dcd580d9bf2a9dbe66cc9f994d3620b
-::res://::1737711998
+::res://::1737719020
+default_bus_layout.tres::AudioBusLayout::8209947536257035343::1737712519::0::1::::<><>::
 icon.svg::CompressedTexture2D::1696966632735640405::1737595813::1737615213::1::::<><>::
-MapData.txt::TextFile::-1::1737711949::0::1::::<><>::
+MapData.txt::TextFile::-1::1737713727::0::1::::<><>::
 MetSysSettings.tres::Resource::4950397979492303096::1737595813::0::1::::<><>::res://addons/MetroidvaniaSystem/Scripts/Settings.gd<>uid://bt6s3nd8xo6b::::res://addons/MetroidvaniaSystem/Themes/Exquisite/Theme.tres
 timer_test_scene.gd::GDScript::-1::1737595813::0::1::::<>Node2D<>::
 timer_test_scene.tscn::PackedScene::2768952081422496442::1737595813::0::1::::<><>::res://timer_test_scene.gd<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn
@@ -332,8 +333,12 @@ C.png::CompressedTexture2D::8016230933476772509::1737595813::1737615213::1::::<>
 D.png::CompressedTexture2D::1063815499595436499::1737595813::1737615213::1::::<><>::
 SavePoint.png::CompressedTexture2D::2727848025482245982::1737595813::1737615213::1::::<><>::
 Teleport.png::CompressedTexture2D::564225021773146727::1737595813::1737615209::1::::<><>::
-::res://Aseprite Assets/::1737147765
-::res://Aseprite Assets/ideas/::1737146741
+::res://Aseprite Assets/::1737718969
+::res://Aseprite Assets/ideas/::1737714438
+mm8.png::CompressedTexture2D::4966954994577256351::1737714438::1737719021::1::::<><>::
+::res://Aseprite Assets/player/::1737718985
+character-Sheet.png::CompressedTexture2D::7623688230016894064::1737718975::1737719021::1::::<><>::
+character.aseprite::PackedDataContainer::4659490158890731186::1737718985::1737719021::1::::<><>::
 ::res://assets/::1737694388
 icon.svg::CompressedTexture2D::2354320960985035143::1737595813::1737615209::1::::<><>::
 ::res://assets/enemy/::1737690715
@@ -397,12 +402,13 @@ temporaryPlatform.png::CompressedTexture2D::8087533313710042018::1708983202::173
 Player_metroid.png::CompressedTexture2D::5321823134045376703::1708356490::1737694407::1::::<><>::
 ::res://assets/metroid_asset_1_2/Sprites/UI/::1737694407
 HeartSpriteSheet.png::CompressedTexture2D::2579761082081522794::1708356490::1737694407::1::::<><>::
-::res://assets/player/::1737615214
+::res://assets/player/::1737714333
 character-Sheet.png::CompressedTexture2D::810398208378288364::1737595813::1737615209::1::::<><>::
+character.aseprite::PackedDataContainer::7633122949954833829::1737718979::1737719021::1::::<><>::
 characteridle.png::CompressedTexture2D::8751903657328204478::1737595813::1737615209::1::::<><>::
 realcharacter.aseprite::PackedDataContainer::6667732058339578589::1737595813::1737615214::1::::<><>::
 ::res://audio/::1737712033
-::res://audio/sounds/::1737712034
+::res://audio/sounds/::1737712040
 coincollect.wav::AudioStreamWAV::5959174966652011259::1734584278::1737712040::1::::<><>::
 ::res://autoloads/::1737675192
 ::res://background/::1737703789
@@ -555,25 +561,25 @@ layer4_f.png::CompressedTexture2D::407311073991641650::1468196234::1737681640::1
 ::res://components/::1737595813
 ::res://control/::1737705511
 camera_2d.gd::GDScript::-1::1737705511::0::1::::<>Camera2D<>::
-::res://entities/::1737711949
+::res://entities/::1737712529
 entity.gd::GDScript::-1::1737595813::0::1::::Entity<>CharacterBody2D<>::
-entity.tscn::PackedScene::44076588581824450::1737711949::0::1::::<><>::res://entities/entity.gd
+entity.tscn::PackedScene::44076588581824450::1737712529::0::1::::<><>::res://entities/entity.gd
 ::res://entities/enemy/::1737711215
 enemy.tscn::PackedScene::2058901096440702825::1737711215::0::1::::<><>::
-::res://entities/enemy/gold enemy/::1737711949
+::res://entities/enemy/gold enemy/::1737712529
 gold_enemy.gd::GDScript::-1::1737692998::0::1::::<>Node2D<>::
-gold_enemy.tscn::PackedScene::4530269588321083407::1737711949::0::1::::<><>::uid://4ll2hc81b066::::res://entities/enemy/enemy.tscn<>res://entities/enemy/gold enemy/gold_enemy.gd<>uid://dcmhssn4j8gyg::::res://assets/enemy/gold enemy/gold_enemy.png<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn
-::res://entities/objects/::1737711998
-coin.gd::GDScript::-1::1737711815::0::1::::<>Area2D<>::
-coin.tscn::PackedScene::7357417239044368147::1737711998::0::1::::<><>::uid://b2supcwpgv4l4::::res://assets/metroid_asset_1_2/Sprites/Interactables/coin.png<>res://entities/objects/coin.gd
+gold_enemy.tscn::PackedScene::4530269588321083407::1737712529::0::1::::<><>::uid://4ll2hc81b066::::res://entities/enemy/enemy.tscn<>res://entities/enemy/gold enemy/gold_enemy.gd<>uid://dcmhssn4j8gyg::::res://assets/enemy/gold enemy/gold_enemy.png<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn
+::res://entities/objects/::1737712529
+coin.gd::GDScript::-1::1737712462::0::1::::<>Area2D<>::
+coin.tscn::PackedScene::7357417239044368147::1737712529::0::1::::<><>::uid://b2supcwpgv4l4::::res://assets/metroid_asset_1_2/Sprites/Interactables/coin.png<>res://entities/objects/coin.gd<>uid://cq5w0gwnw4nkl::::res://audio/sounds/coincollect.wav
 crate.gd::GDScript::-1::1737695488::0::1::::<>StaticBody2D<>::
 crate.tscn::PackedScene::783665819352314552::1737711215::0::1::::<><>::uid://28a806p4ofiq::::res://assets/metroid_asset_1_2/Sprites/Interactables/Crate-animated.png<>res://entities/objects/crate.gd
-::res://entities/player/::1737711949
+::res://entities/player/::1737712529
 characterspritesheet.png::CompressedTexture2D::6921824110314887081::1737595813::1737615213::1::::<><>::
 player.gd::GDScript::-1::1737692271::0::1::::<>Entity<>::
-player.tscn::PackedScene::5080344115857041663::1737711949::0::1::::<><>::uid://vl613h1q7jq::::res://entities/entity.tscn<>res://entities/player/player.gd<>uid://dsu4c1dt8oc6g::::res://entities/player/player_graphics.tscn
+player.tscn::PackedScene::5080344115857041663::1737712529::0::1::::<><>::uid://vl613h1q7jq::::res://entities/entity.tscn<>res://entities/player/player.gd<>uid://dsu4c1dt8oc6g::::res://entities/player/player_graphics.tscn
 player_graphics.gd::GDScript::-1::1737595813::0::1::::<>Node2D<>::
-player_graphics.tscn::PackedScene::8465714527172561612::1737711949::0::1::::<><>::uid://c5u8oxfxskqkf::::res://entities/player/characterspritesheet.png<>res://entities/player/player_graphics.gd
+player_graphics.tscn::PackedScene::8465714527172561612::1737712529::0::1::::<><>::uid://c5u8oxfxskqkf::::res://entities/player/characterspritesheet.png<>res://entities/player/player_graphics.gd
 ::res://global/::1737711672
 global.gd::GDScript::-1::1737595813::0::1::::<>Node<>::
 player_data.gd::GDScript::-1::1737711672::0::1::::player_data<>Node2D<>::
@@ -639,8 +645,8 @@ Pipe.png::CompressedTexture2D::6579605441438572956::1737595813::1737615213::1:::
 PipeWater.png::CompressedTexture2D::7204401937251515034::1737595813::1737615213::1::::<><>::
 Portal.png::CompressedTexture2D::4808305482547865974::1737595813::1737615213::1::::<><>::
 Tiles.png::CompressedTexture2D::8382862285461654816::1737595813::1737615213::1::::<><>::
-::res://shaders/::1737711998
-palette_limiter_shader.gdshader::Shader::-1::1737711998::0::1::::<><>::
-::res://world/::1737711949
+::res://shaders/::1737713731
+palette_limiter_shader.gdshader::Shader::-1::1737713731::0::1::::<><>::
+::res://world/::1737713727
 test_world.gd::GDScript::-1::1737595813::0::1::::<>Node2D<>::
-test_world.tscn::PackedScene::4586662633936446734::1737711949::0::1::::<><>::res://world/test_world.gd<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://m8mixrasebhn::::res://assets/ideas/meteroidvania/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png<>res://control/camera_2d.gd<>res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://b5sq44ikmlo84::::res://entities/enemy/gold enemy/gold_enemy.tscn<>uid://lfu4j7l58qi7::::res://entities/objects/crate.tscn<>uid://dc28t7tiqn540::::res://entities/objects/coin.tscn
+test_world.tscn::PackedScene::4586662633936446734::1737713727::0::1::::<><>::res://world/test_world.gd<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://m8mixrasebhn::::res://assets/ideas/meteroidvania/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png<>res://control/camera_2d.gd<>res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://b5sq44ikmlo84::::res://entities/enemy/gold enemy/gold_enemy.tscn<>uid://lfu4j7l58qi7::::res://entities/objects/crate.tscn<>uid://dc28t7tiqn540::::res://entities/objects/coin.tscn

@@ -1,14 +1,10 @@
+res://default_bus_layout.tres
 res://world/test_world.tscn
 res://shaders/palette_limiter_shader.gdshader
-res://background/parallax.tscn
+res://entities/player/player_graphics.tscn
 res://entities/entity.tscn
 res://entities/enemy/gold enemy/gold_enemy.tscn
 res://entities/player/player.tscn
-res://entities/player/player_graphics.tscn
-res://entities/enemy/enemy.tscn
-res://entities/objects/crate.tscn
-res://control/camera_2d.gd
 res://entities/objects/coin.tscn
-res://entities/objects/coin.gd
-res://global/player_data.gd
-res://default_bus_layout.tres
+res://entities/player/player_graphics.gd
+res://entities/player/player.gd

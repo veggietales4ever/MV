@@ -1,3 +1,5 @@
+
+#player.gd
 extends Entity
 
 @onready var player_graphics: Node2D = $PlayerGraphics
@@ -30,6 +32,7 @@ func _ready() -> void:
 	$Timers/DashCooldown.wait_time = dash_cooldown
 	$Timers/AttackCooldown.wait_time = attack_cooldown
 	player_graphics.connect("attack_finished", Callable(self, "_on_attack_finished"))
+	#player_graphics.connect("jump_attack_finished", Callable(self, "_on_jump_attack_finished"))
 	
 func _process(delta: float) -> void:
 	apply_gravity(delta)
@@ -116,3 +119,4 @@ func on_dash_finish():
 
 func _on_attack_finished():
 	attacking = false
+	faster_fall = false

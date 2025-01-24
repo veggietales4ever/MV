@@ -1,3 +1,4 @@
+#player_graphics.gd
 extends Node2D
 
 signal attack_finished
@@ -20,6 +21,8 @@ func update_sprite(direction, on_floor, crouching, attacking):
 	#Prioritize attacking
 	if attacking:
 		state = 'attack'
+	if attacking and not on_floor:
+		state = 'jump_attack'
 	elif crouching:
 		state = 'crouching'
 	elif not on_floor:
@@ -32,4 +35,6 @@ func update_sprite(direction, on_floor, crouching, attacking):
 func _on_animation_finished(anim_name):
 	if anim_name == 'attack':
 		animation_player.play('idle')
+		emit_signal("attack_finished")
+	if anim_name == 'jump_attack':
 		emit_signal("attack_finished")
