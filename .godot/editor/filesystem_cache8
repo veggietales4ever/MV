@@ -1,9 +1,9 @@
 6dcd580d9bf2a9dbe66cc9f994d3620b
-::res://::1737949519
+::res://::1738010844
 default_bus_layout.tres::AudioBusLayout::8209947536257035343::1737928466::0::1::::<><>::
 icon.svg::CompressedTexture2D::1696966632735640405::1737595813::1737615213::1::::<><>::
 main.gd::GDScript::-1::1737761554::0::1::::<>Node2D<>::
-MapData.txt::TextFile::-1::1737946215::0::1::::<><>::
+MapData.txt::TextFile::-1::1737963108::0::1::::<><>::
 MetSysSettings.tres::Resource::4950397979492303096::1737595813::0::1::::<><>::res://addons/MetroidvaniaSystem/Scripts/Settings.gd<>uid://bt6s3nd8xo6b::::res://addons/MetroidvaniaSystem/Themes/Exquisite/Theme.tres
 timer_test_scene.gd::GDScript::-1::1737595813::0::1::::<>Node2D<>::
 timer_test_scene.tscn::PackedScene::2768952081422496442::1737595813::0::1::::<><>::res://timer_test_scene.gd<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn
@@ -416,8 +416,8 @@ realcharacter.aseprite::PackedDataContainer::6667732058339578589::1737595813::17
 ::res://audio/sounds/::1737712040
 coincollect.wav::AudioStreamWAV::5959174966652011259::1734584278::1737712040::1::::<><>::
 ::res://autoloads/::1737675192
-::res://background/::1737703789
-parallax.tscn::PackedScene::4195591696043959631::1737703789::0::1::::<><>::uid://cgvv8ic0o46c0::::res://background/parallax_forest/1920x1080/layers/layer5.png<>uid://bju7hiq88bui0::::res://background/parallax_forest/1920x1080/layers/layer4.png<>uid://dw2qx7wuvxkvk::::res://background/parallax_forest/1920x1080/layers/layer3.png<>uid://bevxrdidsi141::::res://background/parallax_forest/1920x1080/layers/layer2.png<>uid://x1lvdei3r4cg::::res://background/parallax_forest/1920x1080/layers/layer1.png
+::res://background/::1737959024
+parallax.tscn::PackedScene::4195591696043959631::1737959024::0::1::::<><>::uid://cgvv8ic0o46c0::::res://background/parallax_forest/1920x1080/layers/layer5.png<>uid://bju7hiq88bui0::::res://background/parallax_forest/1920x1080/layers/layer4.png<>uid://dw2qx7wuvxkvk::::res://background/parallax_forest/1920x1080/layers/layer3.png<>uid://bevxrdidsi141::::res://background/parallax_forest/1920x1080/layers/layer2.png<>uid://x1lvdei3r4cg::::res://background/parallax_forest/1920x1080/layers/layer1.png
 scroll_controller.gd::GDScript::-1::1737680467::0::1::::<>Node2D<>::
 ::res://background/Forest/::1737681645
 01.png::CompressedTexture2D::1271443888742974659::1737595813::1737681642::1::::<><>::
@@ -566,32 +566,35 @@ layer4_f.png::CompressedTexture2D::407311073991641650::1468196234::1737681640::1
 ::res://components/::1737595813
 ::res://control/::1737721328
 camera_2d.gd::GDScript::-1::1737721328::0::1::::<>Camera2D<>::
-::res://entities/::1737949519
+::res://entities/::1737951434
 entity.gd::GDScript::-1::1737755132::0::1::::Entity<>CharacterBody2D<>::
-entity.tscn::PackedScene::44076588581824450::1737949519::0::1::::<><>::res://entities/entity.gd
-::res://entities/enemy/::1737949519
-enemy.tscn::PackedScene::2058901096440702825::1737949519::0::1::::<><>::
+entity.tscn::PackedScene::44076588581824450::1737951434::0::1::::<><>::res://entities/entity.gd
+::res://entities/enemy/::1737959024
+enemy.tscn::PackedScene::2058901096440702825::1737959024::0::1::::<><>::
+enemy_state_machine.gd::GDScript::-1::1737958304::0::1::::EnemyStateMachine<>Node<>::
 ::res://entities/enemy/gold enemy/::1737936388
 gold_enemy.gd::GDScript::-1::1737936388::0::1::::Enemy<>CharacterBody2D<>::
 gold_enemy.tscn::PackedScene::4530269588321083407::1737757377::0::1::::<><>::uid://4ll2hc81b066::::res://entities/enemy/enemy.tscn<>res://entities/enemy/gold enemy/gold_enemy.gd<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://bm5rndl84bd8e::::res://assets/enemy/slime/slime spritesheet.png
-::res://entities/enemy/slime enemy/::1737949519
-enemy_state.gd::GDScript::-1::1737950344::0::1::::<>Node<>::
-slime_enemy.gd::GDScript::-1::1737936723::0::1::::Enemy<>CharacterBody2D<>::
-slime_enemy.tscn::PackedScene::8083397200962855919::1737949519::0::1::::<><>::uid://4ll2hc81b066::::res://entities/enemy/enemy.tscn<>res://entities/enemy/slime enemy/slime_enemy.gd<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://bm5rndl84bd8e::::res://assets/enemy/slime/slime spritesheet.png
-::res://entities/objects/::1737949519
+::res://entities/enemy/slime enemy/::1737963108
+slime_enemy.gd::GDScript::-1::1737956269::0::1::::Enemy<>CharacterBody2D<>::
+slime_enemy.tscn::PackedScene::8083397200962855919::1737963108::0::1::::<><>::uid://4ll2hc81b066::::res://entities/enemy/enemy.tscn<>res://entities/enemy/slime enemy/slime_enemy.gd<>uid://bm5rndl84bd8e::::res://assets/enemy/slime/slime spritesheet.png<>res://entities/enemy/enemy_state_machine.gd<>res://entities/enemy/slime enemy/slime_enemy_state_idle.gd<>res://entities/enemy/slime enemy/slime_enemy_state_wander.gd
+slime_enemy_state.gd::GDScript::-1::1737950756::0::1::::EnemyState<>Node<>::
+slime_enemy_state_idle.gd::GDScript::-1::1737958907::0::1::::EnemyStateIdle<>EnemyState<>::
+slime_enemy_state_wander.gd::GDScript::-1::1737959428::0::1::::EnemyStateWander<>EnemyState<>::
+::res://entities/objects/::1737959024
 coin.gd::GDScript::-1::1737712462::0::1::::<>Area2D<>::
 coin.tscn::PackedScene::7357417239044368147::1737757680::0::1::::<><>::uid://b2supcwpgv4l4::::res://assets/metroid_asset_1_2/Sprites/Interactables/coin.png<>res://entities/objects/coin.gd<>uid://cq5w0gwnw4nkl::::res://audio/sounds/coincollect.wav
 crate.gd::GDScript::-1::1737721328::0::1::::<>StaticBody2D<>::
-crate.tscn::PackedScene::783665819352314552::1737949519::0::1::::<><>::uid://28a806p4ofiq::::res://assets/metroid_asset_1_2/Sprites/Interactables/Crate-animated.png<>res://entities/objects/crate.gd
-::res://entities/player/::1737949519
+crate.tscn::PackedScene::783665819352314552::1737959024::0::1::::<><>::uid://28a806p4ofiq::::res://assets/metroid_asset_1_2/Sprites/Interactables/Crate-animated.png<>res://entities/objects/crate.gd
+::res://entities/player/::1737959024
 characterspritesheet.png::CompressedTexture2D::6921824110314887081::1737595813::1737615213::1::::<><>::
-player.gd::GDScript::-1::1737755210::0::1::::<>Entity<>::
-player.tscn::PackedScene::5080344115857041663::1737949519::0::1::::<><>::uid://vl613h1q7jq::::res://entities/entity.tscn<>res://entities/player/player.gd<>uid://dsu4c1dt8oc6g::::res://entities/player/player_graphics.tscn
+player.gd::GDScript::-1::1737958217::0::1::::Player<>Entity<>::
+player.tscn::PackedScene::5080344115857041663::1737951434::0::1::::<><>::uid://vl613h1q7jq::::res://entities/entity.tscn<>res://entities/player/player.gd<>uid://dsu4c1dt8oc6g::::res://entities/player/player_graphics.tscn
 player_graphics.gd::GDScript::-1::1737755210::0::1::::<>Node2D<>::
-player_graphics.tscn::PackedScene::8465714527172561612::1737949519::0::1::::<><>::res://entities/player/player_graphics.gd<>uid://dgu8bcg0qfk5e::::res://Aseprite Assets/player/character-Sheet.png
-::res://global/::1737949519
-global.gd::GDScript::-1::1737595813::0::1::::<>Node<>::
-main.tscn::PackedScene::2982267799226698520::1737949519::0::1::::<><>::res://main.gd
+player_graphics.tscn::PackedScene::8465714527172561612::1737959024::0::1::::<><>::res://entities/player/player_graphics.gd<>uid://dgu8bcg0qfk5e::::res://Aseprite Assets/player/character-Sheet.png
+::res://global/::1737959024
+global_player_manager.gd::GDScript::-1::1737956170::0::1::::<>Node<>::
+main.tscn::PackedScene::2982267799226698520::1737959024::0::1::::<><>::res://main.gd
 player_data.gd::GDScript::-1::1737721328::0::1::::player_data<>Node2D<>::
 ::res://palettes/::1737682839
 cc-29-1x.png::CompressedTexture2D::4464023857522426448::1737682826::1737682836::1::::<><>::
@@ -657,11 +660,11 @@ Pipe.png::CompressedTexture2D::6579605441438572956::1737595813::1737615213::1:::
 PipeWater.png::CompressedTexture2D::7204401937251515034::1737595813::1737615213::1::::<><>::
 Portal.png::CompressedTexture2D::4808305482547865974::1737595813::1737615213::1::::<><>::
 Tiles.png::CompressedTexture2D::8382862285461654816::1737595813::1737615213::1::::<><>::
-::res://shaders/::1737949519
-palette_limiter_shader.gdshader::Shader::-1::1737949519::0::1::::<><>::
-::res://test/::1737949519
-player_test.tscn::PackedScene::1093436836470614082::1737949519::0::1::::<><>::uid://dwxqtsg1wm6ra::::res://assets/player/characteridle.png<>res://test/player_test.gd
+::res://shaders/::1738002941
+palette_limiter_shader.gdshader::Shader::-1::1738002941::0::1::::<><>::
+::res://test/::1737959024
 player_test.gd::GDScript::-1::1737949487::0::1::::<>CharacterBody2D<>::
-::res://world/::1737949519
+player_test.tscn::PackedScene::1093436836470614082::1737959024::0::1::::<><>::uid://dwxqtsg1wm6ra::::res://assets/player/characteridle.png<>res://test/player_test.gd
+::res://world/::1737959095
 test_world.gd::GDScript::-1::1737595813::0::1::::<>Node2D<>::
-test_world.tscn::PackedScene::4586662633936446734::1737949519::0::1::::<><>::res://world/test_world.gd<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://m8mixrasebhn::::res://assets/ideas/meteroidvania/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png<>res://control/camera_2d.gd<>res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://lfu4j7l58qi7::::res://entities/objects/crate.tscn<>uid://dc28t7tiqn540::::res://entities/objects/coin.tscn<>uid://dnfwmu05ax2vb::::res://entities/enemy/slime enemy/slime_enemy.tscn
+test_world.tscn::PackedScene::4586662633936446734::1737959095::0::1::::<><>::res://world/test_world.gd<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://m8mixrasebhn::::res://assets/ideas/meteroidvania/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png<>res://control/camera_2d.gd<>res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://lfu4j7l58qi7::::res://entities/objects/crate.tscn<>uid://dc28t7tiqn540::::res://entities/objects/coin.tscn<>uid://dnfwmu05ax2vb::::res://entities/enemy/slime enemy/slime_enemy.tscn

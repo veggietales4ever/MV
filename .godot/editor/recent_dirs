@@ -1,10 +1,11 @@
-res://test
+res://control/can_move_areas
 res://entities/enemy/slime enemy
+res://entities/enemy
+res://test
 res://global
 res://entities/objects
 res://control
 res://entities
 res://entities/enemy/gold enemy
-res://entities/enemy
 res://shaders
 res://background

@@ -1,6 +1,7 @@
 
 #player.gd
 extends Entity
+class_name Player
 
 @onready var player_graphics: Node2D = $PlayerGraphics
 
@@ -9,7 +10,7 @@ extends Entity
 @export var acceleration := 1200
 @export var friction := 1800
 var direction := Vector2.ZERO
-var can_move := true
+var can_move := false
 var dash := false
 @export_range(0.1,2) var dash_cooldown := 0.5
 var crouching := false
@@ -23,25 +24,25 @@ var faster_fall := false
 var gravity_multiplier := 1
 
 @export_group('weapon')
-var current_sword = Global.swords.LONGSWORD
 var attacking := false
 @export_range(0.1,2) var attack_cooldown := 0.5
 
 func _ready() -> void:
+	PlayerManager.player =  self
 	$Timers/DashCooldown.wait_time = dash_cooldown
 	$Timers/AttackCooldown.wait_time = attack_cooldown
 	player_graphics.connect("attack_finished", Callable(self, "_on_attack_finished"))
 	
 func _process(delta: float) -> void:
 	apply_gravity(delta)
+	apply_movement(delta)
+	animate()
 	
 	if is_on_floor() and $PlayerGraphics/AnimationPlayer.current_animation == "jump_attack":
 		attacking = false # Reset attacking when landing from jump attack
 	
 	if can_move:
 		get_input()
-		apply_movement(delta)
-		animate()
 
 func animate():
 	player_graphics.update_sprite(direction, is_on_floor(), crouching, attacking) # direction of player, if they're on the floor, crouching or not
@@ -129,3 +130,7 @@ func on_dash_finish():
 
 func _on_attack_finished():
 	attacking = false
+
+
+func _on_can_move_area_intro_body_entered(body: Node2D) -> void:
+	can_move = true

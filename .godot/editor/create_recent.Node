@@ -1,14 +1,14 @@
 CollisionShape2D
+Area2D
+Node
 AnimationPlayer
 Sprite2D
 CharacterBody2D
 Node2D
-Node
 Label
 Panel
 Button
 StaticBody2D
 AudioStreamPlayer
-Area2D
 Camera2D
 CanvasLayer
