@@ -12,54 +12,54 @@ position = Vector2(-1, -1)
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.01, 0)
-repeat_size = Vector2(160.765, 0)
+repeat_size = Vector2(241.38, 0)
 repeat_times = 3
 
 [node name="FarBack" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(79.5625, 45.8975)
-scale = Vector2(0.0837891, 0.0825972)
+position = Vector2(121.5, 68)
+scale = Vector2(0.125716, 0.12519)
 texture = ExtResource("1_fkhvs")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.03, 0)
-repeat_size = Vector2(161.04, 0)
+repeat_size = Vector2(240.33, 0)
 repeat_times = 3
 
 [node name="TreesBack" type="Sprite2D" parent="Parallax2D2"]
-position = Vector2(80.9653, 45.0625)
-scale = Vector2(0.0658501, 0.0850694)
+position = Vector2(120.715, 67.8125)
+scale = Vector2(0.0983521, 0.127199)
 texture = ExtResource("2_rrr8e")
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.1, 0)
-repeat_size = Vector2(159.26, 0)
+repeat_size = Vector2(240.18, 0)
 repeat_times = 3
 
 [node name="TreesClose" type="Sprite2D" parent="Parallax2D3"]
-position = Vector2(80.1667, 45.3749)
-scale = Vector2(0.063511, 0.084491)
+position = Vector2(120.417, 68.1249)
+scale = Vector2(0.0955317, 0.126621)
 texture = ExtResource("3_s03b2")
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.4, 0)
-repeat_size = Vector2(159.975, 0)
+repeat_size = Vector2(240.93, 0)
 repeat_times = 3
 
 [node name="Foreground" type="Sprite2D" parent="Parallax2D4"]
-position = Vector2(80.5, 74.25)
-scale = Vector2(0.0833333, 0.08753)
+position = Vector2(121, 114.875)
+scale = Vector2(0.125521, 0.104916)
 texture = ExtResource("4_dnjdo")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.5, 0)
-repeat_size = Vector2(161.26, 0)
+repeat_size = Vector2(243.12, 0)
 repeat_times = 3
 
 [node name="Front" type="Sprite2D" parent="Parallax2D5"]
-position = Vector2(80.9203, 80.2581)
-scale = Vector2(0.0839371, 0.142537)
+position = Vector2(120.96, 123.129)
+scale = Vector2(0.126604, 0.164292)
 texture = ExtResource("5_bq7kk")

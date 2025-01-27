@@ -17,3 +17,4 @@ res://test/player_test.tscn
 res://test/player_test.gd
 res://entities/enemy/slime enemy/slime_enemy_state.gd
 res://entities/enemy/enemy_state_machine.gd
+res://background/parallax.tscn
