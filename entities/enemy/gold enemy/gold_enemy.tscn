@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://4ll2hc81b066" path="res://entities/enemy/enemy.tscn" id="1_078ds"]
 [ext_resource type="Script" path="res://entities/enemy/gold enemy/gold_enemy.gd" id="2_cei6c"]
-[ext_resource type="Texture2D" uid="uid://dcmhssn4j8gyg" path="res://assets/enemy/gold enemy/gold_enemy.png" id="2_wprt2"]
 [ext_resource type="PackedScene" uid="uid://cem7r4j8s7g4n" path="res://entities/player/player.tscn" id="3_boc20"]
+[ext_resource type="Texture2D" uid="uid://bm5rndl84bd8e" path="res://assets/enemy/slime/slime spritesheet.png" id="4_g44ma"]
 
 [sub_resource type="Animation" id="Animation_nta3p"]
 length = 0.001
@@ -51,9 +51,8 @@ script = ExtResource("2_cei6c")
 player = ExtResource("3_boc20")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
-scale = Vector2(2, 2)
-texture = ExtResource("2_wprt2")
-hframes = 3
+texture = ExtResource("4_g44ma")
+hframes = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 root_node = NodePath("../Sprite2D")

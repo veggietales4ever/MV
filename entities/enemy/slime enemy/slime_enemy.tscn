@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnfwmu05ax2vb"]
+
+[ext_resource type="PackedScene" uid="uid://4ll2hc81b066" path="res://entities/enemy/enemy.tscn" id="1_r6fw5"]
+[ext_resource type="Script" path="res://entities/enemy/slime enemy/slime_enemy.gd" id="2_o25k8"]
+[ext_resource type="PackedScene" uid="uid://cem7r4j8s7g4n" path="res://entities/player/player.tscn" id="3_ip8xm"]
+[ext_resource type="Texture2D" uid="uid://bm5rndl84bd8e" path="res://assets/enemy/slime/slime spritesheet.png" id="4_30n0a"]
+
+[sub_resource type="Animation" id="Animation_nta3p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vd0wj"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f7x3h"]
+_data = {
+"RESET": SubResource("Animation_nta3p"),
+"walk": SubResource("Animation_vd0wj")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdkep"]
+radius = 11.0454
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mhv0"]
+radius = 12.0
+
+[node name="SlimeEnemy" groups=["Enemy"] instance=ExtResource("1_r6fw5")]
+script = ExtResource("2_o25k8")
+player = ExtResource("3_ip8xm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_30n0a")
+hframes = 12
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_f7x3h")
+}
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_tdkep")
+
+[node name="hitbox" parent="." index="3"]
+collision_layer = 32
+collision_mask = 4
+
+[node name="hitbox_collider" parent="hitbox" index="0"]
+shape = SubResource("CircleShape2D_3mhv0")
+debug_color = Color(0.877846, 0.291741, 0.463077, 0.42)
+
+[node name="Stats" type="Node" parent="." index="4"]

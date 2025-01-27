@@ -35,7 +35,9 @@ one_shot = true
 one_shot = true
 
 [node name="AttackCooldown" type="Timer" parent="Timers" index="2"]
-wait_time = 0.2
+wait_time = 0.5
 one_shot = true
+
+[node name="Stats" type="Node" parent="." index="4"]
 
 [connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

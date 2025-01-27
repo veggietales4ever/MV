@@ -43,6 +43,7 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addon
 [global_group]
 
 Player=""
+Enemy=""
 
 [input]
 
@@ -101,6 +102,7 @@ dash={
 2d_physics/layer_3="Sword"
 2d_physics/layer_4="Objects"
 2d_physics/layer_5="Coin"
+2d_physics/layer_6="Enemy"
 
 [rendering]
 

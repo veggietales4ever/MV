@@ -3,7 +3,6 @@
 extends Entity
 
 @onready var player_graphics: Node2D = $PlayerGraphics
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export_group('move')
 @export var speed := 100 # := is the data type of first value is the only data type this var can accept.
@@ -32,7 +31,6 @@ func _ready() -> void:
 	$Timers/DashCooldown.wait_time = dash_cooldown
 	$Timers/AttackCooldown.wait_time = attack_cooldown
 	player_graphics.connect("attack_finished", Callable(self, "_on_attack_finished"))
-	#player_graphics.connect("jump_attack_finished", Callable(self, "_on_jump_attack_finished"))
 	
 func _process(delta: float) -> void:
 	apply_gravity(delta)
@@ -106,8 +104,12 @@ func apply_movement(delta):
 		dash_tween.connect("finished", on_dash_finish)
 		gravity_multiplier = 0
 		
-	if is_on_floor() and attacking and $PlayerGraphics/AnimationPlayer.current_animation == 'jump_attack':
+	# Attacking
+	if is_on_floor() and $PlayerGraphics/AnimationPlayer.current_animation == 'jump_attack':
 		attacking = false
+	
+	if faster_fall and attacking:
+		$Timers/AttackCooldown.start()
 		
 	#var on_floor = is_on_floor()
 	move_and_slide()
@@ -117,6 +119,9 @@ func apply_gravity(delta):
 	velocity.y = velocity.y / 2 if faster_fall and velocity.y < 0 else velocity.y
 	velocity.y = velocity.y * gravity_multiplier
 	velocity.y = min(velocity.y, terminal_velocity)
+	
+	if is_on_floor():
+		faster_fall = false
 
 func on_dash_finish():
 	velocity.x = move_toward(velocity.x, 0, 900)
