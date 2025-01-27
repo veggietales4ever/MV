@@ -134,3 +134,4 @@ func _on_attack_finished():
 
 func _on_can_move_area_intro_body_entered(body: Node2D) -> void:
 	can_move = true
+	camera.camera_state

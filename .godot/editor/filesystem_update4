@@ -13,3 +13,5 @@ res://entities/enemy/slime enemy/slime_enemy_state_wander.gd
 res://entities/enemy/slime enemy/slime_enemy.gd
 res://entities/player/player.gd
 res://control/can_move_areas/can_move_area_intro.gd
+res://control/camera_2d.gd
+res://global/global_player_manager.gd

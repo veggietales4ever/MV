@@ -204,23 +204,6 @@ script = ExtResource("1_1v0ag")
 [node name="Parallax" parent="." instance=ExtResource("2_84ahu")]
 position = Vector2(-3, 0)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-anchor_mode = 0
-limit_left = -40
-limit_bottom = 170
-limit_smoothed = true
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_vertical_offset = 1.0
-drag_left_margin = 0.0
-drag_top_margin = 0.5
-drag_right_margin = 0.0
-editor_draw_limits = true
-editor_draw_drag_margin = true
-script = ExtResource("5_x0yhv")
-player = NodePath("../Entities/Player")
-
 [node name="Entities" type="Node2D" parent="."]
 position = Vector2(658, 404)
 
@@ -238,6 +221,24 @@ layer_1/name = "Background"
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(1179424, 131072, 2, 1113888, 131072, 0, 1179423, 65536, 2, 1113887, 65536, 0, 1179422, 65536, 2, 1113886, 65536, 0, 1179421, 65536, 2, 1113885, 65536, 0, 1179420, 65536, 2, 1113884, 65536, 0, 1179419, 65536, 2, 1113883, 65536, 0, 1179418, 65536, 2, 1113882, 65536, 0, 1179417, 65536, 2, 1113881, 65536, 0, 1179416, 65536, 2, 1113880, 65536, 0, 1179415, 65536, 2, 1113879, 65536, 0, 1179414, 65536, 2, 1113878, 65536, 0, 1179413, 65536, 2, 1113877, 65536, 0, 1179412, 0, 2, 1113876, 0, 0)
 layer_2/name = "Statue"
+
+[node name="Camera2D2" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(2, -122)
+anchor_mode = 0
+limit_left = -40
+limit_bottom = 170
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_vertical_offset = 1.0
+drag_left_margin = 0.0
+drag_top_margin = 0.5
+drag_right_margin = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("5_x0yhv")
+player = NodePath("../Entities/Player")
 
 [node name="Shader" type="CanvasLayer" parent="."]
 visible = false

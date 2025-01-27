@@ -1,4 +1,5 @@
 extends Camera2D
+class_name camera
 
 @export var player = CharacterBody2D
 @export var camera: camera_state
@@ -20,7 +21,7 @@ func _process(_delta: float) -> void:
 
 func camera_panning():
 	anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
-	position = player.global_position
+	position = Player.global_position
 	var x = floor(position.x / 320) * 320 
 	var y = floor(position.y / 180) * 180
 	
@@ -28,4 +29,4 @@ func camera_panning():
 
 func camera_follow():
 	anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
-	position = player.global_position
+	position = Player.global_position
