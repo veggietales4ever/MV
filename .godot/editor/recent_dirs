@@ -1,4 +1,5 @@
 res://control
+res://control/move_area
 res://control/can_move_areas
 res://entities/enemy/slime enemy
 res://entities/enemy

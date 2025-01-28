@@ -10,30 +10,30 @@ const SAVE_PATH = "user://example_save_data.sav"
 #@export var starting_map: PackedScene
 
 var state = "idle"
-var right_distance = 30
-var right_duration = 0.5
+var right_distance = 85
+var right_duration = 2.5
 var fade_duration = 1.5 # Set fade duration to 2.5 seconds
-var fade_speed = 1.0 / fade_duration
+var fade_speed = 1.5# / fade_duration
 
 
 func _ready() -> void:
 	MetSys.room_changed.connect(goto_map, CONNECT_DEFERRED)
 	print(state)
-	# Initialize fade_rect as transparent
+		# Initialize fade_rect as transparent
 	if fade_rect:
 		fade_rect.visible = true
 		fade_rect.color = Color(0, 0, 0, 0)
 	else:
 		push_error("FadeRect node is not found!")
-	
+
 func _process(delta: float) -> void:
+	pass
 	if state == "fade" and fade_rect:
 		fade_rect.color.a = min(1, fade_rect.color.a + fade_speed * delta)
 		player.can_move = false
 		transition_right()
-		#transition_animation()
-		if fade_rect.color.a == 1:
-			on_transition_finished()
+		#if fade_rect.color.a == 1:
+			#on_transition_finished()
 		
 func goto_map(target_map: String):
 	pass
@@ -48,10 +48,8 @@ func transition_right():
 	tween.tween_property(player, "position:x", player.position.x + right_distance, right_duration)
 	tween.set_ease(Tween.EASE_OUT)
 	
-	#tween.finished.connect(on_transition_finished)
+	tween.finished.connect(on_transition_finished)
 	
-#func transition_animation():
-	#AnimationPlayer.play('run')
 
 func on_transition_finished():
 	get_tree().change_scene_to_file("res://world/world 1/forest area/test_world2.tscn")

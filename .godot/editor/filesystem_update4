@@ -23,3 +23,6 @@ res://entities/enemy/slime enemy/slime_enemy_state_idle.gd
 res://entities/enemy/slime enemy/slime_enemy_state_wander.gd
 res://world/world 1/forest area/test_world.gd
 res://addons/MetroidvaniaSystem/Nodes/Singleton.tscn
+res://world/world 1/forest area/fade_to_black.gd
+res://control/move_area/move_area.tscn
+res://world/world 1/forest area/test_world_2.gd
