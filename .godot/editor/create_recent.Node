@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 Node2D
+=======
+Camera2D
+>>>>>>> parent of 9766011 (january 28 2025 start. have my camera zones so it doesn't go past)
 CollisionShape2D
 Area2D
-Camera2D
 Node
 AnimationPlayer
 Sprite2D

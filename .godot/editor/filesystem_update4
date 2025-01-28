@@ -11,3 +11,14 @@ res://test/player_test.tscn
 res://background/parallax.tscn
 res://entities/player/player.tscn
 res://world/world 1/forest area/test_world2.tscn
+res://control/camera_2d.gd
+res://control/can_move_areas/can_move_area_intro.gd
+res://entities/enemy/enemy_state_machine.gd
+res://global/global_player_manager.gd
+res://entities/player/player.gd
+res://entities/player/player_graphics.gd
+res://entities/enemy/slime enemy/slime_enemy.gd
+res://entities/enemy/slime enemy/slime_enemy_state.gd
+res://entities/enemy/slime enemy/slime_enemy_state_idle.gd
+res://entities/enemy/slime enemy/slime_enemy_state_wander.gd
+res://world/world 1/forest area/test_world.gd
