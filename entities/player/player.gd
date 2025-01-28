@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 		get_input()
 
 func animate():
-	player_graphics.update_sprite(direction, is_on_floor(), crouching, attacking) # direction of player, if they're on the floor, crouching or not
+	player_graphics.update_sprite(direction, velocity, is_on_floor(), crouching, attacking) # direction of player, if they're on the floor, crouching or not
 
 func get_input():
 	# horizontal movement

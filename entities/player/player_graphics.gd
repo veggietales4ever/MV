@@ -6,11 +6,12 @@ signal attack_finished
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+
 func _ready():
 	# Connect the signal (if not already connected via the editor)
 	animation_player.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
-func update_sprite(direction, on_floor, crouching, attacking):
+func update_sprite(direction, velocity, on_floor, crouching, attacking):
 	# Flip
 	if direction.x:
 		$Sprite2D.flip_h = direction.x < 0
@@ -20,14 +21,18 @@ func update_sprite(direction, on_floor, crouching, attacking):
 	
 	#Prioritize attacking but avoid ground attack after landing
 	if attacking:
+		state = 'attack'
 		if not on_floor:
 			state = 'jump_attack'
 		elif on_floor and animation_player.current_animation != 'jump_attack':
 			state = 'attack'
 	elif crouching:
 		state = 'crouching'
-	elif not on_floor:
+	#elif not on_floor:
+	elif velocity.y < 0:
 		state = 'jump'
+	elif velocity.y >= 0 and not on_floor:
+		state = 'idle'
 	elif on_floor and direction.x:
 		state = 'run'
 
