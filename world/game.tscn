@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6l2ws7xaaugs"]
+
+[ext_resource type="Script" path="res://world/world 1/forest area/test_world.gd" id="1_1v0ag"]
+[ext_resource type="PackedScene" uid="uid://cem7r4j8s7g4n" path="res://entities/player/player.tscn" id="3_4nian"]
+[ext_resource type="Script" path="res://control/camera_2d.gd" id="5_x0yhv"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_1v0ag")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(5, 0)
+anchor_mode = 0
+zoom = Vector2(1.2, 1.2)
+limit_left = 0
+limit_right = 1375
+limit_bottom = 180
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.32
+drag_right_margin = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("5_x0yhv")
+
+[node name="Entities" type="Node2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="Player" parent="Entities" instance=ExtResource("3_4nian")]
+position = Vector2(188, 69)
+collision_mask = 2

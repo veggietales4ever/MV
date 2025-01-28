@@ -27,7 +27,13 @@ var gravity_multiplier := 1
 var attacking := false
 @export_range(0.1,2) var attack_cooldown := 0.5
 
+var reset_position: Vector2
+var event: bool
+var abilities: Array[StringName]
+var double_jump: bool
+
 func _ready() -> void:
+	on_enter()
 	PlayerManager.player =  self
 	$Timers/DashCooldown.wait_time = dash_cooldown
 	$Timers/AttackCooldown.wait_time = attack_cooldown
@@ -132,3 +138,7 @@ func _on_attack_finished():
 
 func _on_can_move_area_intro_body_entered(body: Node2D) -> void:
 	can_move = true
+
+func on_enter():
+	# Position for kill system. Assigned when entereing new room
+	reset_position = position
