@@ -1,15 +1,15 @@
 [-5,10,0]
-0,-1,0,0|||
+0,-1,0,0|||world/world 1/forest area/test_world.tscn
 [-5,11,0]
-0,-1,0,-1|||
+0,-1,0,-1|||world/world 1/forest area/test_world.tscn
 [-5,12,0]
-0,-1,0,-1|||
+0,-1,0,-1|||world/world 1/forest area/test_world.tscn
 [-5,13,0]
--1,0,0,-1|||
+-1,0,0,-1|||world/world 1/forest area/test_world.tscn
 [-4,13,0]
--1,0,-1,0|||
+-1,0,-1,0|||world/world 1/forest area/test_world.tscn
 [-3,13,0]
-1,0,-1,0|||
+1,0,-1,0|||world/world 1/forest area/test_world.tscn
 [-2,13,0]
 -1,0,1,0|||world/world 1/forest area/test_world2.tscn
 [-1,13,0]

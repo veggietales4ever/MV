@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6l2ws7xaaugs"]
+[gd_scene load_steps=18 format=3 uid="uid://b6l2ws7xaaugs"]
 
 [ext_resource type="Script" path="res://world/world 1/forest area/test_world.gd" id="1_1v0ag"]
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="2_84ahu"]
@@ -198,8 +198,29 @@ shader_parameter/palette = ExtResource("7_l66sd")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4hma"]
 size = Vector2(144.5, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhta1"]
+size = Vector2(71.5, 312)
+
 [node name="TestWorld" type="Node2D"]
 script = ExtResource("1_1v0ag")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(5, 0)
+anchor_mode = 0
+zoom = Vector2(1.2, 1.2)
+limit_left = 0
+limit_right = 1375
+limit_bottom = 180
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.32
+drag_right_margin = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("5_x0yhv")
 
 [node name="Parallax" parent="." instance=ExtResource("2_84ahu")]
 position = Vector2(0, 0)
@@ -214,22 +235,6 @@ layer_1/name = "Background"
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(1179424, 131072, 2, 1113888, 131072, 0, 1179423, 65536, 2, 1113887, 65536, 0, 1179422, 65536, 2, 1113886, 65536, 0, 1179421, 65536, 2, 1113885, 65536, 0, 1179420, 65536, 2, 1113884, 65536, 0, 1179419, 65536, 2, 1113883, 65536, 0, 1179418, 65536, 2, 1113882, 65536, 0, 1179417, 65536, 2, 1113881, 65536, 0, 1179416, 65536, 2, 1113880, 65536, 0, 1179415, 65536, 2, 1113879, 65536, 0, 1179414, 65536, 2, 1113878, 65536, 0, 1179413, 65536, 2, 1113877, 65536, 0, 1179412, 0, 2, 1113876, 0, 0)
 layer_2/name = "Statue"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-zoom = Vector2(1.2, 1.2)
-limit_left = 0
-limit_bottom = 180
-limit_smoothed = true
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.0
-drag_top_margin = 0.32
-drag_right_margin = 0.0
-editor_draw_limits = true
-editor_draw_drag_margin = true
-script = ExtResource("5_x0yhv")
 
 [node name="Entities" type="Node2D" parent="."]
 position = Vector2(0, 1)
@@ -280,4 +285,11 @@ script = ExtResource("11_3byoe")
 position = Vector2(58.75, 57)
 shape = SubResource("RectangleShape2D_k4hma")
 
+[node name="move_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move_area"]
+position = Vector2(1371, 41)
+shape = SubResource("RectangleShape2D_nhta1")
+
 [connection signal="body_entered" from="can_move_area_intro" to="Entities/Player" method="_on_can_move_area_intro_body_entered"]
+[connection signal="body_entered" from="move_area" to="." method="_on_move_area_body_entered"]

@@ -5,3 +5,7 @@ func _ready() -> void:
 	
 func goto_map(target_map: String):
 	pass
+
+
+func _on_move_area_body_entered(body: Node2D) -> void:
+	goto_map("test_world2")

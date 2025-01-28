@@ -220,7 +220,6 @@ drag_right_margin = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("3_4p531")
-camera = 1
 
 [node name="Entities" type="Node2D" parent="."]
 position = Vector2(658, 404)

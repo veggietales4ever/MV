@@ -1,5 +1,4 @@
 extends Camera2D
-class_name camera
 
 @onready var player: Player = $"../Entities/Player"
 #@export var player = CharacterBody2D
@@ -8,17 +7,16 @@ enum camera_state {FOLLOW, PANNING}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	camera_follow()
-	#match camera:
-		#camera_state.FOLLOW:
-			#camera_follow()
-		#camera_state.PANNING:
-			#camera_panning()
+	match camera:
+		camera_state.FOLLOW:
+			camera_follow()
+		camera_state.PANNING:
+			camera_panning()
 
 
 func camera_panning():
