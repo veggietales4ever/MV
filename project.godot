@@ -35,6 +35,7 @@ window/size/viewport_height=270
 window/size/window_width_override=3840
 window/size/window_height_override=2160
 window/stretch/mode="viewport"
+window/layer_8=""
 
 [editor_plugins]
 
@@ -103,6 +104,7 @@ dash={
 2d_physics/layer_4="Objects"
 2d_physics/layer_5="Coin"
 2d_physics/layer_6="Enemy"
+2d_physics/layer_8="Rooms"
 
 [rendering]
 

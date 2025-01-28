@@ -79,7 +79,6 @@ func get_input():
 	if direction.x < 0:
 		$PlayerGraphics/Sword.position.x = -50
 		
-
 func apply_movement(delta):
 	# Left / Right movement
 	if direction.x:
@@ -131,7 +130,5 @@ func on_dash_finish():
 func _on_attack_finished():
 	attacking = false
 
-
 func _on_can_move_area_intro_body_entered(body: Node2D) -> void:
 	can_move = true
-	camera.camera_state

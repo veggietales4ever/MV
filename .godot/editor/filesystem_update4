@@ -15,3 +15,9 @@ res://entities/player/player.gd
 res://control/can_move_areas/can_move_area_intro.gd
 res://control/camera_2d.gd
 res://global/global_player_manager.gd
+res://world/world 1/test_world.tscn
+res://world/world 1/forest area/test_world.tscn
+res://entities/player/player.tscn
+res://world/world 1/forest area/test_world.gd
+res://world/world 1/forest area/test_world2.tscn
+res://MetSysSettings.tres
