@@ -22,3 +22,4 @@ res://entities/enemy/slime enemy/slime_enemy_state.gd
 res://entities/enemy/slime enemy/slime_enemy_state_idle.gd
 res://entities/enemy/slime enemy/slime_enemy_state_wander.gd
 res://world/world 1/forest area/test_world.gd
+res://addons/MetroidvaniaSystem/Nodes/Singleton.tscn
