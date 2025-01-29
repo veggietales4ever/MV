@@ -145,3 +145,6 @@ func on_enter():
 
 func cant_move():
 	can_move = false
+	
+func can_now_move():
+	can_move = true

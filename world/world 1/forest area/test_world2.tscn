@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjd8hmelfnyj8"]
+[gd_scene load_steps=15 format=3 uid="uid://cjd8hmelfnyj8"]
 
 [ext_resource type="Script" path="res://world/world 1/forest area/test_world_2.gd" id="1_m2fm0"]
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="2_v2f0p"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" path="res://shaders/palette_limiter_shader.gdshader" id="6_sdnpr"]
 [ext_resource type="Texture2D" uid="uid://b4un251a3ymxs" path="res://palettes/cc-29-1x.png" id="7_bammv"]
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_7qkhs"]
+[ext_resource type="PackedScene" uid="uid://u1i0focg36lp" path="res://control/transitions/transitions.tscn" id="10_a78b0"]
 [ext_resource type="PackedScene" uid="uid://cevudyiqr3lsu" path="res://control/move_area/move_area.tscn" id="10_hjjpo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyck2"]
@@ -245,14 +246,6 @@ position = Vector2(194, 131)
 [node name="move_area" parent="." instance=ExtResource("10_hjjpo")]
 position = Vector2(-50, -38)
 
-[node name="Fade" type="Node" parent="."]
+[node name="Transitions" parent="." instance=ExtResource("10_a78b0")]
 
-[node name="FadeRect" type="ColorRect" parent="Fade"]
-visible = false
-offset_left = -168.0
-offset_top = -385.0
-offset_right = 1469.0
-offset_bottom = 263.0
-color = Color(0, 0, 0, 1)
-
-[connection signal="body_entered" from="move_area" to="." method="_on_left_transition_area_body_entered"]
+[connection signal="body_entered" from="move_area" to="Transitions" method="_on_left_transition_area_body_entered"]

@@ -7,6 +7,11 @@ const SAVE_PATH = "user://example_save_data.sav"
 @onready var transitions: Node = $Transitions
 @onready var fade_rect: ColorRect = $Transitions/FadeRect
 
+@export var exit_left: PackedScene
+@export var exit_right: PackedScene
+@export var exit_up: PackedScene
+@export var exit_down: PackedScene
+
 
 #@export var starting_map: PackedScene
 
@@ -18,6 +23,11 @@ var state = "idle"
 
 
 func _ready() -> void:
+	#if fade_rect:
+		#fade_rect.visible = true
+		#fade_rect.color = Color(0, 0, 0, 0)
+	#else:
+		#push_error("FadeRect node is not found!")
 	MetSys.room_changed.connect(goto_map, CONNECT_DEFERRED)
 	print(state)
 		# Initialize fade_rect as transparent
@@ -28,9 +38,10 @@ func _ready() -> void:
 		#push_error("FadeRect node is not found!")
 
 func _process(delta: float) -> void:
-	if state == "fade" and fade_rect:
-		##fade_rect.color.a = min(1, fade_rect.color.a + fade_speed * delta)
-		player.can_move = false
+	if state == "fade_right" and fade_rect:
+		on_transition_finished_right()
+		#fade_rect.color.a = min(1, fade_rect.color.a + fade_speed * delta)
+		
 		#transitions.fade_out()
 		#transitions.transition_right()
 		#if fade_rect.color.a == 1:
@@ -52,5 +63,11 @@ func goto_map(target_map: String):
 	#tween.finished.connect(on_transition_finished)
 	
 
-#func on_transition_finished():
-	#get_tree().change_scene_to_file("res://world/world 1/forest area/test_world2.tscn")
+# Transitions
+# Left
+func on_transition_finished_left():
+	get_tree().change_scene_to_packed(exit_left)
+	
+# Right
+func on_transition_finished_right():
+	get_tree().change_scene_to_packed(exit_right)

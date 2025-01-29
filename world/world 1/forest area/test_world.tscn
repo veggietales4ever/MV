@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_240mi"]
 [ext_resource type="Script" path="res://control/can_move_areas/can_move_area_intro.gd" id="11_ybruf"]
 [ext_resource type="PackedScene" uid="uid://bsg0351mx3b4u" path="res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn" id="12_rcs34"]
-[ext_resource type="Script" path="res://control/transitions/transitions.gd" id="13_u3nfv"]
+[ext_resource type="PackedScene" uid="uid://u1i0focg36lp" path="res://control/transitions/transitions.tscn" id="13_s6n1v"]
 [ext_resource type="PackedScene" uid="uid://cjd8hmelfnyj8" path="res://world/world 1/forest area/test_world2.tscn" id="14_bo2kn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyck2"]
@@ -206,6 +206,7 @@ size = Vector2(71.5, 312)
 
 [node name="TestWorld" type="Node2D"]
 script = ExtResource("1_8ttbe")
+exit_right = ExtResource("14_bo2kn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(5, 0)
@@ -297,19 +298,8 @@ position = Vector2(0, -3)
 position = Vector2(1371, 8)
 shape = SubResource("RectangleShape2D_nhta1")
 
-[node name="Fade" type="Node" parent="."]
-
-[node name="Transitions" type="Node" parent="."]
-script = ExtResource("13_u3nfv")
-exit_right = ExtResource("14_bo2kn")
-
-[node name="FadeRect" type="ColorRect" parent="Transitions"]
-visible = false
-offset_left = -3.0
-offset_top = -196.0
-offset_right = 1469.0
-offset_bottom = 278.0
-color = Color(0, 0, 0, 1)
+[node name="Transitions" parent="." node_paths=PackedStringArray("level") instance=ExtResource("13_s6n1v")]
+level = NodePath("..")
 
 [connection signal="body_entered" from="can_move_area_intro" to="Entities/Player" method="_on_can_move_area_intro_body_entered"]
-[connection signal="body_entered" from="move_area" to="Transitions" method="_on_right_transition_area_body_entered"]
+[connection signal="body_entered" from="move_area" to="Transitions" method="_on_right_area_body_entered"]

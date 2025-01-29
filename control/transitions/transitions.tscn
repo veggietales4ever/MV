@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://u1i0focg36lp"]
+
+[ext_resource type="Script" path="res://control/transitions/transitions.gd" id="1_oqmf6"]
+
+[node name="Transitions" type="Node"]
+script = ExtResource("1_oqmf6")
+
+[node name="FadeRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -3.0
+offset_top = -196.0
+offset_right = 1469.0
+offset_bottom = 278.0
+color = Color(0, 0, 0, 1)
