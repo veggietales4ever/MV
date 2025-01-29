@@ -13,6 +13,12 @@ const SAVE_PATH = "user://example_save_data.sav"
 @export var exit_up: PackedScene
 @export var exit_down: PackedScene
 
+@export_group("Entries")
+@export var entry_left: PackedScene
+@export var entry_right: PackedScene
+@export var entry_up: PackedScene
+@export var entry_down: PackedScene
+
 
 var state = "idle"
 
@@ -37,10 +43,9 @@ func _process(_delta: float) -> void:
 		
 	
 
-# Transitions
+# Exit Transitions
 # Left
 func on_transition_finished_left():
-<<<<<<< HEAD:world/world_1/forest_area/test_world.gd
 	if exit_left:
 		await TransitionManager.on_fade_out_finished
 		Global.previous_scene = "test_world2"
@@ -70,12 +75,3 @@ func on_entry_transition_finished_right():
 	await TransitionManager.on_fade_out_finished
 	Global.previous_scene = "test_world2"
 	TransitionManager.change_scene(entry_right)
-=======
-	get_tree().change_scene_to_packed(exit_left)
-	
-# Right
-func on_transition_finished_right():
-	await TransitionManager.on_fade_out_finished
-	Global.previous_scene = "test_world"
-	TransitionManager.change_scene(exit_right)
->>>>>>> parent of afc2cf6 (errors on errors. trying to fix change scene (transitions global)):world/world 1/forest area/test_world.gd
