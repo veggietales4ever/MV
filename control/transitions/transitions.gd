@@ -30,7 +30,7 @@ func _ready() -> void:
 
 		
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if state == "fade_left" and fade_rect:
 		player.cant_move()
 		fade_out()
@@ -111,7 +111,7 @@ func transition_left():
 	
 	tween.finished.connect(level.on_transition_finished_left)
 	
-func _on_left_area_body_entered(body: Node2D) -> void:
+func _on_left_area_body_entered(_body: Node2D) -> void:
 	if player:
 		state = "fade_left"
 		print(state)
@@ -126,7 +126,7 @@ func transition_right():
 	tween.finished.connect(level.on_transition_finished_right)
 	
 		
-func _on_right_area_body_entered(body: Node2D) -> void:
+func _on_right_area_body_entered(_body: Node2D) -> void:
 	if player:
 		state = "fade_right"
 		print(state)

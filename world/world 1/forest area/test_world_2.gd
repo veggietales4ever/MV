@@ -1,7 +1,7 @@
 extends Node2D
 
 #@onready var player: Player = $Entities/Player
-@onready var fade_rect: ColorRect = $Fade/FadeRect
+@onready var fade_rect: ColorRect = $Transitions/FadeRect
 
 @export var player: CharacterBody2D
 #@export var starting_map: PackedScene
@@ -78,7 +78,7 @@ func on_entry_finished_right():
 
 # Scene Exits
 # Left
-func _on_left_transition_area_body_entered(body: Node2D) -> void:
+func _on_left_transition_area_body_entered(_body: Node2D) -> void:
 	if player:
 		state = "fade_left"
 		print(state)
