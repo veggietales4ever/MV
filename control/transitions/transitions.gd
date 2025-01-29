@@ -1,10 +1,10 @@
 extends Node
 
-var fade_duration = 1.5 # Set fade duration to 2.5 seconds
+var fade_duration = 0.5 # Set fade duration to 2.5 seconds
 var fade_speed = 1.5# / fade_duration
 var right_distance = 45
 var left_distance = 45
-var duration = 2.0
+var walk_duration = 2.5
 var state = "idle"
 #var can_move := false
 
@@ -78,7 +78,7 @@ func on_fade_out_finished():
 func entry_left():
 	if state == "fade":
 		var tween = create_tween()
-		tween.tween_property(player, "position:x", player.position.x + right_distance, duration)
+		tween.tween_property(player, "position:x", player.position.x + right_distance, walk_duration)
 		tween.set_ease(Tween.EASE_OUT)
 		
 		tween.finished.connect(on_entry_finished_left)
@@ -106,7 +106,7 @@ func on_entry_finished_right():
 # Exit LEFT
 func transition_left():
 	var tween = create_tween()
-	tween.tween_property(player, "position:x", player.position.x + left_distance, duration)
+	tween.tween_property(player, "position:x", player.position.x + left_distance, walk_duration)
 	tween.set_ease(Tween.EASE_OUT)
 	
 	tween.finished.connect(level.on_transition_finished_left)
@@ -120,7 +120,7 @@ func _on_left_area_body_entered(body: Node2D) -> void:
 # Exit RIGHT
 func transition_right():
 	var tween = create_tween()
-	tween.tween_property(player, "position:x", player.position.x + right_distance, duration)
+	tween.tween_property(player, "position:x", player.position.x + right_distance, walk_duration)
 	tween.set_ease(Tween.EASE_OUT)
 	
 	tween.finished.connect(level.on_transition_finished_right)
