@@ -29,6 +29,7 @@ MetSys="*res://addons/MetroidvaniaSystem/Nodes/Singleton.tscn"
 PlayerManager="*res://global/global_player_manager.gd"
 PlayerCharacter="res://entities/player/player.tscn"
 Global="*res://global/global.gd"
+TransitionManager="*res://control/transitions/transitions.gd"
 
 [display]
 

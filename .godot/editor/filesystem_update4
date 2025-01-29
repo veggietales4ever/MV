@@ -10,3 +10,5 @@ res://control/move_area/move_area.tscn
 res://entities/enemy/slime enemy/slime_enemy.tscn
 res://world/world 1/forest area/test_world.gd
 res://control/transitions/transitions.gd
+res://control/transitions/transitions.tscn
+res://entities/player/player.gd

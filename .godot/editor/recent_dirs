@@ -1,5 +1,5 @@
-res://global
 res://control/transitions
+res://global
 res://entities/player
 res://control
 res://control/move_area

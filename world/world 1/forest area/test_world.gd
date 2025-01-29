@@ -39,4 +39,4 @@ func on_transition_finished_left():
 func on_transition_finished_right():
 	await transitions.on_fade_out_finished
 	Global.previous_scene = "test_world"
-	get_tree().change_scene_to_packed(exit_right)
+	TransitionManager.change_scene(exit_right)
