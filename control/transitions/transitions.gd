@@ -1,6 +1,6 @@
 extends Node
 
-var fade_duration = 0.7 # Set fade duration to 2.5 seconds
+var fade_duration = 1.0 # Set fade duration to 2.5 seconds
 var fade_speed = 1.5# / fade_duration
 var right_distance = 45
 var left_distance = 45
@@ -9,16 +9,10 @@ var state = "idle"
 #var can_move := false
 
 
-#@export var exit_right: PackedScene
-#@export var exit_left: PackedScene
-#@export var exit_up: PackedScene
-#@export var exit_down: PackedScene
+
 @export var level: Node2D
 @export var fade_rect: ColorRect
-#@onready var player: Player
-#@onready var player: Player = $"../Entities/Player"
-#@onready var fade_rect: ColorRect = $FadeRect
-#@onready var test_world: Node2D = $".."
+
 
 
 
@@ -36,9 +30,7 @@ func _ready() -> void:
 	if fade_rect:
 		fade_rect.modulate.a = 1
 		fade_rect.visible = true
-		#await get_tree().process_frame # Allow one frame to process before fading in
 		fade_in()
-		#fade_rect.modulate = Color(0, 0, 0, 0)
 	else:
 		push_error("FadeRect node is not found!")
 
@@ -82,8 +74,8 @@ func fade_out():
 	
 
 func on_fade_in_finished():
-	if PlayerManager.player:
-		PlayerManager.player.can_now_move()
+	#if PlayerManager.player:
+		#PlayerManager.player.can_now_move()
 	state = "idle"
 	
 func on_fade_out_finished():

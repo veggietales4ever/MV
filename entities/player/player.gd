@@ -136,7 +136,7 @@ func on_dash_finish():
 func _on_attack_finished():
 	attacking = false
 
-func _on_can_move_area_intro_body_entered(body: Node2D) -> void:
+func _on_can_move_area_intro_body_entered(_body: Node2D) -> void:
 	can_move = true
 
 func on_enter():
@@ -148,3 +148,7 @@ func cant_move():
 	
 func can_now_move():
 	can_move = true
+
+
+func _on_cannot_move_area_intro_body_entered(body: Node2D) -> void:
+	can_move = false

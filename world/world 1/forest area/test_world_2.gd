@@ -14,18 +14,18 @@ const SAVE_PATH = "user://example_save_data.sav"
 @export var exit_down: PackedScene
 
 var state = "idle"
-var can_move = true
+var can_move := false
 
 func _ready() -> void:
 	fade_rect.modulate.a = 1  # Ensure the screen is black before the fade-in
 	transitions.fade_in()  # Start fading out when entering a new scene
-	print(Global.previous_scene)
 	if Global.previous_scene == "test_world":
+		transitions.entry_left()
 		# Move player to the appropriate side of the screen
-		player.position = Vector2(10, 129) # Example: Enter from left
-	else:
-		# Default spawn position
-		player.position = Vector2(500, player.position.y)  # Example: Default position
+		#PlayerManager.player.position = Vector2(10, 129) # Example: Enter from left
+	#else:
+		## Default spawn position
+		#PlayerManager.player.position = Vector2(500, player.position.y)  # Example: Default position
 
 func _process(delta: float) -> void:
 	pass

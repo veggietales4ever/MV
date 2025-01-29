@@ -18,7 +18,7 @@ var state = "idle"
 
 
 func _ready() -> void:
-	MetSys.room_changed.connect(goto_map, CONNECT_DEFERRED)
+	#MetSys.room_changed.connect(goto_map, CONNECT_DEFERRED)
 	print(state)
 
 
