@@ -26,8 +26,14 @@ var state = "idle"
 func _ready() -> void:
 	fade_rect.modulate.a = 1  # Ensure the screen is black before the fade-in
 	TransitionManager.fade_in()  # Start fading out when entering a new scene
+	
 	if Global.previous_scene == "test_world2":
-		TransitionManager.entry_right()
+		if Global.last_exit == "left":
+			PlayerManager.player.position = Vector2(950, PlayerManager.player.position.y)
+		else:
+			PlayerManager.player.position = Vector2(100, PlayerManager.player.position.y)
+	print("Previous Scene:", Global.previous_scene, "Last exit:", Global.last_exit)
+		#TransitionManager.entry_right()
 	print(state)
 
 
@@ -40,15 +46,29 @@ func _process(_delta: float) -> void:
 # Exit Transitions
 # Left
 func on_transition_finished_left():
-	await TransitionManager.on_fade_out_finished
-	Global.previous_scene = "test_world2"
-	TransitionManager.change_scene(exit_left)
+	if exit_left:
+		await TransitionManager.on_fade_out_finished
+		Global.previous_scene = "test_world2"
+		TransitionManager.change_scene(exit_left)
+	else:
+		push_error("Error: exit_left is null")
 	
 # Right
 func on_transition_finished_right():
-	await TransitionManager.on_fade_out_finished
-	Global.previous_scene = "test_world"
-	TransitionManager.change_scene(exit_right)
+	if exit_right:
+		await TransitionManager.fade_out()
+		Global.previous_scene = "test_world"
+		Global.last_exit = "right"
+		TransitionManager.change_scene(exit_right)
+	else:
+		push_error("Error: exit_right is null")
+	
+	#if exit_right:
+		#await TransitionManager.on_fade_out_finished
+		#Global.previous_scene = "test_world"
+		#TransitionManager.change_scene(exit_right)
+	#else:
+		#push_error("Error: exit_right is null")
 
 # Entry Transitions
 func on_entry_transition_finished_right():
