@@ -194,9 +194,8 @@ shader_parameter/palette = ExtResource("7_bammv")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qglxy"]
 
-[node name="TestWorld2" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="TestWorld2" type="Node2D"]
 script = ExtResource("1_m2fm0")
-player = NodePath("Entities/Player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

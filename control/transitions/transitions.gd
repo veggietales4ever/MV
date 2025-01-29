@@ -50,6 +50,8 @@ func _process(_delta: float) -> void:
 		
 		
 func fade_in():
+	fade_rect.modulate.a = 1 # Make sure the screen is black
+	
 	var tween = create_tween()
 	tween.tween_property(fade_rect, "modulate:a", 0, fade_duration)
 	tween.set_ease(Tween.EASE_OUT)
@@ -76,12 +78,12 @@ func on_fade_out_finished():
 # Scene Entry
 # Entry - LEFT
 func entry_left():
-	if state == "fade":
-		var tween = create_tween()
-		tween.tween_property(player, "position:x", player.position.x + right_distance, walk_duration)
-		tween.set_ease(Tween.EASE_OUT)
-		
-		tween.finished.connect(on_entry_finished_left)
+	#if state == "fade":
+	var tween = create_tween()
+	tween.tween_property(player, "position:x", player.position.x + right_distance, walk_duration)
+	tween.set_ease(Tween.EASE_OUT)
+	
+	tween.finished.connect(on_entry_finished_left)
 	
 func on_entry_finished_left():
 	player.can_move = true

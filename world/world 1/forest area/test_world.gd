@@ -7,60 +7,27 @@ const SAVE_PATH = "user://example_save_data.sav"
 @onready var transitions: Node = $Transitions
 @onready var fade_rect: ColorRect = $Transitions/FadeRect
 
+@export_group("Exits")
 @export var exit_left: PackedScene
 @export var exit_right: PackedScene
 @export var exit_up: PackedScene
 @export var exit_down: PackedScene
 
 
-#@export var starting_map: PackedScene
-
 var state = "idle"
-#var right_distance = 65
-#var right_duration = 2.5
-#var fade_duration = 0.5 # Set fade duration to 2.5 seconds
-#var fade_speed = 0.5# / fade_duration
 
 
 func _ready() -> void:
-	#if fade_rect:
-		#fade_rect.visible = true
-		#fade_rect.color = Color(0, 0, 0, 0)
-	#else:
-		#push_error("FadeRect node is not found!")
 	MetSys.room_changed.connect(goto_map, CONNECT_DEFERRED)
 	print(state)
-		# Initialize fade_rect as transparent
-	#if fade_rect:
-		#fade_rect.visible = true
-		#fade_rect.color = Color(0, 0, 0, 0)
-	#else:
-		#push_error("FadeRect node is not found!")
+
 
 func _process(delta: float) -> void:
 	if state == "fade_right" and fade_rect:
 		on_transition_finished_right()
-		#fade_rect.color.a = min(1, fade_rect.color.a + fade_speed * delta)
-		
-		#transitions.fade_out()
-		#transitions.transition_right()
-		#if fade_rect.color.a == 1:
-			#on_transition_finished()
 		
 func goto_map(target_map: String):
 	pass
-
-#func _on_transition_area_body_entered(body: Node2D) -> void:
-	#if player:
-		#state = "fade"
-		#print(state)
-#
-#func transition_right():
-	#var tween = create_tween()
-	#tween.tween_property(player, "position:x", player.position.x + right_distance, right_duration)
-	#tween.set_ease(Tween.EASE_OUT)
-	#
-	#tween.finished.connect(on_transition_finished)
 	
 
 # Transitions
@@ -70,4 +37,6 @@ func on_transition_finished_left():
 	
 # Right
 func on_transition_finished_right():
+	await transitions.on_fade_out_finished
+	Global.previous_scene = "test_world"
 	get_tree().change_scene_to_packed(exit_right)

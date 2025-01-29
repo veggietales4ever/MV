@@ -1,3 +1,4 @@
+res://global
 res://control/transitions
 res://entities/player
 res://control
@@ -6,7 +7,6 @@ res://control/can_move_areas
 res://entities/enemy/slime enemy
 res://entities/enemy
 res://test
-res://global
 res://entities/objects
 res://entities
 res://entities/enemy/gold enemy
