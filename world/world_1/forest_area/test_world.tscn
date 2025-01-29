@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://ccf4fo81c1pls"]
 
-[ext_resource type="Script" path="res://world/world 1/forest area/test_world.gd" id="1_8ttbe"]
+[ext_resource type="Script" path="res://world/world_1/forest_area/test_world.gd" id="1_8ttbe"]
 [ext_resource type="Script" path="res://control/camera_2d.gd" id="2_m5gyy"]
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="3_owa8j"]
 [ext_resource type="Texture2D" uid="uid://m8mixrasebhn" path="res://assets/ideas/meteroidvania/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="4_yi7yq"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://control/can_move_areas/can_move_area_intro.gd" id="11_ybruf"]
 [ext_resource type="PackedScene" uid="uid://bsg0351mx3b4u" path="res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn" id="12_rcs34"]
 [ext_resource type="PackedScene" uid="uid://u1i0focg36lp" path="res://control/transitions/transitions.tscn" id="13_s6n1v"]
-[ext_resource type="PackedScene" uid="uid://cjd8hmelfnyj8" path="res://world/world 1/forest area/test_world2.tscn" id="14_bo2kn"]
+[ext_resource type="PackedScene" uid="uid://cjd8hmelfnyj8" path="res://world/world_1/forest_area/test_world2.tscn" id="14_bo2kn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyck2"]
 texture = ExtResource("4_yi7yq")
