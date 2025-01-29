@@ -2,9 +2,9 @@ extends Node
 
 var fade_duration = 1.0 # Set fade duration to 2.5 seconds
 var fade_speed = 1.5# / fade_duration
-var right_distance = 35
-var left_distance = -35
-var walk_duration = 1.5
+var right_distance = 45
+var left_distance = -45
+var walk_duration = 2.5
 var state = "idle"
 #var can_move := false
 
@@ -88,7 +88,6 @@ func on_fade_out_finished():
 # Scene Entry
 # Entry - LEFT
 func entry_left():
-	print("entry left")
 	#if state == "fade":
 	var tween = create_tween()
 	tween.tween_property(PlayerManager.player, "position:x", PlayerManager.player.position.x + right_distance, walk_duration)
@@ -103,7 +102,6 @@ func on_entry_finished_left():
 
 # Entry - RIGHT
 func entry_right():
-	print("entry right")
 	var tween = create_tween()
 	tween.tween_property(PlayerManager.player, "position:x", PlayerManager.player.position.x + left_distance, walk_duration)
 	tween.set_ease(Tween.EASE_OUT)
