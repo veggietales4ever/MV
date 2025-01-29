@@ -1,3 +1,4 @@
+res://entities/player
 res://control
 res://control/move_area
 res://control/can_move_areas

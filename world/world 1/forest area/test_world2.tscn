@@ -195,13 +195,14 @@ shader_parameter/palette = ExtResource("7_bammv")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qglxy"]
 
-[node name="TestWorld2" type="Node2D"]
+[node name="TestWorld2" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_m2fm0")
+player = NodePath("Entities/Player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 zoom = Vector2(1.2, 1.2)
-limit_left = -20
+limit_left = 0
 limit_bottom = 180
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -217,7 +218,7 @@ position = Vector2(-3, 0)
 position = Vector2(658, 404)
 
 [node name="Player" parent="Entities" instance=ExtResource("4_qi6yf")]
-position = Vector2(-620, -278)
+position = Vector2(-610, -274)
 collision_mask = 2
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -254,7 +255,7 @@ position = Vector2(157, 107)
 position = Vector2(393, 131)
 
 [node name="crates" type="Node2D" parent="Objects"]
-position = Vector2(94, -223)
+position = Vector2(91, -220)
 
 [node name="crate" parent="Objects/crates" instance=ExtResource("9_xwxm0")]
 position = Vector2(107, 359)
@@ -266,16 +267,16 @@ position = Vector2(574, 358)
 position = Vector2(259, 131)
 
 [node name="move_area" parent="." instance=ExtResource("10_hjjpo")]
-position = Vector2(-25, -39)
+position = Vector2(-170, -44)
 
 [node name="Fade" type="Node" parent="."]
 
 [node name="FadeRect" type="ColorRect" parent="Fade"]
 visible = false
-offset_left = -6.0
+offset_left = -168.0
 offset_top = -385.0
 offset_right = 1469.0
 offset_bottom = 263.0
-color = Color(0, 0, 0, 0.0117647)
+color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="move_area" to="." method="_on_transition_area_body_entered"]

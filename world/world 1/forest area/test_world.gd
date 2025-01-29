@@ -12,8 +12,8 @@ const SAVE_PATH = "user://example_save_data.sav"
 var state = "idle"
 var right_distance = 85
 var right_duration = 2.5
-var fade_duration = 1.5 # Set fade duration to 2.5 seconds
-var fade_speed = 1.5# / fade_duration
+var fade_duration = 0.5 # Set fade duration to 2.5 seconds
+var fade_speed = 0.5# / fade_duration
 
 
 func _ready() -> void:
