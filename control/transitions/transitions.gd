@@ -153,22 +153,14 @@ func _on_right_area_body_entered(_body: Node2D) -> void:
 		
 
 
-func change_scene(target_scene: PackedScene):
-	if not target_scene:
-		push_error("Error: Attempted to change to a null scene.")
-		return
-	
-	print("Switching to: ", target_scene.resource_path)
+func change_scene(target_scene):
 	await fade_out() # Fully fade out to black
 	fade_rect = null # Clear FadeRect before switching scenes
+	get_tree().change_scene_to_packed(target_scene)
+	await get_tree().process_frame # Wait for new scene to fully load
 	
-	var new_scene = target_scene.instantiate()
-	get_tree().current_scene.queue_free()
-	get_tree().root.add_child(new_scene)
-	get_tree().current_scene = new_scene
-	
-	_ready()
-	await fade_in()
+		
+	call_deferred("_ready")
 
 
 #
