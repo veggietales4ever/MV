@@ -27,7 +27,7 @@ general/default_playback_type.web=0
 
 MetSys="*res://addons/MetroidvaniaSystem/Nodes/Singleton.tscn"
 PlayerManager="*res://global/global_player_manager.gd"
-PlayerCharacter="*res://entities/player/player.tscn"
+PlayerCharacter="res://entities/player/player.tscn"
 
 [display]
 

@@ -142,3 +142,6 @@ func _on_can_move_area_intro_body_entered(body: Node2D) -> void:
 func on_enter():
 	# Position for kill system. Assigned when entereing new room
 	reset_position = position
+
+func cant_move():
+	can_move = false

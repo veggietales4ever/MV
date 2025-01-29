@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ccf4fo81c1pls"]
+[gd_scene load_steps=21 format=3 uid="uid://ccf4fo81c1pls"]
 
 [ext_resource type="Script" path="res://world/world 1/forest area/test_world.gd" id="1_8ttbe"]
 [ext_resource type="Script" path="res://control/camera_2d.gd" id="2_m5gyy"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_240mi"]
 [ext_resource type="Script" path="res://control/can_move_areas/can_move_area_intro.gd" id="11_ybruf"]
 [ext_resource type="PackedScene" uid="uid://bsg0351mx3b4u" path="res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn" id="12_rcs34"]
+[ext_resource type="Script" path="res://control/transitions/transitions.gd" id="13_u3nfv"]
+[ext_resource type="PackedScene" uid="uid://cjd8hmelfnyj8" path="res://world/world 1/forest area/test_world2.tscn" id="14_bo2kn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyck2"]
 texture = ExtResource("4_yi7yq")
@@ -241,7 +243,7 @@ layer_2/name = "Statue"
 position = Vector2(0, 1)
 
 [node name="Player" parent="Entities" instance=ExtResource("5_1n2vo")]
-position = Vector2(62, -210)
+position = Vector2(1219, 77)
 collision_mask = 2
 
 [node name="RoomInstance" parent="." instance=ExtResource("12_rcs34")]
@@ -281,14 +283,15 @@ position = Vector2(574, 358)
 position = Vector2(259, 131)
 
 [node name="can_move_area_intro" type="Area2D" parent="."]
-position = Vector2(5, 45)
+position = Vector2(1147, 125)
 script = ExtResource("11_ybruf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="can_move_area_intro"]
-position = Vector2(58.75, 57)
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_k4hma")
 
 [node name="move_area" type="Area2D" parent="."]
+position = Vector2(0, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_area"]
 position = Vector2(1371, 8)
@@ -296,7 +299,11 @@ shape = SubResource("RectangleShape2D_nhta1")
 
 [node name="Fade" type="Node" parent="."]
 
-[node name="FadeRect" type="ColorRect" parent="Fade"]
+[node name="Transitions" type="Node" parent="."]
+script = ExtResource("13_u3nfv")
+exit_right = ExtResource("14_bo2kn")
+
+[node name="FadeRect" type="ColorRect" parent="Transitions"]
 visible = false
 offset_left = -3.0
 offset_top = -196.0
@@ -305,4 +312,4 @@ offset_bottom = 278.0
 color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="can_move_area_intro" to="Entities/Player" method="_on_can_move_area_intro_body_entered"]
-[connection signal="body_entered" from="move_area" to="." method="_on_transition_area_body_entered"]
+[connection signal="body_entered" from="move_area" to="Transitions" method="_on_right_transition_area_body_entered"]

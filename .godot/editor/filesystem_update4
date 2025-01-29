@@ -14,3 +14,5 @@ res://entities/enemy/slime enemy/slime_enemy.gd
 res://world/world 1/forest area/test_world_2.gd
 res://world/world 1/forest area/test_world.gd
 res://control/camera_2d.gd
+res://control/transitions/transitions.gd
+res://entities/player/player.gd
