@@ -1,9 +1,9 @@
 6dcd580d9bf2a9dbe66cc9f994d3620b
-::res://::1738188780
+::res://::1738188688
 default_bus_layout.tres::AudioBusLayout::8209947536257035343::1738188615::0::1::::<><>::
 icon.svg::CompressedTexture2D::1696966632735640405::1737595813::1737615213::1::::<><>::
 main.gd::GDScript::-1::1737761554::0::1::::<>Node2D<>::
-MapData.txt::TextFile::-1::1738188696::0::1::::<><>::
+MapData.txt::TextFile::-1::1738188688::0::1::::<><>::
 MetSysSettings.tres::Resource::4950397979492303096::1738051229::0::1::::<><>::res://addons/MetroidvaniaSystem/Scripts/Settings.gd<>uid://bt6s3nd8xo6b::::res://addons/MetroidvaniaSystem/Themes/Exquisite/Theme.tres
 timer_test_scene.gd::GDScript::-1::1737595813::0::1::::<>Node2D<>::
 timer_test_scene.tscn::PackedScene::2768952081422496442::1737595813::0::1::::<><>::res://timer_test_scene.gd<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn
@@ -668,16 +668,16 @@ Pipe.png::CompressedTexture2D::6579605441438572956::1737595813::1737615213::1:::
 PipeWater.png::CompressedTexture2D::7204401937251515034::1737595813::1737615213::1::::<><>::
 Portal.png::CompressedTexture2D::4808305482547865974::1737595813::1737615213::1::::<><>::
 Tiles.png::CompressedTexture2D::8382862285461654816::1737595813::1737615213::1::::<><>::
-::res://shaders/::1738188745
-palette_limiter_shader.gdshader::Shader::-1::1738188745::0::1::::<><>::
+::res://shaders/::1738188688
+palette_limiter_shader.gdshader::Shader::-1::1738188696::0::1::::<><>::
 ::res://test/::1738087013
 player_test.gd::GDScript::-1::1738012599::0::1::::<>CharacterBody2D<>::
 player_test.tscn::PackedScene::1093436836470614082::1738087013::0::1::::<><>::uid://dwxqtsg1wm6ra::::res://assets/player/characteridle.png<>res://test/player_test.gd
-::res://world/::1738188696
-game.tscn::PackedScene::4586662633936446734::1738188696::0::1::::<><>::res://world/world_1/forest_area/test_world.gd<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn
-::res://world/world_1/::1738188696
-::res://world/world_1/forest_area/::1738188731
-test_world2.tscn::PackedScene::5412750891675730251::1738188710::0::1::::<><>::res://world/world_1/forest_area/test_world_2.gd<>uid://ccf4fo81c1pls::::res://world/world_1/forest_area/test_world.tscn<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>res://control/camera_2d.gd<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://m8mixrasebhn::::res://assets/ideas/meteroidvania/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png<>res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://dnfwmu05ax2vb::::res://entities/enemy/slime enemy/slime_enemy.tscn<>uid://u1i0focg36lp::::res://control/transitions/transitions.tscn<>uid://cevudyiqr3lsu::::res://control/move_area/move_area.tscn
+::res://world/::1738188688
+game.tscn::PackedScene::4586662633936446734::1738188696::0::1::::<><>::res://world/world_1/forest area/test_world.gd<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn
+::res://world/world_1/::1738022378
+::res://world/world_1/forest area/::1738188688
+test_world2.tscn::PackedScene::5412750891675730251::1738188688::0::1::::<><>::res://world/world_1/forest area/test_world_2.gd<>uid://ccf4fo81c1pls::::res://world/world_1/forest area/test_world.tscn<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>res://control/camera_2d.gd<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://m8mixrasebhn::::res://assets/ideas/meteroidvania/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png<>res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://dnfwmu05ax2vb::::res://entities/enemy/slime enemy/slime_enemy.tscn<>uid://u1i0focg36lp::::res://control/transitions/transitions.tscn<>uid://cevudyiqr3lsu::::res://control/move_area/move_area.tscn
 test_world.gd::GDScript::-1::1738188037::0::1::::<>Node2D<>::
-test_world.tscn::PackedScene::4925311452682798772::1738188731::0::1::::<><>::res://world/world_1/forest_area/test_world.gd<>res://control/camera_2d.gd<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>uid://m8mixrasebhn::::res://assets/ideas/meteroidvania/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://dc28t7tiqn540::::res://entities/objects/coin.tscn<>uid://lfu4j7l58qi7::::res://entities/objects/crate.tscn<>uid://dnfwmu05ax2vb::::res://entities/enemy/slime enemy/slime_enemy.tscn<>res://control/can_move_areas/can_move_area_intro.gd<>uid://bsg0351mx3b4u::::res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn<>uid://u1i0focg36lp::::res://control/transitions/transitions.tscn<>uid://cjd8hmelfnyj8::::res://world/world_1/forest_area/test_world2.tscn
+test_world.tscn::PackedScene::4925311452682798772::1738188688::0::1::::<><>::res://world/world_1/forest area/test_world.gd<>res://control/camera_2d.gd<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>uid://m8mixrasebhn::::res://assets/ideas/meteroidvania/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://dc28t7tiqn540::::res://entities/objects/coin.tscn<>uid://lfu4j7l58qi7::::res://entities/objects/crate.tscn<>uid://dnfwmu05ax2vb::::res://entities/enemy/slime enemy/slime_enemy.tscn<>res://control/can_move_areas/can_move_area_intro.gd<>uid://bsg0351mx3b4u::::res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn<>uid://u1i0focg36lp::::res://control/transitions/transitions.tscn<>uid://cjd8hmelfnyj8::::res://world/world_1/forest area/test_world2.tscn
 test_world_2.gd::GDScript::-1::1738188230::0::1::::<>Node2D<>::
