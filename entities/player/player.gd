@@ -150,5 +150,5 @@ func can_now_move():
 	can_move = true
 
 
-func _on_cannot_move_area_intro_body_entered(body: Node2D) -> void:
+func _on_cannot_move_area_intro_body_entered(_body: Node2D) -> void:
 	can_move = false

@@ -3,7 +3,7 @@ extends Node
 var fade_duration = 1.0 # Set fade duration to 2.5 seconds
 var fade_speed = 1.5# / fade_duration
 var right_distance = 45
-var left_distance = 45
+var left_distance = -45
 var walk_duration = 2.5
 var state = "idle"
 #var can_move := false
@@ -26,13 +26,16 @@ func _ready() -> void:
 			fade_rect = null
 			push_error("FadeRect not found")
 			
-		
+	# Make sure fade starts black
 	if fade_rect:
 		fade_rect.modulate.a = 1
 		fade_rect.visible = true
-		fade_in()
-	else:
-		push_error("FadeRect node is not found!")
+		
+	call_deferred("start_fade_in")
+
+	
+func start_fade_in():
+	fade_in()
 
 		
 		
@@ -56,14 +59,16 @@ func _process(_delta: float) -> void:
 		
 		
 func fade_in():
-	#fade_rect.modulate.a = 1 # Make sure the screen is black
-	
+	if not fade_rect:
+		return
+
+	fade_rect.modulate.a = 1 # Make sure the screen is black
 	var tween = create_tween()
 	tween.tween_property(fade_rect, "modulate:a", 0, fade_duration)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.finished.connect(on_fade_in_finished)
-	
+
 	
 func fade_out():
 	var tween = create_tween()
@@ -74,8 +79,6 @@ func fade_out():
 	
 
 func on_fade_in_finished():
-	#if PlayerManager.player:
-		#PlayerManager.player.can_now_move()
 	state = "idle"
 	
 func on_fade_out_finished():
@@ -99,10 +102,15 @@ func on_entry_finished_left():
 
 # Entry - RIGHT
 func entry_right():
-	pass
+	var tween = create_tween()
+	tween.tween_property(PlayerManager.player, "position:x", PlayerManager.player.position.x + left_distance, walk_duration)
+	tween.set_ease(Tween.EASE_OUT)
+	
+	tween.finished.connect(on_entry_finished_right)
 	
 func on_entry_finished_right():
-	pass
+	PlayerManager.player.can_move = true
+	state = "idle"
 	
 	
 	
@@ -121,7 +129,7 @@ func transition_left():
 	tween.finished.connect(level.on_transition_finished_left)
 	
 func _on_left_area_body_entered(_body: Node2D) -> void:
-	if PlayerManager.playerplayer:
+	if PlayerManager.player:
 		state = "fade_left"
 		print(state)
 	
@@ -144,15 +152,13 @@ func _on_right_area_body_entered(_body: Node2D) -> void:
 
 
 func change_scene(target_scene):
-	await fade_out()
+	await fade_out() # Fully fade out to black
+	fade_rect = null # Clear FadeRect before switching scenes
 	get_tree().change_scene_to_packed(target_scene)
-	await get_tree().process_frame
+	await get_tree().process_frame # Wait for new scene to fully load
 	
-	if fade_rect:
-		fade_rect.modulate.a = 1
 		
-	_ready()
-	await fade_in()
+	call_deferred("_ready")
 
 
 #

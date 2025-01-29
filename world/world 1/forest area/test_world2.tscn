@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjd8hmelfnyj8"]
+[gd_scene load_steps=16 format=3 uid="uid://cjd8hmelfnyj8"]
 
 [ext_resource type="Script" path="res://world/world 1/forest area/test_world_2.gd" id="1_m2fm0"]
+[ext_resource type="PackedScene" uid="uid://ccf4fo81c1pls" path="res://world/world 1/forest area/test_world.tscn" id="2_eomev"]
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="2_v2f0p"]
 [ext_resource type="Script" path="res://control/camera_2d.gd" id="3_4p531"]
 [ext_resource type="PackedScene" uid="uid://cem7r4j8s7g4n" path="res://entities/player/player.tscn" id="4_qi6yf"]
@@ -196,6 +197,7 @@ shader_parameter/palette = ExtResource("7_bammv")
 
 [node name="TestWorld2" type="Node2D"]
 script = ExtResource("1_m2fm0")
+exit_left = ExtResource("2_eomev")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -245,6 +247,7 @@ position = Vector2(194, 131)
 [node name="move_area" parent="." instance=ExtResource("10_hjjpo")]
 position = Vector2(-50, -38)
 
-[node name="Transitions" parent="." instance=ExtResource("10_a78b0")]
+[node name="Transitions" parent="." node_paths=PackedStringArray("level") instance=ExtResource("10_a78b0")]
+level = NodePath("..")
 
-[connection signal="body_entered" from="move_area" to="Transitions" method="_on_left_transition_area_body_entered"]
+[connection signal="body_entered" from="move_area" to="Transitions" method="_on_left_area_body_entered"]

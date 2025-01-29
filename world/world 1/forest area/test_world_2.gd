@@ -18,25 +18,26 @@ var can_move := false
 
 func _ready() -> void:
 	fade_rect.modulate.a = 1  # Ensure the screen is black before the fade-in
-	transitions.fade_in()  # Start fading out when entering a new scene
+	TransitionManager.fade_in()  # Start fading out when entering a new scene
 	if Global.previous_scene == "test_world":
-		transitions.entry_left()
+		TransitionManager.entry_left()
 		# Move player to the appropriate side of the screen
 		#PlayerManager.player.position = Vector2(10, 129) # Example: Enter from left
 	#else:
 		## Default spawn position
 		#PlayerManager.player.position = Vector2(500, player.position.y)  # Example: Default position
 
-func _process(delta: float) -> void:
-	pass
-	#if state == "fade_right" and fade_rect:
-		#transitions.fade_in()
+func _process(_delta: float) -> void:
+	if state == "fade_left" and fade_rect:
+		on_transition_finished_left()
 
 		
 # Transitions
 # Left
 func on_transition_finished_left():
-	get_tree().change_scene_to_packed(exit_left)
+	await transitions.on_fade_out_finished
+	Global.previous_scene = "test_world2"
+	TransitionManager.change_scene(exit_left)
 	
 # Right
 func on_transition_finished_right():
