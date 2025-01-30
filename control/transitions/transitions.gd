@@ -35,7 +35,8 @@ func _ready() -> void:
 
 	
 func start_fade_in():
-	fade_in()
+	if fade_rect:
+		fade_in()
 
 		
 		
