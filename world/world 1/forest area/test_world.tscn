@@ -245,7 +245,7 @@ layer_2/name = "Statue"
 position = Vector2(0, 1)
 
 [node name="Player" parent="Entities" instance=ExtResource("5_1n2vo")]
-position = Vector2(70, -1403)
+position = Vector2(1220, 92)
 collision_mask = 2
 
 [node name="Shader" type="CanvasLayer" parent="."]
@@ -283,7 +283,7 @@ position = Vector2(574, 358)
 position = Vector2(259, 131)
 
 [node name="can_move_area_intro" type="Area2D" parent="."]
-position = Vector2(94, 136)
+position = Vector2(1207, 137)
 script = ExtResource("11_ybruf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="can_move_area_intro"]
@@ -303,8 +303,23 @@ shape = SubResource("RectangleShape2D_nhta1")
 position = Vector2(74, -1017)
 shape = SubResource("RectangleShape2D_5xtsj")
 
-[node name="Transitions" parent="." node_paths=PackedStringArray("level") instance=ExtResource("13_s6n1v")]
+[node name="Transitions" parent="." node_paths=PackedStringArray("level", "fade_rect") instance=ExtResource("13_s6n1v")]
 level = NodePath("..")
+fade_rect = NodePath("FadeRect")
+
+[node name="FadeRect" type="ColorRect" parent="Transitions"]
+visible = false
+z_index = 4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1551.0
+offset_top = -1106.0
+offset_right = 2047.0
+offset_bottom = 1119.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="can_move_area_intro" to="Entities/Player" method="_on_can_move_area_intro_body_entered"]
 [connection signal="body_entered" from="move_area" to="Transitions" method="_on_right_area_body_entered"]
