@@ -211,7 +211,7 @@ position = Vector2(-3, 0)
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("4_qi6yf")]
-position = Vector2(10, 129)
+position = Vector2(15, 127)
 collision_mask = 2
 
 [node name="TileMap" type="TileMap" parent="."]

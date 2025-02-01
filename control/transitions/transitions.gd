@@ -153,9 +153,25 @@ func _on_right_area_body_entered(_body: Node2D) -> void:
 
 
 func change_scene(target_scene):
+	if not target_scene:
+		push_error("Error: Target scene is null")
+		return
+		
+	print("Switching to scene:", target_scene.resource_path)
+	
 	await fade_out() # Fully fade out to black
+	
 	fade_rect = null # Clear FadeRect before switching scenes
-	get_tree().change_scene_to_packed(target_scene)
+	
+	var new_scene = target_scene.instantiate()
+	if not new_scene:
+		push_error("Error: Failed to instantiate scene")
+		return
+		
+		
+	get_tree().current_scene.queue_free()
+	get_tree().root.add_child(new_scene)
+	get_tree().current_scene = new_scene  # Set new active scene
 	await get_tree().process_frame # Wait for new scene to fully load
 	
 		
