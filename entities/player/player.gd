@@ -31,6 +31,7 @@ var reset_position: Vector2
 var event: bool
 var abilities: Array[StringName]
 var double_jump: bool
+var entry_state: String = ""
 
 func _ready() -> void:
 	on_enter()
@@ -152,3 +153,6 @@ func can_now_move():
 
 func _on_cannot_move_area_intro_body_entered(_body: Node2D) -> void:
 	can_move = false
+	
+func set_entry_state(state: String):
+	entry_state = state

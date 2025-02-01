@@ -13,8 +13,15 @@ func _ready():
 
 func update_sprite(direction, velocity, on_floor, crouching, attacking):
 	# Flip
-	if direction.x:
-		$Sprite2D.flip_h = direction.x < 0
+	if PlayerManager.player.entry_state == "fade_left":
+		sprite_2d.flip_h = true
+	elif PlayerManager.player.entry_state == "fade_right":
+		sprite_2d.flip_h = false
+	elif direction.x:
+		sprite_2d.flip_h = direction.x < 0
+		
+		
+	PlayerManager.player.entry_state = ""
 	
 	# State
 	var state = 'idle'

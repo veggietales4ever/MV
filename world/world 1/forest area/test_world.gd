@@ -18,8 +18,9 @@ func _ready() -> void:
 	TransitionManager.fade_in()  # Start fading out when entering a new scene
 	
 	if Global.previous_scene == "test_world2" and Global.last_exit == "left":
-		PlayerManager.player.position = Vector2(1320, PlayerManager.player.position.y)
+		PlayerManager.player.position = Vector2(1333, PlayerManager.player.position.y)
 		TransitionManager.entry_right()
+		
 	#else:
 		#PlayerManager.player.position = Vector2(100, PlayerManager.player.position.y)
 		#TransitionManager.entry_left()
@@ -29,7 +30,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if state == "fade_right" and fade_rect:
 		on_transition_finished_right()
-		
+	#if state == "fade_left":
+		#PlayerManager.entry_state = "fade_left"
 	
 
 # Transitions
@@ -56,3 +58,10 @@ func on_transition_finished_right():
 		#await TransitionManager.on_fade_out_finished
 		#Global.previous_scene = "test_world"
 		#TransitionManager.change_scene(exit_right)
+		
+		
+#func _force_camera_update():
+	#var camera = PlayerManager.player.get_node("Camera2D") if PlayerManager.player.has_node("Camera2D") else null
+	#if camera:
+		#camera.position = PlayerManager.player.position
+		#camera.force_update_scroll()

@@ -245,7 +245,7 @@ layer_2/name = "Statue"
 position = Vector2(0, 1)
 
 [node name="Player" parent="Entities" instance=ExtResource("5_1n2vo")]
-position = Vector2(1223, 97)
+position = Vector2(1184, 104)
 collision_mask = 2
 
 [node name="RoomInstance" parent="." instance=ExtResource("12_rcs34")]
@@ -293,7 +293,7 @@ position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_k4hma")
 
 [node name="move_area" type="Area2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(15, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_area"]
 position = Vector2(1371, 8)

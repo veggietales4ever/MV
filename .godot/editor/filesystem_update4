@@ -8,7 +8,9 @@ res://control/transitions/transitions.tscn
 res://world/world 1/forest area/test_world.tscn
 res://world/world 1/forest area/test_world2.tscn
 res://world/world 1/forest area/test_world_2.gd
-res://control/transitions/transitions.gd
 res://world/world 1/forest area/test_world.gd
-res://world/world 1/forest area/test_worldstart.tscn
-res://world/world 1/forest area/test_worldstart.gd
+res://entities/player/player_graphics.gd
+res://control/transitions/transitions.gd
+res://control/camera_2d.gd
+res://global/global_player_manager.gd
+res://entities/player/player.gd

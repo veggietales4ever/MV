@@ -1,6 +1,6 @@
 extends Node
 
-var fade_duration = 1.0 # Set fade duration to 2.5 seconds
+var fade_duration = 0.5 # Set fade duration to 2.5 seconds
 var fade_speed = 1.5# / fade_duration
 var right_distance = 45
 var left_distance = -45
@@ -106,6 +106,11 @@ func entry_right():
 	var tween = create_tween()
 	tween.tween_property(PlayerManager.player, "position:x", PlayerManager.player.position.x + left_distance, walk_duration)
 	tween.set_ease(Tween.EASE_OUT)
+	
+# Flip the player smoothly
+	var sprite = PlayerManager.player.get_node("Sprite2D")
+	var target_scale = Vector2(-1, 1) if sprite.scale.x > 0 else Vector2(1, 1)  # Flip logic
+	tween.parallel().tween_property(sprite, "scale", target_scale, 0.2)
 	
 	tween.finished.connect(on_entry_finished_right)
 	
