@@ -6,7 +6,7 @@ var right_distance = 25
 var left_distance = -25
 var walk_duration = 1.5
 var state = "idle"
-#var can_move := false
+var can_move := false
 
 
 
@@ -42,7 +42,7 @@ func start_fade_in():
 		
 func _process(_delta: float) -> void:
 	if state == "fade_left" and fade_rect:
-		PlayerManager.player.cant_move()
+		PlayerManager.player.can_move = false
 		fade_out()
 		transition_left()
 	if state == "fade_right" and fade_rect:
@@ -91,12 +91,10 @@ func on_fade_out_finished():
 func entry_left():
 	var player = PlayerManager.player
 	var sprite = player.player_graphics.get_node_or_null("Sprite2D")
-	
 	sprite.flip_h = false
 	
-	#if state == "fade":
 	var tween = create_tween()
-	tween.tween_property(PlayerManager.player, "position:x", PlayerManager.player.position.x + right_distance, walk_duration)
+	tween.tween_property(player, "position:x", player.position.x + right_distance, walk_duration)
 	tween.set_ease(Tween.EASE_OUT)
 	
 	tween.finished.connect(on_entry_finished_left)
@@ -110,14 +108,11 @@ func on_entry_finished_left():
 func entry_right():
 	var player = PlayerManager.player
 	var sprite = player.player_graphics.get_node_or_null("Sprite2D")
-	
-	# Flip the sprite
 	sprite.flip_h = true
 	
 	var tween = create_tween()
 	tween.tween_property(player, "position:x", player.position.x + left_distance, walk_duration)
 	tween.set_ease(Tween.EASE_OUT)
-	
 	
 	tween.finished.connect(on_entry_finished_right)
 	
@@ -135,6 +130,10 @@ func on_entry_finished_right():
 	
 # Exit LEFT
 func transition_left():
+	if PlayerManager.player:
+		var animation_player = PlayerManager.player.player_graphics.get_node_or_null("AnimationPlayer")
+		if animation_player:
+			animation_player.play("run")
 	var tween = create_tween()
 	tween.tween_property(PlayerManager.player, "position:x", PlayerManager.player.position.x + left_distance, walk_duration)
 	tween.set_ease(Tween.EASE_OUT)
@@ -143,8 +142,12 @@ func transition_left():
 	
 func _on_left_area_body_entered(_body: Node2D) -> void:
 	if PlayerManager.player:
-		state = "fade_left"
-		print(state)
+		var animation_player = PlayerManager.player.player_graphics.get_node_or_null("AnimationPlayer")
+		if animation_player:
+			animation_player.play("run")
+			state = "fade_left"
+			print("state changed to:", state)
+		
 	
 	
 # Exit RIGHT
@@ -158,8 +161,11 @@ func transition_right():
 		
 func _on_right_area_body_entered(_body: Node2D) -> void:
 	if PlayerManager.player:
-		state = "fade_right"
-		print(state)
+		var animation_player = PlayerManager.player.player_graphics.get_node_or_null("AnimationPlayer")
+		if animation_player:
+			animation_player.play("run")
+			state = "fade_right"
+			print("state changed to:", state)
 		
 		
 func change_scene(target_scene_path: String):

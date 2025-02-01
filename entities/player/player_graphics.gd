@@ -13,15 +13,10 @@ func _ready():
 
 func update_sprite(direction, velocity, on_floor, crouching, attacking):
 	# Flip
-	if PlayerManager.player.entry_state == "fade_left":
-		sprite_2d.flip_h = true
-	elif PlayerManager.player.entry_state == "fade_right":
-		sprite_2d.flip_h = false
-	elif direction.x:
+	if direction.x:
 		sprite_2d.flip_h = direction.x < 0
 		
-		
-	PlayerManager.player.entry_state = ""
+
 	
 	# State
 	var state = 'idle'
@@ -42,8 +37,12 @@ func update_sprite(direction, velocity, on_floor, crouching, attacking):
 		state = 'idle'
 	elif on_floor and direction.x:
 		state = 'run'
-
+		
+	# Change animation if different from current
+	#if animation_player.current_animation != state:
 	animation_player.play(state)
+		
+		
 	
 func _on_animation_finished(anim_name):
 	if anim_name == 'attack' or anim_name == 'jump_attack':

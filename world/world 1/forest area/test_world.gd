@@ -11,6 +11,7 @@ const EXIT_RIGHT = preload("res://world/world 1/forest area/test_world2.tscn")
 const EXIT_LEFT = null
 
 var state = "idle"
+var can_move := false
 
 
 func _ready() -> void:
@@ -21,17 +22,14 @@ func _ready() -> void:
 		PlayerManager.player.position = Vector2(1378, PlayerManager.player.position.y)
 		TransitionManager.entry_right()
 		
-	#else:
-		#PlayerManager.player.position = Vector2(100, PlayerManager.player.position.y)
-		#TransitionManager.entry_left()
 	print(state)
 
 
 func _process(_delta: float) -> void:
-	if state == "fade_right" and fade_rect:
+	if state == "fade_right": #and fade_rect:
 		on_transition_finished_right()
-	#if state == "fade_left":
-		#PlayerManager.entry_state = "fade_left"
+	if state == "fade_left": #and fade_rect:
+		on_transition_finished_left()
 	
 
 # Transitions
@@ -51,17 +49,6 @@ func on_transition_finished_right():
 		await TransitionManager.fade_out()
 		Global.previous_scene = "test_world"
 		Global.last_exit = "right"
-		print("Changing to:", EXIT_RIGHT)
 		TransitionManager.change_scene("res://world/world 1/forest area/test_world2.tscn")
 	else:
 		push_error("Exit right is null")
-		#await TransitionManager.on_fade_out_finished
-		#Global.previous_scene = "test_world"
-		#TransitionManager.change_scene(exit_right)
-		
-		
-#func _force_camera_update():
-	#var camera = PlayerManager.player.get_node("Camera2D") if PlayerManager.player.has_node("Camera2D") else null
-	#if camera:
-		#camera.position = PlayerManager.player.position
-		#camera.force_update_scroll()

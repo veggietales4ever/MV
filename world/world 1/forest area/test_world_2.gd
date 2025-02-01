@@ -22,11 +22,13 @@ func _ready() -> void:
 		TransitionManager.entry_left()
 	#else:
 		#PlayerManager.player.position = Vector2(900, PlayerManager.player.position.y)
-		
+	print(state)
 
 func _process(_delta: float) -> void:
 	if state == "fade_left": #and fade_rect:
 		on_transition_finished_left()
+	if state == "fade_right": #and fade_rect:
+		on_transition_finished_right()
 
 		
 # Transitions
@@ -46,6 +48,6 @@ func on_transition_finished_right():
 		await TransitionManager.fade_out()
 		Global.previous_scene = "test_world2"
 		Global.last_exit = "right"
-		#TransitionManager.change_scene(EXIT_RIGHT)
+		#TransitionManager.change_scene("res://world/world 1/forest area/test_world.tscn")
 	else:
 		push_error("Error: exit_right is null")

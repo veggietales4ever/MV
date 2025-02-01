@@ -16,3 +16,4 @@ res://global/global_player_manager.gd
 res://entities/player/player.gd
 res://control/move_area/move_area.gd
 res://entities/player/player_graphics.tscn
+res://global/global.gd
