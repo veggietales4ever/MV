@@ -18,16 +18,16 @@ var can_move := false
 
 func _ready() -> void:
 	var current_scene = get_tree().current_scene
-	if current_scene and current_scene.has_node("Transitions/FadeRect"):
+	if current_scene:
 		# Locate FadeRect
-		#if current_scene.has_node("Transitions/FadeRect"):
-		fade_rect = current_scene.get_node("Transitions/FadeRect")
-	else:
-		fade_rect = null
-		push_error("FadeRect not found")
+		if current_scene.has_node("Transitions/FadeRect"):
+			fade_rect = current_scene.get_node("Transitions/FadeRect")
+		else:
+			fade_rect = null
+			push_error("FadeRect not found")
 			
 	# Make sure fade starts black
-	if is_instance_valid(fade_rect):
+	if fade_rect:
 		fade_rect.modulate.a = 1
 		fade_rect.visible = true
 		
@@ -72,15 +72,10 @@ func fade_in():
 
 	
 func fade_out():
-	if not fade_rect:
-		return
-		
 	var tween = create_tween()
 	tween.tween_property(fade_rect, "modulate:a", 1, fade_duration)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_LINEAR)
-	
-	await tween.finished
 	tween.finished.connect(on_fade_out_finished)
 	
 
@@ -182,8 +177,6 @@ func change_scene(target_scene_path: String):
 
 	await fade_out()  # Ensure fade-out before switching
 
-	fade_rect = null
-	
 	# Remove the current scene properly
 	var current_scene = get_tree().current_scene
 	if current_scene:

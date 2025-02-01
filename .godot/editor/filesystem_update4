@@ -9,4 +9,3 @@ res://world/world 1/forest area/test_world.tscn
 res://world/world 1/forest area/test_world2.tscn
 res://entities/player/player_graphics.tscn
 res://world/world 1/forest area/test_world.gd
-res://control/transitions/transitions.gd
