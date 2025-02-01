@@ -39,7 +39,7 @@ func on_transition_finished_left():
 		await TransitionManager.fade_out()
 		Global.previous_scene = "test_world2"
 		Global.last_exit = "left"
-		TransitionManager.change_scene(EXIT_LEFT)
+		TransitionManager.change_scene("res://world/world 1/forest area/test_world.tscn")
 	else:
 		push_error("Exit left is null")
 	
@@ -49,7 +49,7 @@ func on_transition_finished_right():
 		await TransitionManager.fade_out()
 		Global.previous_scene = "test_world2"
 		Global.last_exit = "right"
-		TransitionManager.change_scene(EXIT_RIGHT)
+		#TransitionManager.change_scene(EXIT_RIGHT)
 	else:
 		push_error("Exit right is null")
 		#await TransitionManager.on_fade_out_finished

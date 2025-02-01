@@ -150,40 +150,32 @@ func _on_right_area_body_entered(_body: Node2D) -> void:
 		print(state)
 		
 		
-
-
-func change_scene(target_scene):
-	if not target_scene:
-		push_error("Error: Target scene is null")
+func change_scene(target_scene_path: String):
+	if target_scene_path == "" or target_scene_path.is_empty():
+		push_error("🚨 Error: Target scene path is empty! Cannot switch scenes.")
 		return
-		
-	print("Switching to scene:", target_scene.resource_path)
-	
-	await fade_out() # Fully fade out to black
-	
-	fade_rect = null # Clear FadeRect before switching scenes
-	
-	var new_scene = target_scene.instantiate()
+
+	print("Switching to scene:", target_scene_path)
+
+	await fade_out()  # Ensure fade-out before switching
+
+	# Remove the current scene properly
+	var current_scene = get_tree().current_scene
+	if current_scene:
+		current_scene.queue_free()  # Mark current scene for deletion
+		await get_tree().process_frame  # Ensure deletion is processed
+
+	# Load new scene
+	var new_scene = load(target_scene_path).instantiate()
 	if not new_scene:
-		push_error("Error: Failed to instantiate scene")
+		push_error("🚨 Error: Failed to instantiate scene!")
 		return
-		
-		
-	get_tree().current_scene.queue_free()
+
+	# Add new scene to tree and set it as the active scene
 	get_tree().root.add_child(new_scene)
-	get_tree().current_scene = new_scene  # Set new active scene
-	await get_tree().process_frame # Wait for new scene to fully load
-	
-		
-	call_deferred("_ready")
+	get_tree().current_scene = new_scene
 
+	await get_tree().process_frame  # Ensure the new scene is fully loaded
 
-#
-## Transitions
-## Left
-#func on_transition_finished_left():
-	#get_tree().change_scene_to_packed(exit_left)
-	#
-## Right
-#func on_transition_finished_right():
-	#get_tree().change_scene_to_packed(exit_right)
+	_ready()  # Reinitialize FadeRect
+	await fade_in()  # Fade in smoothly
