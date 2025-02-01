@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ccf4fo81c1pls"]
+[gd_scene load_steps=21 format=3 uid="uid://ccf4fo81c1pls"]
 
 [ext_resource type="Script" path="res://world/world 1/forest area/test_world.gd" id="1_8ttbe"]
 [ext_resource type="Script" path="res://control/camera_2d.gd" id="2_m5gyy"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://lfu4j7l58qi7" path="res://entities/objects/crate.tscn" id="9_qr76i"]
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_240mi"]
 [ext_resource type="Script" path="res://control/can_move_areas/can_move_area_intro.gd" id="11_ybruf"]
-[ext_resource type="PackedScene" uid="uid://bsg0351mx3b4u" path="res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn" id="12_rcs34"]
 [ext_resource type="Script" path="res://control/move_area/move_area.gd" id="13_mfox3"]
 [ext_resource type="PackedScene" uid="uid://u1i0focg36lp" path="res://control/transitions/transitions.tscn" id="13_s6n1v"]
 
@@ -246,14 +245,8 @@ layer_2/name = "Statue"
 position = Vector2(0, 1)
 
 [node name="Player" parent="Entities" instance=ExtResource("5_1n2vo")]
-<<<<<<< HEAD
 position = Vector2(1220, 92)
-=======
-position = Vector2(1196, 110)
->>>>>>> parent of 31b98e7 (changing the spawn position.y is what fixed it. fml whatever it's fixed)
 collision_mask = 2
-
-[node name="RoomInstance" parent="." instance=ExtResource("12_rcs34")]
 
 [node name="Shader" type="CanvasLayer" parent="."]
 visible = false
@@ -290,11 +283,7 @@ position = Vector2(574, 358)
 position = Vector2(259, 131)
 
 [node name="can_move_area_intro" type="Area2D" parent="."]
-<<<<<<< HEAD
 position = Vector2(1207, 137)
-=======
-position = Vector2(1141, 131)
->>>>>>> parent of 31b98e7 (changing the spawn position.y is what fixed it. fml whatever it's fixed)
 script = ExtResource("11_ybruf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="can_move_area_intro"]
@@ -308,16 +297,12 @@ script = ExtResource("13_mfox3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_area"]
 shape = SubResource("RectangleShape2D_nhta1")
 
-[node name="Transitions" parent="." node_paths=PackedStringArray("level") instance=ExtResource("13_s6n1v")]
-level = NodePath("..")
-
 [node name="cannot move area intro" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cannot move area intro"]
 position = Vector2(74, -1017)
 shape = SubResource("RectangleShape2D_5xtsj")
 
-<<<<<<< HEAD
 [node name="Transitions" parent="." node_paths=PackedStringArray("level", "fade_rect") instance=ExtResource("13_s6n1v")]
 level = NodePath("..")
 fade_rect = NodePath("FadeRect")
@@ -336,8 +321,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-=======
->>>>>>> parent of 31b98e7 (changing the spawn position.y is what fixed it. fml whatever it's fixed)
 [connection signal="body_entered" from="can_move_area_intro" to="Entities/Player" method="_on_can_move_area_intro_body_entered"]
 [connection signal="body_entered" from="move_area" to="Transitions" method="_on_right_area_body_entered"]
 [connection signal="body_entered" from="cannot move area intro" to="Entities/Player" method="_on_cannot_move_area_intro_body_entered"]

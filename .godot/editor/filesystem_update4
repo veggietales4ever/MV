@@ -7,17 +7,6 @@ res://entities/enemy/slime enemy/slime_enemy.tscn
 res://control/transitions/transitions.tscn
 res://world/world 1/forest area/test_world.tscn
 res://world/world 1/forest area/test_world2.tscn
-res://world/world 1/forest area/test_world_2.gd
-res://world/world 1/forest area/test_world.gd
-<<<<<<< HEAD
-res://control/transitions/transitions.gd
-=======
-res://entities/player/player_graphics.gd
-res://control/transitions/transitions.gd
-res://control/camera_2d.gd
-res://global/global_player_manager.gd
-res://entities/player/player.gd
-res://control/move_area/move_area.gd
 res://entities/player/player_graphics.tscn
-res://global/global.gd
->>>>>>> parent of 31b98e7 (changing the spawn position.y is what fixed it. fml whatever it's fixed)
+res://world/world 1/forest area/test_world.gd
+res://control/transitions/transitions.gd
