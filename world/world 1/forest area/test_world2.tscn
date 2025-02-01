@@ -211,7 +211,7 @@ position = Vector2(-3, 0)
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("4_qi6yf")]
-position = Vector2(42, 127)
+position = Vector2(-3, 127)
 collision_mask = 2
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -243,7 +243,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qglxy")
 position = Vector2(194, 131)
 
 [node name="move_area" parent="." instance=ExtResource("10_hjjpo")]
-position = Vector2(-24, -38)
+position = Vector2(-39, -38)
 
 [node name="Transitions" parent="." node_paths=PackedStringArray("level") instance=ExtResource("10_a78b0")]
 level = NodePath("..")

@@ -4,7 +4,7 @@ var fade_duration = 0.5 # Set fade duration to 2.5 seconds
 var fade_speed = 1.5# / fade_duration
 var right_distance = 45
 var left_distance = -45
-var walk_duration = 2.5
+var walk_duration = 1.5
 var state = "idle"
 #var can_move := false
 
@@ -89,6 +89,11 @@ func on_fade_out_finished():
 # Scene Entry
 # Entry - LEFT
 func entry_left():
+	var player = PlayerManager.player
+	var sprite = player.player_graphics.get_node_or_null("Sprite2D")
+	
+	sprite.flip_h = false
+	
 	#if state == "fade":
 	var tween = create_tween()
 	tween.tween_property(PlayerManager.player, "position:x", PlayerManager.player.position.x + right_distance, walk_duration)
@@ -103,14 +108,16 @@ func on_entry_finished_left():
 
 # Entry - RIGHT
 func entry_right():
+	var player = PlayerManager.player
+	var sprite = player.player_graphics.get_node_or_null("Sprite2D")
+	
+	# Flip the sprite
+	sprite.flip_h = true
+	
 	var tween = create_tween()
-	tween.tween_property(PlayerManager.player, "position:x", PlayerManager.player.position.x + left_distance, walk_duration)
+	tween.tween_property(player, "position:x", player.position.x + left_distance, walk_duration)
 	tween.set_ease(Tween.EASE_OUT)
 	
-# Flip the player smoothly
-	var sprite = PlayerManager.player.get_node("Sprite2D")
-	var target_scale = Vector2(-1, 1) if sprite.scale.x > 0 else Vector2(1, 1)  # Flip logic
-	tween.parallel().tween_property(sprite, "scale", target_scale, 0.2)
 	
 	tween.finished.connect(on_entry_finished_right)
 	

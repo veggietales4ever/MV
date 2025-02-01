@@ -293,7 +293,7 @@ position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_k4hma")
 
 [node name="move_area" type="Area2D" parent="."]
-position = Vector2(15, -3)
+position = Vector2(29, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_area"]
 position = Vector2(1371, 8)

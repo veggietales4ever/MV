@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cevudyiqr3lsu"]
+[gd_scene load_steps=3 format=3 uid="uid://cevudyiqr3lsu"]
+
+[ext_resource type="Script" path="res://control/move_area/move_area.gd" id="1_1ixju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jih5k"]
 size = Vector2(48, 569)
 
 [node name="move_area" type="Area2D"]
+script = ExtResource("1_1ixju")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(25, -54.5)
