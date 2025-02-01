@@ -18,7 +18,7 @@ func _ready() -> void:
 	TransitionManager.fade_in()  # Start fading out when entering a new scene
 	
 	if Global.previous_scene == "test_world2" and Global.last_exit == "left":
-		PlayerManager.player.position = Vector2(1333, PlayerManager.player.position.y)
+		PlayerManager.player.position = Vector2(1378, PlayerManager.player.position.y)
 		TransitionManager.entry_right()
 		
 	#else:

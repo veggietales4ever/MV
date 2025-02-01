@@ -2,8 +2,8 @@ extends Node
 
 var fade_duration = 0.5 # Set fade duration to 2.5 seconds
 var fade_speed = 1.5# / fade_duration
-var right_distance = 45
-var left_distance = -45
+var right_distance = 25
+var left_distance = -25
 var walk_duration = 1.5
 var state = "idle"
 #var can_move := false

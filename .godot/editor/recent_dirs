@@ -1,10 +1,10 @@
+res://control/move_area
 res://world
 res://world/world 1/forest area
 res://control/transitions
 res://global
 res://entities/player
 res://control
-res://control/move_area
 res://control/can_move_areas
 res://entities/enemy/slime enemy
 res://entities/enemy

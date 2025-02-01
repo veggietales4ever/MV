@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ccf4fo81c1pls"]
+[gd_scene load_steps=22 format=3 uid="uid://ccf4fo81c1pls"]
 
 [ext_resource type="Script" path="res://world/world 1/forest area/test_world.gd" id="1_8ttbe"]
 [ext_resource type="Script" path="res://control/camera_2d.gd" id="2_m5gyy"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_240mi"]
 [ext_resource type="Script" path="res://control/can_move_areas/can_move_area_intro.gd" id="11_ybruf"]
 [ext_resource type="PackedScene" uid="uid://bsg0351mx3b4u" path="res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn" id="12_rcs34"]
+[ext_resource type="Script" path="res://control/move_area/move_area.gd" id="13_mfox3"]
 [ext_resource type="PackedScene" uid="uid://u1i0focg36lp" path="res://control/transitions/transitions.tscn" id="13_s6n1v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyck2"]
@@ -245,7 +246,7 @@ layer_2/name = "Statue"
 position = Vector2(0, 1)
 
 [node name="Player" parent="Entities" instance=ExtResource("5_1n2vo")]
-position = Vector2(1184, 104)
+position = Vector2(1196, 110)
 collision_mask = 2
 
 [node name="RoomInstance" parent="." instance=ExtResource("12_rcs34")]
@@ -293,7 +294,8 @@ position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_k4hma")
 
 [node name="move_area" type="Area2D" parent="."]
-position = Vector2(29, -3)
+position = Vector2(30, -4)
+script = ExtResource("13_mfox3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_area"]
 position = Vector2(1371, 8)
