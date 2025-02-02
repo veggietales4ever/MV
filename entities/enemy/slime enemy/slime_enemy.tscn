@@ -69,6 +69,7 @@ radius = 11.0454
 radius = 12.0
 
 [node name="SlimeEnemy" groups=["Enemy"] instance=ExtResource("1_r6fw5")]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("2_o25k8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
@@ -88,7 +89,7 @@ shape = SubResource("CircleShape2D_tdkep")
 
 [node name="hitbox" parent="." index="3"]
 collision_layer = 32
-collision_mask = 4
+collision_mask = 5
 
 [node name="hitbox_collider" parent="hitbox" index="0"]
 shape = SubResource("CircleShape2D_3mhv0")
@@ -107,3 +108,5 @@ after_idle_state = NodePath("../Wander")
 script = ExtResource("6_mhmit")
 state_animation_duration = 0.4
 next_state = NodePath("../Idle")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

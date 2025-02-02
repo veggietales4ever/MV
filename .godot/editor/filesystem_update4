@@ -7,13 +7,8 @@ res://entities/enemy/slime enemy/slime_enemy.tscn
 res://control/transitions/transitions.tscn
 res://world/world 1/forest area/test_world.tscn
 res://world/world 1/forest area/test_world2.tscn
-res://world/world 1/forest area/test_world_2.gd
-res://world/world 1/forest area/test_world.gd
-res://entities/player/player_graphics.gd
-res://control/transitions/transitions.gd
-res://control/camera_2d.gd
-res://global/global_player_manager.gd
-res://entities/player/player.gd
-res://control/move_area/move_area.gd
 res://entities/player/player_graphics.tscn
-res://global/global.gd
+res://UI/ui.tscn
+res://global/player_data.gd
+res://UI/ui.gd
+res://entities/player/player_graphics.gd
