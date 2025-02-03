@@ -32,4 +32,4 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player_data.life -= 1
 		var player = PlayerManager.player.player_graphics
-		player.damage_animation()
+		player.take_damage()

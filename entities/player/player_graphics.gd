@@ -6,12 +6,18 @@ signal attack_finished
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+var is_hurt = false
+
 
 func _ready():
 	# Connect the signal (if not already connected via the editor)
 	animation_player.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 func update_sprite(direction, velocity, on_floor, crouching, attacking):
+	# Hurt
+	if is_hurt:
+		return # Prevents other animations from overriding "hurt"
+		
 	# Flip
 	if direction.x:
 		sprite_2d.flip_h = direction.x < 0
@@ -45,16 +51,14 @@ func update_sprite(direction, velocity, on_floor, crouching, attacking):
 	animation_player.play(state)
 		
 		
+		
+func take_damage():
+	if not is_hurt: # Prevent overlapping hurt animations
+		is_hurt = true
+		animation_player.play("hurt")
 	
 func _on_animation_finished(anim_name):
 	if anim_name == 'attack' or anim_name == 'jump_attack' or anim_name == 'crouchingsword':
 		emit_signal("attack_finished")
 		animation_player.play('idle')
 		
-func damage_animation():
-	animation_player.play('hurt')
-	
-	PlayerManager.player.cant_move()
-	#var tween = create_tween()
-	#tween.tween_property(player, "position:x", player.position.x, 100)
-	#tween.set_ease(Tween.EASE_OUT)
