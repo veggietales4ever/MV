@@ -11,3 +11,7 @@ res://entities/player/player_graphics.tscn
 res://UI/ui.tscn
 res://entities/player/player.gd
 res://entities/player/player_graphics.gd
+res://entities/player/swordweapon.gd
+res://entities/enemy/enemy.tscn
+res://entities/enemy/enemy_state_machine.gd
+res://entities/objects/crate.tscn

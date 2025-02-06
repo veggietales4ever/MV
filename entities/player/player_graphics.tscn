@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dsu4c1dt8oc6g"]
+[gd_scene load_steps=16 format=3 uid="uid://dsu4c1dt8oc6g"]
 
 [ext_resource type="Script" path="res://entities/player/player_graphics.gd" id="1_7l58b"]
 [ext_resource type="Texture2D" uid="uid://cm77ubtxtcoep" path="res://Aseprite Assets/player/character-Sheet-updated.png" id="2_yilx0"]
+[ext_resource type="Script" path="res://entities/player/swordweapon.gd" id="3_per2m"]
 
 [sub_resource type="Animation" id="Animation_285fk"]
 length = 0.001
@@ -295,9 +296,12 @@ autoplay = "idle"
 [node name="Sword" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 8
+script = ExtResource("3_per2m")
 
 [node name="SwordCollision" type="CollisionShape2D" parent="Sword"]
 position = Vector2(22, -4)
 shape = SubResource("RectangleShape2D_7lwrq")
 disabled = true
 debug_color = Color(0.797501, 0.357095, 0.59265, 0.42)
+
+[connection signal="area_entered" from="Sword" to="Sword" method="_on_area_entered"]

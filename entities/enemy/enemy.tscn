@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4ll2hc81b066"]
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 
 [node name="hitbox" type="Area2D" parent="."]
 
