@@ -213,6 +213,9 @@ position = Vector2(-3, 0)
 [node name="Player" parent="Entities" instance=ExtResource("4_qi6yf")]
 position = Vector2(-3, 127)
 collision_mask = 2
+knockback_force = 1000
+knockback_duration = 0.3
+invulnerability_duration = 1.0
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(3768, -97)

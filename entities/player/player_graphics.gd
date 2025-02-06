@@ -52,13 +52,16 @@ func update_sprite(direction, velocity, on_floor, crouching, attacking):
 		
 		
 		
-func take_damage():
+func take_damage_animation():
 	if not is_hurt: # Prevent overlapping hurt animations
 		is_hurt = true
 		animation_player.play("hurt")
 	
 func _on_animation_finished(anim_name):
-	if anim_name == 'attack' or anim_name == 'jump_attack' or anim_name == 'crouchingsword':
+	if anim_name in ["attack", "jump_attack", "crouchingsword"]:
 		emit_signal("attack_finished")
-		animation_player.play('idle')
+		animation_player.play("idle")
+	elif anim_name == "hurt":
+		is_hurt = false # Allow normal animations again
+		animation_player.play("idle")
 		

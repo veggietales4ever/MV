@@ -1,8 +1,9 @@
+Timer
+Node
 Sprite2D
 CanvasLayer
 CollisionShape2D
 Area2D
-Node
 Camera2D
 ColorRect
 TextureRect
@@ -11,4 +12,3 @@ AnimationPlayer
 CharacterBody2D
 Label
 Panel
-Button

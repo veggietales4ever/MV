@@ -4,6 +4,14 @@ extends Entity
 class_name Player
 
 @onready var player_graphics: Node2D = $PlayerGraphics
+@onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
+
+@export_group('damage')
+@export var knockback_force := 1000
+@export var knockback_duration := 0.3
+@export var invulnerability_duration := 1.0
+var is_knocked_back := false
+var invulnerable := false
 
 @export_group('move')
 @export var speed := 100 # := is the data type of first value is the only data type this var can accept.
@@ -117,6 +125,12 @@ func apply_movement(delta):
 	
 	if faster_fall and attacking:
 		$Timers/AttackCooldown.start()
+	
+	if is_knocked_back:
+		return # Stop movement while in knockback
+		
+	if invulnerable:
+		invulnerability_timer.start(invulnerability_duration)
 		
 	#var on_floor = is_on_floor()
 	move_and_slide()
@@ -156,3 +170,54 @@ func _on_cannot_move_area_intro_body_entered(_body: Node2D) -> void:
 	
 func set_entry_state(state: String):
 	entry_state = state
+
+func take_damage(enemy_position: Vector2):
+	if invulnerable or is_knocked_back:
+		return # Ignore damage if already in knockback or invulnerable
+		
+	# States
+	is_knocked_back = true
+	invulnerable = true
+	can_move = false
+	
+	player_graphics.take_damage_animation()
+	
+	# Knockback direction (opposite of enemy)
+	var knockback_direction = sign(position.x - enemy_position.x)
+	if knockback_direction == 0:
+		knockback_direction = 1 # Default to right if directly on top
+	
+	# Apply knockback
+	velocity.x = knockback_direction * knockback_force
+	velocity.y = -jump_strength * 1.3 # Slight upward
+	
+	# Knockback movement
+	move_and_slide()
+	
+	# Knockback timer
+	var knockback_tween = create_tween()
+	knockback_tween.tween_property(self, "velocity", Vector2.ZERO, knockback_duration)
+	knockback_tween.set_ease(Tween.EASE_IN_OUT)
+	knockback_tween.connect("finished", _on_knockback_finished)
+	
+	start_invulnerability()
+	
+func _on_knockback_finished():
+	is_knocked_back = false
+	can_move = true
+	
+	animate()
+	
+func _on_invulnerability_timeout():
+	invulnerable = false
+	player_graphics.modulate = Color(1, 1, 1, 1) # Reset opacity
+	
+func start_invulnerability():
+	invulnerable = true
+	var flash_tween = create_tween()
+	for i in range(7): # Flash 7 times
+		flash_tween.tween_property(player_graphics, "modulate", Color(1, 1, 1, 0.3), 0.1) # 0.1 is duration of tween in seconds
+		flash_tween.tween_property(player_graphics, "modulate", Color(1, 1, 1, 1), 0.1)
+		
+		
+	flash_tween.connect("finished", _on_invulnerability_timeout)

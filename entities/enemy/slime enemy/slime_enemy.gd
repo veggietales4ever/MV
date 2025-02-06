@@ -30,6 +30,7 @@ func update_animation(state : String) -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		player_data.life -= 1
-		var player = PlayerManager.player.player_graphics
-		player.take_damage()
+		var player = PlayerManager.player
+		if not player.invulnerable:
+			player_data.life -= 1
+			player.take_damage(global_position)

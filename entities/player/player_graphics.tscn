@@ -159,7 +159,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_phnis"]
 resource_name = "hurt"
-length = 1.2
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
