@@ -22,6 +22,7 @@ var gravity := 600
 @onready var state_matchine: EnemyStateMachine = $EnemyStateMachine
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
 
+
 func _ready() -> void:
 	state_matchine.initialize(self)
 	player = PlayerManager.player
@@ -73,6 +74,14 @@ func take_damage(amount: int):
 	Health -= amount # Subtract health
 	emit_signal("enemy_damaged") # Emit signal if needed
 	
+	
+	# Transition to chase state after knockback
+	if state_matchine:
+		for state in state_matchine.states:
+			if state is EnemyStateChase:
+				state_matchine.change_state(state)
+				break
+
 	# Knockback timer
 	var knockback_tween = create_tween()
 	knockback_tween.tween_property(self, "velocity", Vector2.ZERO, knockback_duration)
@@ -92,7 +101,7 @@ func take_damage_animation():
 func _on_knockback_finished():
 	is_knocked_back = false
 
-func start_invulnerability():
+func start_invulnerability(): 
 	invulnerable = true
 	var flash_tween = create_tween()
 	for i in range(7): # Flash 7 times

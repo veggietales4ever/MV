@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dnfwmu05ax2vb"]
+[gd_scene load_steps=16 format=3 uid="uid://dnfwmu05ax2vb"]
 
 [ext_resource type="PackedScene" uid="uid://4ll2hc81b066" path="res://entities/enemy/enemy.tscn" id="1_r6fw5"]
 [ext_resource type="Script" path="res://entities/enemy/slime enemy/slime_enemy.gd" id="2_o25k8"]
@@ -85,6 +85,9 @@ radius = 11.0454
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mhv0"]
 radius = 12.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g27jq"]
+radius = 95.0
+
 [node name="SlimeEnemy" instance=ExtResource("1_r6fw5")]
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
@@ -114,9 +117,18 @@ collision_mask = 5
 shape = SubResource("CircleShape2D_3mhv0")
 debug_color = Color(0.877846, 0.291741, 0.463077, 0.42)
 
-[node name="Stats" type="Node" parent="." index="4"]
+[node name="ChaseTriggerArea" type="Area2D" parent="." index="4"]
+scale = Vector2(1, 1)
+collision_layer = 5
+collision_mask = 5
 
-[node name="EnemyStateMachine" type="Node" parent="." index="5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseTriggerArea" index="0"]
+shape = SubResource("CircleShape2D_g27jq")
+disabled = true
+
+[node name="Stats" type="Node" parent="." index="5"]
+
+[node name="EnemyStateMachine" type="Node" parent="." index="6"]
 script = ExtResource("5_n45tb")
 
 [node name="Idle" type="Node" parent="EnemyStateMachine" index="0" node_paths=PackedStringArray("after_idle_state")]
@@ -132,7 +144,7 @@ next_state = NodePath("../Idle")
 script = ExtResource("7_q4jjl")
 next_state = NodePath("../Idle")
 
-[node name="Timers" type="Node" parent="." index="6"]
+[node name="Timers" type="Node" parent="." index="7"]
 
 [node name="InvulnerabilityTimer" type="Timer" parent="Timers" index="0"]
 

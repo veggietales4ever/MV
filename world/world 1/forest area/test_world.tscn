@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ccf4fo81c1pls"]
+[gd_scene load_steps=24 format=3 uid="uid://ccf4fo81c1pls"]
 
 [ext_resource type="Script" path="res://world/world 1/forest area/test_world.gd" id="1_8ttbe"]
 [ext_resource type="Script" path="res://control/camera_2d.gd" id="2_m5gyy"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://control/move_area/move_area.gd" id="13_mfox3"]
 [ext_resource type="PackedScene" uid="uid://u1i0focg36lp" path="res://control/transitions/transitions.tscn" id="13_s6n1v"]
 [ext_resource type="PackedScene" uid="uid://hxn1ec6yv7ws" path="res://UI/ui.tscn" id="15_f45jf"]
+[ext_resource type="Texture2D" uid="uid://yga17e4jw6dt" path="res://icon.svg" id="16_1x6mt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyck2"]
 texture = ExtResource("4_yi7yq")
@@ -311,6 +312,13 @@ position = Vector2(74, -1017)
 shape = SubResource("RectangleShape2D_5xtsj")
 
 [node name="UI" parent="." instance=ExtResource("15_f45jf")]
+visible = false
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1375, 133)
+scale = Vector2(0.041992, 0.041992)
+texture = ExtResource("16_1x6mt")
 
 [connection signal="body_entered" from="can_move_area_intro" to="Entities/Player" method="_on_can_move_area_intro_body_entered"]
 [connection signal="body_entered" from="move_area" to="Transitions" method="_on_right_area_body_entered"]
