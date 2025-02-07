@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnfwmu05ax2vb"]
+[gd_scene load_steps=15 format=3 uid="uid://dnfwmu05ax2vb"]
 
 [ext_resource type="PackedScene" uid="uid://4ll2hc81b066" path="res://entities/enemy/enemy.tscn" id="1_r6fw5"]
 [ext_resource type="Script" path="res://entities/enemy/slime enemy/slime_enemy.gd" id="2_o25k8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://entities/enemy/enemy_state_machine.gd" id="5_n45tb"]
 [ext_resource type="Script" path="res://entities/enemy/slime enemy/slime_enemy_state_idle.gd" id="5_tf3s0"]
 [ext_resource type="Script" path="res://entities/enemy/slime enemy/slime_enemy_state_wander.gd" id="6_mhmit"]
+[ext_resource type="Script" path="res://entities/enemy/slime enemy/slime_enemy_state_chase.gd" id="7_q4jjl"]
 
 [sub_resource type="Animation" id="Animation_nta3p"]
 length = 0.001
@@ -20,6 +21,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wo1r7"]
+resource_name = "damaged"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
 }
 
 [sub_resource type="Animation" id="Animation_2gqlp"]
@@ -53,21 +69,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-}
-
-[sub_resource type="Animation" id="Animation_wo1r7"]
-resource_name = "damaged"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [12]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f7x3h"]
@@ -125,6 +126,10 @@ after_idle_state = NodePath("../Wander")
 [node name="Wander" type="Node" parent="EnemyStateMachine" index="1" node_paths=PackedStringArray("next_state")]
 script = ExtResource("6_mhmit")
 state_animation_duration = 0.4
+next_state = NodePath("../Idle")
+
+[node name="Chase" type="Node" parent="EnemyStateMachine" index="2" node_paths=PackedStringArray("next_state")]
+script = ExtResource("7_q4jjl")
 next_state = NodePath("../Idle")
 
 [node name="Timers" type="Node" parent="." index="6"]
