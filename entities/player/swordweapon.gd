@@ -1,7 +1,7 @@
 extends Weapon
 class_name BasicSword
 
-@export var sword_damage := 1
+@export var sword_damage := 0.1
 
 
 func _on_area_entered(area: Area2D) -> void:

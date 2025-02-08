@@ -12,4 +12,3 @@ TextureRect
 Node2D
 AnimationPlayer
 CharacterBody2D
-Label

@@ -175,6 +175,15 @@ func take_damage(enemy_position: Vector2):
 	if invulnerable or is_knocked_back:
 		return # Ignore damage if already in knockback or invulnerable
 		
+	
+	var camera = get_viewport().get_camera_2d()
+	if camera:
+		print("Applying screen shake")
+		camera.apply_screen_shake(2)
+	else:
+		print("No camera found")
+		
+		
 	# States
 	is_knocked_back = true
 	invulnerable = true

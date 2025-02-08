@@ -19,3 +19,5 @@ res://entities/weapons/weapon.gd
 res://shaders/gpu_particles_2d.tscn
 res://particles/explosion.tscn
 res://particles/explosion.gd
+res://control/camera_2d.gd
+res://entities/player/player.gd

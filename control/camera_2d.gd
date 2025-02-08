@@ -5,18 +5,28 @@ extends Camera2D
 @export var camera: camera_state
 enum camera_state {FOLLOW, PANNING}
 
+var shake_intensity := 0.0
+var shake_decay := 4
+var rng := RandomNumberGenerator.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	make_current()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	match camera:
 		camera_state.FOLLOW:
 			camera_follow()
 		camera_state.PANNING:
 			camera_panning()
+			
+	if shake_intensity > 0:
+		offset = Vector2(rng.randf_range(-shake_intensity, shake_intensity), rng.randf_range(-shake_intensity, shake_intensity))
+		shake_intensity = max(0, shake_intensity - (shake_decay * delta)) # Gradually reduce shake
+
+		print("Shaking! Intensity:", shake_intensity)  # Debugging line
 
 
 func camera_panning():
@@ -33,3 +43,6 @@ func camera_panning():
 func camera_follow():
 	anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
 	position = player.position
+	
+func apply_screen_shake(intensity: float):
+	shake_intensity = intensity

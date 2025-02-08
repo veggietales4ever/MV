@@ -63,6 +63,15 @@ func damage(amount: int):
 	if invulnerable or is_knocked_back:
 		return # Don't take damage if invulnerable
 		
+		
+	Health -= amount # Subtract health
+	emit_signal("enemy_damaged") # Emit signal if needed
+	
+	
+	if Health <= 0:
+		explode()
+		queue_free()
+		return
 	# States
 	is_knocked_back = true
 	invulnerable = true
@@ -76,22 +85,23 @@ func damage(amount: int):
 		
 	# Calculate knockback target position
 	var knockback_distance = 50  # Adjust as needed for better effect
-	var knockback_target = position + Vector2(knockback_direction * knockback_distance, -20)
+	var knockback_target = position + Vector2(knockback_direction * knockback_distance, 0)
 	
+	
+	# Check for wall collision
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(position, knockback_target, collision_mask)
+	var result = space_state.intersect_ray(query)
+	
+	if result:
+		print("Wall Detected!")
+		knockback_target = result.position
+		
+		
 	# Use tween for smooth movement
 	var tween = create_tween()
 	tween.tween_property(self, "position", knockback_target, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.connect("finished", _on_knockback_finished)
-	
-	# Apply knockback
-	#velocity.y = -500 #* 0.3 # Slight upward
-	#velocity.x = knockback_direction * knockback_force
-		
-	# Knockback movement
-	#move_and_slide()
-	
-	Health -= amount # Subtract health
-	emit_signal("enemy_damaged") # Emit signal if needed
 	
 	
 	# Transition to chase state after knockback
@@ -109,9 +119,7 @@ func damage(amount: int):
 	
 	start_invulnerability()
 	
-	if Health <= 0:
-		explode()
-		queue_free()
+	
 		
 func explode():
 	var explosion_scene = preload("res://particles/explosion.tscn")
