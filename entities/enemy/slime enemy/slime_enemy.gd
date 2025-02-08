@@ -11,8 +11,8 @@ var direction = Vector2.ZERO
 var player : Player
 var is_hurt := false
 var is_knocked_back := false
-var knockback_force := 100
-var knockback_duration := 0.3
+var knockback_force := 1000
+var knockback_duration := 0.7
 var invulnerability_duration := 1.0
 var gravity := 600
 
@@ -26,6 +26,7 @@ var gravity := 600
 func _ready() -> void:
 	state_matchine.initialize(self)
 	player = PlayerManager.player
+	animation_player.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 func _process(delta: float) -> void:
 	apply_gravity(delta)
@@ -35,7 +36,12 @@ func _physics_process(_delta: float) -> void:
 	
 func update_animation(state : String) -> void:
 	animation_player.play(state)
-
+	
+	
+func _on_chase_trigger_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		var player = PlayerManager.player
+		
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -47,7 +53,8 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "Sword":
-		take_damage(2) # Apply 2 damage
+		animation_player.play("damaged")
+		take_damage(0.5) # Apply 2 damage
 			
 func take_damage(amount: int):
 	if invulnerable or is_knocked_back:
@@ -65,8 +72,8 @@ func take_damage(amount: int):
 		knockback_direction = 1 # Default to right if directly on top
 	
 	# Apply knockback
+	#velocity.y = -500 #* 0.3 # Slight upward
 	velocity.x = knockback_direction * knockback_force
-	#velocity.y = -200 * 1.3 # Slight upward
 		
 	# Knockback movement
 	move_and_slide()
@@ -96,7 +103,8 @@ func take_damage(amount: int):
 func take_damage_animation():
 	if not is_hurt:
 		is_hurt = true
-		animation_player.play("damaged")
+		#animation_player.play("damaged")
+		#print(is_hurt)
 		
 func _on_knockback_finished():
 	is_knocked_back = false
@@ -115,3 +123,9 @@ func _on_invulnerability_timeout():
 	
 func apply_gravity(delta):
 	velocity.y += gravity * delta
+
+
+func _on_animation_finished(anim_name):
+	if anim_name in ["damaged"]:
+		emit_signal("enemy_damaged")
+		animation_player.play("wander")

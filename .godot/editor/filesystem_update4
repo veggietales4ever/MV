@@ -13,3 +13,5 @@ res://UI/ui.tscn
 res://entities/objects/crate.tscn
 res://entities/enemy/slime enemy/slime_enemy_state_chase.gd
 res://world/world 1/forest area/test_world.gd
+res://entities/enemy/enemy.tscn
+res://entities/player/swordweapon.gd

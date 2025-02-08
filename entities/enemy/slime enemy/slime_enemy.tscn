@@ -124,7 +124,6 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseTriggerArea" index="0"]
 shape = SubResource("CircleShape2D_g27jq")
-disabled = true
 
 [node name="Stats" type="Node" parent="." index="5"]
 
@@ -142,7 +141,7 @@ next_state = NodePath("../Idle")
 
 [node name="Chase" type="Node" parent="EnemyStateMachine" index="2" node_paths=PackedStringArray("next_state")]
 script = ExtResource("7_q4jjl")
-next_state = NodePath("../Idle")
+next_state = NodePath("../Wander")
 
 [node name="Timers" type="Node" parent="." index="7"]
 
@@ -150,3 +149,4 @@ next_state = NodePath("../Idle")
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="ChaseTriggerArea" to="." method="_on_chase_trigger_area_body_entered"]
