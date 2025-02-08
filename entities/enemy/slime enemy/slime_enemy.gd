@@ -73,13 +73,22 @@ func damage(amount: int):
 	var knockback_direction = sign(position.x - PlayerManager.player.position.x)
 	if knockback_direction == 0:
 		knockback_direction = 1 # Default to right if directly on top
+		
+	# Calculate knockback target position
+	var knockback_distance = 50  # Adjust as needed for better effect
+	var knockback_target = position + Vector2(knockback_direction * knockback_distance, -20)
+	
+	# Use tween for smooth movement
+	var tween = create_tween()
+	tween.tween_property(self, "position", knockback_target, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.connect("finished", _on_knockback_finished)
 	
 	# Apply knockback
 	#velocity.y = -500 #* 0.3 # Slight upward
-	velocity.x = knockback_direction * knockback_force
+	#velocity.x = knockback_direction * knockback_force
 		
 	# Knockback movement
-	move_and_slide()
+	#move_and_slide()
 	
 	Health -= amount # Subtract health
 	emit_signal("enemy_damaged") # Emit signal if needed
@@ -111,6 +120,7 @@ func take_damage_animation():
 		
 func _on_knockback_finished():
 	is_knocked_back = false
+	velocity = Vector2.ZERO # Make sure no leftover movement force
 
 func start_invulnerability(): 
 	invulnerable = true
