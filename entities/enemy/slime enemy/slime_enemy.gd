@@ -52,11 +52,14 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			
 		
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.name == "Sword":
+	if area is Weapon:
+		var weapon = area as Weapon
+		print("Enemy hit by:", weapon.name, " | Damage:", weapon.weapon_damage)
+		damage(weapon.weapon_damage)
 		animation_player.play("damaged")
-		take_damage(0.5) # Apply 2 damage
 			
-func take_damage(amount: int):
+func damage(amount: int):
+	print("Enemy Took damage:", amount)
 	if invulnerable or is_knocked_back:
 		return # Don't take damage if invulnerable
 		
