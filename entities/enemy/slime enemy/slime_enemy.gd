@@ -13,7 +13,7 @@ var is_hurt := false
 var is_knocked_back := false
 var knockback_force := 1000
 var knockback_duration := 0.7
-var invulnerability_duration := 1.0
+var invulnerability_duration := 3.0
 var gravity := 600
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -110,7 +110,17 @@ func damage(amount: int):
 	start_invulnerability()
 	
 	if Health <= 0:
+		explode()
 		queue_free()
+		
+func explode():
+	var explosion_scene = preload("res://particles/explosion.tscn")
+	var explosion_instance = explosion_scene.instantiate()
+	get_parent().add_child(explosion_instance)
+	explosion_instance.global_position = global_position
+	
+	#Pass enemy color to the explosion effect
+	explosion_instance.set_explosion_color(sprite_2d.modulate)
 
 func take_damage_animation():
 	if not is_hurt:
@@ -124,13 +134,14 @@ func _on_knockback_finished():
 
 func start_invulnerability(): 
 	invulnerable = true
+	invulnerability_timer.start(invulnerability_duration)
 	var flash_tween = create_tween()
 	for i in range(7): # Flash 7 times
 		flash_tween.tween_property(self, "modulate", Color(1, 1, 1, 0.3), 0.1) # 0.1 is duration of tween in seconds
 		flash_tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.1)
-	flash_tween.connect("finished", _on_invulnerability_timeout)
+	flash_tween.connect("finished", _on_invulnerability_timer_timeout)
 	
-func _on_invulnerability_timeout():
+func _on_invulnerability_timer_timeout():
 	invulnerable = false
 	self.modulate = Color(1, 1, 1, 1) # Reset opacity
 	

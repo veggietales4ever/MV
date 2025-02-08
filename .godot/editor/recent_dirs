@@ -1,3 +1,5 @@
+res://particles
+res://shaders
 res://UI
 res://global
 res://control/move_area
@@ -13,5 +15,4 @@ res://test
 res://entities/objects
 res://entities
 res://entities/enemy/gold enemy
-res://shaders
 res://background
