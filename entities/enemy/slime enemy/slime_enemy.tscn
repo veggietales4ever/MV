@@ -118,7 +118,6 @@ shape = SubResource("CircleShape2D_3mhv0")
 debug_color = Color(0.877846, 0.291741, 0.463077, 0.42)
 
 [node name="ChaseTriggerArea" type="Area2D" parent="." index="4"]
-scale = Vector2(1, 1)
 collision_layer = 5
 collision_mask = 5
 
@@ -149,4 +148,5 @@ next_state = NodePath("../Wander")
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="body_entered" from="ChaseTriggerArea" to="." method="_on_chase_trigger_area_body_entered"]

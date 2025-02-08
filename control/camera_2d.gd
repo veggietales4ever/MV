@@ -26,8 +26,6 @@ func _process(delta: float) -> void:
 		offset = Vector2(rng.randf_range(-shake_intensity, shake_intensity), rng.randf_range(-shake_intensity, shake_intensity))
 		shake_intensity = max(0, shake_intensity - (shake_decay * delta)) # Gradually reduce shake
 
-		print("Shaking! Intensity:", shake_intensity)  # Debugging line
-
 
 func camera_panning():
 	anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT

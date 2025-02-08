@@ -15,6 +15,7 @@ var knockback_force := 1000
 var knockback_duration := 0.7
 var invulnerability_duration := 3.0
 var gravity := 600
+var player_inside := false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -45,6 +46,7 @@ func _on_chase_trigger_area_body_entered(body: Node2D) -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		player_inside = true
 		var player = PlayerManager.player
 		if not player.invulnerable:
 			player_data.life -= 1
@@ -153,6 +155,23 @@ func _on_invulnerability_timer_timeout():
 	invulnerable = false
 	self.modulate = Color(1, 1, 1, 1) # Reset opacity
 	
+	var player = PlayerManager.player
+	if player == null:
+		print("Error: Playermanager.player is not set")
+		return
+		
+	for area in hitbox.get_overlapping_areas():
+		if area.get_parent() == player and area is Weapon:
+			print("Player attack still inside! Applying damage.")
+			_on_hitbox_area_entered(area)
+			break
+			
+	for body in hitbox.get_overlapping_bodies():
+		if body == player:
+			print("Player still inside")
+			_on_hitbox_body_entered(body)
+			break
+	
 func apply_gravity(delta):
 	velocity.y += gravity * delta
 
@@ -161,3 +180,8 @@ func _on_animation_finished(anim_name):
 	if anim_name in ["damaged"]:
 		emit_signal("enemy_damaged")
 		animation_player.play("wander")
+
+
+func _on_hitbox_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		player_inside = false

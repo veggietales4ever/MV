@@ -43,7 +43,8 @@ var entry_state: String = ""
 
 func _ready() -> void:
 	on_enter()
-	PlayerManager.player =  self
+	#PlayerManager.player =  self
+	PlayerManager.register_player(self)
 	$Timers/DashCooldown.wait_time = dash_cooldown
 	$Timers/AttackCooldown.wait_time = attack_cooldown
 	player_graphics.connect("attack_finished", Callable(self, "_on_attack_finished"))
@@ -178,7 +179,6 @@ func take_damage(enemy_position: Vector2):
 	
 	var camera = get_viewport().get_camera_2d()
 	if camera:
-		print("Applying screen shake")
 		camera.apply_screen_shake(2)
 	else:
 		print("No camera found")
@@ -220,6 +220,7 @@ func _on_knockback_finished():
 func _on_invulnerability_timeout():
 	invulnerable = false
 	player_graphics.modulate = Color(1, 1, 1, 1) # Reset opacity
+	
 	
 func start_invulnerability():
 	invulnerable = true
