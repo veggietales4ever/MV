@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dsu4c1dt8oc6g"]
 
 [ext_resource type="Script" path="res://entities/player/player_graphics.gd" id="1_7l58b"]
-[ext_resource type="Texture2D" uid="uid://cm77ubtxtcoep" path="res://Aseprite Assets/player/character-Sheet-updated.png" id="2_yilx0"]
+[ext_resource type="Texture2D" uid="uid://b7o5qtn82u1ur" path="res://Aseprite Assets/player/maincharacterMV1-Sheet.png" id="2_fpr7y"]
 [ext_resource type="Script" path="res://entities/player/swordweapon.gd" id="3_per2m"]
 
 [sub_resource type="Animation" id="Animation_285fk"]
@@ -102,7 +102,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_si3db"]
 resource_name = "crouching"
-length = 0.66
+length = 0.9
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -112,10 +112,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [13, 14, 15, 16, 17, 18, 19]
+"values": [9, 10, 11, 12, 13, 14, 15, 16, 17]
 }
 
 [sub_resource type="Animation" id="Animation_51utr"]
@@ -176,6 +176,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_0hw36"]
 resource_name = "idle"
+length = 0.85
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -185,10 +186,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
 [sub_resource type="Animation" id="Animation_03k1h"]
@@ -255,10 +256,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 1,
-"values": [20, 21, 22, 23, 24]
+"values": []
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ga0wu"]
@@ -282,9 +283,9 @@ size = Vector2(35.0625, 16.375)
 script = ExtResource("1_7l58b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_yilx0")
+texture = ExtResource("2_fpr7y")
 hframes = 6
-vframes = 11
+vframes = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
