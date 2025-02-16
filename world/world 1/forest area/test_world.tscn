@@ -215,7 +215,6 @@ script = ExtResource("1_8ttbe")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(5, 0)
 anchor_mode = 0
-zoom = Vector2(1.2, 1.2)
 limit_left = 0
 limit_right = 1375
 limit_bottom = 180
@@ -248,7 +247,7 @@ layer_2/name = "Statue"
 position = Vector2(0, 1)
 
 [node name="Player" parent="Entities" instance=ExtResource("5_1n2vo")]
-position = Vector2(68, -1383)
+position = Vector2(54, 99)
 collision_mask = 2
 
 [node name="RoomInstance" parent="." instance=ExtResource("12_rcs34")]
