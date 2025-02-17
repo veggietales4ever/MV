@@ -199,7 +199,6 @@ script = ExtResource("1_m2fm0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-zoom = Vector2(1.2, 1.2)
 limit_left = 0
 limit_bottom = 180
 editor_draw_limits = true
@@ -213,6 +212,7 @@ position = Vector2(-3, 0)
 [node name="Player" parent="Entities" instance=ExtResource("4_qi6yf")]
 position = Vector2(-3, 127)
 collision_mask = 2
+jump_strength = 275
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(3768, -97)

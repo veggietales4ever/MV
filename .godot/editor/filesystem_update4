@@ -10,3 +10,5 @@ res://entities/player/player_graphics.tscn
 res://UI/ui.tscn
 res://entities/enemy/enemy.tscn
 res://particles/explosion.tscn
+res://entities/objects/crate.tscn
+res://entities/player/player.gd

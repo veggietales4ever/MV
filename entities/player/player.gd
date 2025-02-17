@@ -24,7 +24,7 @@ var dash := false
 var crouching := false
 
 @export_group('jump')
-@export var jump_strength := 300
+@export var jump_strength := 275
 @export var gravity := 600
 @export var terminal_velocity := 500
 var jump := false
