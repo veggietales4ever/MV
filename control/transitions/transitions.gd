@@ -90,7 +90,7 @@ func on_fade_out_finished():
 # Entry - LEFT
 func entry_left():
 	var player = PlayerManager.player
-	var sprite = player.player_graphics.get_node_or_null("Sprite2D")
+	var sprite = player.get_node_or_null("Sprite2D")
 	sprite.flip_h = false
 	
 	var tween = create_tween()
@@ -107,7 +107,7 @@ func on_entry_finished_left():
 # Entry - RIGHT
 func entry_right():
 	var player = PlayerManager.player
-	var sprite = player.player_graphics.get_node_or_null("Sprite2D")
+	var sprite = player.get_node_or_null("Sprite2D")
 	sprite.flip_h = true
 	
 	var tween = create_tween()
@@ -131,7 +131,7 @@ func on_entry_finished_right():
 # Exit LEFT
 func transition_left():
 	if PlayerManager.player:
-		var animation_player = PlayerManager.player.player_graphics.get_node_or_null("AnimationPlayer")
+		var animation_player = PlayerManager.player.get_node_or_null("AnimationPlayer")
 		if animation_player:
 			animation_player.play("run")
 	var tween = create_tween()
@@ -142,7 +142,7 @@ func transition_left():
 	
 func _on_left_area_body_entered(_body: Node2D) -> void:
 	if PlayerManager.player:
-		var animation_player = PlayerManager.player.player_graphics.get_node_or_null("AnimationPlayer")
+		var animation_player = PlayerManager.player.get_node_or_null("AnimationPlayer")
 		if animation_player:
 			animation_player.play("run")
 			state = "fade_left"
@@ -161,7 +161,7 @@ func transition_right():
 		
 func _on_right_area_body_entered(_body: Node2D) -> void:
 	if PlayerManager.player:
-		var animation_player = PlayerManager.player.player_graphics.get_node_or_null("AnimationPlayer")
+		var animation_player = PlayerManager.player.get_node_or_null("AnimationPlayer")
 		if animation_player:
 			animation_player.play("run")
 			state = "fade_right"

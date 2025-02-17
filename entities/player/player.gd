@@ -3,8 +3,11 @@
 extends Entity
 class_name Player
 
-@onready var player_graphics: Node2D = $PlayerGraphics
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 @export_group('damage')
 @export var knockback_force := 1000
@@ -30,6 +33,7 @@ var crouching := false
 var jump := false
 var faster_fall := false
 var gravity_multiplier := 1
+var was_in_air : bool = false
 
 @export_group('weapon')
 var attacking := false
@@ -40,60 +44,116 @@ var event: bool
 var abilities: Array[StringName]
 var double_jump: bool
 var entry_state: String = ""
+var animation_locked : bool = false
 
 func _ready() -> void:
+	animation_tree.active = true
 	on_enter()
-	#PlayerManager.player =  self
 	PlayerManager.register_player(self)
 	$Timers/DashCooldown.wait_time = dash_cooldown
 	$Timers/AttackCooldown.wait_time = attack_cooldown
-	player_graphics.connect("attack_finished", Callable(self, "_on_attack_finished"))
-	
-func _process(delta: float) -> void:
+	#PlayerManager.player =  self
+
+
+func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
-	apply_movement(delta)
-	animate()
+	#apply_movement(delta)
+	direction = Input.get_vector("left", "right", "up", "down")
 	
-	if is_on_floor() and $PlayerGraphics/AnimationPlayer.current_animation == "jump_attack":
-		attacking = false # Reset attacking when landing from jump attack
-	
-	if can_move:
-		get_input()
-
-func animate():
-	player_graphics.update_sprite(direction, velocity, is_on_floor(), crouching, attacking) # direction of player, if they're on the floor, crouching or not
-
-func get_input():
-	# horizontal movement
-	direction.x = Input.get_axis("left", "right")
+	if direction.x:
+		velocity.x = move_toward(velocity.x, direction.x * speed, acceleration * delta)
+	else:
+		velocity.x = move_toward(velocity.x, 0, friction * delta)
 	
 	# Jump
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			jump = true
+			jump_func()
 		if velocity.y > 0 and not is_on_floor():
 			$Timers/JumpBuffer.start()
-	
+			
+	if not is_on_floor():
+		was_in_air = true
+	else:
+		if was_in_air:
+			land()
+			
+		was_in_air = false
+			
+	#if jump:# or $Timers/JumpBuffer.time_left and is_on_floor():
+		#velocity.y = -jump_strength
+		#jump = false
+		#faster_fall = false
+			#
 	if Input.is_action_just_released("jump") and not is_on_floor() and velocity.y < 0:
 		faster_fall = true
-		
-	# Dash
-	if Input.is_action_just_pressed("dash") and velocity.x and not $Timers/DashCooldown.time_left: #Can only dash if moving in a direction
-		dash = true
-		$Timers/DashCooldown.start()
-		
-	# Crouching
-	crouching = Input.is_action_pressed("down") and is_on_floor()
+			
+	move_and_slide()
+	update_animation()
+	update_facing_direction()
+
+func update_animation():
+	animation_tree.set("parameters/Move/blend_position", direction.x)
 	
-	# Attacking
-	if Input.is_action_just_pressed("attack"):
-		attacking = true
-		
-	# Sword
+	if not animation_locked:
+		if direction != Vector2.ZERO:
+			animation_player.play("run")
+		else:
+			animation_player.play("idle")
+			
+func update_facing_direction():
 	if direction.x > 0:
-		$PlayerGraphics/Sword.position.x = 1
-	if direction.x < 0:
-		$PlayerGraphics/Sword.position.x = -50
+		sprite_2d.flip_h = false
+	elif direction.x < 0:
+		sprite_2d.flip_h = true
+		
+func jump_func():
+	if jump:
+		velocity.y = -jump_strength
+		jump = false
+		faster_fall = false
+		animation_player.play("jump")
+		animation_locked = true
+		
+func land():
+	animation_player.play("jumpfall")
+	animation_locked = true
+		
+#if can_move:
+	#get_input()
+		
+#func get_input():
+	## horizontal movement
+	#direction.x = Input.get_axis("left", "right")
+	#
+	## Jump
+	#if Input.is_action_just_pressed("jump"):
+		#if is_on_floor():
+			#jump = true
+		#if velocity.y > 0 and not is_on_floor():
+			#$Timers/JumpBuffer.start()
+	#
+	#if Input.is_action_just_released("jump") and not is_on_floor() and velocity.y < 0:
+		#faster_fall = true
+		#
+	## Dash
+	#if Input.is_action_just_pressed("dash") and velocity.x and not $Timers/DashCooldown.time_left: #Can only dash if moving in a direction
+		#dash = true
+		#$Timers/DashCooldown.start()
+		#
+	## Crouching
+	#crouching = Input.is_action_pressed("down") and is_on_floor()
+	#
+	## Attacking
+	#if Input.is_action_just_pressed("attack"):
+		#attacking = true
+		#
+	## Sword
+	#if direction.x > 0:
+		#$PlayerGraphics/Sword.position.x = 1
+	#if direction.x < 0:
+		#$PlayerGraphics/Sword.position.x = -50
 		
 func apply_movement(delta):
 	# Left / Right movement
@@ -189,7 +249,7 @@ func take_damage(enemy_position: Vector2):
 	invulnerable = true
 	can_move = false
 	
-	player_graphics.take_damage_animation()
+	#player_graphics.take_damage_animation()
 	
 	# Knockback direction (opposite of enemy)
 	var knockback_direction = sign(position.x - enemy_position.x)
@@ -215,19 +275,24 @@ func _on_knockback_finished():
 	is_knocked_back = false
 	can_move = true
 	
-	animate()
+	#animate()
 	
 func _on_invulnerability_timeout():
 	invulnerable = false
-	player_graphics.modulate = Color(1, 1, 1, 1) # Reset opacity
+	sprite_2d.modulate = Color(1, 1, 1, 1) # Reset opacity
 	
 	
 func start_invulnerability():
 	invulnerable = true
 	var flash_tween = create_tween()
 	for i in range(7): # Flash 7 times
-		flash_tween.tween_property(player_graphics, "modulate", Color(1, 1, 1, 0.3), 0.1) # 0.1 is duration of tween in seconds
-		flash_tween.tween_property(player_graphics, "modulate", Color(1, 1, 1, 1), 0.1)
+		flash_tween.tween_property(sprite_2d, "modulate", Color(1, 1, 1, 0.3), 0.1) # 0.1 is duration of tween in seconds
+		flash_tween.tween_property(sprite_2d, "modulate", Color(1, 1, 1, 1), 0.1)
 		
 		
 	flash_tween.connect("finished", _on_invulnerability_timeout)
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if animation_player.current_animation == "jumpfall":
+		animation_locked = false

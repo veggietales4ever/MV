@@ -1,15 +1,208 @@
-[gd_scene load_steps=6 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=22 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" path="res://entities/player/player.gd" id="2_xgaa1"]
-[ext_resource type="PackedScene" uid="uid://dsu4c1dt8oc6g" path="res://entities/player/player_graphics.tscn" id="3_mhvr8"]
+[ext_resource type="Texture2D" uid="uid://b7o5qtn82u1ur" path="res://Aseprite Assets/player/maincharacterMV1-Sheet.png" id="3_k1sps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uidrs"]
+size = Vector2(14, 41)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mck4p"]
 radius = 7.0
 height = 42.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uidrs"]
-size = Vector2(14, 41)
+[sub_resource type="Animation" id="Animation_arp08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_2gel8"]
+resource_name = "attacksword"
+length = 0.8
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+}
+
+[sub_resource type="Animation" id="Animation_qjupc"]
+resource_name = "crouching"
+length = 0.55
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_xrhbu"]
+resource_name = "crouchpre"
+length = 0.15
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_h6ajb"]
+resource_name = "idle"
+length = 0.85
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_jpdmb"]
+resource_name = "run"
+length = 0.64
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Animation_8ji32"]
+resource_name = "runpre"
+length = 0.15
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [30, 31]
+}
+
+[sub_resource type="Animation" id="Animation_4knjn"]
+resource_name = "jump"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [40]
+}
+
+[sub_resource type="Animation" id="Animation_j14ib"]
+resource_name = "jumpfall"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [41]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yx67n"]
+_data = {
+"RESET": SubResource("Animation_arp08"),
+"attacksword": SubResource("Animation_2gel8"),
+"crouching": SubResource("Animation_qjupc"),
+"crouchpre": SubResource("Animation_xrhbu"),
+"idle": SubResource("Animation_h6ajb"),
+"jump": SubResource("Animation_4knjn"),
+"jumpfall": SubResource("Animation_j14ib"),
+"run": SubResource("Animation_jpdmb"),
+"runpre": SubResource("Animation_8ji32")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mubsw"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6lneq"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gdasg"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_0lm04"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_mubsw")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_6lneq")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_gdasg")
+blend_point_2/pos = -1.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_twj2u"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jejhj"]
+states/Move/node = SubResource("AnimationNodeBlendSpace1D_0lm04")
+states/Move/position = Vector2(439.5, 105)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_twj2u")]
 
 [node name="Player" groups=["Player"] instance=ExtResource("1_fdhh2")]
 collision_mask = 17
@@ -26,11 +219,33 @@ gravity = 600
 terminal_velocity = 500
 attack_cooldown = 0.5
 
-[node name="CollisionShape2D" parent="." index="0"]
+[node name="RoomDetector" type="Area2D" parent="." index="0"]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDetector" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_uidrs")
+
+[node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_mck4p")
 
-[node name="PlayerGraphics" parent="." index="1" instance=ExtResource("3_mhvr8")]
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("3_k1sps")
+hframes = 6
+vframes = 7
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_yx67n")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+tree_root = SubResource("AnimationNodeStateMachine_jejhj")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Move/blend_position = 0
 
 [node name="JumpBuffer" type="Timer" parent="Timers" index="0"]
 wait_time = 0.1
@@ -45,14 +260,21 @@ one_shot = true
 
 [node name="InvulnerabilityTimer" type="Timer" parent="Timers" index="3"]
 
-[node name="Stats" type="Node" parent="." index="3"]
+[node name="Stats" type="Node" parent="." index="6"]
 
-[node name="RoomDetector" type="Area2D" parent="." index="4"]
-collision_layer = 0
-collision_mask = 128
+[node name="StateMachine" type="Node" parent="." index="7"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDetector" index="0"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_uidrs")
+[node name="IdleState" type="Node" parent="StateMachine" index="0"]
 
+[node name="RunState" type="Node" parent="StateMachine" index="1"]
+
+[node name="JumpState" type="Node" parent="StateMachine" index="2"]
+
+[node name="AttackState" type="Node" parent="StateMachine" index="3"]
+
+[node name="CrouchingState" type="Node" parent="StateMachine" index="4"]
+
+[node name="PreCrouchingState" type="Node" parent="StateMachine" index="5"]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -2,13 +2,14 @@ res://default_bus_layout.tres
 res://world/world 1/forest area/test_world.tscn
 res://shaders/palette_limiter_shader.gdshader
 res://entities/player/player.tscn
+res://entities/player/player.gd
 res://control/move_area/move_area.tscn
 res://control/transitions/transitions.tscn
 res://world/world 1/forest area/test_world2.tscn
 res://entities/enemy/slime enemy/slime_enemy.tscn
-res://entities/player/player_graphics.tscn
 res://UI/ui.tscn
 res://entities/enemy/enemy.tscn
 res://particles/explosion.tscn
 res://entities/objects/crate.tscn
-res://entities/player/player.gd
+res://entities/enemy/slime enemy/slime_enemy.gd
+res://control/transitions/transitions.gd
