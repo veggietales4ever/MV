@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://boo507usbuo8h"
+path="res://.godot/imported/Hit.aseprite-e9ebb0d777022cb6c69719fac7026444.res"
+
+[deps]
+
+source_file="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit.aseprite"
+dest_files=["res://.godot/imported/Hit.aseprite-e9ebb0d777022cb6c69719fac7026444.res"]
+
+[params]
+

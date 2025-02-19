@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ci7mjoqaeiekw"
+path="res://.godot/imported/Attack.aseprite-fcd05e4f73ec003093ce1bf2e4b7d0f2.res"
+
+[deps]
+
+source_file="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Attack/Attack.aseprite"
+dest_files=["res://.godot/imported/Attack.aseprite-fcd05e4f73ec003093ce1bf2e4b7d0f2.res"]
+
+[params]
+

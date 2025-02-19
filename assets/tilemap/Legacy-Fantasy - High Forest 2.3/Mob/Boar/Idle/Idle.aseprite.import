@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cd6fncx7gb78h"
+path="res://.godot/imported/Idle.aseprite-f8a448eeaf8f7bfc28898e921a65ae8f.res"
+
+[deps]
+
+source_file="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle.aseprite"
+dest_files=["res://.godot/imported/Idle.aseprite-f8a448eeaf8f7bfc28898e921a65ae8f.res"]
+
+[params]
+

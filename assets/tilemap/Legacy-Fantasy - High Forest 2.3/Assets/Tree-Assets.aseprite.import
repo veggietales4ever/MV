@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dhmew221v0cgh"
+path="res://.godot/imported/Tree-Assets.aseprite-e20c605481a875d488d9e91ad6ceb252.res"
+
+[deps]
+
+source_file="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.aseprite"
+dest_files=["res://.godot/imported/Tree-Assets.aseprite-e20c605481a875d488d9e91ad6ceb252.res"]
+
+[params]
+

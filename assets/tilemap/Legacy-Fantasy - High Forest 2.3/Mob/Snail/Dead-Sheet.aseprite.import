@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dn3ptw73shn6x"
+path="res://.godot/imported/Dead-Sheet.aseprite-3145c3069dd90824123ef3a71ca4ee56.res"
+
+[deps]
+
+source_file="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Mob/Snail/Dead-Sheet.aseprite"
+dest_files=["res://.godot/imported/Dead-Sheet.aseprite-3145c3069dd90824123ef3a71ca4ee56.res"]
+
+[params]
+

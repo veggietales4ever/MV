@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bs0p7ughh8llq"
+path="res://.godot/imported/Tiles.aseprite-f9be693e78741b69b36424d34c77e187.res"
+
+[deps]
+
+source_file="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.aseprite"
+dest_files=["res://.godot/imported/Tiles.aseprite-f9be693e78741b69b36424d34c77e187.res"]
+
+[params]
+

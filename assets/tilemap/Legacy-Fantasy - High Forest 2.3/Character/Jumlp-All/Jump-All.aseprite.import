@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dat5qd0nvkmjb"
+path="res://.godot/imported/Jump-All.aseprite-c8655a27118b0d45689d46981fd75988.res"
+
+[deps]
+
+source_file="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Character/Jumlp-All/Jump-All.aseprite"
+dest_files=["res://.godot/imported/Jump-All.aseprite-c8655a27118b0d45689d46981fd75988.res"]
+
+[params]
+

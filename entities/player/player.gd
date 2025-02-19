@@ -7,6 +7,8 @@ class_name Player
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var state_machine: PlayerStateMachine = $StateMachine
+
 
 
 @export_group('damage')
@@ -27,7 +29,6 @@ var dash := false
 var crouching := false
 
 @export_group('jump')
-@export var jump_strength := 275
 @export var gravity := 600
 @export var terminal_velocity := 500
 var jump := false
@@ -60,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	#apply_movement(delta)
 	direction = Input.get_vector("left", "right", "up", "down")
 	
-	if direction.x:
+	if direction.x && state_machine.check_if_can_move():
 		velocity.x = move_toward(velocity.x, direction.x * speed, acceleration * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
@@ -68,8 +69,7 @@ func _physics_process(delta: float) -> void:
 	# Jump
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
-			jump = true
-			jump_func()
+			pass
 		if velocity.y > 0 and not is_on_floor():
 			$Timers/JumpBuffer.start()
 			
@@ -81,11 +81,7 @@ func _physics_process(delta: float) -> void:
 			
 		was_in_air = false
 			
-	#if jump:# or $Timers/JumpBuffer.time_left and is_on_floor():
-		#velocity.y = -jump_strength
-		#jump = false
-		#faster_fall = false
-			#
+	
 	if Input.is_action_just_released("jump") and not is_on_floor() and velocity.y < 0:
 		faster_fall = true
 			
@@ -96,11 +92,6 @@ func _physics_process(delta: float) -> void:
 func update_animation():
 	animation_tree.set("parameters/Move/blend_position", direction.x)
 	
-	if not animation_locked:
-		if direction != Vector2.ZERO:
-			animation_player.play("run")
-		else:
-			animation_player.play("idle")
 			
 func update_facing_direction():
 	if direction.x > 0:
@@ -108,16 +99,9 @@ func update_facing_direction():
 	elif direction.x < 0:
 		sprite_2d.flip_h = true
 		
-func jump_func():
-	if jump:
-		velocity.y = -jump_strength
-		jump = false
-		faster_fall = false
-		animation_player.play("jump")
-		animation_locked = true
 		
 func land():
-	animation_player.play("jumpfall")
+	# animation_player.play("jumpfall")
 	animation_locked = true
 		
 #if can_move:
@@ -167,10 +151,10 @@ func apply_movement(delta):
 		jump = false
 		
 	# Jump
-	if jump:# or $Timers/JumpBuffer.time_left and is_on_floor():
-		velocity.y = -jump_strength
-		jump = false
-		faster_fall = false
+	#if jump:# or $Timers/JumpBuffer.time_left and is_on_floor():
+		#velocity.y = -jump_strength
+		#jump = false
+		#faster_fall = false
 	
 	# Dash
 	if dash:
@@ -249,7 +233,6 @@ func take_damage(enemy_position: Vector2):
 	invulnerable = true
 	can_move = false
 	
-	#player_graphics.take_damage_animation()
 	
 	# Knockback direction (opposite of enemy)
 	var knockback_direction = sign(position.x - enemy_position.x)
@@ -257,8 +240,8 @@ func take_damage(enemy_position: Vector2):
 		knockback_direction = 1 # Default to right if directly on top
 	
 	# Apply knockback
-	velocity.x = knockback_direction * knockback_force
-	velocity.y = -jump_strength * 1.3 # Slight upward
+	#velocity.x = knockback_direction * knockback_force
+	#velocity.y = -jump_strength * 1.3 # Slight upward
 	
 	# Knockback movement
 	move_and_slide()

@@ -13,3 +13,11 @@ res://particles/explosion.tscn
 res://entities/objects/crate.tscn
 res://entities/enemy/slime enemy/slime_enemy.gd
 res://control/transitions/transitions.gd
+res://entities/player/state_machine/player_state_machine.gd
+res://entities/player/state_machine/state.gd
+res://entities/player/ground_state.gd
+res://entities/player/air_state.gd
+res://entities/player/landing_state.gd
+res://entities/player/state_debug_label.gd
+res://entities/player/state_machine/attack_state.gd
+res://entities/player/state_machine/air_state.gd

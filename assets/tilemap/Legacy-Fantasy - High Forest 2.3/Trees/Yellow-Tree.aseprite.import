@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c8em35tg20wsd"
+path="res://.godot/imported/Yellow-Tree.aseprite-788ed1ddaee1dda69eff7c86070b7913.res"
+
+[deps]
+
+source_file="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Trees/Yellow-Tree.aseprite"
+dest_files=["res://.godot/imported/Yellow-Tree.aseprite-788ed1ddaee1dda69eff7c86070b7913.res"]
+
+[params]
+

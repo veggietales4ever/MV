@@ -1,6 +1,7 @@
+Label
+Node
 AnimationTree
 AnimationPlayer
-Node
 Sprite2D
 Camera2D
 CPUParticles2D
@@ -11,4 +12,3 @@ Timer
 CanvasLayer
 ColorRect
 TextureRect
-Node2D

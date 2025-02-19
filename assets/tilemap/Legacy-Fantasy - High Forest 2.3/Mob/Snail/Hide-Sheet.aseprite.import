@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ck0sngycxufho"
+path="res://.godot/imported/Hide-Sheet.aseprite-c262102d543b4a6d284da46fd36cc9dd.res"
+
+[deps]
+
+source_file="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Mob/Snail/Hide-Sheet.aseprite"
+dest_files=["res://.godot/imported/Hide-Sheet.aseprite-c262102d543b4a6d284da46fd36cc9dd.res"]
+
+[params]
+

@@ -1,11 +1,12 @@
-extends Node
+extends State
+class_name AttackState
 
+@export var ground_state : State
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func state_process(delta):
+	if character.is_on_floor() && attacking:
+		next_state = ground_state
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func on_exit():
+	if next_state == ground_state:
+		next_state = ground_state

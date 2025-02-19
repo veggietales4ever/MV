@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c3retbae7ko84"
+path="res://.godot/imported/Attack-01.aseprite-edcd759b27aa19ee28d828918119646d.res"
+
+[deps]
+
+source_file="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Character/Attack-01/Attack-01.aseprite"
+dest_files=["res://.godot/imported/Attack-01.aseprite-edcd759b27aa19ee28d828918119646d.res"]
+
+[params]
+
