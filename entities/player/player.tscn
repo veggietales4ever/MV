@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=41 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" path="res://entities/player/player.gd" id="2_xgaa1"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://entities/player/state_debug_label.gd" id="8_11kuo"]
 [ext_resource type="Script" path="res://entities/player/state_machine/attack_state.gd" id="8_eadc4"]
 [ext_resource type="LabelSettings" uid="uid://clo0nfvok1ly7" path="res://fonts/default_label_settings.tres" id="8_j0dv7"]
+[ext_resource type="Script" path="res://entities/player/state_machine/crouching_state.gd" id="9_0lgbn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uidrs"]
 size = Vector2(14, 41)
@@ -35,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_2gel8"]
 resource_name = "attacksword"
-length = 0.8
-step = 0.08
+length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,7 +45,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
@@ -206,6 +207,9 @@ blend_mode = 1
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ghor"]
 animation = &"attacksword"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ymqv"]
+animation = &"crouching"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ofa7"]
 animation = &"jump"
 
@@ -224,24 +228,29 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7qkfn"]
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gm8pi"]
 switch_mode = 2
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gmt5g"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tmnen"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jejhj"]
 states/Move/node = SubResource("AnimationNodeBlendSpace1D_0lm04")
 states/Move/position = Vector2(439.5, 105)
 states/Start/position = Vector2(200.5, 100)
 states/attacksword/node = SubResource("AnimationNodeAnimation_2ghor")
-states/attacksword/position = Vector2(595.5, 241)
+states/attacksword/position = Vector2(737, 117.5)
+states/crouching/node = SubResource("AnimationNodeAnimation_2ymqv")
+states/crouching/position = Vector2(396, 242.25)
 states/jump/node = SubResource("AnimationNodeAnimation_5ofa7")
 states/jump/position = Vector2(450, -30)
 states/jumpfall/node = SubResource("AnimationNodeAnimation_mht0h")
-states/jumpfall/position = Vector2(685.5, 18)
-transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_twj2u"), "Move", "jump", SubResource("AnimationNodeStateMachineTransition_bglld"), "jump", "jumpfall", SubResource("AnimationNodeStateMachineTransition_08asm"), "jumpfall", "Move", SubResource("AnimationNodeStateMachineTransition_tkgrl"), "Move", "attacksword", SubResource("AnimationNodeStateMachineTransition_7qkfn"), "attacksword", "Move", SubResource("AnimationNodeStateMachineTransition_gm8pi")]
-graph_offset = Vector2(-88, -56)
+states/jumpfall/position = Vector2(625.5, 6)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_twj2u"), "Move", "jump", SubResource("AnimationNodeStateMachineTransition_bglld"), "jump", "jumpfall", SubResource("AnimationNodeStateMachineTransition_08asm"), "jumpfall", "Move", SubResource("AnimationNodeStateMachineTransition_tkgrl"), "Move", "attacksword", SubResource("AnimationNodeStateMachineTransition_7qkfn"), "attacksword", "Move", SubResource("AnimationNodeStateMachineTransition_gm8pi"), "Move", "crouching", SubResource("AnimationNodeStateMachineTransition_gmt5g"), "crouching", "Move", SubResource("AnimationNodeStateMachineTransition_tmnen")]
+graph_offset = Vector2(-74, -62)
 
 [node name="Player" groups=["Player"] instance=ExtResource("1_fdhh2")]
 collision_mask = 17
@@ -306,12 +315,14 @@ current_state = NodePath("GroundState")
 character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="GroundState" type="Node" parent="StateMachine" index="0" node_paths=PackedStringArray("air_state", "attack_state")]
+[node name="GroundState" type="Node" parent="StateMachine" index="0" node_paths=PackedStringArray("air_state", "attack_state", "crouch_state")]
 script = ExtResource("5_juve0")
 air_state = NodePath("../AirState")
 attack_state = NodePath("../AttackState")
+crouch_state = NodePath("../CrouchingState")
 jump_animation = "jump"
 attack_animation = "attacksword"
+crouch_animation = "crouching"
 
 [node name="LandingState" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("ground_state")]
 script = ExtResource("6_kypqp")
@@ -333,9 +344,13 @@ landing_animation = "jumpfall"
 [node name="AttackState" type="Node" parent="StateMachine" index="6" node_paths=PackedStringArray("ground_state")]
 script = ExtResource("8_eadc4")
 ground_state = NodePath("../GroundState")
+sword_attack_animation_name = "attacksword"
 attacking = true
 
-[node name="CrouchingState" type="Node" parent="StateMachine" index="7"]
+[node name="CrouchingState" type="Node" parent="StateMachine" index="7" node_paths=PackedStringArray("ground_state")]
+script = ExtResource("9_0lgbn")
+ground_state = NodePath("../GroundState")
+landing_animation = "jumpfall"
 
 [node name="PreCrouchingState" type="Node" parent="StateMachine" index="8"]
 
@@ -352,4 +367,5 @@ state_machine = NodePath("../StateMachine")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="StateMachine/LandingState" method="_on_animation_tree_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree" to="StateMachine/AttackState" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -34,7 +34,6 @@ var crouching := false
 var jump := false
 var faster_fall := false
 var gravity_multiplier := 1
-var was_in_air : bool = false
 
 @export_group('weapon')
 var attacking := false
@@ -45,7 +44,6 @@ var event: bool
 var abilities: Array[StringName]
 var double_jump: bool
 var entry_state: String = ""
-var animation_locked : bool = false
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -72,24 +70,17 @@ func _physics_process(delta: float) -> void:
 			pass
 		if velocity.y > 0 and not is_on_floor():
 			$Timers/JumpBuffer.start()
-			
-	if not is_on_floor():
-		was_in_air = true
-	else:
-		if was_in_air:
-			land()
-			
-		was_in_air = false
+
 			
 	
 	if Input.is_action_just_released("jump") and not is_on_floor() and velocity.y < 0:
 		faster_fall = true
 			
 	move_and_slide()
-	update_animation()
+	update_animation_parameters()
 	update_facing_direction()
 
-func update_animation():
+func update_animation_parameters():
 	animation_tree.set("parameters/Move/blend_position", direction.x)
 	
 			
@@ -100,9 +91,6 @@ func update_facing_direction():
 		sprite_2d.flip_h = true
 		
 		
-func land():
-	# animation_player.play("jumpfall")
-	animation_locked = true
 		
 #if can_move:
 	#get_input()
@@ -274,8 +262,3 @@ func start_invulnerability():
 		
 		
 	flash_tween.connect("finished", _on_invulnerability_timeout)
-
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if animation_player.current_animation == "jumpfall":
-		animation_locked = false

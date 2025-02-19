@@ -21,3 +21,4 @@ res://entities/player/landing_state.gd
 res://entities/player/state_debug_label.gd
 res://entities/player/state_machine/attack_state.gd
 res://entities/player/state_machine/air_state.gd
+res://entities/player/state_machine/crouching_state.gd

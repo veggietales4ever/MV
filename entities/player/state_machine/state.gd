@@ -4,6 +4,8 @@ class_name State
 
 @export var can_move: bool = true
 @export var attacking : bool = false
+@export var crouching : bool = false
+
 
 var character : CharacterBody2D
 var next_state: State
