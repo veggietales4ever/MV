@@ -3,10 +3,10 @@
 extends Entity
 class_name Player
 
+@export var sprite_2d: Sprite2D
+@export var animation_player: AnimationPlayer
+
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var animation_tree: AnimationTree = $AnimationTree
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
 
@@ -46,7 +46,6 @@ var double_jump: bool
 var entry_state: String = ""
 
 func _ready() -> void:
-	animation_tree.active = true
 	on_enter()
 	PlayerManager.register_player(self)
 	$Timers/DashCooldown.wait_time = dash_cooldown
@@ -57,9 +56,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
 	#apply_movement(delta)
-	direction = Input.get_vector("left", "right", "up", "down")
 	
-	if direction.x && state_machine.check_if_can_move():
+	if direction.x:
 		velocity.x = move_toward(velocity.x, direction.x * speed, acceleration * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
@@ -77,11 +75,11 @@ func _physics_process(delta: float) -> void:
 		faster_fall = true
 			
 	move_and_slide()
-	update_animation_parameters()
+	#update_animation_parameters()
 	update_facing_direction()
 
-func update_animation_parameters():
-	animation_tree.set("parameters/Move/blend_position", direction.x)
+#func update_animation_parameters():
+	#animation_tree.set("parameters/Move/blend_position", direction.x)
 	
 			
 func update_facing_direction():

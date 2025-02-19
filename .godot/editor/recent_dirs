@@ -1,3 +1,4 @@
+res://entities/player/states
 res://entities/player/state_machine
 res://particles
 res://shaders

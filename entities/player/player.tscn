@@ -1,16 +1,14 @@
-[gd_scene load_steps=41 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=23 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" path="res://entities/player/player.gd" id="2_xgaa1"]
 [ext_resource type="Texture2D" uid="uid://b7o5qtn82u1ur" path="res://Aseprite Assets/player/maincharacterMV1-Sheet.png" id="3_k1sps"]
-[ext_resource type="Script" path="res://entities/player/state_machine/player_state_machine.gd" id="4_l63mw"]
-[ext_resource type="Script" path="res://entities/player/ground_state.gd" id="5_juve0"]
-[ext_resource type="Script" path="res://entities/player/state_machine/air_state.gd" id="6_ixo7v"]
-[ext_resource type="Script" path="res://entities/player/landing_state.gd" id="6_kypqp"]
+[ext_resource type="Script" path="res://entities/player/states/move_state.gd" id="8_0q58c"]
 [ext_resource type="Script" path="res://entities/player/state_debug_label.gd" id="8_11kuo"]
-[ext_resource type="Script" path="res://entities/player/state_machine/attack_state.gd" id="8_eadc4"]
 [ext_resource type="LabelSettings" uid="uid://clo0nfvok1ly7" path="res://fonts/default_label_settings.tres" id="8_j0dv7"]
-[ext_resource type="Script" path="res://entities/player/state_machine/crouching_state.gd" id="9_0lgbn"]
+[ext_resource type="Script" path="res://entities/player/player_input.gd" id="9_bp2km"]
+[ext_resource type="Script" path="res://entities/player/states/limbo_hsm.gd" id="12_iipp6"]
+[ext_resource type="Script" path="res://entities/player/states/idle_state.gd" id="12_vamft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uidrs"]
 size = Vector2(14, 41)
@@ -186,75 +184,18 @@ _data = {
 "runpre": SubResource("Animation_8ji32")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mubsw"]
-animation = &"idle"
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_7aiex"]
+var/direction/name = &"direction"
+var/direction/type = 5
+var/direction/value = Vector2(0, 0)
+var/direction/hint = 0
+var/direction/hint_string = "the direction the player is trying to move"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6lneq"]
-animation = &"run"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gdasg"]
-animation = &"run"
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_0lm04"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_mubsw")
-blend_point_0/pos = 0.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_6lneq")
-blend_point_1/pos = 1.0
-blend_point_2/node = SubResource("AnimationNodeAnimation_gdasg")
-blend_point_2/pos = -1.0
-blend_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ghor"]
-animation = &"attacksword"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ymqv"]
-animation = &"crouching"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ofa7"]
-animation = &"jump"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mht0h"]
-animation = &"jumpfall"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_twj2u"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bglld"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_08asm"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tkgrl"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7qkfn"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gm8pi"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gmt5g"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tmnen"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jejhj"]
-states/Move/node = SubResource("AnimationNodeBlendSpace1D_0lm04")
-states/Move/position = Vector2(439.5, 105)
-states/Start/position = Vector2(200.5, 100)
-states/attacksword/node = SubResource("AnimationNodeAnimation_2ghor")
-states/attacksword/position = Vector2(737, 117.5)
-states/crouching/node = SubResource("AnimationNodeAnimation_2ymqv")
-states/crouching/position = Vector2(396, 242.25)
-states/jump/node = SubResource("AnimationNodeAnimation_5ofa7")
-states/jump/position = Vector2(450, -30)
-states/jumpfall/node = SubResource("AnimationNodeAnimation_mht0h")
-states/jumpfall/position = Vector2(625.5, 6)
-transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_twj2u"), "Move", "jump", SubResource("AnimationNodeStateMachineTransition_bglld"), "jump", "jumpfall", SubResource("AnimationNodeStateMachineTransition_08asm"), "jumpfall", "Move", SubResource("AnimationNodeStateMachineTransition_tkgrl"), "Move", "attacksword", SubResource("AnimationNodeStateMachineTransition_7qkfn"), "attacksword", "Move", SubResource("AnimationNodeStateMachineTransition_gm8pi"), "Move", "crouching", SubResource("AnimationNodeStateMachineTransition_gmt5g"), "crouching", "Move", SubResource("AnimationNodeStateMachineTransition_tmnen")]
-graph_offset = Vector2(-74, -62)
-
-[node name="Player" groups=["Player"] instance=ExtResource("1_fdhh2")]
+[node name="Player" node_paths=PackedStringArray("sprite_2d", "animation_player") groups=["Player"] instance=ExtResource("1_fdhh2")]
 collision_mask = 17
 script = ExtResource("2_xgaa1")
+sprite_2d = NodePath("Sprite2D")
+animation_player = NodePath("AnimationPlayer")
 knockback_force = 1000
 knockback_duration = 0.3
 invulnerability_duration = 1.0
@@ -289,11 +230,6 @@ libraries = {
 "": SubResource("AnimationLibrary_yx67n")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
-tree_root = SubResource("AnimationNodeStateMachine_jejhj")
-anim_player = NodePath("../AnimationPlayer")
-parameters/Move/blend_position = 0
-
 [node name="JumpBuffer" type="Timer" parent="Timers" index="0"]
 wait_time = 0.1
 one_shot = true
@@ -307,54 +243,9 @@ one_shot = true
 
 [node name="InvulnerabilityTimer" type="Timer" parent="Timers" index="3"]
 
-[node name="Stats" type="Node" parent="." index="6"]
+[node name="Stats" type="Node" parent="." index="5"]
 
-[node name="StateMachine" type="Node" parent="." index="7" node_paths=PackedStringArray("current_state", "character", "animation_tree")]
-script = ExtResource("4_l63mw")
-current_state = NodePath("GroundState")
-character = NodePath("..")
-animation_tree = NodePath("../AnimationTree")
-
-[node name="GroundState" type="Node" parent="StateMachine" index="0" node_paths=PackedStringArray("air_state", "attack_state", "crouch_state")]
-script = ExtResource("5_juve0")
-air_state = NodePath("../AirState")
-attack_state = NodePath("../AttackState")
-crouch_state = NodePath("../CrouchingState")
-jump_animation = "jump"
-attack_animation = "attacksword"
-crouch_animation = "crouching"
-
-[node name="LandingState" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("ground_state")]
-script = ExtResource("6_kypqp")
-landing_animation_name = "jumpfall"
-ground_state = NodePath("../GroundState")
-
-[node name="AirState" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("landing_state", "ground_state")]
-script = ExtResource("6_ixo7v")
-landing_state = NodePath("../LandingState")
-ground_state = NodePath("../GroundState")
-landing_animation = "jumpfall"
-
-[node name="IdleState" type="Node" parent="StateMachine" index="3"]
-
-[node name="RunState" type="Node" parent="StateMachine" index="4"]
-
-[node name="JumpState" type="Node" parent="StateMachine" index="5"]
-
-[node name="AttackState" type="Node" parent="StateMachine" index="6" node_paths=PackedStringArray("ground_state")]
-script = ExtResource("8_eadc4")
-ground_state = NodePath("../GroundState")
-sword_attack_animation_name = "attacksword"
-attacking = true
-
-[node name="CrouchingState" type="Node" parent="StateMachine" index="7" node_paths=PackedStringArray("ground_state")]
-script = ExtResource("9_0lgbn")
-ground_state = NodePath("../GroundState")
-landing_animation = "jumpfall"
-
-[node name="PreCrouchingState" type="Node" parent="StateMachine" index="8"]
-
-[node name="StateDebugLabel" type="Label" parent="." index="8" node_paths=PackedStringArray("state_machine")]
+[node name="StateDebugLabel" type="Label" parent="." index="6"]
 offset_left = -44.0
 offset_top = -48.0
 offset_right = 44.0
@@ -363,9 +254,24 @@ text = "State: "
 label_settings = ExtResource("8_j0dv7")
 horizontal_alignment = 1
 script = ExtResource("8_11kuo")
-state_machine = NodePath("../StateMachine")
+
+[node name="LimboHSM" type="LimboHSM" parent="." index="7" node_paths=PackedStringArray("character")]
+blackboard_plan = SubResource("BlackboardPlan_7aiex")
+script = ExtResource("12_iipp6")
+character = NodePath("..")
+states = Array[Dictionary]([{}])
+
+[node name="IdleState" type="LimboState" parent="LimboHSM" index="0"]
+script = ExtResource("12_vamft")
+animation_name = &"idle"
+
+[node name="MoveState" type="LimboState" parent="LimboHSM" index="1"]
+script = ExtResource("8_0q58c")
+animation_name = &"run"
+
+[node name="PlayerInput" type="Node" parent="." index="8" node_paths=PackedStringArray("limbo_hsm")]
+script = ExtResource("9_bp2km")
+limbo_hsm = NodePath("../LimboHSM")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="AnimationTree" to="StateMachine/LandingState" method="_on_animation_tree_animation_finished"]
-[connection signal="animation_finished" from="AnimationTree" to="StateMachine/AttackState" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

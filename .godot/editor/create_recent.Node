@@ -1,5 +1,8 @@
-Label
 Node
+PlayerState
+LimboState
+LimboHSM
+Label
 AnimationTree
 AnimationPlayer
 Sprite2D
@@ -9,6 +12,3 @@ GPUParticles2D
 CollisionShape2D
 Area2D
 Timer
-CanvasLayer
-ColorRect
-TextureRect
