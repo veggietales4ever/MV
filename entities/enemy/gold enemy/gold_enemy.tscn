@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b5sq44ikmlo84"]
 
 [ext_resource type="PackedScene" uid="uid://4ll2hc81b066" path="res://entities/enemy/enemy.tscn" id="1_078ds"]
-[ext_resource type="Script" path="res://entities/enemy/gold enemy/gold_enemy.gd" id="2_cei6c"]
+[ext_resource type="Script" uid="uid://byl7htt2rmj0p" path="res://entities/enemy/gold enemy/gold_enemy.gd" id="2_cei6c"]
 [ext_resource type="PackedScene" uid="uid://cem7r4j8s7g4n" path="res://entities/player/player.tscn" id="3_boc20"]
 [ext_resource type="Texture2D" uid="uid://bm5rndl84bd8e" path="res://assets/enemy/slime/slime spritesheet.png" id="4_g44ma"]
 
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f7x3h"]
 _data = {
-"RESET": SubResource("Animation_nta3p"),
-"walk": SubResource("Animation_vd0wj")
+&"RESET": SubResource("Animation_nta3p"),
+&"walk": SubResource("Animation_vd0wj")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mhv0"]

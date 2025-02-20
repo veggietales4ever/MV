@@ -23,7 +23,6 @@ var player_inside := false
 @onready var state_matchine: EnemyStateMachine = $EnemyStateMachine
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
 
-
 func _ready() -> void:
 	state_matchine.initialize(self)
 	player = PlayerManager.player

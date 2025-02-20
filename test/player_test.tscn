@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ptw0lfi5bsvi"]
 
 [ext_resource type="Texture2D" uid="uid://dwxqtsg1wm6ra" path="res://assets/player/characteridle.png" id="1_ml6sm"]
-[ext_resource type="Script" path="res://test/player_test.gd" id="1_qtego"]
+[ext_resource type="Script" uid="uid://l1btk1c1dd17" path="res://test/player_test.gd" id="1_qtego"]
 
 [sub_resource type="Animation" id="Animation_i12yf"]
 length = 0.001
@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sf46y"]
 _data = {
-"RESET": SubResource("Animation_i12yf"),
-"idle": SubResource("Animation_lsft5")
+&"RESET": SubResource("Animation_i12yf"),
+&"idle": SubResource("Animation_lsft5")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_frnxe"]

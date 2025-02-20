@@ -130,9 +130,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_55mmk"]
 _data = {
-"RESET": SubResource("Animation_7id6o"),
-"active": SubResource("Animation_77png"),
-"destroyed": SubResource("Animation_i44jo")
+&"RESET": SubResource("Animation_7id6o"),
+&"active": SubResource("Animation_77png"),
+&"destroyed": SubResource("Animation_i44jo")
 }
 
 [node name="crate" type="StaticBody2D"]
@@ -159,7 +159,7 @@ debug_color = Color(0.8744, 0.260316, 0.579507, 0.42)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_55mmk")
+&"": SubResource("AnimationLibrary_55mmk")
 }
 autoplay = "active"
 

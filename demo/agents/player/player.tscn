@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://d07ag5dcje13i"]
 
 [ext_resource type="PackedScene" uid="uid://ooigbfhfy4wa" path="res://demo/agents/agent_base.tscn" id="1_mswd4"]
-[ext_resource type="Script" path="res://demo/agents/player/player.gd" id="2_24nyi"]
-[ext_resource type="Script" path="res://demo/agents/player/states/idle_state.gd" id="3_ekb12"]
-[ext_resource type="Script" path="res://demo/agents/player/states/move_state.gd" id="4_paikn"]
-[ext_resource type="Script" path="res://demo/agents/player/states/attack_state.gd" id="5_mpgu6"]
-[ext_resource type="Script" path="res://demo/agents/player/states/dodge_state.gd" id="6_7o4a6"]
+[ext_resource type="Script" uid="uid://d0xdv2nmuwtix" path="res://demo/agents/player/player.gd" id="2_24nyi"]
+[ext_resource type="Script" uid="uid://osm7uibo2ium" path="res://demo/agents/player/states/idle_state.gd" id="3_ekb12"]
+[ext_resource type="Script" uid="uid://dmheplny4ch5k" path="res://demo/agents/player/states/move_state.gd" id="4_paikn"]
+[ext_resource type="Script" uid="uid://efksylry3ulr" path="res://demo/agents/player/states/attack_state.gd" id="5_mpgu6"]
+[ext_resource type="Script" uid="uid://uqie3aox4ge2" path="res://demo/agents/player/states/dodge_state.gd" id="6_7o4a6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pofm"]
 size = Vector2(150, 50)

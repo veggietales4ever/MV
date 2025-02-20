@@ -5,10 +5,11 @@ class_name Player
 
 @export var sprite_2d: Sprite2D
 @export var animation_player: AnimationPlayer
+@export var stats : PlayerStats
+@export var player_actions: PlayerActions
 
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
 @onready var state_machine: PlayerStateMachine = $StateMachine
-
 
 
 @export_group('damage')
@@ -19,14 +20,14 @@ var is_knocked_back := false
 var invulnerable := false
 
 @export_group('move')
-@export var speed := 100 # := is the data type of first value is the only data type this var can accept.
+@export var speed := 70 # := is the data type of first value is the only data type this var can accept.
 @export var acceleration := 1200
 @export var friction := 1800
 var direction := Vector2.ZERO
 var can_move := false
 var dash := false
-@export_range(0.1,2) var dash_cooldown := 0.5
 var crouching := false
+@export_range(0.1,2) var dash_cooldown := 0.5
 
 @export_group('jump')
 @export var gravity := 600

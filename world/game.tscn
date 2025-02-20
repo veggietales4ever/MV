@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6l2ws7xaaugs"]
 
-[ext_resource type="Script" path="res://world/world 1/forest area/test_world.gd" id="1_1v0ag"]
+[ext_resource type="Script" uid="uid://s6n217may0qd" path="res://world/world 1/forest area/test_world.gd" id="1_1v0ag"]
 [ext_resource type="PackedScene" uid="uid://cem7r4j8s7g4n" path="res://entities/player/player.tscn" id="3_4nian"]
 
 [node name="Game" type="Node2D"]

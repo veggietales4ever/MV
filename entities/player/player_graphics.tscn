@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://dsu4c1dt8oc6g"]
 
-[ext_resource type="Script" path="res://entities/player/player_graphics.gd" id="1_7l58b"]
+[ext_resource type="Script" uid="uid://ci1dnck1adekv" path="res://entities/player/player_graphics.gd" id="1_7l58b"]
 [ext_resource type="Texture2D" uid="uid://b7o5qtn82u1ur" path="res://Aseprite Assets/player/maincharacterMV1-Sheet.png" id="2_fpr7y"]
-[ext_resource type="Script" path="res://entities/player/swordweapon.gd" id="3_per2m"]
+[ext_resource type="Script" uid="uid://de43fgkgjr0mj" path="res://entities/player/swordweapon.gd" id="3_per2m"]
 
 [sub_resource type="Animation" id="Animation_285fk"]
 length = 0.001
@@ -267,16 +267,16 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ga0wu"]
 _data = {
-"RESET": SubResource("Animation_285fk"),
-"attack": SubResource("Animation_jys7y"),
-"crouch": SubResource("Animation_n2var"),
-"crouching": SubResource("Animation_si3db"),
-"crouchingsword": SubResource("Animation_51utr"),
-"hurt": SubResource("Animation_phnis"),
-"idle": SubResource("Animation_0hw36"),
-"jump": SubResource("Animation_03k1h"),
-"jump_attack": SubResource("Animation_l5wyy"),
-"run": SubResource("Animation_cshbg")
+&"RESET": SubResource("Animation_285fk"),
+&"attack": SubResource("Animation_jys7y"),
+&"crouch": SubResource("Animation_n2var"),
+&"crouching": SubResource("Animation_si3db"),
+&"crouchingsword": SubResource("Animation_51utr"),
+&"hurt": SubResource("Animation_phnis"),
+&"idle": SubResource("Animation_0hw36"),
+&"jump": SubResource("Animation_03k1h"),
+&"jump_attack": SubResource("Animation_l5wyy"),
+&"run": SubResource("Animation_cshbg")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lwrq"]

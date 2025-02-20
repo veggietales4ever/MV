@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfpkibc4odroc"]
 
-[ext_resource type="Script" path="res://timer_test_scene.gd" id="1_mtugl"]
+[ext_resource type="Script" uid="uid://ddv2805n1mcsv" path="res://timer_test_scene.gd" id="1_mtugl"]
 [ext_resource type="PackedScene" uid="uid://cem7r4j8s7g4n" path="res://entities/player/player.tscn" id="2_h430u"]
 
 [node name="TimerTestScene" type="Node2D"]

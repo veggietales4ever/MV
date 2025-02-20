@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="3_owa8j"]
 [ext_resource type="PackedScene" uid="uid://cem7r4j8s7g4n" path="res://entities/player/player.tscn" id="5_1n2vo"]
 [ext_resource type="Texture2D" uid="uid://md7yr10poe6y" path="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="5_v2k5a"]
-[ext_resource type="Shader" path="res://shaders/palette_limiter_shader.gdshader" id="6_tn06u"]
+[ext_resource type="Shader" uid="uid://dfq6q1ooo7qpi" path="res://shaders/palette_limiter_shader.gdshader" id="6_tn06u"]
 [ext_resource type="Texture2D" uid="uid://b4un251a3ymxs" path="res://palettes/cc-29-1x.png" id="7_ej5wr"]
 [ext_resource type="PackedScene" uid="uid://dc28t7tiqn540" path="res://entities/objects/coin.tscn" id="8_selu3"]
 [ext_resource type="PackedScene" uid="uid://lfu4j7l58qi7" path="res://entities/objects/crate.tscn" id="9_qr76i"]
@@ -563,6 +563,9 @@ position = Vector2(0, 1)
 [node name="Player" parent="Entities" instance=ExtResource("5_1n2vo")]
 position = Vector2(74, 60)
 collision_mask = 2
+stats = null
+player_actions = null
+speed = 70
 
 [node name="RoomInstance" parent="." instance=ExtResource("12_rcs34")]
 

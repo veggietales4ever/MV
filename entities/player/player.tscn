@@ -1,14 +1,17 @@
-[gd_scene load_steps=23 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=27 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
-[ext_resource type="Script" path="res://entities/player/player.gd" id="2_xgaa1"]
+[ext_resource type="Script" uid="uid://w1vgj2tiuuey" path="res://entities/player/player.gd" id="2_xgaa1"]
 [ext_resource type="Texture2D" uid="uid://b7o5qtn82u1ur" path="res://Aseprite Assets/player/maincharacterMV1-Sheet.png" id="3_k1sps"]
-[ext_resource type="Script" path="res://entities/player/states/move_state.gd" id="8_0q58c"]
+[ext_resource type="Resource" uid="uid://5kad6qtokh2b" path="res://player/player_stats.tres" id="3_wvtmh"]
+[ext_resource type="Resource" uid="uid://dxgnvq5pa6ra3" path="res://player/player_actions.tres" id="4_a1qjk"]
+[ext_resource type="Script" uid="uid://p0lcm0k3pxyy" path="res://entities/player/states/move_state.gd" id="8_0q58c"]
 [ext_resource type="Script" path="res://entities/player/state_debug_label.gd" id="8_11kuo"]
 [ext_resource type="LabelSettings" uid="uid://clo0nfvok1ly7" path="res://fonts/default_label_settings.tres" id="8_j0dv7"]
-[ext_resource type="Script" path="res://entities/player/player_input.gd" id="9_bp2km"]
-[ext_resource type="Script" path="res://entities/player/states/limbo_hsm.gd" id="12_iipp6"]
-[ext_resource type="Script" path="res://entities/player/states/idle_state.gd" id="12_vamft"]
+[ext_resource type="Script" uid="uid://svdmohjshq0p" path="res://entities/player/player_input.gd" id="9_bp2km"]
+[ext_resource type="Script" uid="uid://b3iarwuox4neq" path="res://entities/player/player_actions.gd" id="11_7thud"]
+[ext_resource type="Script" uid="uid://bnqlq688up84t" path="res://entities/player/states/limbo_hsm.gd" id="12_iipp6"]
+[ext_resource type="Script" uid="uid://dcc5v2aplk21n" path="res://entities/player/states/idle_state.gd" id="12_vamft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uidrs"]
 size = Vector2(14, 41)
@@ -173,15 +176,15 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yx67n"]
 _data = {
-"RESET": SubResource("Animation_arp08"),
-"attacksword": SubResource("Animation_2gel8"),
-"crouching": SubResource("Animation_qjupc"),
-"crouchpre": SubResource("Animation_xrhbu"),
-"idle": SubResource("Animation_h6ajb"),
-"jump": SubResource("Animation_4knjn"),
-"jumpfall": SubResource("Animation_j14ib"),
-"run": SubResource("Animation_jpdmb"),
-"runpre": SubResource("Animation_8ji32")
+&"RESET": SubResource("Animation_arp08"),
+&"attacksword": SubResource("Animation_2gel8"),
+&"crouching": SubResource("Animation_qjupc"),
+&"crouchpre": SubResource("Animation_xrhbu"),
+&"idle": SubResource("Animation_h6ajb"),
+&"jump": SubResource("Animation_4knjn"),
+&"jumpfall": SubResource("Animation_j14ib"),
+&"run": SubResource("Animation_jpdmb"),
+&"runpre": SubResource("Animation_8ji32")
 }
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_7aiex"]
@@ -191,15 +194,26 @@ var/direction/value = Vector2(0, 0)
 var/direction/hint = 0
 var/direction/hint_string = "the direction the player is trying to move"
 
+[sub_resource type="Resource" id="Resource_a1qjk"]
+script = ExtResource("11_7thud")
+left = &"left"
+right = &"right"
+up = &"up"
+down = &"down"
+jump = &"jump"
+metadata/_custom_type_script = ExtResource("11_7thud")
+
 [node name="Player" node_paths=PackedStringArray("sprite_2d", "animation_player") groups=["Player"] instance=ExtResource("1_fdhh2")]
 collision_mask = 17
 script = ExtResource("2_xgaa1")
 sprite_2d = NodePath("Sprite2D")
 animation_player = NodePath("AnimationPlayer")
+stats = ExtResource("3_wvtmh")
+player_actions = ExtResource("4_a1qjk")
 knockback_force = 1000
 knockback_duration = 0.3
 invulnerability_duration = 1.0
-speed = 100
+speed = 70
 acceleration = 1200
 friction = 1800
 dash_cooldown = 0.5
@@ -227,7 +241,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 libraries = {
-"": SubResource("AnimationLibrary_yx67n")
+&"": SubResource("AnimationLibrary_yx67n")
 }
 
 [node name="JumpBuffer" type="Timer" parent="Timers" index="0"]
@@ -255,11 +269,14 @@ label_settings = ExtResource("8_j0dv7")
 horizontal_alignment = 1
 script = ExtResource("8_11kuo")
 
-[node name="LimboHSM" type="LimboHSM" parent="." index="7" node_paths=PackedStringArray("character")]
+[node name="LimboHSM" type="LimboHSM" parent="." index="7" node_paths=PackedStringArray("character", "states")]
 blackboard_plan = SubResource("BlackboardPlan_7aiex")
 script = ExtResource("12_iipp6")
 character = NodePath("..")
-states = Array[Dictionary]([{}])
+states = {
+"idle": NodePath("IdleState"),
+"move": NodePath("MoveState")
+}
 
 [node name="IdleState" type="LimboState" parent="LimboHSM" index="0"]
 script = ExtResource("12_vamft")
@@ -272,6 +289,7 @@ animation_name = &"run"
 [node name="PlayerInput" type="Node" parent="." index="8" node_paths=PackedStringArray("limbo_hsm")]
 script = ExtResource("9_bp2km")
 limbo_hsm = NodePath("../LimboHSM")
+player_actions = SubResource("Resource_a1qjk")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
