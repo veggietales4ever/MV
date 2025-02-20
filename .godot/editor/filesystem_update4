@@ -16,3 +16,15 @@ res://entities/character_stats.gd
 res://entities/player/states/move_state.gd
 res://entities/player/states/idle_state.gd
 res://entities/player/player.gd
+res://entities/player/states/limbo_hsm.gd
+res://entities/player/player_input.gd
+res://entities/bb_names.gd
+res://entities/enemy/slime enemy/slime_enemy.gd
+res://entities/enemy/slime enemy/slime_enemy_state_chase.gd
+res://UI/ui.gd
+res://entities/player/player_stats.gd
+res://entities/player/ground_state.gd
+res://entities/player/states/air_state.gd
+res://entities/player/facing.gd
+res://entities/player/states/crouch_state.gd
+res://entities/player/states/ground_attack.gd

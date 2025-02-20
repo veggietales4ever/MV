@@ -6,10 +6,11 @@ extends LimboHSM
 @export var states : Dictionary[String, LimboState]
 
 func _ready():
+	_binding_setup()
 	initialize(character)
 	set_active(true)
-	_binding_setup()
 
 func _binding_setup():
-	add_transition(states["idle"], states["move"], "moving")
-	add_transition(states["move"], states["idle"], "stopped")
+	add_transition(states["ground"], states["air"], "in_air")
+	add_transition(states["air"], states["ground"], "on_ground")
+	add_transition(states["ground"], states["crouch"], "crouching")

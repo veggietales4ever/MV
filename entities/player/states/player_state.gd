@@ -12,13 +12,9 @@ func _enter() -> void:
 	agent.animation_player.play(animation_name)
 	character_stats = character.stats
 
-func move(delta) -> Vector2:
-	var direction: Vector2 = blackboard.get_var(BBNames.direction_var, Vector2.ZERO)
-	
-	if not is_zero_approx(direction.x):
-		character.velocity.x = move_toward(character.velocity.x, direction.x * character.speed, character.acceleration) #* delta)
-	else:
-		character.velocity.x = move_toward(character.velocity.x, 0, character.friction) #* delta)
-	
-	character.move_and_slide()
-	return character.velocity
+#func _apply_gravity(delta : float):
+	#if not character.is_on_floor():
+		#character.velocity.y += character.gravity * delta
+		#character.velocity.y = character.velocity.y / 2 if character.faster_fall and character.velocity.y < 0 else character.velocity.y
+		#character.velocity.y = character.velocity.y * character.gravity_multiplier
+		#character.velocity.y = min(character.velocity.y, character.terminal_velocity)

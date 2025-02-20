@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://hxn1ec6yv7ws"]
 
-[ext_resource type="Script" path="res://UI/ui.gd" id="1_lxymi"]
+[ext_resource type="Script" uid="uid://c1x54dq080laq" path="res://UI/ui.gd" id="1_lxymi"]
 [ext_resource type="Texture2D" uid="uid://bc0wj2cbhadj3" path="res://assets/metroid_asset_1_2/Sprites/UI/HeartSpriteSheet.png" id="1_psfor"]
 
 [node name="UI" type="CanvasLayer"]

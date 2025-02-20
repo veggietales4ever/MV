@@ -9,8 +9,6 @@ class_name Player
 @export var player_actions: PlayerActions
 
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
-@onready var state_machine: PlayerStateMachine = $StateMachine
-
 
 @export_group('damage')
 @export var knockback_force := 1000
@@ -20,9 +18,9 @@ var is_knocked_back := false
 var invulnerable := false
 
 @export_group('move')
-@export var speed := 70 # := is the data type of first value is the only data type this var can accept.
+@export var speed := 110 # := is the data type of first value is the only data type this var can accept.
 @export var acceleration := 1200
-@export var friction := 1800
+@export var friction := 2000
 var direction := Vector2.ZERO
 var can_move := false
 var dash := false
@@ -32,6 +30,9 @@ var crouching := false
 @export_group('jump')
 @export var gravity := 600
 @export var terminal_velocity := 500
+@export var jump_velocity : float = 275
+@export var max_air_speed : float = 90.0
+@export var air_acceleration : float = 85.0
 var jump := false
 var faster_fall := false
 var gravity_multiplier := 1
@@ -56,44 +57,25 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
-	#apply_movement(delta)
-	
-	if direction.x:
-		velocity.x = move_toward(velocity.x, direction.x * speed, acceleration * delta)
-	else:
-		velocity.x = move_toward(velocity.x, 0, friction * delta)
-	
-	# Jump
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			pass
-		if velocity.y > 0 and not is_on_floor():
-			$Timers/JumpBuffer.start()
+
+	#
+	## Jump
+	#if Input.is_action_just_pressed("jump"):
+		#if is_on_floor():
+			#pass
+		#if velocity.y > 0 and not is_on_floor():
+			#$Timers/JumpBuffer.start()
 
 			
 	
 	if Input.is_action_just_released("jump") and not is_on_floor() and velocity.y < 0:
 		faster_fall = true
-			
-	move_and_slide()
-	#update_animation_parameters()
-	update_facing_direction()
 
-#func update_animation_parameters():
-	#animation_tree.set("parameters/Move/blend_position", direction.x)
-	
-			
-func update_facing_direction():
-	if direction.x > 0:
-		sprite_2d.flip_h = false
-	elif direction.x < 0:
-		sprite_2d.flip_h = true
+
 		
 		
 		
-#if can_move:
-	#get_input()
-		
+
 #func get_input():
 	## horizontal movement
 	#direction.x = Input.get_axis("left", "right")

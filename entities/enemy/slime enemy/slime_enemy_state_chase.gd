@@ -24,7 +24,7 @@ func process(delta: float) -> EnemyState:
 		return next_state
 	return null
 
-func physics(delta: float) -> EnemyState:
+func physics(_delta: float) -> EnemyState:
 	if enemy.player:
 		var direction = (enemy.player.global_position - enemy.global_position).normalized()
 		

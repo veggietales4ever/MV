@@ -1,5 +1,5 @@
-res://player
 res://entities/player/states
+res://player
 res://entities/player/state_machine
 res://particles
 res://shaders

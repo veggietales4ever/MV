@@ -539,7 +539,11 @@ position = Vector2(-4, 122)
 collision_mask = 2
 stats = null
 player_actions = null
-speed = 70
+speed = 110
+friction = 2000
+jump_velocity = 275.0
+max_air_speed = 90.0
+air_acceleration = 85.0
 
 [node name="Shader" type="CanvasLayer" parent="."]
 visible = false

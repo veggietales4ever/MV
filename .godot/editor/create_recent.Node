@@ -1,5 +1,8 @@
-Node
+CollisionShape2D
+Area2D
 PlayerState
+Node2D
+Node
 LimboState
 LimboHSM
 Label
@@ -9,6 +12,3 @@ Sprite2D
 Camera2D
 CPUParticles2D
 GPUParticles2D
-CollisionShape2D
-Area2D
-Timer

@@ -46,7 +46,7 @@ func _on_chase_trigger_area_body_entered(body: Node2D) -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player_inside = true
-		var player = PlayerManager.player
+		#var player = PlayerManager.player
 		if not player.invulnerable:
 			player_data.life -= 1
 			player.take_damage(global_position)
@@ -154,7 +154,7 @@ func _on_invulnerability_timer_timeout():
 	invulnerable = false
 	self.modulate = Color(1, 1, 1, 1) # Reset opacity
 	
-	var player = PlayerManager.player
+	#var player = PlayerManager.player
 	if player == null:
 		print("Error: Playermanager.player is not set")
 		return

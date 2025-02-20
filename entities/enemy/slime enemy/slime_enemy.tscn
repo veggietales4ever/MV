@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://entities/enemy/enemy_state_machine.gd" id="5_n45tb"]
 [ext_resource type="Script" path="res://entities/enemy/slime enemy/slime_enemy_state_idle.gd" id="5_tf3s0"]
 [ext_resource type="Script" path="res://entities/enemy/slime enemy/slime_enemy_state_wander.gd" id="6_mhmit"]
-[ext_resource type="Script" path="res://entities/enemy/slime enemy/slime_enemy_state_chase.gd" id="7_q4jjl"]
+[ext_resource type="Script" uid="uid://dg5uuvbify7vo" path="res://entities/enemy/slime enemy/slime_enemy_state_chase.gd" id="7_q4jjl"]
 
 [sub_resource type="Animation" id="Animation_nta3p"]
 length = 0.001
