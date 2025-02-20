@@ -9,7 +9,7 @@ func _update(_delta: float) -> void:
 		if blackboard.get_var(BBNames.crouch_var): #&& crouch:
 			crouch()
 		else:
-			dispatch("on_ground")
+			dispatch("to_stand")
 			
 func crouch():
 	character.animation_player.play(crouch_anim)

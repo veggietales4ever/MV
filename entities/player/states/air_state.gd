@@ -1,9 +1,7 @@
 extends PlayerState
 
-var faster_fall := false
 
 func _update(delta: float) -> void:
-	#_apply_gravity(delta)
 	air_move(delta)
 	
 	if character.is_on_floor():

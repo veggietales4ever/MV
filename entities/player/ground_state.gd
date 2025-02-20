@@ -3,8 +3,6 @@ extends PlayerState
 @export var idle_anim : StringName = "idle"
 @export var move_anim : StringName = "move"
 
-var faster_fall := false
-
 #var _on_first_frame = true
 
 func _enter() -> void:
@@ -14,7 +12,6 @@ func _enter() -> void:
 
 
 func _update(delta: float) -> void:
-	#_apply_gravity(delta)
 	var velocity : Vector2 = move(delta)
 	
 	if Vector2.ZERO.is_equal_approx(velocity): #as long as currency velocity is not approximately 0. switch state to move state
@@ -51,6 +48,3 @@ func jump():
 	character.velocity.y = -character.jump_velocity
 	var current_jumps : int = blackboard.get_var(BBNames.jumps_made_var)
 	blackboard.set_var(BBNames.jumps_made_var, current_jumps + 1)
-	
-	if Input.is_action_just_released("jump") and not character.is_on_floor() and character.velocity.y < 0:
-		faster_fall = true

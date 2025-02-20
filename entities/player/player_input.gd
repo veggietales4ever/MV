@@ -5,12 +5,14 @@ class_name PlayerInput
 
 @export var limbo_hsm : LimboHSM
 @export var player_actions : PlayerActions
+@export var character : CharacterBody2D
 
 
 var blackboard : Blackboard
 var input_direction : Vector2
 var jump : bool
 var crouch : bool
+var faster_fall : bool
 
 func _ready() -> void:
 	blackboard = limbo_hsm.blackboard
@@ -25,9 +27,9 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void: #unhandled means if key is handled by something else, we don't want 2 things to be triggered
 	if event.is_action_pressed(player_actions.jump):
 		jump = true
-	elif event.is_action_released(player_actions.jump):
+	elif event.is_action_released(player_actions.jump): #and not character.is_on_floor() and character.velocity.y < 0:
 		jump = false
-	
+
 	if event.is_action_pressed(player_actions.down):
 		crouch = true
 	elif event.is_action_released(player_actions.down):

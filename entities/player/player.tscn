@@ -346,12 +346,10 @@ collision_layer = 0
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDetector" index="0"]
-visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_uidrs")
 
 [node name="CollisionShape2D" parent="." index="2"]
-visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_mck4p")
 
@@ -411,9 +409,10 @@ script = ExtResource("14_yqrof")
 animation_name = &"attacksword"
 metadata/_custom_type_script = ExtResource("11_afbqv")
 
-[node name="PlayerInput" type="Node" parent="." index="7" node_paths=PackedStringArray("limbo_hsm")]
+[node name="PlayerInput" type="Node" parent="." index="7" node_paths=PackedStringArray("limbo_hsm", "character")]
 script = ExtResource("9_bp2km")
 limbo_hsm = NodePath("../LimboHSM")
 player_actions = SubResource("Resource_a1qjk")
+character = NodePath("..")
 
 [connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
