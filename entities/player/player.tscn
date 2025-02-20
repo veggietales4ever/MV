@@ -17,6 +17,9 @@
 [ext_resource type="Script" uid="uid://c72gwiv2hm622" path="res://entities/player/states/crouch_state.gd" id="13_gx6sm"]
 [ext_resource type="Script" uid="uid://bp3o8he5a7miv" path="res://entities/player/states/ground_attack.gd" id="14_yqrof"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uidrs"]
+size = Vector2(14, 41)
+
 [sub_resource type="Animation" id="Animation_arp08"]
 length = 0.001
 tracks/0/type = "value"
@@ -176,8 +179,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_4knjn"]
 resource_name = "jump"
-length = 0.1
-step = 0.1
+length = 0.05
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -189,6 +192,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [41]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LimboHSM/AirState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"lock_animation"
+}, {
+"args": [],
+"method": &"unlock_animation"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_j14ib"]
@@ -259,9 +279,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqrof"]
 size = Vector2(39.25, 14)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uidrs"]
-size = Vector2(14, 41)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mck4p"]
 radius = 7.0
 height = 42.0
@@ -297,28 +314,36 @@ down = &"down"
 jump = &"jump"
 metadata/_custom_type_script = ExtResource("11_7thud")
 
-[node name="Player" node_paths=PackedStringArray("sprite_2d", "animation_player") groups=["Player"] instance=ExtResource("1_fdhh2")]
+[node name="Player" node_paths=PackedStringArray("animation_player", "sprite_2d") groups=["Player"] instance=ExtResource("1_fdhh2")]
 collision_mask = 17
 script = ExtResource("2_xgaa1")
-sprite_2d = NodePath("Facing/Sprite2D")
-animation_player = NodePath("Facing/AnimationPlayer")
-stats = ExtResource("3_wvtmh")
 player_actions = ExtResource("4_a1qjk")
-knockback_force = 1000
-knockback_duration = 0.3
-invulnerability_duration = 1.0
-speed = 110
-acceleration = 1200
-friction = 2000
-dash_cooldown = 0.5
-gravity = 600
-terminal_velocity = 500
-jump_velocity = 275.0
-max_air_speed = 90.0
-air_acceleration = 85.0
-attack_cooldown = 0.5
+knockback_force = null
+knockback_duration = null
+invulnerability_duration = null
+speed = null
+acceleration = null
+friction = null
+dash_cooldown = null
+gravity = null
+terminal_velocity = null
+jump_velocity = null
+max_air_speed = null
+air_acceleration = null
+attack_cooldown = null
+animation_player = NodePath("Facing/AnimationPlayer")
+sprite_2d = NodePath("Facing/Sprite2D")
+stats = ExtResource("3_wvtmh")
 
-[node name="Facing" type="Node2D" parent="." index="0" node_paths=PackedStringArray("character")]
+[node name="RoomDetector" type="Area2D" parent="." index="0"]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDetector" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_uidrs")
+
+[node name="Facing" type="Node2D" parent="." index="1" node_paths=PackedStringArray("character")]
 script = ExtResource("5_afbqv")
 character = NodePath("..")
 
@@ -340,14 +365,6 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/Sword" index="0"]
 position = Vector2(17, -7.5)
 shape = SubResource("RectangleShape2D_yqrof")
-
-[node name="RoomDetector" type="Area2D" parent="." index="1"]
-collision_layer = 0
-collision_mask = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDetector" index="0"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_uidrs")
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(-1, 0)
@@ -396,6 +413,8 @@ animation_name = &"idle"
 
 [node name="AirState" type="LimboState" parent="LimboHSM" index="1"]
 script = ExtResource("10_j3ovn")
+rising_animation = &"runpre"
+falling_animation = &"jumpfall"
 metadata/_custom_type_script = ExtResource("11_afbqv")
 
 [node name="CrouchState" type="LimboState" parent="LimboHSM" index="2"]

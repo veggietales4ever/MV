@@ -1,7 +1,6 @@
-class_name Entity
 extends CharacterBody2D
+class_name Character
 
-#signal attacksignal
 @export var animation_player : AnimationPlayer
 @export var sprite_2d : Sprite2D
-@export var stats : PlayerStats
+@export var stats : CharacterStats

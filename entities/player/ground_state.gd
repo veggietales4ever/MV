@@ -2,6 +2,7 @@ extends PlayerState
 
 @export var idle_anim : StringName = "idle"
 @export var move_anim : StringName = "move"
+@export var jump_anim : StringName = "jump"
 
 #var _on_first_frame = true
 
@@ -48,3 +49,5 @@ func jump():
 	character.velocity.y = -character.jump_velocity
 	var current_jumps : int = blackboard.get_var(BBNames.jumps_made_var)
 	blackboard.set_var(BBNames.jumps_made_var, current_jumps + 1)
+	character.animation_player.play(jump_anim)
+	dispatch("jump")

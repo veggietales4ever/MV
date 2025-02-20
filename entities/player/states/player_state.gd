@@ -4,11 +4,12 @@ class_name PlayerState
 
 @export var animation_name : StringName
 
-var character : CharacterBody2D
+var character : Character
 var character_stats : CharacterStats
+var animation_lock : bool = false
 
 func _enter() -> void:
-	character = agent as CharacterBody2D
+	character = agent as Character
 	agent.animation_player.play(animation_name)
 	character_stats = character.stats
 
@@ -18,3 +19,9 @@ func _enter() -> void:
 	#character.velocity.y = character.velocity.y * character.gravity_multiplier
 	#character.velocity.y = min(character.velocity.y, character.terminal_velocity)
 	#
+
+func lock_animation():
+	animation_lock = true
+	
+func unlock_animation():
+	animation_lock = false

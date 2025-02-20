@@ -1,11 +1,11 @@
 
 #player.gd
-extends Entity
+extends Character
 class_name Player
 
-@export var sprite_2d: Sprite2D
-@export var animation_player: AnimationPlayer
-@export var stats : PlayerStats
+#@export var sprite_2d: Sprite2D
+#@export var animation_player: AnimationPlayer
+#@export var stats : PlayerStats
 @export var player_actions: PlayerActions
 
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer

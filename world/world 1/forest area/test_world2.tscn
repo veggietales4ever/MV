@@ -537,8 +537,21 @@ layer_2/name = "Statue"
 [node name="Player" parent="Entities" instance=ExtResource("4_qi6yf")]
 position = Vector2(-4, 122)
 collision_mask = 2
-stats = null
 player_actions = null
+knockback_force = null
+knockback_duration = null
+invulnerability_duration = null
+speed = null
+acceleration = null
+friction = null
+dash_cooldown = null
+gravity = null
+terminal_velocity = null
+jump_velocity = null
+max_air_speed = null
+air_acceleration = null
+attack_cooldown = null
+stats = null
 
 [node name="Shader" type="CanvasLayer" parent="."]
 visible = false
