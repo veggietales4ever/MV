@@ -1,9 +1,9 @@
 6dcd580d9bf2a9dbe66cc9f994d3620b
-::res://::1740122670.0
-default_bus_layout.tres::AudioBusLayout::8209947536257035343::1740108007::0::1::::<><><><>::
+::res://::1740129384.0
+default_bus_layout.tres::AudioBusLayout::8209947536257035343::1740122671::0::1::::<><><><>::
 icon.svg::CompressedTexture2D::1696966632735640405::1738189306::1740004757::1::::<><><>2df018b9c363abb8b0d09077d0bd344d<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 main.gd::GDScript::-1::1738189306::0::1::::<>Node2D<><><>::
-MapData.txt::TextFile::-1::1740122633::0::1::::<><><><>::
+MapData.txt::TextFile::-1::1740129352::0::1::::<><><><>::
 MetSysSettings.tres::Resource::4950397979492303096::1740004867::0::1::::<><><><>::uid://n3w4xxnikpoe::::res://addons/MetroidvaniaSystem/Scripts/Settings.gd<>uid://bt6s3nd8xo6b::::res://addons/MetroidvaniaSystem/Themes/Exquisite/Theme.tres
 new_script.gd::GDScript::2017547527696666031::1740006673::0::1::::<>Node<><><>::
 timer_test_scene.gd::GDScript::-1::1738189306::0::1::::<>Node2D<><><>::
@@ -754,17 +754,17 @@ layer4_f.png::CompressedTexture2D::407311073991641650::1738189306::1740004756::1
 3.png::CompressedTexture2D::94969585177065708::1738189306::1740004756::1::::<><><>75455d7cba2802bc8f2c11982ea472f6<>res://.godot/imported/3.png-798f8fc8dbaf19a7f140c3827a84a0c7.ctex::
 4.png::CompressedTexture2D::1940245035883102685::1738189306::1740004756::1::::<><><>0b7b1a7507ec2f226ff4760d8b476645<>res://.godot/imported/4.png-d304d7b01a378ae5210aeb868d0cb3c7.ctex::
 ::res://components/::1738189306.0
-::res://control/::1740004752.0
-camera_2d.gd::GDScript::-1::1738986582::0::1::::<>Camera2D<><><>::
+::res://control/::1740126622.0
+camera_2d.gd::GDScript::1897881969741099681::1740126622::0::1::::<>Camera2D<><><>::
 ::res://control/can_move_areas/::1740004752.0
 can_move_area_intro.gd::GDScript::-1::1738189306::0::1::::<>Area2D<><><>::
-::res://control/move_area/::1740117885.0
+::res://control/move_area/::1740126001.0
 move_area.gd::GDScript::178427503676982426::1740111614::0::1::::<>Area2D<><><>::
-move_area.tscn::PackedScene::5098169645680268052::1740117885::0::1::::<><><><>::uid://csow7g6368hq::::res://control/move_area/move_area.gd
-::res://control/transitions/::1740122540.0
-entry.gd::GDScript::2849839875705361569::1740122540::0::1::::<>Node<><><>::
+move_area.tscn::PackedScene::5098169645680268052::1740126001::0::1::::<><><><>::uid://csow7g6368hq::::res://control/move_area/move_area.gd
+::res://control/transitions/::1740126001.0
+entry.gd::GDScript::2849839875705361569::1740123409::0::1::::<>Node2D<><><>::
 transitions.gd::GDScript::4506488706491574408::1740117909::0::1::::<>Node<><><>::
-transitions.tscn::PackedScene::1457981359499994113::1740117885::0::1::::<><><><>::uid://b5g8hfpath3we::::res://control/transitions/transitions.gd
+transitions.tscn::PackedScene::1457981359499994113::1740126001::0::1::::<><><><>::uid://b5g8hfpath3we::::res://control/transitions/transitions.gd
 ::res://demo/::1739955085.0
 LICENSE_ASSETS.md::TextFile::-1::1739954712::0::1::::<><><><>::
 ::res://demo/agents/::1740004862.0
@@ -898,8 +898,8 @@ enemy_state_machine.gd::GDScript::-1::1738810653::0::1::::EnemyStateMachine<>Nod
 ::res://entities/enemy/gold enemy/::1740019017.0
 gold_enemy.gd::GDScript::4095617559171290645::1740019017::0::1::::<>CharacterBody2D<><><>::
 gold_enemy.tscn::PackedScene::4530269588321083407::1740004864::0::1::::<><><><>::uid://4ll2hc81b066::::res://entities/enemy/enemy.tscn<>uid://byl7htt2rmj0p::::res://entities/enemy/gold enemy/gold_enemy.gd<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://bm5rndl84bd8e::::res://assets/enemy/slime/slime spritesheet.png
-::res://entities/enemy/slime enemy/::1740111614.0
-slime_enemy.gd::GDScript::2573934858040958713::1740111614::0::1::::Enemy<>CharacterBody2D<><><>::
+::res://entities/enemy/slime enemy/::1740126623.0
+slime_enemy.gd::GDScript::2573934858040958713::1740126623::0::1::::Enemy<>CharacterBody2D<><><>::
 slime_enemy.tscn::PackedScene::8083397200962855919::1740104868::0::1::::<><><><>::uid://4ll2hc81b066::::res://entities/enemy/enemy.tscn<>uid://bcw3lix2f8vx6::::res://entities/enemy/slime enemy/slime_enemy.gd<>uid://c2ipareo6vpx5::::res://Aseprite Assets/greenslime/greenslime.png<>res://entities/enemy/enemy_state_machine.gd<>res://entities/enemy/slime enemy/slime_enemy_state_idle.gd<>res://entities/enemy/slime enemy/slime_enemy_state_wander.gd<>uid://dg5uuvbify7vo::::res://entities/enemy/slime enemy/slime_enemy_state_chase.gd
 slime_enemy_state.gd::GDScript::-1::1738189306::0::1::::EnemyState<>Node<><><>::
 slime_enemy_state_chase.gd::GDScript::7643577606169021480::1740022830::0::1::::EnemyStateChase<>EnemyState<><><>::
@@ -910,36 +910,33 @@ coin.gd::GDScript::-1::1738189306::0::1::::<>Area2D<><><>::
 coin.tscn::PackedScene::7357417239044368147::1740004864::0::1::::<><><><>::uid://b2supcwpgv4l4::::res://assets/metroid_asset_1_2/Sprites/Interactables/coin.png<>uid://bbjn18r6c7cuk::::res://entities/objects/coin.gd<>uid://cq5w0gwnw4nkl::::res://audio/sounds/coincollect.wav
 crate.gd::GDScript::-1::1738189306::0::1::::<>StaticBody2D<><><>::
 crate.tscn::PackedScene::783665819352314552::1740104869::0::1::::<><><><>::uid://28a806p4ofiq::::res://assets/metroid_asset_1_2/Sprites/Interactables/Crate-animated.png<>res://entities/objects/crate.gd
-::res://entities/player/::1740117885.0
+::res://entities/player/::1740129339.0
 characterspritesheet.png::CompressedTexture2D::6921824110314887081::1738189306::1740004757::1::::<><><>128141f18c049e8dc9f59983ed6404f7<>res://.godot/imported/characterspritesheet.png-4bcc21d3947b11fc2b2b47b9ef79802c.ctex::
-facing.gd::GDScript::7825699859362158324::1740113866::0::1::::Facing<>Node2D<><><>::
-landing_state.gd::GDScript::-1::1739935714::0::1::::LandingState<>State<><><>::
-player.gd::GDScript::1599114668548435376::1740117670::0::1::::Player<>Character<><><>::
-player.tscn::PackedScene::5080344115857041663::1740117885::0::1::::<><><><>::uid://vl613h1q7jq::::res://entities/entity.tscn<>uid://w1vgj2tiuuey::::res://entities/player/player.gd<>uid://b7o5qtn82u1ur::::res://Aseprite Assets/player/maincharacterMV1-Sheet.png<>uid://5kad6qtokh2b::::res://entities/player/player_stats.tres<>uid://dxgnvq5pa6ra3::::res://entities/player/player_actions.tres<>uid://djq3eset4y6pk::::res://entities/player/facing.gd<>uid://45vec58f3bjw::::res://entities/player/state_debug_label.gd<>uid://clo0nfvok1ly7::::res://fonts/default_label_settings.tres<>uid://ckj7jx46hgm8b::::res://entities/player/states/ground_move_state.gd<>uid://svdmohjshq0p::::res://entities/player/player_input.gd<>uid://qb57qe23y1ca::::res://entities/player/states/air_move_state.gd<>uid://b3iarwuox4neq::::res://entities/player/player_actions.gd<>uid://jh6jeqoqf0sw::::res://entities/player/states/player_state.gd<>uid://bnqlq688up84t::::res://entities/player/states/limbo_hsm.gd<>uid://c72gwiv2hm622::::res://entities/player/states/crouch_state.gd<>uid://bp3o8he5a7miv::::res://entities/player/states/attack_state.gd<>uid://u6xph71sqpqh::::res://entities/player/states/air_attack.gd
-player_actions.gd::GDScript::4368254873164647396::1740111614::0::1::::PlayerActions<>Resource<><><>::
+facing.gd::GDScript::7825699859362158324::1740126622::0::1::::Facing<>Node2D<><><>::
+player.gd::GDScript::1599114668548435376::1740126622::0::1::::Player<>Character<><><>::
+player.tscn::PackedScene::5080344115857041663::1740129339::0::1::::<><><><>::uid://vl613h1q7jq::::res://entities/entity.tscn<>uid://w1vgj2tiuuey::::res://entities/player/player.gd<>uid://b7o5qtn82u1ur::::res://Aseprite Assets/player/maincharacterMV1-Sheet.png<>uid://5kad6qtokh2b::::res://entities/player/player_stats.tres<>uid://dxgnvq5pa6ra3::::res://entities/player/player_actions.tres<>uid://djq3eset4y6pk::::res://entities/player/facing.gd<>uid://45vec58f3bjw::::res://entities/player/state_debug_label.gd<>uid://clo0nfvok1ly7::::res://fonts/default_label_settings.tres<>uid://ckj7jx46hgm8b::::res://entities/player/states/ground_move_state.gd<>uid://svdmohjshq0p::::res://entities/player/player_input.gd<>uid://qb57qe23y1ca::::res://entities/player/states/air_move_state.gd<>uid://b3iarwuox4neq::::res://entities/player/player_actions.gd<>uid://jh6jeqoqf0sw::::res://entities/player/states/player_state.gd<>uid://bnqlq688up84t::::res://entities/player/states/limbo_hsm.gd<>uid://c72gwiv2hm622::::res://entities/player/states/crouch_state.gd<>uid://bp3o8he5a7miv::::res://entities/player/states/attack_state.gd<>uid://u6xph71sqpqh::::res://entities/player/states/air_attack.gd
+player_actions.gd::GDScript::4368254873164647396::1740126622::0::1::::PlayerActions<>Resource<><><>::
 player_actions.tres::Resource/PlayerActions::8786819431256877752::1740009127::0::1::::<><><><>::uid://b3iarwuox4neq::::res://entities/player/player_actions.gd
 player_graphics.gd::GDScript::-1::1738796206::0::1::::<>Node2D<><><>::
 player_graphics.tscn::PackedScene::8465714527172561612::1740004864::0::1::::<><><><>::uid://ci1dnck1adekv::::res://entities/player/player_graphics.gd<>uid://b7o5qtn82u1ur::::res://Aseprite Assets/player/maincharacterMV1-Sheet.png<>uid://de43fgkgjr0mj::::res://entities/player/swordweapon.gd
-player_input.gd::GDScript::1306955445398796633::1740111614::0::1::::PlayerInput<>Node<><><>::
+player_input.gd::GDScript::1306955445398796633::1740126622::0::1::::PlayerInput<>Node<><><>::
 player_stats.gd::GDScript::3616585470102482857::1740111614::0::1::::PlayerStats<>CharacterStats<><><>::
 player_stats.tres::Resource/PlayerStats::2126316097886392899::1740006773::0::1::::<><><><>::uid://brr5vtivync54::::res://entities/player/player_stats.gd
 state_debug_label.gd::GDScript::2098690151046433180::1740111614::0::1::::<>Label<><><>::
 swordweapon.gd::GDScript::-1::1738983528::0::1::::BasicSword<>Weapon<><><>::
-::res://entities/player/states/::1740117387.0
-air_attack.gd::GDScript::1469196279181916995::1740117387::0::1::::<>AirState<><><>::
-air_move_state.gd::GDScript::1126965378968495756::1740112156::0::1::::<>AirState<><><>::
-air_state.gd::GDScript::4885931607136799791::1740112156::0::1::::AirState<>PlayerState<><><>::
-attack_state.gd::GDScript::3497965259681855893::1740111614::0::1::::<>PlayerState<><><>::
-crouch_state.gd::GDScript::7075026606449671965::1740111614::0::1::::<>PlayerState<><><>::
-ground_attack.gd::GDScript::1842757499089551775::1740111614::0::1::::AttackState<>PlayerState<><><>::
-ground_move_state.gd::GDScript::5495269473721219539::1740114460::0::1::::<>GroundState<><><>::
-ground_state.gd::GDScript::5747637039104096746::1740114460::0::1::::GroundState<>PlayerState<><><>::
+::res://entities/player/states/::1740126623.0
+air_attack.gd::GDScript::1469196279181916995::1740126622::0::1::::<>AirState<><><>::
+air_move_state.gd::GDScript::1126965378968495756::1740126622::0::1::::<>AirState<><><>::
+air_state.gd::GDScript::4885931607136799791::1740126622::0::1::::AirState<>PlayerState<><><>::
+attack_state.gd::GDScript::3497965259681855893::1740126622::0::1::::<>PlayerState<><><>::
+crouch_state.gd::GDScript::7075026606449671965::1740126622::0::1::::<>PlayerState<><><>::
+ground_attack.gd::GDScript::1842757499089551775::1740126622::0::1::::AttackState<>PlayerState<><><>::
+ground_move_state.gd::GDScript::5495269473721219539::1740126622::0::1::::<>GroundState<><><>::
+ground_state.gd::GDScript::5747637039104096746::1740126622::0::1::::GroundState<>PlayerState<><><>::
 idle_state.gd::GDScript::7305628924145594317::1740022975::0::1::::<>PlayerState<><><>::
-limbo_hsm.gd::GDScript::3332603835404512521::1740112156::0::1::::<>LimboHSM<><><>::
+limbo_hsm.gd::GDScript::3332603835404512521::1740126622::0::1::::<>LimboHSM<><><>::
 move_state.gd::GDScript::1105114226322921820::1740104840::0::1::::<>PlayerState<><><>::
-player_state.gd::GDScript::648048771409588934::1740111614::0::1::::PlayerState<>LimboState<><><>::
-::res://entities/player/state_machine/::1740111729.0
-player_state_machine.gd::GDScript::-1::1739934606::0::1::::PlayerStateMachine<>Node<><><>::
+player_state.gd::GDScript::648048771409588934::1740126623::0::1::::PlayerState<>LimboState<><><>::
 ::res://entities/weapons/::1740004757.0
 Pixel.png::CompressedTexture2D::7189314235347044299::1738975799::1740004757::1::::<><><>d3a7156b07fb37b9849d9d18fdd60cf2<>res://.godot/imported/Pixel.png-ca6ac4581008176330de9f7e41745275.ctex::
 weapon.gd::GDScript::-1::1738974826::0::1::::Weapon<>Area2D<><><>::
@@ -948,8 +945,9 @@ default_label_settings.tres::LabelSettings::5575361371809458668::1734584278::0::
 kenney_mini_square.ttf::FontFile::6837319876068391682::1734584278::1740004753::1::::<><><>be21744e1f647c180af361e5dc7cb012<>res://.godot/imported/kenney_mini_square.ttf-1cacd5b8dabbeb2385d65ef3ef81754b.fontdata::
 title_label.tres::LabelSettings::6417883775968316964::1734584278::0::1::::<><><><>::uid://bmo3m751mx6bd::::res://fonts/title_label_settings.tres
 title_label_settings.tres::FontFile::3259311329520280281::1738097260::0::1::::<><><><>::
-::res://global/::1740004864.0
+::res://global/::1740128012.0
 global.gd::GDScript::-1::1738395221::0::1::::<>Node<><><>::
+global_level_manager.gd::GDScript::1754066393609812126::1740128012::0::1::::<>Node<><><>::
 global_player_manager.gd::GDScript::-1::1739769940::0::1::::<>Node<><><>::
 main.tscn::PackedScene::2982267799226698520::1740004864::0::1::::<><><><>::uid://cwmj74ajxobnm::::res://main.gd
 player_data.gd::GDScript::-1::1738488990::0::1::::player_data<>Node2D<><><>::
@@ -1022,22 +1020,24 @@ Pipe.png::CompressedTexture2D::6579605441438572956::1738189306::1740004757::1:::
 PipeWater.png::CompressedTexture2D::7204401937251515034::1738189306::1740004757::1::::<><><>48de7ab3ab47697f91509cdb1521694c<>res://.godot/imported/PipeWater.png-0452341306020640d9021f8498921583.ctex::
 Portal.png::CompressedTexture2D::4808305482547865974::1738189306::1740004757::1::::<><><>2ec7fd35fe321160d22dcf0aa583498c<>res://.godot/imported/Portal.png-08cc84c82e5917db06ff9889b52de156.ctex::
 Tiles.png::CompressedTexture2D::8382862285461654816::1738189306::1740004757::1::::<><><>7f22609618da248c6007504cdd44ce96<>res://.godot/imported/Tiles.png-02a30c03156c14c6bcabde866ac86066.ctex::
-::res://shaders/::1740122633.0
+::res://shaders/::1740129353.0
 gpu_particles_2d.tscn::PackedScene::9094201212993371012::1740004867::0::1::::<><><><>::uid://w8aoc5ejxfjy::::res://assets/Pixel.png<>uid://p4fcnokd3yce::::res://Aseprite Assets/greenslime/greenslimesprite.png
-palette_limiter_shader.gdshader::Shader::7545148500703107174::1740122633::0::1::::<><><><>::
+palette_limiter_shader.gdshader::Shader::7545148500703107174::1740129353::0::1::::<><><><>::
 ::res://test/::1740004867.0
 player_test.gd::GDScript::-1::1738189306::0::1::::<>CharacterBody2D<><><>::
 player_test.tscn::PackedScene::1093436836470614082::1740004867::0::1::::<><><><>::uid://dwxqtsg1wm6ra::::res://assets/player/characteridle.png<>uid://l1btk1c1dd17::::res://test/player_test.gd
-::res://UI/::1740111615.0
-ui.gd::GDScript::6647105471592555956::1740111615::0::1::::<>CanvasLayer<><><>::
+::res://UI/::1740126623.0
+ui.gd::GDScript::6647105471592555956::1740126623::0::1::::<>CanvasLayer<><><>::
 ui.tscn::PackedScene::539638559981535622::1740104868::0::1::::<><><><>::uid://c1x54dq080laq::::res://UI/ui.gd<>uid://bc0wj2cbhadj3::::res://assets/metroid_asset_1_2/Sprites/UI/HeartSpriteSheet.png
-::res://world/::1740004867.0
+::res://world/::1740129339.0
+AreaTransition.tscn::PackedScene::7027747696406402030::1740129339::0::1::::<><><><>::uid://bri1a508o1i0q::::res://world/area_transition.gd
+area_transition.gd::GDScript::3597726305223782290::1740127931::0::1::::AreaTransition<>Area2D<><><>::
 game.tscn::PackedScene::4586662633936446734::1740004867::0::1::::<><><><>::uid://s6n217may0qd::::res://world/world 1/forest area/test_world.gd<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn
 ::res://world/world 1/::1738194588.0
-::res://world/world 1/forest area/::1740122633.0
-test_world2.tscn::PackedScene::5412750891675730251::1740117886::0::1::::<><><><>::uid://dqjon4yx7tuw2::::res://world/world 1/forest area/test_world_2.gd<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>res://control/camera_2d.gd<>uid://md7yr10poe6y::::res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://dfq6q1ooo7qpi::::res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://dnfwmu05ax2vb::::res://entities/enemy/slime enemy/slime_enemy.tscn<>uid://u1i0focg36lp::::res://control/transitions/transitions.tscn<>uid://cevudyiqr3lsu::::res://control/move_area/move_area.tscn
-test_world.gd::GDScript::1328233848788875079::1740111615::0::1::::<>Node2D<><><>::
-test_world.tscn::PackedScene::4925311452682798772::1740122633::0::1::::<><><><>::uid://s6n217may0qd::::res://world/world 1/forest area/test_world.gd<>res://control/camera_2d.gd<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://md7yr10poe6y::::res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png<>uid://dfq6q1ooo7qpi::::res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://dc28t7tiqn540::::res://entities/objects/coin.tscn<>uid://lfu4j7l58qi7::::res://entities/objects/crate.tscn<>uid://dnfwmu05ax2vb::::res://entities/enemy/slime enemy/slime_enemy.tscn<>res://control/can_move_areas/can_move_area_intro.gd<>uid://bsg0351mx3b4u::::res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn<>uid://csow7g6368hq::::res://control/move_area/move_area.gd<>uid://u1i0focg36lp::::res://control/transitions/transitions.tscn<>uid://hxn1ec6yv7ws::::res://UI/ui.tscn
+::res://world/world 1/forest area/::1740129352.0
+test_world2.tscn::PackedScene::5412750891675730251::1740129339::0::1::::<><><><>::uid://dqjon4yx7tuw2::::res://world/world 1/forest area/test_world_2.gd<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>uid://2bl3rur8v04l::::res://control/camera_2d.gd<>uid://md7yr10poe6y::::res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://dfq6q1ooo7qpi::::res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://dnfwmu05ax2vb::::res://entities/enemy/slime enemy/slime_enemy.tscn<>uid://u1i0focg36lp::::res://control/transitions/transitions.tscn<>uid://cevudyiqr3lsu::::res://control/move_area/move_area.tscn<>uid://c7ej8ilgaw7yo::::res://world/AreaTransition.tscn
+test_world.gd::GDScript::1328233848788875079::1740126623::0::1::::<>Node2D<><><>::
+test_world.tscn::PackedScene::4925311452682798772::1740129352::0::1::::<><><><>::uid://s6n217may0qd::::res://world/world 1/forest area/test_world.gd<>uid://2bl3rur8v04l::::res://control/camera_2d.gd<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://md7yr10poe6y::::res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png<>uid://dfq6q1ooo7qpi::::res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://dc28t7tiqn540::::res://entities/objects/coin.tscn<>uid://lfu4j7l58qi7::::res://entities/objects/crate.tscn<>uid://dnfwmu05ax2vb::::res://entities/enemy/slime enemy/slime_enemy.tscn<>res://control/can_move_areas/can_move_area_intro.gd<>uid://bsg0351mx3b4u::::res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn<>uid://u1i0focg36lp::::res://control/transitions/transitions.tscn<>uid://bguqpga00qiy8::::res://control/transitions/entry.gd<>uid://hxn1ec6yv7ws::::res://UI/ui.tscn<>uid://c7ej8ilgaw7yo::::res://world/AreaTransition.tscn
 test_worldstart.gd::GDScript::-1::1738371015::0::1::::<>Node2D<><><>::
 test_worldstart.tscn::PackedScene::8391694910059638365::1740004867::0::1::::<><><><>::uid://d4bhuyaom5fy3::::res://world/world 1/forest area/test_worldstart.gd<>uid://2bl3rur8v04l::::res://control/camera_2d.gd<>uid://b01m1ujtexeix::::res://background/parallax.tscn<>uid://m8mixrasebhn::::res://assets/ideas/meteroidvania/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png<>uid://cem7r4j8s7g4n::::res://entities/player/player.tscn<>uid://bsg0351mx3b4u::::res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn<>uid://dfq6q1ooo7qpi::::res://shaders/palette_limiter_shader.gdshader<>uid://b4un251a3ymxs::::res://palettes/cc-29-1x.png<>uid://dc28t7tiqn540::::res://entities/objects/coin.tscn<>uid://lfu4j7l58qi7::::res://entities/objects/crate.tscn<>uid://dnfwmu05ax2vb::::res://entities/enemy/slime enemy/slime_enemy.tscn<>uid://c5bxk1au4e6s4::::res://control/can_move_areas/can_move_area_intro.gd<>uid://u1i0focg36lp::::res://control/transitions/transitions.tscn
-test_world_2.gd::GDScript::8301737763634861775::1740111615::0::1::::<>Node2D<><><>::
+test_world_2.gd::GDScript::8301737763634861775::1740126623::0::1::::<>Node2D<><><>::

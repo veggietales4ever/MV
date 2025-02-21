@@ -4,7 +4,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esftg"]
 resource_local_to_scene = true
-size = Vector2(32, 288)
+size = Vector2(64, 128)
 
 [node name="AreaTransition" type="Area2D"]
 collision_layer = 0
@@ -12,5 +12,6 @@ monitorable = false
 script = ExtResource("1_kqjgp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 0)
 shape = SubResource("RectangleShape2D_esftg")
 debug_color = Color(0.589737, 0.394281, 0.963029, 0.42)

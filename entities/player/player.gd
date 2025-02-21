@@ -51,7 +51,7 @@ var entry_state: String = ""
 func _ready() -> void:
 	collision_shape_2d.disabled = true
 	on_enter()
-	PlayerManager.register_player(self)
+	#PlayerManager.register_player(self)
 	$Timers/DashCooldown.wait_time = dash_cooldown
 	$Timers/AttackCooldown.wait_time = attack_cooldown
 	#PlayerManager.player =  self
