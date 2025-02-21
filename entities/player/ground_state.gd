@@ -3,6 +3,7 @@ extends PlayerState
 @export var idle_anim : StringName = "idle"
 @export var move_anim : StringName = "move"
 @export var jump_anim : StringName = "jump"
+@export var run_start_anim : StringName = "runpre"
 
 func _enter() -> void:
 	super()
@@ -12,6 +13,7 @@ func _enter() -> void:
 func _update(delta: float) -> void:
 	var velocity : Vector2 = move(delta)
 	
+		
 	if Vector2.ZERO.is_equal_approx(velocity): #as long as currency velocity is not approximately 0. switch state to move state
 		character.animation_player.play(idle_anim)
 	else:
