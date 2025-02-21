@@ -1,7 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://ccf4fo81c1pls"]
+[gd_scene load_steps=24 format=3 uid="uid://ccf4fo81c1pls"]
 
 [ext_resource type="Script" uid="uid://s6n217may0qd" path="res://world/world 1/forest area/test_world.gd" id="1_8ttbe"]
-[ext_resource type="Script" path="res://control/camera_2d.gd" id="2_m5gyy"]
+[ext_resource type="Script" uid="uid://2bl3rur8v04l" path="res://control/camera_2d.gd" id="2_m5gyy"]
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="3_owa8j"]
 [ext_resource type="PackedScene" uid="uid://cem7r4j8s7g4n" path="res://entities/player/player.tscn" id="5_1n2vo"]
 [ext_resource type="Texture2D" uid="uid://md7yr10poe6y" path="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="5_v2k5a"]
@@ -12,9 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_240mi"]
 [ext_resource type="Script" path="res://control/can_move_areas/can_move_area_intro.gd" id="11_ybruf"]
 [ext_resource type="PackedScene" uid="uid://bsg0351mx3b4u" path="res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn" id="12_rcs34"]
-[ext_resource type="Script" uid="uid://csow7g6368hq" path="res://control/move_area/move_area.gd" id="13_mfox3"]
 [ext_resource type="PackedScene" uid="uid://u1i0focg36lp" path="res://control/transitions/transitions.tscn" id="13_s6n1v"]
+[ext_resource type="Script" uid="uid://bguqpga00qiy8" path="res://control/transitions/entry.gd" id="14_6raki"]
 [ext_resource type="PackedScene" uid="uid://hxn1ec6yv7ws" path="res://UI/ui.tscn" id="15_f45jf"]
+[ext_resource type="PackedScene" uid="uid://c7ej8ilgaw7yo" path="res://world/AreaTransition.tscn" id="16_qss65"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bhnrh"]
 texture = ExtResource("5_v2k5a")
@@ -516,11 +517,11 @@ shader_parameter/palette = ExtResource("7_ej5wr")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4hma"]
 size = Vector2(144.5, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhta1"]
-size = Vector2(71.5, 312)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xtsj"]
 size = Vector2(282, 806)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhta1"]
+size = Vector2(71.5, 312)
 
 [node name="TestWorld" type="Node2D"]
 script = ExtResource("1_8ttbe")
@@ -561,22 +562,9 @@ layer_2/name = "Statue"
 position = Vector2(0, 1)
 
 [node name="Player" parent="Entities" instance=ExtResource("5_1n2vo")]
-position = Vector2(84, 74)
+position = Vector2(1299, 101)
 collision_mask = 2
 player_actions = null
-knockback_force = 1000
-knockback_duration = 0.3
-invulnerability_duration = 1.0
-speed = 110
-acceleration = 1200
-friction = 2000
-dash_cooldown = 0.5
-gravity = 600
-terminal_velocity = 500
-jump_velocity = 275.0
-max_air_speed = 90.0
-air_acceleration = 85.0
-attack_cooldown = 0.5
 stats = null
 
 [node name="RoomInstance" parent="." instance=ExtResource("12_rcs34")]
@@ -616,32 +604,46 @@ position = Vector2(575, 366)
 position = Vector2(493, 161)
 
 [node name="can_move_area_intro" type="Area2D" parent="."]
-position = Vector2(96, 133)
+visible = false
+position = Vector2(96, 149)
 script = ExtResource("11_ybruf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="can_move_area_intro"]
-position = Vector2(-4, 12)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_k4hma")
 
-[node name="move_area" type="Area2D" parent="."]
-position = Vector2(1401, -2)
-script = ExtResource("13_mfox3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="move_area"]
-shape = SubResource("RectangleShape2D_nhta1")
-
-[node name="Transitions" parent="." node_paths=PackedStringArray("level") instance=ExtResource("13_s6n1v")]
-level = NodePath("..")
-
 [node name="cannot move area intro" type="Area2D" parent="."]
+visible = false
+position = Vector2(61, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cannot move area intro"]
 position = Vector2(74, -1017)
 shape = SubResource("RectangleShape2D_5xtsj")
 
+[node name="Transitions" parent="." instance=ExtResource("13_s6n1v")]
+script = null
+
+[node name="Entry" type="Node2D" parent="Transitions"]
+visible = false
+position = Vector2(1410, 12)
+script = ExtResource("14_6raki")
+
+[node name="exit_area" type="Area2D" parent="Transitions/Entry"]
+position = Vector2(-2, 6)
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/Entry/exit_area"]
+position = Vector2(-2, -4)
+shape = SubResource("RectangleShape2D_nhta1")
+
 [node name="UI" parent="." instance=ExtResource("15_f45jf")]
 visible = false
 
+[node name="AreaTransition" parent="." instance=ExtResource("16_qss65")]
+position = Vector2(1418, -24)
+level = "uid://cjd8hmelfnyj8"
+size = 6
+
 [connection signal="body_entered" from="can_move_area_intro" to="Entities/Player" method="_on_can_move_area_intro_body_entered"]
-[connection signal="body_entered" from="move_area" to="Transitions" method="_on_right_area_body_entered"]
 [connection signal="body_entered" from="cannot move area intro" to="Entities/Player" method="_on_cannot_move_area_intro_body_entered"]
+[connection signal="body_entered" from="Transitions/Entry/exit_area" to="Transitions/Entry" method="_on_exit_area_body_entered"]

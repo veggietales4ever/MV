@@ -1,14 +1,13 @@
+res://global
+res://world/world 1/forest area
+res://world
+res://control/transitions
 res://entities/player/states
 res://player
-res://entities/player/state_machine
 res://particles
 res://shaders
 res://UI
-res://global
 res://control/move_area
-res://world
-res://world/world 1/forest area
-res://control/transitions
 res://entities/player
 res://control
 res://control/can_move_areas

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://u1i0focg36lp"]
 
-[ext_resource type="Script" path="res://control/transitions/transitions.gd" id="1_oqmf6"]
+[ext_resource type="Script" uid="uid://b5g8hfpath3we" path="res://control/transitions/transitions.gd" id="1_oqmf6"]
 
 [node name="Transitions" type="Node" node_paths=PackedStringArray("fade_rect")]
 script = ExtResource("1_oqmf6")

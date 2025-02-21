@@ -1,7 +1,6 @@
 extends LimboState
 class_name PlayerState
 
-
 @export var animation_name : StringName
 
 var character : Character

@@ -1,14 +1,14 @@
-PlayerState
 CollisionShape2D
 Area2D
 Node2D
+AnimationPlayer
+TextureRect
+PlayerState
 Node
 LimboState
 LimboHSM
 Label
 AnimationTree
-AnimationPlayer
 Sprite2D
 Camera2D
 CPUParticles2D
-GPUParticles2D

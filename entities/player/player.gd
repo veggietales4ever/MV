@@ -9,6 +9,7 @@ class_name Player
 @export var player_actions: PlayerActions
 
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
+@onready var collision_shape_2d: CollisionShape2D = $Facing/Sword/CollisionShape2D
 
 @export_group('damage')
 @export var knockback_force := 1000
@@ -48,6 +49,7 @@ var double_jump: bool
 var entry_state: String = ""
 
 func _ready() -> void:
+	collision_shape_2d.disabled = true
 	on_enter()
 	PlayerManager.register_player(self)
 	$Timers/DashCooldown.wait_time = dash_cooldown
@@ -65,16 +67,8 @@ func _physics_process(delta: float) -> void:
 			#pass
 		#if velocity.y > 0 and not is_on_floor():
 			#$Timers/JumpBuffer.start()
-
-			
-	
 	if Input.is_action_just_released("jump") and not is_on_floor() and velocity.y < 0:
 		faster_fall = true
-
-
-		
-		
-		
 
 #func get_input():
 	## horizontal movement
@@ -126,12 +120,12 @@ func apply_movement(delta):
 		#faster_fall = false
 	
 	# Dash
-	if dash:
-		dash = false
-		var dash_tween = create_tween()
-		dash_tween.tween_property(self, 'velocity:x', velocity.x + direction.x * 300, 0.3)
-		dash_tween.connect("finished", on_dash_finish)
-		gravity_multiplier = 0
+	#if dash:
+		#dash = false
+		#var dash_tween = create_tween()
+		#dash_tween.tween_property(self, 'velocity:x', velocity.x + direction.x * 300, 0.3)
+		#dash_tween.connect("finished", on_dash_finish)
+		#gravity_multiplier = 0
 		
 	## Attacking
 	#if is_on_floor() and $PlayerGraphics/AnimationPlayer.current_animation == 'jump_attack':
@@ -158,9 +152,9 @@ func apply_gravity(delta):
 	if is_on_floor():
 		faster_fall = false
 
-func on_dash_finish():
-	velocity.x = move_toward(velocity.x, 0, 900)
-	gravity_multiplier = 1
+#func on_dash_finish():
+	#velocity.x = move_toward(velocity.x, 0, 900)
+	#gravity_multiplier = 1
 
 #func _on_attack_finished():
 	#attacking = false

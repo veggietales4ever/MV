@@ -12,7 +12,7 @@ var can_move := false
 
 @export var level: Node2D
 @export var fade_rect: ColorRect
-
+@export var character : CharacterBody2D
 
 
 
