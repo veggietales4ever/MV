@@ -18,6 +18,7 @@ func _ready() -> void:
 
 #Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	await get_tree().process_frame
 	match camera:
 		camera_state.FOLLOW:
 			camera_follow()
@@ -31,7 +32,7 @@ func _process(delta: float) -> void:
 
 func camera_panning():
 	anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
-	position = player.position
+	position = PlayerManager.player.position
 	var x = floor(position.x / 400) * 400 
 	var y = floor(position.y / 270) * 270
 	
@@ -42,7 +43,7 @@ func camera_panning():
 
 func camera_follow():
 	anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
-	position = player.position
+	position = PlayerManager.player.position
 	
 func apply_screen_shake(intensity: float):
 	shake_intensity = intensity

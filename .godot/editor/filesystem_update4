@@ -22,3 +22,4 @@ res://world/world 1/forest area/testworld_3.tscn
 res://background/parallax.tscn
 res://world/tilemap/forest_tile_map.tscn
 res://control/transitions/transitions.gd
+res://control/camera/camera_2dold.gd
