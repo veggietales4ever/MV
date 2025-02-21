@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=33 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" uid="uid://w1vgj2tiuuey" path="res://entities/player/player.gd" id="2_xgaa1"]
@@ -177,8 +177,8 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
-[sub_resource type="Animation" id="Animation_4knjn"]
-resource_name = "jump"
+[sub_resource type="Animation" id="Animation_j14ib"]
+resource_name = "jumpfall"
 length = 0.05
 step = 0.05
 tracks/0/type = "value"
@@ -191,41 +191,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [41]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LimboHSM/AirState")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"lock_animation"
-}, {
-"args": [],
-"method": &"unlock_animation"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_j14ib"]
-resource_name = "jumpfall"
-length = 0.1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Facing/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [40, 41]
+"values": [45]
 }
 
 [sub_resource type="Animation" id="Animation_jpdmb"]
@@ -263,6 +229,57 @@ tracks/0/keys = {
 "values": [30, 31]
 }
 
+[sub_resource type="Animation" id="Animation_yqrof"]
+resource_name = "jump"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Facing/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [41, 42]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LimboHSM/AirState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"lock_animation"
+}, {
+"args": [],
+"method": &"unlock_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4knjn"]
+resource_name = "rising"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Facing/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [44]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yx67n"]
 _data = {
 &"RESET": SubResource("Animation_arp08"),
@@ -270,8 +287,9 @@ _data = {
 &"crouching": SubResource("Animation_qjupc"),
 &"crouchpre": SubResource("Animation_xrhbu"),
 &"idle": SubResource("Animation_h6ajb"),
-&"jump": SubResource("Animation_4knjn"),
+&"jump": SubResource("Animation_yqrof"),
 &"jumpfall": SubResource("Animation_j14ib"),
+&"rising": SubResource("Animation_4knjn"),
 &"run": SubResource("Animation_jpdmb"),
 &"runpre": SubResource("Animation_8ji32")
 }
@@ -350,7 +368,7 @@ character = NodePath("..")
 [node name="Sprite2D" type="Sprite2D" parent="Facing" index="0"]
 texture = ExtResource("3_k1sps")
 hframes = 6
-vframes = 7
+vframes = 8
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Facing" index="1"]
@@ -413,7 +431,6 @@ animation_name = &"idle"
 
 [node name="AirState" type="LimboState" parent="LimboHSM" index="1"]
 script = ExtResource("10_j3ovn")
-rising_animation = &"runpre"
 falling_animation = &"jumpfall"
 metadata/_custom_type_script = ExtResource("11_afbqv")
 

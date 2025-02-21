@@ -4,12 +4,9 @@ extends PlayerState
 @export var move_anim : StringName = "move"
 @export var jump_anim : StringName = "jump"
 
-#var _on_first_frame = true
-
 func _enter() -> void:
 	super()
 	blackboard.set_var(BBNames.jumps_made_var, 0)
-	#_on_first_frame = true
 
 
 func _update(delta: float) -> void:

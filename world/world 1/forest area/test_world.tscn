@@ -561,23 +561,10 @@ layer_2/name = "Statue"
 position = Vector2(0, 1)
 
 [node name="Player" parent="Entities" instance=ExtResource("5_1n2vo")]
-position = Vector2(74, 60)
+position = Vector2(84, 74)
 collision_mask = 2
-player_actions = null
-knockback_force = null
-knockback_duration = null
-invulnerability_duration = null
-speed = null
-acceleration = null
-friction = null
-dash_cooldown = null
-gravity = null
-terminal_velocity = null
-jump_velocity = null
-max_air_speed = null
-air_acceleration = null
-attack_cooldown = null
 stats = null
+player_actions = null
 
 [node name="RoomInstance" parent="." instance=ExtResource("12_rcs34")]
 
