@@ -16,8 +16,7 @@ var can_move := false
 
 
 
-func _ready() -> void:
-	pass
+#func _ready() -> void:
 	#var current_scene = get_tree().current_scene
 	#if current_scene:
 		## Locate FadeRect
@@ -41,15 +40,15 @@ func start_fade_in():
 
 		
 		
-func _process(_delta: float) -> void:
-	if state == "fade_left" and fade_rect:
-		PlayerManager.player.can_move = false
-		fade_out()
-		transition_left()
-	if state == "fade_right" and fade_rect:
-		PlayerManager.player.cant_move()
-		fade_out()
-		transition_right()
+#func _process(_delta: float) -> void:
+	#if state == "fade_left" and fade_rect:
+		#PlayerManager.player.can_move = false
+		#fade_out()
+		#transition_left()
+	#if state == "fade_right" and fade_rect:
+		#PlayerManager.player.cant_move()
+		#fade_out()
+		#transition_right()
 		#fade_rect.color.a = min(1, fade_rect.color.a + fade_speed * delta)
 		
 	

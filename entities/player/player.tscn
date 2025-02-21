@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=34 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" uid="uid://w1vgj2tiuuey" path="res://entities/player/player.gd" id="2_xgaa1"]
@@ -17,9 +17,6 @@
 [ext_resource type="Script" uid="uid://c72gwiv2hm622" path="res://entities/player/states/crouch_state.gd" id="13_gx6sm"]
 [ext_resource type="Script" uid="uid://bp3o8he5a7miv" path="res://entities/player/states/attack_state.gd" id="14_yqrof"]
 [ext_resource type="Script" uid="uid://u6xph71sqpqh" path="res://entities/player/states/air_attack.gd" id="15_3wlsy"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uidrs"]
-size = Vector2(14, 41)
 
 [sub_resource type="Animation" id="Animation_arp08"]
 length = 0.001
@@ -414,15 +411,7 @@ animation_player = NodePath("Facing/AnimationPlayer")
 sprite_2d = NodePath("Facing/Sprite2D")
 stats = ExtResource("3_wvtmh")
 
-[node name="RoomDetector" type="Area2D" parent="." index="0"]
-collision_layer = 0
-collision_mask = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDetector" index="0"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_uidrs")
-
-[node name="Facing" type="Node2D" parent="." index="1" node_paths=PackedStringArray("limbo_hsm")]
+[node name="Facing" type="Node2D" parent="." index="0" node_paths=PackedStringArray("limbo_hsm")]
 script = ExtResource("5_afbqv")
 limbo_hsm = NodePath("../LimboHSM")
 
@@ -446,7 +435,7 @@ position = Vector2(17, -7.5)
 shape = SubResource("RectangleShape2D_yqrof")
 debug_color = Color(0.800765, 0.374616, 0.506294, 0.42)
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_mck4p")
 
@@ -463,9 +452,9 @@ one_shot = true
 
 [node name="InvulnerabilityTimer" type="Timer" parent="Timers" index="3"]
 
-[node name="Stats" type="Node" parent="." index="4"]
+[node name="Stats" type="Node" parent="." index="3"]
 
-[node name="StateDebugLabel" type="Label" parent="." index="5" node_paths=PackedStringArray("limbo_hsm")]
+[node name="StateDebugLabel" type="Label" parent="." index="4" node_paths=PackedStringArray("limbo_hsm")]
 offset_left = -44.0
 offset_top = -48.0
 offset_right = 44.0
@@ -476,7 +465,7 @@ horizontal_alignment = 1
 script = ExtResource("8_11kuo")
 limbo_hsm = NodePath("../LimboHSM")
 
-[node name="LimboHSM" type="LimboHSM" parent="." index="6" node_paths=PackedStringArray("character", "states")]
+[node name="LimboHSM" type="LimboHSM" parent="." index="5" node_paths=PackedStringArray("character", "states")]
 blackboard_plan = SubResource("BlackboardPlan_7aiex")
 script = ExtResource("12_iipp6")
 character = NodePath("..")
@@ -514,7 +503,7 @@ script = ExtResource("15_3wlsy")
 animation_name = &"airattacksword"
 metadata/_custom_type_script = ExtResource("11_afbqv")
 
-[node name="PlayerInput" type="Node" parent="." index="7" node_paths=PackedStringArray("limbo_hsm", "character")]
+[node name="PlayerInput" type="Node" parent="." index="6" node_paths=PackedStringArray("limbo_hsm", "character")]
 script = ExtResource("9_bp2km")
 limbo_hsm = NodePath("../LimboHSM")
 player_actions = SubResource("Resource_a1qjk")

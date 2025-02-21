@@ -6,7 +6,7 @@ extends Node2D
 #@onready var player: Player = $Entities/Player
 #@onready var transitions: Node = $Transitions
 #@onready var fade_rect: ColorRect = $Transitions/FadeRect
-#
+##
 #const EXIT_LEFT = preload("res://world/world 1/forest area/test_worldstart.tscn")
 #const EXIT_RIGHT = null
 #
@@ -14,18 +14,19 @@ extends Node2D
 #var can_move := false
 
 func _ready() -> void:
-	PlayerManager.set_as_parent(self)
+	self.y_sort_enabled = true
 	LevelManager.level_load_started.connect(_free_level)
-	#
-	#fade_rect.modulate.a = 1  # Ensure the screen is black before the fade-in
+	print(PlayerManager.player.position)
+	##
+	##fade_rect.modulate.a = 1  # Ensure the screen is black before the fade-in
 	#TransitionManager.fade_in()  # Start fading out when entering a new scene
 	#
 	#if Global.previous_scene == "test_world" and Global.last_exit == "right":
 		#PlayerManager.player.position = Vector2(0, PlayerManager.player.position.y)
 		#TransitionManager.entry_left()
-	##else:
-		##PlayerManager.player.position = Vector2(900, PlayerManager.player.position.y)
-	#print(state)
+	#else:
+		#PlayerManager.player.position = Vector2(900, PlayerManager.player.position.y)
+
 
 func _free_level() -> void:
 	PlayerManager.unparent_player(self)
@@ -39,8 +40,8 @@ func _free_level() -> void:
 		#on_transition_finished_right()
 
 		
-# Transitions
-# Left
+ #Transitions
+ #Left
 #func on_transition_finished_left():
 	#if EXIT_LEFT:
 		#await TransitionManager.fade_out()
