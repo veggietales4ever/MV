@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjd8hmelfnyj8"]
+[gd_scene load_steps=14 format=3 uid="uid://cjd8hmelfnyj8"]
 
 [ext_resource type="Script" uid="uid://dqjon4yx7tuw2" path="res://world/world 1/forest area/test_world_2.gd" id="1_m2fm0"]
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="2_v2f0p"]
@@ -6,8 +6,7 @@
 [ext_resource type="Script" uid="uid://b24hgasaepu0y" path="res://world/level_tile_map.gd" id="4_xt4yg"]
 [ext_resource type="Shader" uid="uid://dfq6q1ooo7qpi" path="res://shaders/palette_limiter_shader.gdshader" id="6_sdnpr"]
 [ext_resource type="Texture2D" uid="uid://b4un251a3ymxs" path="res://palettes/cc-29-1x.png" id="7_bammv"]
-[ext_resource type="PackedScene" uid="uid://p4u8c0yp3dnp" path="res://entities/player/player_spawn.tscn" id="9_luhsd"]
-[ext_resource type="Script" uid="uid://c1h2ctnj0ig30" path="res://control/camera/camera.gd" id="10_7ohh0"]
+[ext_resource type="PackedScene" uid="uid://cmp03ai2iqgnx" path="res://control/camera/camera.tscn" id="10_7ohh0"]
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_7qkhs"]
 [ext_resource type="PackedScene" uid="uid://c7ej8ilgaw7yo" path="res://world/AreaTransition.tscn" id="11_nkklo"]
 
@@ -526,9 +525,6 @@ layer_1/tile_data = PackedInt32Array(1179424, 131072, 2, 1113888, 131072, 0, 117
 layer_2/name = "Statue"
 script = ExtResource("4_xt4yg")
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("9_luhsd")]
-position = Vector2(74, 98)
-
 [node name="Shader" type="CanvasLayer" parent="."]
 visible = false
 
@@ -551,5 +547,4 @@ position = Vector2(-13, 29)
 level = "uid://ccf4fo81c1pls"
 size = 4
 
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("10_7ohh0")
+[node name="Camera" parent="." instance=ExtResource("10_7ohh0")]

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="1_i1jg2"]
 [ext_resource type="PackedScene" uid="uid://p4u8c0yp3dnp" path="res://entities/player/player_spawn.tscn" id="2_dvvem"]
 [ext_resource type="PackedScene" uid="uid://b4qmvaiqdjimv" path="res://world/tilemap/forest_tile_map.tscn" id="3_o3nub"]
-[ext_resource type="Script" uid="uid://2bl3rur8v04l" path="res://control/camera/camera_2dold.gd" id="4_n1qsm"]
+[ext_resource type="Script" uid="uid://2bl3rur8v04l" path="res://control/camera/camera_2dold.gd" id="5_1wcjc"]
 
 [node name="testworld3" type="Node2D"]
 
@@ -24,4 +24,4 @@ limit_top = -100
 limit_right = 600
 limit_bottom = 225
 editor_draw_limits = true
-script = ExtResource("4_n1qsm")
+script = ExtResource("5_1wcjc")

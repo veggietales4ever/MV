@@ -23,3 +23,4 @@ res://background/parallax.tscn
 res://world/tilemap/forest_tile_map.tscn
 res://control/transitions/transitions.gd
 res://control/camera/camera_2dold.gd
+res://control/camera/camera.tscn
