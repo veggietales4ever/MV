@@ -1,6 +1,6 @@
+PlayerState
 CollisionShape2D
 Area2D
-PlayerState
 Node2D
 Node
 LimboState

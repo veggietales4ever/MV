@@ -17,3 +17,4 @@ res://entities/player/player.gd
 res://entities/character.gd
 res://entities/player/states/player_state.gd
 res://entities/player/ground_state.gd
+res://entities/player/states/move_state.gd

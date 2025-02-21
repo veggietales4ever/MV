@@ -1,7 +1,7 @@
 extends PlayerState
 
-@export var idle_anim : StringName = "idle"
-@export var move_anim : StringName = "move"
+#@export var idle_anim : StringName = "idle"
+#@export var move_anim : StringName = "move"
 @export var jump_anim : StringName = "jump"
 @export var run_start_anim : StringName = "runpre"
 
@@ -11,15 +11,18 @@ func _enter() -> void:
 
 
 func _update(delta: float) -> void:
-	var velocity : Vector2 = move(delta)
-	
-		
-	if Vector2.ZERO.is_equal_approx(velocity): #as long as currency velocity is not approximately 0. switch state to move state
-		character.animation_player.play(idle_anim)
-	else:
-		character.animation_player.play(move_anim)
+	#var velocity : Vector2 = move(delta)
+	#
+		#
+	#if Vector2.ZERO.is_equal_approx(velocity): #as long as currency velocity is not approximately 0. switch state to move state
+		#character.animation_player.play(idle_anim)
+	#else:
+		#character.animation_player.play(move_anim)
 	
 	if character.is_on_floor():
+		if blackboard.get_var(BBNames.direction_var):
+			move(delta)
+			
 		if blackboard.get_var(BBNames.jump_var) && blackboard.get_var(BBNames.jumps_made_var) == 0: # jumps_made_var == 0 means we haven't made any jumps, we're also on the floor
 			jump()
 	else: #elif not _on_first_frame:
@@ -31,17 +34,17 @@ func _update(delta: float) -> void:
 	#_on_first_frame = false
 
 # Movement for when running on the ground
-func move(delta) -> Vector2:
-	var direction: Vector2 = blackboard.get_var(BBNames.direction_var, Vector2.ZERO)
-	
-	if not is_zero_approx(direction.x):
-		#character.velocity.x = direction.x * character.speed
-		character.velocity.x = move_toward(character.velocity.x, direction.x * character.speed, character.acceleration * delta)
-	else:
-		character.velocity.x = move_toward(character.velocity.x, 0, character.friction * delta)
-	
-	character.move_and_slide()
-	return character.velocity
+#func move(delta) -> Vector2:
+	#var direction: Vector2 = blackboard.get_var(BBNames.direction_var, Vector2.ZERO)
+	#
+	#if not is_zero_approx(direction.x):
+		##character.velocity.x = direction.x * character.speed
+		#character.velocity.x = move_toward(character.velocity.x, direction.x * character.speed, character.acceleration * delta)
+	#else:
+		#character.velocity.x = move_toward(character.velocity.x, 0, character.friction * delta)
+	#
+	#character.move_and_slide()
+	#return character.velocity
 	
 	# Jump
 func jump():
@@ -50,3 +53,7 @@ func jump():
 	blackboard.set_var(BBNames.jumps_made_var, current_jumps + 1)
 	character.animation_player.play(jump_anim)
 	dispatch("jump")
+	
+func move(delta):
+	character.animation_player.play(run_start_anim)
+	dispatch("move")
