@@ -25,7 +25,11 @@ func _ready() -> void:
 	
 
 func _process(_delta: float) -> void:
-	input_direction = Input.get_vector(player_actions.left, player_actions.right, player_actions.up, player_actions.down)
+	#input_direction = Input.get_vector(player_actions.left, player_actions.right, player_actions.up, player_actions.down)
+	input_direction = Vector2(
+	Input.get_axis(player_actions.left, player_actions.right),
+	Input.get_axis(player_actions.up, player_actions.down)
+	)
 
 func _unhandled_input(event: InputEvent) -> void: #unhandled means if key is handled by something else, we don't want 2 things to be triggered
 	if event.is_action_pressed(player_actions.jump):

@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://drs88vovvsvh2"]
 
-[ext_resource type="Script" uid="uid://d4bhuyaom5fy3" path="res://world/world 1/forest area/test_worldstart.gd" id="1_tughb"]
-[ext_resource type="Script" uid="uid://2bl3rur8v04l" path="res://control/camera_2d.gd" id="2_i1a4t"]
+[ext_resource type="Script" path="res://world/world 1/forest area/test_worldstart.gd" id="1_tughb"]
+[ext_resource type="Script" uid="uid://2bl3rur8v04l" path="res://control/camera/camera_2dold.gd" id="2_i1a4t"]
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="3_salv7"]
 [ext_resource type="Texture2D" uid="uid://m8mixrasebhn" path="res://assets/ideas/meteroidvania/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="4_4k0on"]
 [ext_resource type="PackedScene" uid="uid://cem7r4j8s7g4n" path="res://entities/player/player.tscn" id="5_notcw"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dc28t7tiqn540" path="res://entities/objects/coin.tscn" id="9_3clh1"]
 [ext_resource type="PackedScene" uid="uid://lfu4j7l58qi7" path="res://entities/objects/crate.tscn" id="10_itwse"]
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="11_lm6jl"]
-[ext_resource type="Script" uid="uid://c5bxk1au4e6s4" path="res://control/can_move_areas/can_move_area_intro.gd" id="12_rt6i4"]
+[ext_resource type="Script" path="res://control/can_move_areas/can_move_area_intro.gd" id="12_rt6i4"]
 [ext_resource type="PackedScene" uid="uid://u1i0focg36lp" path="res://control/transitions/transitions.tscn" id="13_t24hp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyck2"]

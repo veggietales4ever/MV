@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=36 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" uid="uid://w1vgj2tiuuey" path="res://entities/player/player.gd" id="2_xgaa1"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://c72gwiv2hm622" path="res://entities/player/states/crouch_state.gd" id="13_gx6sm"]
 [ext_resource type="Script" uid="uid://bp3o8he5a7miv" path="res://entities/player/states/attack_state.gd" id="14_yqrof"]
 [ext_resource type="Script" uid="uid://u6xph71sqpqh" path="res://entities/player/states/air_attack.gd" id="15_3wlsy"]
+[ext_resource type="Script" uid="uid://c1h2ctnj0ig30" path="res://control/camera/camera.gd" id="18_b2kln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uidrs"]
 size = Vector2(14, 41)
@@ -394,7 +395,7 @@ attack = &"attack"
 metadata/_custom_type_script = ExtResource("11_7thud")
 
 [node name="Player" node_paths=PackedStringArray("animation_player", "sprite_2d") groups=["Player"] instance=ExtResource("1_fdhh2")]
-collision_mask = 17
+collision_mask = 274
 script = ExtResource("2_xgaa1")
 player_actions = ExtResource("4_a1qjk")
 knockback_force = 1000
@@ -519,5 +520,14 @@ script = ExtResource("9_bp2km")
 limbo_hsm = NodePath("../LimboHSM")
 player_actions = SubResource("Resource_a1qjk")
 character = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="." index="8"]
+limit_smoothed = true
+drag_vertical_offset = -1.0
+drag_top_margin = 0.0
+drag_bottom_margin = 0.5
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("18_b2kln")
 
 [connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

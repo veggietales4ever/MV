@@ -15,7 +15,7 @@ metroidvania_system/settings_file="res://MetSysSettings.tres"
 [application]
 
 config/name="Do"
-run/main_scene="res://world/world 1/forest area/test_world.tscn"
+run/main_scene="uid://bhvxx1kvedobe"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 config/icon="res://assets/icon.svg"
@@ -28,11 +28,10 @@ general/default_playback_type.web=0
 
 LevelManager="*res://global/global_level_manager.gd"
 MetSys="*res://addons/MetroidvaniaSystem/Nodes/Singleton.tscn"
-PlayerManager="*res://global/global_player_manager.gd"
-PlayerCharacter="res://entities/player/player.tscn"
 Global="*res://global/global.gd"
 TransitionManager="*res://control/transitions/transitions.gd"
 UI="*res://UI/ui.tscn"
+PlayerManager="*res://global/global_player_manager.gd"
 
 [display]
 
@@ -113,6 +112,7 @@ dash={
 2d_physics/layer_6="Enemy"
 2d_physics/layer_7="Entry"
 2d_physics/layer_8="Rooms"
+2d_physics/layer_9="Walls"
 
 [rendering]
 

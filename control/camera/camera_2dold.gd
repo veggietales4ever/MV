@@ -1,10 +1,11 @@
 extends Camera2D
 
-@onready var player: Player = $"../Entities/Player"
+
 #@export var player = CharacterBody2D
 @export var camera: camera_state
 enum camera_state {FOLLOW, PANNING}
 
+var player = PlayerManager.player
 var shake_intensity := 0.0
 var shake_decay := 4
 var rng := RandomNumberGenerator.new()
@@ -12,9 +13,10 @@ var rng := RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	make_current()
+	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	match camera:
 		camera_state.FOLLOW:

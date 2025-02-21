@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://p4u8c0yp3dnp"]
+
+[ext_resource type="Texture2D" uid="uid://b7o5qtn82u1ur" path="res://Aseprite Assets/player/maincharacterMV1-Sheet.png" id="1_04qsv"]
+[ext_resource type="Script" uid="uid://bm3gvvx6p85gj" path="res://entities/player/player_spawn.gd" id="1_wqd8a"]
+
+[node name="PlayerSpawn" type="Node2D"]
+script = ExtResource("1_wqd8a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.707763, 0.80477, 0, 0.764706)
+texture = ExtResource("1_04qsv")
+hframes = 6
+vframes = 10

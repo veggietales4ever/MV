@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://x1lvdei3r4cg" path="res://background/parallax_forest/1920x1080/layers/layer1.png" id="5_bq7kk"]
 
 [node name="Parallax" type="Node2D"]
+z_index = -2
 position = Vector2(-1, -1)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]

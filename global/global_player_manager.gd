@@ -3,7 +3,7 @@ extends Node
 const PLAYER = preload("res://entities/player/player.tscn")
 
 var player_spawned : bool = false
-var player: Player = null
+var player: Player
 
 func _ready() -> void:
 	add_player_instance()

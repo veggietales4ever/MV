@@ -17,21 +17,22 @@ var can_move := false
 
 
 func _ready() -> void:
-	var current_scene = get_tree().current_scene
-	if current_scene:
-		# Locate FadeRect
-		if current_scene.has_node("Transitions/FadeRect"):
-			fade_rect = current_scene.get_node("Transitions/FadeRect")
-		else:
-			fade_rect = null
-			push_error("FadeRect not found")
-			
-	# Make sure fade starts black
-	if fade_rect:
-		fade_rect.modulate.a = 1
-		fade_rect.visible = true
-		
-	call_deferred("start_fade_in")
+	pass
+	#var current_scene = get_tree().current_scene
+	#if current_scene:
+		## Locate FadeRect
+		#if current_scene.has_node("Transitions/FadeRect"):
+			#fade_rect = current_scene.get_node("Transitions/FadeRect")
+		#else:
+			#fade_rect = null
+			#push_error("FadeRect not found")
+			#
+	## Make sure fade starts black
+	#if fade_rect:
+		#fade_rect.modulate.a = 1
+		#fade_rect.visible = true
+		#
+	#call_deferred("start_fade_in")
 
 	
 func start_fade_in():

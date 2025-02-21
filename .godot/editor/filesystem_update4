@@ -10,3 +10,15 @@ res://world/world 1/forest area/test_world.gd
 res://global/global_player_manager.gd
 res://entities/player/player.gd
 res://world/world 1/forest area/test_world_2.gd
+res://control/camera_2d.gd
+res://entities/player/player_spawn.tscn
+res://entities/player/player_spawn.gd
+res://entities/player/player_input.gd
+res://control/camera.gd
+res://world/level_tile_map.gd
+res://control/camera/camera.gd
+res://world/tilemap/tile_map.tscn
+res://world/world 1/forest area/testworld_3.tscn
+res://background/parallax.tscn
+res://world/tilemap/forest_tile_map.tscn
+res://control/transitions/transitions.gd
