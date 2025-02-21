@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://ccf4fo81c1pls"]
 
-[ext_resource type="Script" path="res://world/world 1/forest area/test_world.gd" id="1_8ttbe"]
+[ext_resource type="Script" uid="uid://s6n217may0qd" path="res://world/world 1/forest area/test_world.gd" id="1_8ttbe"]
 [ext_resource type="Script" path="res://control/camera_2d.gd" id="2_m5gyy"]
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="3_owa8j"]
 [ext_resource type="PackedScene" uid="uid://cem7r4j8s7g4n" path="res://entities/player/player.tscn" id="5_1n2vo"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_240mi"]
 [ext_resource type="Script" path="res://control/can_move_areas/can_move_area_intro.gd" id="11_ybruf"]
 [ext_resource type="PackedScene" uid="uid://bsg0351mx3b4u" path="res://addons/MetroidvaniaSystem/Nodes/RoomInstance.tscn" id="12_rcs34"]
-[ext_resource type="Script" path="res://control/move_area/move_area.gd" id="13_mfox3"]
+[ext_resource type="Script" uid="uid://csow7g6368hq" path="res://control/move_area/move_area.gd" id="13_mfox3"]
 [ext_resource type="PackedScene" uid="uid://u1i0focg36lp" path="res://control/transitions/transitions.tscn" id="13_s6n1v"]
 [ext_resource type="PackedScene" uid="uid://hxn1ec6yv7ws" path="res://UI/ui.tscn" id="15_f45jf"]
 
@@ -563,8 +563,21 @@ position = Vector2(0, 1)
 [node name="Player" parent="Entities" instance=ExtResource("5_1n2vo")]
 position = Vector2(84, 74)
 collision_mask = 2
-stats = null
 player_actions = null
+knockback_force = 1000
+knockback_duration = 0.3
+invulnerability_duration = 1.0
+speed = 110
+acceleration = 1200
+friction = 2000
+dash_cooldown = 0.5
+gravity = 600
+terminal_velocity = 500
+jump_velocity = 275.0
+max_air_speed = 90.0
+air_acceleration = 85.0
+attack_cooldown = 0.5
+stats = null
 
 [node name="RoomInstance" parent="." instance=ExtResource("12_rcs34")]
 

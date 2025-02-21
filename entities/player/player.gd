@@ -133,9 +133,9 @@ func apply_movement(delta):
 		dash_tween.connect("finished", on_dash_finish)
 		gravity_multiplier = 0
 		
-	# Attacking
-	if is_on_floor() and $PlayerGraphics/AnimationPlayer.current_animation == 'jump_attack':
-		attacking = false
+	## Attacking
+	#if is_on_floor() and $PlayerGraphics/AnimationPlayer.current_animation == 'jump_attack':
+		#attacking = false
 	
 	if faster_fall and attacking:
 		$Timers/AttackCooldown.start()
@@ -162,8 +162,8 @@ func on_dash_finish():
 	velocity.x = move_toward(velocity.x, 0, 900)
 	gravity_multiplier = 1
 
-func _on_attack_finished():
-	attacking = false
+#func _on_attack_finished():
+	#attacking = false
 
 func _on_can_move_area_intro_body_entered(_body: Node2D) -> void:
 	can_move = true

@@ -1,7 +1,6 @@
 extends PlayerState
-class_name AttackState
 
-@export var jump : StringName
+@export var attack_2 : StringName
 
 func _enter() -> void:
 	super()
@@ -17,9 +16,12 @@ func _on_animation_finished(p_animation : StringName):
 		return
 		
 	#if i want to add a second animation after the current one finishes
-	#match p_animation:
-		#animation_name:
-			#character.animation_player.play(attack2)
-			#
-			#dispatch("finished")
+	match p_animation:
+		animation_name:
+			if attack_2.is_empty():
+				dispatch("finished")
+				return
+				
+			character.animation_player.play(attack_2)
+			dispatch("finished")
 	

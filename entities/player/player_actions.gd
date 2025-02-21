@@ -6,3 +6,4 @@ class_name PlayerActions
 @export var up : StringName = "up"
 @export var down : StringName = "down"
 @export var jump : StringName = "jump"
+@export var attack : StringName = "attack"

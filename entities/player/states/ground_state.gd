@@ -1,32 +1,27 @@
 extends PlayerState
+class_name GroundState
 
-@export var idle_anim : StringName = "idle"
-@export var move_anim : StringName = "move"
 @export var jump_anim : StringName = "jump"
+@export var can_jump : bool = true
+@export var can_move : bool = true
 
-func _enter() -> void:
-	super()
-	blackboard.set_var(BBNames.jumps_made_var, 0)
+var _on_first_frame = true
 
 
 func _update(delta: float) -> void:
-	var velocity : Vector2 = move(delta)
-	
-	if Vector2.ZERO.is_equal_approx(velocity): #as long as currency velocity is not approximately 0. switch state to move state
-		character.animation_player.play(idle_anim)
-	else:
-		character.animation_player.play(move_anim)
-	
+	if can_move:
+		move(delta)
+		
 	if character.is_on_floor():
-		if blackboard.get_var(BBNames.jump_var) && blackboard.get_var(BBNames.jumps_made_var) == 0: # jumps_made_var == 0 means we haven't made any jumps, we're also on the floor
+		if can_jump && blackboard.get_var(BBNames.jump_var) && blackboard.get_var(BBNames.jumps_made_var) == 0: # jumps_made_var == 0 means we haven't made any jumps, we're also on the floor
 			jump()
-	else: #elif not _on_first_frame:
+	elif not _on_first_frame:
 		dispatch("in_air")
 	
 	if blackboard.get_var(BBNames.crouch_var):
 		dispatch("crouching")
 		
-	#_on_first_frame = false
+	_on_first_frame = false
 
 # Movement for when running on the ground
 func move(delta) -> Vector2:

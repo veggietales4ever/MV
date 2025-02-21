@@ -1,26 +1,14 @@
 extends PlayerState
+class_name AirState
 
-@export var rising_animation : StringName = "rising"
-@export var falling_animation : StringName = "falling"
-@export var jump_animation : StringName = "jump"
+@export var can_move : bool = true
 
-	
 func _update(delta: float) -> void:
-	air_move(delta)
-	select_animation()
-	
+	if can_move:
+		air_move(delta)
+		
 	if character.is_on_floor():
 		dispatch("on_ground")
-		
-func select_animation():
-	if animation_lock:
-		return
-		
-	if character.velocity.y <= 0.0:
-		character.animation_player.play(rising_animation)
-	else:
-		character.animation_player.play(falling_animation)
-		
 
 func air_move(_delta) -> Vector2:
 	var direction : Vector2 = blackboard.get_var(BBNames.direction_var)
@@ -41,4 +29,3 @@ func air_move(_delta) -> Vector2:
 		
 	character.move_and_slide()
 	return character.velocity
-	

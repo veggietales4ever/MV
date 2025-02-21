@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=35 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" uid="uid://w1vgj2tiuuey" path="res://entities/player/player.gd" id="2_xgaa1"]
@@ -6,16 +6,17 @@
 [ext_resource type="Resource" uid="uid://5kad6qtokh2b" path="res://entities/player/player_stats.tres" id="3_wvtmh"]
 [ext_resource type="Resource" uid="uid://dxgnvq5pa6ra3" path="res://entities/player/player_actions.tres" id="4_a1qjk"]
 [ext_resource type="Script" uid="uid://djq3eset4y6pk" path="res://entities/player/facing.gd" id="5_afbqv"]
-[ext_resource type="Script" path="res://entities/player/state_debug_label.gd" id="8_11kuo"]
+[ext_resource type="Script" uid="uid://45vec58f3bjw" path="res://entities/player/state_debug_label.gd" id="8_11kuo"]
 [ext_resource type="LabelSettings" uid="uid://clo0nfvok1ly7" path="res://fonts/default_label_settings.tres" id="8_j0dv7"]
-[ext_resource type="Script" uid="uid://ckj7jx46hgm8b" path="res://entities/player/ground_state.gd" id="9_7thud"]
+[ext_resource type="Script" uid="uid://ckj7jx46hgm8b" path="res://entities/player/states/ground_move_state.gd" id="9_7thud"]
 [ext_resource type="Script" uid="uid://svdmohjshq0p" path="res://entities/player/player_input.gd" id="9_bp2km"]
-[ext_resource type="Script" uid="uid://qb57qe23y1ca" path="res://entities/player/states/air_state.gd" id="10_j3ovn"]
+[ext_resource type="Script" uid="uid://qb57qe23y1ca" path="res://entities/player/states/air_move_state.gd" id="10_j3ovn"]
 [ext_resource type="Script" uid="uid://b3iarwuox4neq" path="res://entities/player/player_actions.gd" id="11_7thud"]
 [ext_resource type="Script" uid="uid://jh6jeqoqf0sw" path="res://entities/player/states/player_state.gd" id="11_afbqv"]
 [ext_resource type="Script" uid="uid://bnqlq688up84t" path="res://entities/player/states/limbo_hsm.gd" id="12_iipp6"]
 [ext_resource type="Script" uid="uid://c72gwiv2hm622" path="res://entities/player/states/crouch_state.gd" id="13_gx6sm"]
-[ext_resource type="Script" uid="uid://bp3o8he5a7miv" path="res://entities/player/states/ground_attack.gd" id="14_yqrof"]
+[ext_resource type="Script" uid="uid://bp3o8he5a7miv" path="res://entities/player/states/attack_state.gd" id="14_yqrof"]
+[ext_resource type="Script" uid="uid://u6xph71sqpqh" path="res://entities/player/states/air_attack.gd" id="15_3wlsy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uidrs"]
 size = Vector2(14, 41)
@@ -69,6 +70,59 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3wlsy"]
+resource_name = "airattacksword"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Facing/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Facing/Sword/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Facing/Sword/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(6, -8), Vector2(6, -8), Vector2(22, -11)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Facing/Sword/CollisionShape2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_2gel8"]
@@ -177,6 +231,40 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
+[sub_resource type="Animation" id="Animation_yqrof"]
+resource_name = "jump"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Facing/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [41, 42]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LimboHSM/AirMoveState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"lock_animation"
+}, {
+"args": [],
+"method": &"unlock_animation"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_j14ib"]
 resource_name = "jumpfall"
 length = 0.05
@@ -191,7 +279,24 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [45]
+"values": [44]
+}
+
+[sub_resource type="Animation" id="Animation_4knjn"]
+resource_name = "rising"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Facing/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [43]
 }
 
 [sub_resource type="Animation" id="Animation_jpdmb"]
@@ -229,60 +334,10 @@ tracks/0/keys = {
 "values": [30, 31]
 }
 
-[sub_resource type="Animation" id="Animation_yqrof"]
-resource_name = "jump"
-length = 0.2
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Facing/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [41, 42]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LimboHSM/AirState")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"lock_animation"
-}, {
-"args": [],
-"method": &"unlock_animation"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_4knjn"]
-resource_name = "rising"
-length = 0.2
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Facing/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [44]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yx67n"]
 _data = {
 &"RESET": SubResource("Animation_arp08"),
+&"airattacksword": SubResource("Animation_3wlsy"),
 &"attacksword": SubResource("Animation_2gel8"),
 &"crouching": SubResource("Animation_qjupc"),
 &"crouchpre": SubResource("Animation_xrhbu"),
@@ -322,6 +377,11 @@ var/crouch/type = 1
 var/crouch/value = false
 var/crouch/hint = 0
 var/crouch/hint_string = "Check if crouching"
+var/attack/name = &"attack"
+var/attack/type = 1
+var/attack/value = false
+var/attack/hint = 0
+var/attack/hint_string = "Whether character is trying to attack currently"
 
 [sub_resource type="Resource" id="Resource_a1qjk"]
 script = ExtResource("11_7thud")
@@ -330,25 +390,26 @@ right = &"right"
 up = &"up"
 down = &"down"
 jump = &"jump"
+attack = &"attack"
 metadata/_custom_type_script = ExtResource("11_7thud")
 
 [node name="Player" node_paths=PackedStringArray("animation_player", "sprite_2d") groups=["Player"] instance=ExtResource("1_fdhh2")]
 collision_mask = 17
 script = ExtResource("2_xgaa1")
 player_actions = ExtResource("4_a1qjk")
-knockback_force = null
-knockback_duration = null
-invulnerability_duration = null
-speed = null
-acceleration = null
-friction = null
-dash_cooldown = null
-gravity = null
-terminal_velocity = null
-jump_velocity = null
-max_air_speed = null
-air_acceleration = null
-attack_cooldown = null
+knockback_force = 1000
+knockback_duration = 0.3
+invulnerability_duration = 1.0
+speed = 110
+acceleration = 1200
+friction = 2000
+dash_cooldown = 0.5
+gravity = 600
+terminal_velocity = 500
+jump_velocity = 275.0
+max_air_speed = 90.0
+air_acceleration = 85.0
+attack_cooldown = 0.5
 animation_player = NodePath("Facing/AnimationPlayer")
 sprite_2d = NodePath("Facing/Sprite2D")
 stats = ExtResource("3_wvtmh")
@@ -361,14 +422,14 @@ collision_mask = 128
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_uidrs")
 
-[node name="Facing" type="Node2D" parent="." index="1" node_paths=PackedStringArray("character")]
+[node name="Facing" type="Node2D" parent="." index="1" node_paths=PackedStringArray("limbo_hsm")]
 script = ExtResource("5_afbqv")
-character = NodePath("..")
+limbo_hsm = NodePath("../LimboHSM")
 
 [node name="Sprite2D" type="Sprite2D" parent="Facing" index="0"]
 texture = ExtResource("3_k1sps")
 hframes = 6
-vframes = 8
+vframes = 10
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Facing" index="1"]
@@ -383,6 +444,7 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/Sword" index="0"]
 position = Vector2(17, -7.5)
 shape = SubResource("RectangleShape2D_yqrof")
+debug_color = Color(0.800765, 0.374616, 0.506294, 0.42)
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(-1, 0)
@@ -419,17 +481,19 @@ blackboard_plan = SubResource("BlackboardPlan_7aiex")
 script = ExtResource("12_iipp6")
 character = NodePath("..")
 states = {
-"air": NodePath("AirState"),
+"air": NodePath("AirMoveState"),
+"air_attack": NodePath("AirAttack"),
+"attack": NodePath("GroundAttack"),
 "crouch": NodePath("CrouchState"),
-"ground": NodePath("GroundState")
+"ground": NodePath("GroundMoveState")
 }
 
-[node name="GroundState" type="LimboState" parent="LimboHSM" index="0"]
+[node name="GroundMoveState" type="LimboState" parent="LimboHSM" index="0"]
 script = ExtResource("9_7thud")
 move_anim = &"run"
 animation_name = &"idle"
 
-[node name="AirState" type="LimboState" parent="LimboHSM" index="1"]
+[node name="AirMoveState" type="LimboState" parent="LimboHSM" index="1"]
 script = ExtResource("10_j3ovn")
 falling_animation = &"jumpfall"
 metadata/_custom_type_script = ExtResource("11_afbqv")
@@ -443,6 +507,11 @@ metadata/_custom_type_script = ExtResource("11_afbqv")
 [node name="GroundAttack" type="LimboState" parent="LimboHSM" index="3"]
 script = ExtResource("14_yqrof")
 animation_name = &"attacksword"
+metadata/_custom_type_script = ExtResource("11_afbqv")
+
+[node name="AirAttack" type="LimboState" parent="LimboHSM" index="4"]
+script = ExtResource("15_3wlsy")
+animation_name = &"airattacksword"
 metadata/_custom_type_script = ExtResource("11_afbqv")
 
 [node name="PlayerInput" type="Node" parent="." index="7" node_paths=PackedStringArray("limbo_hsm", "character")]
