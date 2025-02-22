@@ -14,7 +14,7 @@ extends Node2D
 #var can_move := false
 
 func _ready() -> void:
-	self.y_sort_enabled = true
+	#self.y_sort_enabled = true
 	LevelManager.level_load_started.connect(_free_level)
 	print(PlayerManager.player.position)
 	##

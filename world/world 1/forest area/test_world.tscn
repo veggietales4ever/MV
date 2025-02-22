@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=3 uid="uid://ccf4fo81c1pls"]
+[gd_scene load_steps=14 format=3 uid="uid://ccf4fo81c1pls"]
 
-[ext_resource type="Script" uid="uid://s6n217may0qd" path="res://world/world 1/forest area/test_world.gd" id="1_8ttbe"]
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="3_owa8j"]
 [ext_resource type="PackedScene" uid="uid://b4qmvaiqdjimv" path="res://world/tilemap/forest_tile_map.tscn" id="3_qss65"]
 [ext_resource type="Shader" uid="uid://dfq6q1ooo7qpi" path="res://shaders/palette_limiter_shader.gdshader" id="6_tn06u"]
@@ -20,7 +19,6 @@ shader_parameter/palette = ExtResource("7_ej5wr")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qglxy"]
 
 [node name="TestWorld" type="Node2D"]
-script = ExtResource("1_8ttbe")
 
 [node name="Parallax" parent="." instance=ExtResource("3_owa8j")]
 position = Vector2(0, 0)
@@ -68,13 +66,12 @@ position = Vector2(493, 161)
 [node name="UI" parent="." instance=ExtResource("15_f45jf")]
 visible = false
 
-[node name="AreaTransition" parent="." instance=ExtResource("16_qss65")]
-position = Vector2(1386, 30)
-level = "uid://cjd8hmelfnyj8"
-size = 4
-side = 1
-
 [node name="Camera" parent="." instance=ExtResource("15_6raki")]
 limit_left = 0
 limit_right = 1380
 limit_bottom = 200
+
+[node name="AreaTransition" parent="." instance=ExtResource("16_qss65")]
+position = Vector2(1381, 104)
+level = "uid://cjd8hmelfnyj8"
+side = 1

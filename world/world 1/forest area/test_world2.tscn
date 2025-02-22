@@ -1,23 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjd8hmelfnyj8"]
+[gd_scene load_steps=6 format=3 uid="uid://cjd8hmelfnyj8"]
 
-[ext_resource type="Script" uid="uid://dqjon4yx7tuw2" path="res://world/world 1/forest area/test_world_2.gd" id="1_m2fm0"]
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="2_v2f0p"]
 [ext_resource type="PackedScene" uid="uid://b4qmvaiqdjimv" path="res://world/tilemap/forest_tile_map.tscn" id="5_nkklo"]
-[ext_resource type="Shader" uid="uid://dfq6q1ooo7qpi" path="res://shaders/palette_limiter_shader.gdshader" id="6_sdnpr"]
-[ext_resource type="Texture2D" uid="uid://b4un251a3ymxs" path="res://palettes/cc-29-1x.png" id="7_bammv"]
 [ext_resource type="PackedScene" uid="uid://p4u8c0yp3dnp" path="res://entities/player/player_spawn.tscn" id="9_luhsd"]
 [ext_resource type="PackedScene" uid="uid://cmp03ai2iqgnx" path="res://control/camera/camera.tscn" id="10_7ohh0"]
-[ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_7qkhs"]
 [ext_resource type="PackedScene" uid="uid://c7ej8ilgaw7yo" path="res://world/AreaTransition.tscn" id="11_nkklo"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8uyub"]
-shader = ExtResource("6_sdnpr")
-shader_parameter/palette = ExtResource("7_bammv")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qglxy"]
-
 [node name="TestWorld2" type="Node2D"]
-script = ExtResource("1_m2fm0")
 
 [node name="Parallax" parent="." instance=ExtResource("2_v2f0p")]
 position = Vector2(-3, 0)
@@ -25,32 +14,14 @@ position = Vector2(-3, 0)
 [node name="Forest01" parent="." instance=ExtResource("5_nkklo")]
 layer_0/tile_data = PackedInt32Array(589824, 65537, 0, 655360, 65537, 1, 589825, 131073, 0, 655361, 131073, 1, 589826, 196609, 0, 655362, 196609, 1, 589827, 65537, 0, 655363, 65537, 1, 589828, 131073, 0, 655364, 131073, 1, 589829, 196609, 0, 655365, 196609, 1, 589830, 65537, 0, 655366, 65537, 1, 589831, 131073, 0, 655367, 131073, 1, 589832, 196609, 0, 655368, 196609, 1, 589833, 65537, 0, 655369, 65537, 1, 589834, 131073, 0, 655370, 131073, 1, 589835, 196609, 0, 655371, 196609, 1, 589836, 65537, 0, 655372, 65537, 1, 589837, 131073, 0, 655373, 131073, 1, 655358, 131073, 0, 720894, 131073, 1, 655359, 196609, 0, 720895, 196609, 1)
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("9_luhsd")]
-z_index = 1
-position = Vector2(82, 120)
-
-[node name="Shader" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="Panel" type="Panel" parent="Shader"]
-material = SubResource("ShaderMaterial_8uyub")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qglxy")
-
-[node name="Objects" type="Node" parent="."]
-
-[node name="SlimeEnemy" parent="." instance=ExtResource("10_7qkhs")]
-position = Vector2(194, 131)
-
-[node name="AreaTransition" parent="." instance=ExtResource("11_nkklo")]
-position = Vector2(22, 119)
-level = "uid://ccf4fo81c1pls"
-size = 7
-
 [node name="Camera" parent="." instance=ExtResource("10_7ohh0")]
+position = Vector2(0, -10)
 limit_left = -25
 limit_bottom = 200
+
+[node name="AreaTransition" parent="." instance=ExtResource("11_nkklo")]
+position = Vector2(-34, 100)
+level = "uid://ccf4fo81c1pls"
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("9_luhsd")]
+position = Vector2(38, 103)

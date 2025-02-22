@@ -1,3 +1,8 @@
+AnimationPlayer
+AnimationTree
+ColorRect
+Control
+CanvasLayer
 Camera2D
 TileMap
 RemoteTransform2D
@@ -5,10 +10,5 @@ Sprite2D
 CollisionShape2D
 Area2D
 Node2D
-AnimationPlayer
 TextureRect
 PlayerState
-Node
-LimboState
-LimboHSM
-Label

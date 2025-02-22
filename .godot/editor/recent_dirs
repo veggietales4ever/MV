@@ -1,3 +1,4 @@
+res://control/transitions
 res://world/world 1/forest area
 res://control/camera
 res://world/tilemap
@@ -5,7 +6,6 @@ res://world
 res://control
 res://entities/player
 res://global
-res://control/transitions
 res://entities/player/states
 res://player
 res://particles
