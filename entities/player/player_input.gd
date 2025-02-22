@@ -42,5 +42,6 @@ func _unhandled_input(event: InputEvent) -> void: #unhandled means if key is han
 	elif event.is_action_released(player_actions.down):
 		crouch = false
 		
+func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed(player_actions.attack):
 		attack = true

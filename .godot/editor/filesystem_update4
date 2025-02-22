@@ -11,3 +11,4 @@ res://entities/player/player_spawn.tscn
 res://world/world 1/forest area/testworld_4.tscn
 res://global/global_level_manager.gd
 res://control/transitions/scene_transition.gd
+res://entities/player/player_input.gd
