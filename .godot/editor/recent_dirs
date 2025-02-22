@@ -1,3 +1,5 @@
+res://entities/player/states
+res://control/can_move_areas
 res://control/transitions
 res://world/world 1/forest area
 res://control/camera
@@ -6,13 +8,11 @@ res://world
 res://control
 res://entities/player
 res://global
-res://entities/player/states
 res://player
 res://particles
 res://shaders
 res://UI
 res://control/move_area
-res://control/can_move_areas
 res://entities/enemy/slime enemy
 res://entities/enemy
 res://test

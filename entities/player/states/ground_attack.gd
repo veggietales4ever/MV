@@ -1,7 +1,6 @@
-extends PlayerState
+extends GroundState
 class_name AttackState
 
-@export var jump : StringName
 
 func _enter() -> void:
 	super()

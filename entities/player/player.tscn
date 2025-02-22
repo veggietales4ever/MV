@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=35 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" uid="uid://w1vgj2tiuuey" path="res://entities/player/player.gd" id="2_xgaa1"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://c72gwiv2hm622" path="res://entities/player/states/crouch_state.gd" id="13_gx6sm"]
 [ext_resource type="Script" uid="uid://bp3o8he5a7miv" path="res://entities/player/states/attack_state.gd" id="14_yqrof"]
 [ext_resource type="Script" uid="uid://u6xph71sqpqh" path="res://entities/player/states/air_attack.gd" id="15_3wlsy"]
+[ext_resource type="Script" uid="uid://blc46ch6qsv0q" path="res://entities/player/states/hurt_state.gd" id="16_b2kln"]
 
 [sub_resource type="Animation" id="Animation_arp08"]
 length = 0.001
@@ -379,6 +380,11 @@ var/attack/type = 1
 var/attack/value = false
 var/attack/hint = 0
 var/attack/hint_string = "Whether character is trying to attack currently"
+var/hurt/name = &"hurt"
+var/hurt/type = 1
+var/hurt/value = false
+var/hurt/hint = 0
+var/hurt/hint_string = "Decide if character is hurt"
 
 [sub_resource type="Resource" id="Resource_a1qjk"]
 script = ExtResource("11_7thud")
@@ -394,9 +400,6 @@ metadata/_custom_type_script = ExtResource("11_7thud")
 collision_mask = 274
 script = ExtResource("2_xgaa1")
 player_actions = ExtResource("4_a1qjk")
-knockback_force = 1000
-knockback_duration = 0.3
-invulnerability_duration = 1.0
 speed = 110
 acceleration = 1200
 friction = 2000
@@ -474,7 +477,8 @@ states = {
 "air_attack": NodePath("AirAttack"),
 "attack": NodePath("GroundAttack"),
 "crouch": NodePath("CrouchState"),
-"ground": NodePath("GroundMoveState")
+"ground": NodePath("GroundMoveState"),
+"hurt": NodePath("HurtState")
 }
 
 [node name="GroundMoveState" type="LimboState" parent="LimboHSM" index="0"]
@@ -495,6 +499,10 @@ metadata/_custom_type_script = ExtResource("11_afbqv")
 
 [node name="GroundAttack" type="LimboState" parent="LimboHSM" index="3"]
 script = ExtResource("14_yqrof")
+attack_2 = null
+jump_anim = null
+can_jump = null
+can_move = null
 animation_name = &"attacksword"
 metadata/_custom_type_script = ExtResource("11_afbqv")
 
@@ -502,6 +510,9 @@ metadata/_custom_type_script = ExtResource("11_afbqv")
 script = ExtResource("15_3wlsy")
 animation_name = &"airattacksword"
 metadata/_custom_type_script = ExtResource("11_afbqv")
+
+[node name="HurtState" type="LimboState" parent="LimboHSM" index="5"]
+script = ExtResource("16_b2kln")
 
 [node name="PlayerInput" type="Node" parent="." index="6" node_paths=PackedStringArray("limbo_hsm", "character")]
 script = ExtResource("9_bp2km")

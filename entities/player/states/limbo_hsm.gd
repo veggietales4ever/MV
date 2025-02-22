@@ -21,4 +21,6 @@ func _binding_setup():
 	add_transition(states["attack"], states["ground"], "finished")
 	add_transition(states["air_attack"], states["air"], "finished")
 	add_transition(states["air_attack"], states["ground"], "on_ground")
+	add_transition(states["ground"], states["hurt"], "hurt")
+	add_transition(states["attack"], states["air"], "in_air")
 	
