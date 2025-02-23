@@ -17,12 +17,12 @@ func _on_animation_finished(p_animation : StringName):
 		return
 		
 	#if i want to add a second animation after the current one finishes
-	match p_animation:a
-		animation_name:
-			if attack_2.is_empty():
-				dispatch("finished")
-				return
-				
-			character.animation_player.play(attack_2)
-			dispatch("finished")
+	#match p_animation:a
+		#animation_name:
+			#if attack_2.is_empty():
+				#dispatch("finished")
+				#return
+				#
+			#character.animation_player.play(attack_2)
+			#dispatch("finished")
 	

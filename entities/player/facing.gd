@@ -3,11 +3,15 @@ class_name Facing
 
 #@export var character : CharacterBody2D
 @export var limbo_hsm : LimboHSM
+@export var bt_player : BTPlayer
 
 var blackboard : Blackboard
 
 func _ready():
-	blackboard = limbo_hsm.blackboard
+	if limbo_hsm != null:
+		blackboard = limbo_hsm.blackboard
+	if bt_player != null:
+		blackboard = bt_player.blackboard
 
 #Updates the nodes scale to face left (-1 scale.x) or right (+1 scale.x)
 func _physics_process(_delta: float) -> void:

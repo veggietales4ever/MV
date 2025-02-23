@@ -1,3 +1,5 @@
+res://entities/enemy/slime enemy
+res://entities
 res://entities/player/states
 res://control/can_move_areas
 res://control/transitions
@@ -13,10 +15,8 @@ res://particles
 res://shaders
 res://UI
 res://control/move_area
-res://entities/enemy/slime enemy
 res://entities/enemy
 res://test
 res://entities/objects
-res://entities
 res://entities/enemy/gold enemy
 res://background

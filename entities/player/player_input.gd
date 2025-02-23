@@ -32,10 +32,10 @@ func _process(_delta: float) -> void:
 		)
 
 func _unhandled_input(event: InputEvent) -> void: #unhandled means if key is handled by something else, we don't want 2 things to be triggered
-	if event.is_action_pressed(player_actions.jump):
-		jump = true
-	elif event.is_action_released(player_actions.jump): #and not character.is_on_floor() and character.velocity.y < 0:
-		jump = false
+	#if Input.is_action_just_pressed(player_actions.jump):
+		#jump = true
+	#elif Input.is_action_just_released(player_actions.jump): #and not character.is_on_floor() and character.velocity.y < 0:
+		#jump = false
 
 	if event.is_action_pressed(player_actions.down):
 		crouch = true
@@ -45,3 +45,8 @@ func _unhandled_input(event: InputEvent) -> void: #unhandled means if key is han
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed(player_actions.attack):
 		attack = true
+		
+	if Input.is_action_just_pressed(player_actions.jump):
+		jump = true
+	elif Input.is_action_just_released(player_actions.jump): #and not character.is_on_floor() and character.velocity.y < 0:
+		jump = false

@@ -1,7 +1,8 @@
 extends PlayerState
 class_name HurtState
 
-@onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
+
+@onready var invulnerability_timer: Timer = $"../../Timers/InvulnerabilityTimer"
 @onready var sprite_2d: Sprite2D = $"../../Facing/Sprite2D"
 
 @export_group('damage')

@@ -1,0 +1,61 @@
+[gd_resource type="BehaviorTree" load_steps=14 format=3 uid="uid://cg2xvua4lo6hn"]
+
+[ext_resource type="Script" uid="uid://bqiajynvffwjj" path="res://ai/tasks/navigation/navigation_to_point.gd" id="1_ncjki"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_5300l"]
+var/direction/name = &"direction"
+var/direction/type = 5
+var/direction/value = Vector2(0, 0)
+var/direction/hint = 0
+var/direction/hint_string = "direction the character is tryign to move in"
+var/target/name = &"target"
+var/target/type = 24
+var/target/hint = 0
+var/target/hint_string = "Attack target for the character"
+
+[sub_resource type="BBVariant" id="BBVariant_4eia6"]
+saved_value = null
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_npfd7"]
+variable = &"target"
+check_type = 5
+value = SubResource("BBVariant_4eia6")
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_ncjki"]
+text = "ATTACK"
+
+[sub_resource type="BBNode" id="BBNode_ncjki"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_nn2mf"]
+animation_player = SubResource("BBNode_ncjki")
+animation_name = &"attack"
+
+[sub_resource type="BTSequence" id="BTSequence_ncjki"]
+children = [SubResource("BTConsolePrint_ncjki"), SubResource("BTPlayAnimation_nn2mf")]
+
+[sub_resource type="BTCooldown" id="BTCooldown_2icub"]
+duration = 1.0
+start_cooled = true
+children = [SubResource("BTSequence_ncjki")]
+
+[sub_resource type="BTSequence" id="BTSequence_ikecv"]
+custom_name = "Attack Target Sequence"
+children = [SubResource("BTCheckVar_npfd7"), SubResource("BTCooldown_2icub")]
+
+[sub_resource type="BTAction" id="BTAction_nn2mf"]
+script = ExtResource("1_ncjki")
+max_distance = 200.0
+
+[sub_resource type="BTSequence" id="BTSequence_2icub"]
+custom_name = "Find Targets Sequence"
+children = [SubResource("BTAction_nn2mf")]
+
+[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_ncjki"]
+custom_name = "Slime AI"
+children = [SubResource("BTSequence_ikecv"), SubResource("BTSequence_2icub")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_5300l")
+root_task = SubResource("BTDynamicSelector_ncjki")

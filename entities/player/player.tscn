@@ -499,10 +499,6 @@ metadata/_custom_type_script = ExtResource("11_afbqv")
 
 [node name="GroundAttack" type="LimboState" parent="LimboHSM" index="3"]
 script = ExtResource("14_yqrof")
-attack_2 = null
-jump_anim = null
-can_jump = null
-can_move = null
 animation_name = &"attacksword"
 metadata/_custom_type_script = ExtResource("11_afbqv")
 
