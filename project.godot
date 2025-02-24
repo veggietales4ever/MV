@@ -116,6 +116,10 @@ dash={
 2d_physics/layer_8="Rooms"
 2d_physics/layer_9="Floors"
 
+[physics]
+
+2d/default_gravity=600.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

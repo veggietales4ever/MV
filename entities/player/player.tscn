@@ -398,6 +398,8 @@ metadata/_custom_type_script = ExtResource("11_7thud")
 
 [node name="Player" node_paths=PackedStringArray("animation_player", "sprite_2d") groups=["Player"] instance=ExtResource("1_fdhh2")]
 collision_mask = 274
+floor_constant_speed = true
+floor_snap_length = 10.0
 script = ExtResource("2_xgaa1")
 player_actions = ExtResource("4_a1qjk")
 speed = 110

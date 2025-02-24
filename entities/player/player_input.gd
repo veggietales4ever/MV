@@ -22,8 +22,8 @@ func _ready() -> void:
 	blackboard.bind_var_to_property(BBNames.crouch_var, self, "crouch", false)
 	blackboard.bind_var_to_property(BBNames.attack_var, self, "attack", false)
 	
-	
 
+			
 func _process(_delta: float) -> void:
 		#input_direction = Input.get_vector(player_actions.left, player_actions.right, player_actions.up, player_actions.down)
 		input_direction = Vector2(

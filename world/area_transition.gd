@@ -64,7 +64,7 @@ func get_offset() -> Vector2:
 		offset.x = player_pos.x - global_position.x
 		offset.y = 32
 		if side == SIDE.TOP:
-			offset.y *= -1
+			offset.y *= -2
 	
 	return offset
 	

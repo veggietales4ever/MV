@@ -8,7 +8,7 @@ class_name Player
 #@export var stats : PlayerStats
 @export var player_actions: PlayerActions
 
-@onready var collision_shape_2d: CollisionShape2D = $Facing/Sword/CollisionShape2D
+@onready var sword_collision: CollisionShape2D = $Facing/Sword/CollisionShape2D
 
 
 @export_group('move')
@@ -42,12 +42,10 @@ var double_jump: bool
 var entry_state: String = ""
 
 func _ready() -> void:
-	collision_shape_2d.disabled = true
+	sword_collision.disabled = true
 	on_enter()
-	#PlayerManager.register_player(self)
 	$Timers/DashCooldown.wait_time = dash_cooldown
 	$Timers/AttackCooldown.wait_time = attack_cooldown
-	#PlayerManager.player =  self
 
 
 func _physics_process(delta: float) -> void:

@@ -1,9 +1,9 @@
+res://world/world 1/forest area
 res://entities/enemy/slime enemy
 res://entities
 res://entities/player/states
 res://control/can_move_areas
 res://control/transitions
-res://world/world 1/forest area
 res://control/camera
 res://world/tilemap
 res://world
