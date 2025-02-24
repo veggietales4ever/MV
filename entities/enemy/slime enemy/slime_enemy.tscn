@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://d2vq74edipi66" path="res://Aseprite Assets/greenslime/slime-Sheet.png" id="5_r863y"]
 [ext_resource type="Script" uid="uid://cwpoefserqo5b" path="res://entities/enemy/slime enemy/detection_zone.gd" id="6_r863y"]
 
-[sub_resource type="Resource" id="Resource_w244n"]
+[sub_resource type="Resource" id="Resource_r863y"]
 script = ExtResource("3_msrsq")
-run_speed = 50.0
+run_speed = 70.0
 acceleration = 1200
 friction = 1800
 jump_velocity = 275.0
@@ -143,7 +143,7 @@ script = ExtResource("2_5300l")
 navigation = NodePath("NavigationAgent2D")
 animation_player = NodePath("AnimationPlayer")
 sprite_2d = NodePath("Facing/Sprite2D")
-stats = SubResource("Resource_w244n")
+stats = SubResource("Resource_r863y")
 
 [node name="Facing" type="Node2D" parent="." index="0" node_paths=PackedStringArray("bt_player")]
 script = ExtResource("4_w244n")

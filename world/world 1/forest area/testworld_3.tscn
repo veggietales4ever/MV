@@ -1,10 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhvxx1kvedobe"]
+[gd_scene load_steps=9 format=3 uid="uid://bhvxx1kvedobe"]
 
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="1_i1jg2"]
 [ext_resource type="PackedScene" uid="uid://p4u8c0yp3dnp" path="res://entities/player/player_spawn.tscn" id="2_dvvem"]
 [ext_resource type="PackedScene" uid="uid://b4qmvaiqdjimv" path="res://world/tilemap/forest_tile_map.tscn" id="3_o3nub"]
 [ext_resource type="PackedScene" uid="uid://cmp03ai2iqgnx" path="res://control/camera/camera.tscn" id="4_n1qsm"]
 [ext_resource type="PackedScene" uid="uid://c7ej8ilgaw7yo" path="res://world/AreaTransition.tscn" id="5_p54rh"]
+[ext_resource type="Script" uid="uid://b3iarwuox4neq" path="res://entities/player/player_actions.gd" id="6_p54rh"]
+
+[sub_resource type="Resource" id="Resource_u48yi"]
+script = ExtResource("6_p54rh")
+left = &"left"
+right = &"right"
+up = &"up"
+down = &"down"
+jump = &"jump"
+attack = &"attack"
+metadata/_custom_type_script = ExtResource("6_p54rh")
+
+[sub_resource type="Resource" id="Resource_5rv7j"]
+script = ExtResource("6_p54rh")
+left = &"left"
+right = &"right"
+up = &"up"
+down = &"down"
+jump = &"jump"
+attack = &"attack"
+metadata/_custom_type_script = ExtResource("6_p54rh")
 
 [node name="testworld3" type="Node2D"]
 
@@ -26,11 +47,13 @@ limit_bottom = 230
 [node name="AreaTransition" parent="." instance=ExtResource("5_p54rh")]
 position = Vector2(1037, 123)
 level = "uid://nf66415svs5a"
+player_actions = SubResource("Resource_u48yi")
 side = 1
 
 [node name="AreaTransition2" parent="." instance=ExtResource("5_p54rh")]
 position = Vector2(574, -23)
 level = "uid://cjd8hmelfnyj8"
 target_transition_area = &"AreaTransition2"
+player_actions = SubResource("Resource_5rv7j")
 size = 1
 side = 2

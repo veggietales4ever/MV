@@ -6,6 +6,7 @@ enum SIDE {LEFT, RIGHT, TOP, BOTTOM}
 
 @export_file( "*.tscn") var level
 @export var target_transition_area : StringName = "AreaTransition"
+@export var player_actions : PlayerActions
 
 @export_category("Collision Area Settings")
 @export_range(1,12,1, "or_greater") var size : int = 2 :
@@ -28,6 +29,8 @@ anytime value is set on the size, set size our value to _v, call update area
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
+var jump : bool
+
 func _ready() -> void:
 	_update_area()
 	if Engine.is_editor_hint():
@@ -35,7 +38,7 @@ func _ready() -> void:
 		
 	monitoring = false   # Don't want to monitor until the level is loaded.
 	_place_player()
-	
+	jump = false
 	await LevelManager.level_loaded
 	monitoring = true
 	body_entered.connect(_player_entered)
@@ -43,6 +46,7 @@ func _ready() -> void:
 
 func _player_entered(_p : Node2D) -> void:
 	# Do something with Level Manager
+	PlayerManager.player.disable_control(2.0)
 	LevelManager.load_new_level(level, target_transition_area, get_offset())
 	
 func _place_player() -> void:

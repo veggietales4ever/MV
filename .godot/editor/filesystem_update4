@@ -8,3 +8,12 @@ res://world/world 1/forest area/testworld_3.tscn
 res://entities/enemy/slime enemy/slime_enemy.tscn
 res://world/AreaTransition.tscn
 res://entities/player/player.tscn
+res://entities/player/player_input.gd
+res://entities/player/player.gd
+res://entities/npc.gd
+res://entities/enemy/slime enemy/slime_enemy.gd
+res://world/area_transition.gd
+res://ai/tasks/navigation/navigation_to_point.gd
+res://world/world 1/forest area/test_world.gd
+res://control/can_move_areas/can_move.gd
+res://control/can_move_areas/can_move.tscn

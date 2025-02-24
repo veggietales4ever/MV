@@ -1,6 +1,6 @@
-res://world/world 1/forest area
-res://entities/enemy/slime enemy
 res://entities
+res://entities/enemy/slime enemy
+res://world/world 1/forest area
 res://entities/player/states
 res://control/can_move_areas
 res://control/transitions

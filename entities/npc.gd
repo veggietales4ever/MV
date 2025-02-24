@@ -50,3 +50,13 @@ func lock_animation():
 	
 func unlock_animation():
 	locked_animation = false
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	pass
+	#if body.name == "Player":
+		#player_inside = true
+		#var player = PlayerManager.player
+		#if not PlayerManager.invulnerable:
+			#player_data.life -= 1
+			#PlayerManager.player.take_damage(global_position)

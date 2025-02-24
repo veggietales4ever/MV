@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends NPC
 class_name Enemy
 
 signal direction_changed(new_direction: Vector2)
@@ -17,16 +17,14 @@ var invulnerability_duration := 3.0
 var gravity := 600
 var player_inside := false
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var hitbox: Area2D = $hitbox
 @onready var state_matchine: EnemyStateMachine = $EnemyStateMachine
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
 
 func _ready() -> void:
-	state_matchine.initialize(self)
+	#state_matchine.initialize(self)
 	player = PlayerManager.player
-	animation_player.connect("animation_finished", Callable(self, "_on_animation_finished"))
+	#animation_player.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 func _process(delta: float) -> void:
 	apply_gravity(delta)
@@ -35,8 +33,8 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 func update_animation(state : String) -> void:
-	animation_player.play(state)
-	
+	#animation_player.play(state)
+	pass
 	
 func _on_chase_trigger_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

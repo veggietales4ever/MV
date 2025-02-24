@@ -38,9 +38,9 @@ func _tick(delta: float) -> Status:
 	
 	if desired_direction.y < 0 && npc.is_on_floor() && npc.is_on_wall:
 		npc.jump()
-		print(npc.is_on_wall)
-		print(npc.is_on_floor)
-		print(desired_direction.y)
+		#print(npc.is_on_wall)
+		#print(npc.is_on_floor)
+		#print(desired_direction.y)
 		
 	npc.move(desired_direction)
 	

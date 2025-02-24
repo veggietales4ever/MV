@@ -9,6 +9,7 @@ class_name Player
 @export var player_actions: PlayerActions
 
 @onready var sword_collision: CollisionShape2D = $Facing/Sword/CollisionShape2D
+@onready var input_handler: PlayerInput = $PlayerInput
 
 
 @export_group('move')
@@ -46,10 +47,11 @@ func _ready() -> void:
 	on_enter()
 	$Timers/DashCooldown.wait_time = dash_cooldown
 	$Timers/AttackCooldown.wait_time = attack_cooldown
-
+	input_handler.can_move = can_move
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
+	direction = input_handler.input_direction
 
 	#
 	## Jump
@@ -159,13 +161,20 @@ func on_enter():
 
 func cant_move():
 	can_move = false
+	input_handler.can_move = false
 	
 func can_now_move():
 	can_move = true
+	input_handler.can_move = true
 
 
-func _on_cannot_move_area_intro_body_entered(_body: Node2D) -> void:
-	can_move = false
-	
-func set_entry_state(state: String):
-	entry_state = state
+#func _on_cannot_move_area_intro_body_entered(_body: Node2D) -> void:
+	#can_move = false
+	#
+#func set_entry_state(state: String):
+	#entry_state = state
+
+func disable_control(duration: float) -> void:
+	cant_move()
+	await get_tree().create_timer(duration).timeout
+	can_now_move()

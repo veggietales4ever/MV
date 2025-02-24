@@ -9,12 +9,13 @@ extends Node2D
 
 #const EXIT_RIGHT = preload("res://world/world 1/forest area/test_world2.tscn")
 #const EXIT_LEFT = null
-
+var can_move : bool = true
 
 func _ready() -> void:
+	can_move = true
 	#self.y_sort_enabled = true
-	PlayerManager.set_as_parent(self)
-	LevelManager.level_load_started.connect(_free_level)
+	#PlayerManager.set_as_parent(self)
+	#LevelManager.level_load_started.connect(_free_level)
 	
 	#fade_rect.modulate.a = 1  # Ensure the screen is black before the fade-in
 	#TransitionManager.fade_in()  # Start fading out when entering a new scene
@@ -25,9 +26,9 @@ func _ready() -> void:
 		#
 	#print(state)
 
-func _free_level() -> void:
-	PlayerManager.unparent_player(self)
-	queue_free()
+#func _free_level() -> void:
+	#PlayerManager.unparent_player(self)
+	#queue_free()
 
 #func _process(_delta: float) -> void:
 	#if state == "fade_right": #and fade_rect:

@@ -1,11 +1,17 @@
 extends Area2D
 
+#var can_move : bool
 
 func _ready() -> void:
-	body_entered.connect(_player_entered)
+	body_entered.connect(_on_body_entered)
+	#body_exited.connect(_on_body_exited)
 	
-func _player_entered(_p : Node2D) -> void:
-	pass
-
-func _process(_delta: float) -> void:
-	pass
+# When any node enters, this event triggers. check if character
+func _on_body_entered(p_body : Node2D):
+	if p_body is Character:
+		PlayerManager.player.can_move = true
+		print(p_body)
+		
+#func _on_body_exited(p_body : Node2D):
+	#if target == p_body:
+		#target = null
