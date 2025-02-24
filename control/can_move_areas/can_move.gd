@@ -10,8 +10,6 @@ func _ready() -> void:
 func _on_body_entered(p_body : Node2D):
 	if p_body is Character:
 		PlayerManager.player.can_move = true
+		PlayerManager.player.input_handler.can_move = true
 		print(p_body)
 		
-#func _on_body_exited(p_body : Node2D):
-	#if target == p_body:
-		#target = null

@@ -14,7 +14,7 @@ var jump : bool
 var crouch : bool
 var faster_fall : bool
 var attack : bool
-var can_move : bool
+var can_move : bool = true
 
 func _ready() -> void:
 	blackboard = limbo_hsm.blackboard
@@ -29,8 +29,8 @@ func _process(_delta: float) -> void:
 	if can_move:
 		#input_direction = Input.get_vector(player_actions.left, player_actions.right, player_actions.up, player_actions.down)
 		input_direction = Vector2(
-		Input.get_axis(player_actions.left, player_actions.right),
-		Input.get_axis(player_actions.up, player_actions.down)
+			Input.get_axis(player_actions.left, player_actions.right),
+			Input.get_axis(player_actions.up, player_actions.down)
 		)
 		if Input.is_action_just_pressed(player_actions.jump) && character.is_on_floor():
 			jump = true
