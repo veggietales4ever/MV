@@ -1,19 +1,15 @@
 res://default_bus_layout.tres
-res://world/tilemap/forest_tile_map.tscn
+res://world/world 1/forest area/test_world2.tscn
 res://shaders/palette_limiter_shader.gdshader
 res://entities/enemy/slime enemy/slime_ai.tres
 res://world/world 1/forest area/test_world.tscn
-res://world/world 1/forest area/test_world2.tscn
 res://world/world 1/forest area/testworld_3.tscn
 res://entities/enemy/slime enemy/slime_enemy.tscn
 res://world/AreaTransition.tscn
 res://entities/player/player.tscn
-res://entities/player/player_input.gd
-res://entities/player/player.gd
-res://entities/npc.gd
-res://entities/enemy/slime enemy/slime_enemy.gd
-res://world/area_transition.gd
-res://ai/tasks/navigation/navigation_to_point.gd
-res://world/world 1/forest area/test_world.gd
-res://control/can_move_areas/can_move.gd
 res://control/can_move_areas/can_move.tscn
+res://entities/objects/crate.tscn
+res://entities/objects/lantern.tscn
+res://entities/objects/lantern.gd
+res://global/global_level_manager.gd
+res://entities/player/player_spawn.tscn

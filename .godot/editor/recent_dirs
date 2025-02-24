@@ -1,3 +1,4 @@
+res://entities/objects
 res://entities
 res://entities/enemy/slime enemy
 res://world/world 1/forest area
@@ -17,6 +18,5 @@ res://UI
 res://control/move_area
 res://entities/enemy
 res://test
-res://entities/objects
 res://entities/enemy/gold enemy
 res://background

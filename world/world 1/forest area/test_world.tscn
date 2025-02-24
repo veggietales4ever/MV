@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ccf4fo81c1pls"]
+[gd_scene load_steps=18 format=3 uid="uid://ccf4fo81c1pls"]
 
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="3_owa8j"]
 [ext_resource type="PackedScene" uid="uid://b4qmvaiqdjimv" path="res://world/tilemap/forest_tile_map.tscn" id="3_qss65"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lfu4j7l58qi7" path="res://entities/objects/crate.tscn" id="9_qr76i"]
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_240mi"]
 [ext_resource type="PackedScene" uid="uid://cgchpyyc37dtr" path="res://control/can_move_areas/can_move.tscn" id="12_sx0ld"]
+[ext_resource type="Script" uid="uid://b3iarwuox4neq" path="res://entities/player/player_actions.gd" id="12_ysk6a"]
 [ext_resource type="PackedScene" uid="uid://p4u8c0yp3dnp" path="res://entities/player/player_spawn.tscn" id="14_p2vfc"]
 [ext_resource type="PackedScene" uid="uid://cmp03ai2iqgnx" path="res://control/camera/camera.tscn" id="15_6raki"]
 [ext_resource type="PackedScene" uid="uid://hxn1ec6yv7ws" path="res://UI/ui.tscn" id="15_f45jf"]
@@ -18,6 +19,16 @@ shader = ExtResource("6_tn06u")
 shader_parameter/palette = ExtResource("7_ej5wr")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qglxy"]
+
+[sub_resource type="Resource" id="Resource_p2vfc"]
+script = ExtResource("12_ysk6a")
+left = &"left"
+right = &"right"
+up = &"up"
+down = &"down"
+jump = &"jump"
+attack = &"attack"
+metadata/_custom_type_script = ExtResource("12_ysk6a")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sx0ld"]
 vertices = PackedVector2Array(1081, 186, 1410.1, 186, 1410.01, 235.922, 1081, 218, 25, 225.742, 1029, 218, 361, 218, 361, 202, 549, 202, 549, 218, 601, 218, 601, 186, 965, 186, 965, 218, 1017, 218, 1017, 202, 1029, 202, 309, 218, 25, 186, 309, 186, -4.90625, 224.906, -3, 225.539, -66.8594, 225.07, 1074.33, 147.32, 1075.94, 150, 1045, 150, 1067.09, 144.906, 1410.16, 150, 1136.31, 150, 1140.36, 140.562, 345, 150, 32.3125, 150, 36.3594, 140.562, 38.0469, 86, 37.3125, 86, 44.1719, 70, 38.0469, 54, 37.3125, 54, 44.1719, 38, 38.0469, 22, 37.3125, 22, 44.1719, 6, 38.0469, -10, 37.3125, -10, 44.1719, -26, 38.0469, -42, 37.3125, -42, 44.1719, -58, 38.0469, -74, 37.3125, -74, 44.1719, -90, 38.0469, -106, 37.3125, -106, 44.1719, -122, 38.0469, -138, 37.3125, -138, 44.1719, -154, 38.0469, -170, 37.3125, -170, 44.1719, -186, 38.0469, -202, 37.3125, -202, 44.1719, -218, 38.0469, -234, 37.3125, -234, 44.1719, -250, 38.0469, -266, 37.3125, -266, 44.1719, -282, 38.0469, -298, 37.3125, -298, 44.1719, -314, 38.0469, -330, 37.3125, -330, 44.1719, -346, 38.0469, -362, 37.3125, -362, 44.1719, -378, 38.0469, -394, 37.3125, -394, 44.1719, -410, -10.4375, 208.297, 1411.98, -967.711, 1225, 90, 1225, 54, 40.4375, 128.297, 1141.21, 138, 1145, 138, -51.1328, -927.258, 1157, 54, 1064.79, 138, 1061, 138, 1045, 166, 1001, 166, 1001, 150, 565, 150, 565, 166, 345, 166, 5, -426, 5, 118, -11, 118, -11, 134, -59, 134, -59, 170, -11, 170, -11, 186, -8, 186, -8, 189.859, -8.21094, 190.07, 1145, 102, 1174.34, 106, 44.1719, 102, 39.6484, 102, 39.6484, 70, 39.6484, 38, 39.6484, 6, 39.6484, -26, 39.6484, -58, 39.6484, -90, 39.6484, -122, 39.6484, -154, 39.6484, -186, 39.6484, -218, 39.6484, -250, 39.6484, -282, 39.6484, -314, 39.6484, -346, 39.6484, -378, 39.6484, -410, 38.0469, -426, 1220.36, 92.5625, 1221.21, 90, 1157, 90, 1160.79, 90, 1163.09, 96.9062, -10.3906, 200.953, -8.29688, 206.156, 35.3125, 123.172, 35.5469, 122.078, 1061, 102, 1214.59, 106, 1170.33, 99.3203)
@@ -84,6 +95,7 @@ limit_bottom = 200
 [node name="AreaTransition" parent="." instance=ExtResource("16_qss65")]
 position = Vector2(1392, 104)
 level = "uid://cjd8hmelfnyj8"
+player_actions = SubResource("Resource_p2vfc")
 side = 1
 
 [node name="can_move" parent="." instance=ExtResource("12_sx0ld")]
