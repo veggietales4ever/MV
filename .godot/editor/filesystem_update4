@@ -10,3 +10,4 @@ res://entities/player/player.tscn
 res://control/can_move_areas/can_move.tscn
 res://global/global_level_manager.gd
 res://world/area_transition.gd
+res://entities/objects/lantern.tscn
