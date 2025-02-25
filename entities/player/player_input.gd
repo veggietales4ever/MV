@@ -19,7 +19,7 @@ var can_move : bool = true
 func _ready() -> void:
 	blackboard = limbo_hsm.blackboard
 	blackboard.bind_var_to_property(BBNames.direction_var, self, "input_direction", false)
-	blackboard.bind_var_to_property(BBNames.jump_var, self, "jump", false)
+	blackboard.bind_var_to_property(BBNames.jump_var, self, "jump", true)
 	blackboard.bind_var_to_property(BBNames.crouch_var, self, "crouch", false)
 	blackboard.bind_var_to_property(BBNames.attack_var, self, "attack", false)
 	
@@ -32,8 +32,11 @@ func _process(_delta: float) -> void:
 			Input.get_axis(player_actions.left, player_actions.right),
 			Input.get_axis(player_actions.up, player_actions.down)
 		)
-		if Input.is_action_just_pressed(player_actions.jump) && character.is_on_floor():
-			jump = true
+		
+		if Input.is_action_just_pressed(player_actions.jump):
+			if character.is_on_floor():
+				jump = true
+
 		elif Input.is_action_just_released(player_actions.jump): #and not character.is_on_floor() and character.velocity.y < 0:
 			jump = false
 			
@@ -54,7 +57,7 @@ func _unhandled_input(_event: InputEvent) -> void: #unhandled means if key is ha
 		#crouch = true
 	#elif event.is_action_released(player_actions.down):
 		#crouch = false
-	pass
+		pass
 		
 func _input(_event: InputEvent) -> void:
 	pass
