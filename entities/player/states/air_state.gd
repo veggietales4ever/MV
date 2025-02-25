@@ -3,14 +3,12 @@ class_name AirState
 
 @export var can_move : bool = true
 
-
 func _update(delta: float) -> void:
 	if can_move:
 		air_move(delta)
 		
 	if character.is_on_floor():
 		dispatch("on_ground")
-		can_jump = true
 
 func air_move(_delta) -> Vector2:
 	var direction : Vector2 = blackboard.get_var(BBNames.direction_var)

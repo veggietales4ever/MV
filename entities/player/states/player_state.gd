@@ -6,7 +6,6 @@ class_name PlayerState
 var character : Character
 var character_stats : CharacterStats
 var animation_lock : bool = false
-var can_jump : bool
 
 func _enter() -> void:
 	character = agent as Character
