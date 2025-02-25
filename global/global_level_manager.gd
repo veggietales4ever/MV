@@ -42,6 +42,6 @@ func load_new_level(
 	get_tree().paused = false
 	
 	await SceneTransition.fade_in()
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(0.2).timeout
 	
 	level_loaded.emit()
