@@ -52,7 +52,7 @@ func unlock_animation():
 	locked_animation = false
 
 
-func _on_hitbox_body_entered(body: Node2D) -> void:
+func _on_hitbox_body_entered(_body: Node2D) -> void:
 	pass
 	#if body.name == "Player":
 		#player_inside = true

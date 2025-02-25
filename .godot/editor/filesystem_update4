@@ -16,3 +16,10 @@ res://entities/player/states/ground_state.gd
 res://entities/player/states/player_state.gd
 res://entities/player/player_input.gd
 res://entities/objects/lantern.gd
+res://entities/player/states/attack_state.gd
+res://entities/npc.gd
+res://entities/character_stats.gd
+res://entities/player/sword_attack_aread_2d.gd
+res://entities/enemy/slime enemy/attack_area_2d.gd
+res://entities/player/player.gd
+res://global/player_data.gd
