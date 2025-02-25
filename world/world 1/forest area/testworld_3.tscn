@@ -51,7 +51,7 @@ player_actions = SubResource("Resource_u48yi")
 side = 1
 
 [node name="AreaTransition2" parent="." instance=ExtResource("5_p54rh")]
-position = Vector2(575, -38)
+position = Vector2(574, -23)
 level = "uid://cjd8hmelfnyj8"
 target_transition_area = &"AreaTransition2"
 player_actions = SubResource("Resource_5rv7j")

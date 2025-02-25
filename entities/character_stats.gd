@@ -5,5 +5,3 @@ extends Resource
 @export var acceleration := 1200
 @export var friction := 1800
 @export var jump_velocity : float = 275
-@export var damage : int = 10
-@export var health : int = 20

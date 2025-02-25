@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=35 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" uid="uid://w1vgj2tiuuey" path="res://entities/player/player.gd" id="2_xgaa1"]
@@ -6,7 +6,6 @@
 [ext_resource type="Resource" uid="uid://5kad6qtokh2b" path="res://entities/player/player_stats.tres" id="3_wvtmh"]
 [ext_resource type="Resource" uid="uid://dxgnvq5pa6ra3" path="res://entities/player/player_actions.tres" id="4_a1qjk"]
 [ext_resource type="Script" uid="uid://djq3eset4y6pk" path="res://entities/player/facing.gd" id="5_afbqv"]
-[ext_resource type="Script" uid="uid://tmddq2cwqon" path="res://entities/player/sword_attack_aread_2d.gd" id="7_we0b7"]
 [ext_resource type="Script" uid="uid://45vec58f3bjw" path="res://entities/player/state_debug_label.gd" id="8_11kuo"]
 [ext_resource type="LabelSettings" uid="uid://clo0nfvok1ly7" path="res://fonts/default_label_settings.tres" id="8_j0dv7"]
 [ext_resource type="Script" uid="uid://ckj7jx46hgm8b" path="res://entities/player/states/ground_move_state.gd" id="9_7thud"]
@@ -435,7 +434,6 @@ libraries = {
 
 [node name="Sword" type="Area2D" parent="Facing" index="2"]
 collision_layer = 2
-script = ExtResource("7_we0b7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/Sword" index="0"]
 position = Vector2(17, -7.5)

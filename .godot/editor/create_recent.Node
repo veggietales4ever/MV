@@ -1,4 +1,3 @@
-DirectionalLight2D
 PointLight2D
 Node
 AnimationPlayer
@@ -13,3 +12,4 @@ BTPlayer
 LimboState
 Camera2D
 AnimationTree
+ColorRect
