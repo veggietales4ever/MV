@@ -23,7 +23,3 @@ res://entities/player/sword_attack_aread_2d.gd
 res://entities/enemy/slime enemy/attack_area_2d.gd
 res://entities/player/player.gd
 res://global/player_data.gd
-res://entities/character.gd
-res://entities/player/states/limbo_hsm.gd
-res://UI/ui.gd
-res://entities/player/player_stats.tres

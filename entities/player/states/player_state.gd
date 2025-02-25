@@ -2,18 +2,12 @@ extends LimboState
 class_name PlayerState
 
 @export var animation_name : StringName
-@export var acceleration := 1200
-@export var friction := 2000
-@export var speed := 110
 
 var character : Character
 var character_stats : CharacterStats
 var animation_lock : bool = false
 var can_jump : bool = true
-var direction := Vector2.ZERO
 
-	
-	
 func _enter() -> void:
 	character = agent as Character
 	agent.animation_player.play(animation_name)

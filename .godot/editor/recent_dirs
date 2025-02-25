@@ -1,7 +1,6 @@
-res://entities/player
-res://entities/enemy/slime enemy
 res://entities/objects
 res://entities
+res://entities/enemy/slime enemy
 res://world/world 1/forest area
 res://entities/player/states
 res://control/can_move_areas
@@ -10,6 +9,7 @@ res://control/camera
 res://world/tilemap
 res://world
 res://control
+res://entities/player
 res://global
 res://player
 res://particles
