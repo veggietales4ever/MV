@@ -46,6 +46,12 @@ func _ready() -> void:
 func _player_entered(_p : Node2D) -> void:
 	# Do something with Level Manager
 	PlayerManager.player.disable_control(1.0)
+	
+	var player_input = PlayerManager.player.get_node("PlayerInput")
+	player_input.can_move = false
+	player_input.reset_input_states()
+	
+	
 	LevelManager.load_new_level(level, target_transition_area, get_offset())
 	
 func _place_player() -> void:

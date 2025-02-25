@@ -60,3 +60,8 @@ func _input(_event: InputEvent) -> void:
 	pass
 		
 	
+func reset_input_states() -> void:
+	input_direction = Vector2.ZERO
+	jump = false
+	crouch = false
+	attack = false
