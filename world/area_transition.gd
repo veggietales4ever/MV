@@ -38,7 +38,6 @@ func _ready() -> void:
 		
 	monitoring = false   # Don't want to monitor until the level is loaded.
 	_place_player()
-	jump = false
 	await LevelManager.level_loaded
 	monitoring = true
 	body_entered.connect(_player_entered)

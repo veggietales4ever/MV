@@ -9,6 +9,7 @@ func _update(delta: float) -> void:
 		
 	if character.is_on_floor():
 		dispatch("on_ground")
+		can_jump = true
 
 func air_move(_delta) -> Vector2:
 	var direction : Vector2 = blackboard.get_var(BBNames.direction_var)

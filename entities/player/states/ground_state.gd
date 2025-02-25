@@ -2,7 +2,7 @@ extends PlayerState
 class_name GroundState
 
 @export var jump_anim : StringName = "jump"
-@export var can_jump : bool = true
+#@export var can_jump : bool = true
 @export var can_move : bool = true
 
 var _on_first_frame = true
@@ -13,6 +13,7 @@ func _update(delta: float) -> void:
 		move(delta)
 		
 	if character.is_on_floor():
+		can_jump = true
 		if can_jump && blackboard.get_var(BBNames.jump_var) && blackboard.get_var(BBNames.jumps_made_var) == 0: # jumps_made_var == 0 means we haven't made any jumps, we're also on the floor
 			jump()
 	elif not _on_first_frame:
@@ -38,8 +39,10 @@ func move(delta) -> Vector2:
 	
 	# Jump
 func jump():
-	character.velocity.y = -character.jump_velocity
-	var current_jumps : int = blackboard.get_var(BBNames.jumps_made_var)
-	blackboard.set_var(BBNames.jumps_made_var, current_jumps + 1)
-	character.animation_player.play(jump_anim)
-	dispatch("jump")
+	if can_jump:
+		can_jump = false
+		character.velocity.y = -character.jump_velocity
+		var current_jumps : int = blackboard.get_var(BBNames.jumps_made_var)
+		blackboard.set_var(BBNames.jumps_made_var, current_jumps + 1)
+		character.animation_player.play(jump_anim)
+		dispatch("jump")

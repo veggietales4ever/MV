@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ulh5fuy7qpyt"]
+[gd_scene load_steps=8 format=3 uid="uid://ulh5fuy7qpyt"]
 
 [ext_resource type="Texture2D" uid="uid://biefcwwbd3736" path="res://Aseprite Assets/objects/lantern/lantern.png" id="1_m5ttv"]
+[ext_resource type="Script" uid="uid://dclura3i0v6jp" path="res://entities/objects/lantern.gd" id="1_yfrcj"]
 
 [sub_resource type="Animation" id="Animation_yfrcj"]
 resource_name = "idle"
@@ -52,9 +53,10 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="Lantern" type="StaticBody2D"]
 z_index = -1
+script = ExtResource("1_yfrcj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_m5ttv")
 hframes = 28
 frame = 1
@@ -66,7 +68,7 @@ libraries = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, 21)
+position = Vector2(1, 38)
 color = Color(1, 0.666667, 0.243137, 1)
 range_z_min = -1
 range_z_max = 0
