@@ -1,9 +1,3 @@
-DirectionalLight2D
-PointLight2D
-Node
-AnimationPlayer
-Sprite2D
-StaticBody2D
 CollisionShape2D
 Area2D
 Facing
@@ -12,4 +6,9 @@ NavigationAgent2D
 BTPlayer
 LimboState
 Camera2D
+AnimationPlayer
 AnimationTree
+ColorRect
+Control
+CanvasLayer
+TileMap
