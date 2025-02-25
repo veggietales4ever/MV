@@ -1,7 +1,7 @@
 extends LimboHSM
 
 
-@export var character : CharacterBody2D
+@export var character : Character
 
 @export var states : Dictionary[String, LimboState]
 
@@ -9,6 +9,7 @@ func _ready():
 	_binding_setup()
 	initialize(character)
 	set_active(true)
+	character.stats.health_depleted.connect(_on_health_depleted)
 
 func _binding_setup():
 	add_transition(states["ground"], states["air"], "in_air")
@@ -23,4 +24,6 @@ func _binding_setup():
 	add_transition(states["air_attack"], states["ground"], "on_ground")
 	add_transition(states["ground"], states["hurt"], "hurt")
 	add_transition(states["attack"], states["air"], "in_air")
-	
+
+func _on_health_depleted():
+	change_active_state(states["dead"])

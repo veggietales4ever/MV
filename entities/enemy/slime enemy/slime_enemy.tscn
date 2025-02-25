@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dnfwmu05ax2vb"]
+[gd_scene load_steps=21 format=3 uid="uid://dnfwmu05ax2vb"]
 
 [ext_resource type="PackedScene" uid="uid://4ll2hc81b066" path="res://entities/enemy/enemy.tscn" id="1_r6fw5"]
 [ext_resource type="Script" uid="uid://by44oryhxve57" path="res://entities/npc.gd" id="2_5300l"]
@@ -12,15 +12,17 @@
 [sub_resource type="Resource" id="Resource_r863y"]
 script = ExtResource("3_msrsq")
 run_speed = 70.0
-acceleration = 1200
-friction = 1800
+acceleration = 1200.0
+friction = 1800.0
 jump_velocity = 275.0
-damage = 10
 health = 20
 metadata/_custom_type_script = ExtResource("3_msrsq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w244n"]
 size = Vector2(223.75, 111.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ead0r"]
+radius = 15.052
 
 [sub_resource type="Animation" id="Animation_nta3p"]
 length = 0.001
@@ -161,12 +163,22 @@ hframes = 6
 vframes = 4
 
 [node name="DetectionZone" type="Area2D" parent="Facing" index="1" node_paths=PackedStringArray("bt_player")]
+visible = false
 script = ExtResource("6_r863y")
 bt_player = NodePath("../../BTPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/DetectionZone" index="0"]
 position = Vector2(61.875, -0.625002)
 shape = SubResource("RectangleShape2D_w244n")
+
+[node name="AttackArea2D" type="Area2D" parent="Facing" index="2"]
+collision_layer = 0
+script = ExtResource("7_ead0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/AttackArea2D" index="0"]
+position = Vector2(-1.19209e-07, -1.25)
+shape = SubResource("CircleShape2D_ead0r")
+debug_color = Color(0.886579, 0.282232, 0.448049, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 root_node = NodePath("../Facing/Sprite2D")
@@ -178,9 +190,9 @@ libraries = {
 shape = SubResource("CircleShape2D_tdkep")
 
 [node name="hitbox" parent="." index="3"]
+visible = false
 collision_layer = 32
 collision_mask = 5
-script = ExtResource("7_ead0r")
 
 [node name="hitbox_collider" parent="hitbox" index="0"]
 shape = SubResource("CircleShape2D_3mhv0")
@@ -198,7 +210,3 @@ blackboard_plan = SubResource("BlackboardPlan_cln1x")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7"]
 debug_enabled = true
-
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]

@@ -27,15 +27,22 @@ func _update(delta: float) -> void:
 # Movement for when running on the ground
 func move(delta) -> Vector2:
 	var direction: Vector2 = blackboard.get_var(BBNames.direction_var, Vector2.ZERO)
+	var velocity : Vector2
 	
 	if not is_zero_approx(direction.x):
 		#character.velocity.x = direction.x * character.speed
-		character.velocity.x = move_toward(character.velocity.x, direction.x * character.speed, character.acceleration * delta)
+		velocity.x = move_toward(velocity.x, direction.x * character_stats.run_speed, character.stats.acceleration * delta)
 	else:
-		character.velocity.x = move_toward(character.velocity.x, 0, character.friction * delta)
+		velocity.x = move_toward(velocity.x, 0, character.stats.friction * delta)
+	
+	
+	#if direction.x:
+		#velocity.x = move_toward(velocity.x, direction.x * speed, acceleration * delta)
+	#else:
+		#velocity.x = move_toward(velocity.x, 0, friction * delta)
 	
 	character.move_and_slide()
-	return character.velocity
+	return velocity
 	
 	# Jump
 func jump():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=37 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" uid="uid://w1vgj2tiuuey" path="res://entities/player/player.gd" id="2_xgaa1"]
@@ -333,6 +333,37 @@ tracks/0/keys = {
 "values": [30, 31]
 }
 
+[sub_resource type="Animation" id="Animation_we0b7"]
+resource_name = "dead"
+length = 0.04
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Facing/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [43]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.04),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yx67n"]
 _data = {
 &"RESET": SubResource("Animation_arp08"),
@@ -340,6 +371,7 @@ _data = {
 &"attacksword": SubResource("Animation_2gel8"),
 &"crouching": SubResource("Animation_qjupc"),
 &"crouchpre": SubResource("Animation_xrhbu"),
+&"dead": SubResource("Animation_we0b7"),
 &"idle": SubResource("Animation_h6ajb"),
 &"jump": SubResource("Animation_yqrof"),
 &"jumpfall": SubResource("Animation_j14ib"),
@@ -403,10 +435,6 @@ floor_constant_speed = true
 floor_snap_length = 10.0
 script = ExtResource("2_xgaa1")
 player_actions = ExtResource("4_a1qjk")
-speed = 110
-acceleration = 1200
-friction = 2000
-dash_cooldown = 0.5
 gravity = 600
 terminal_velocity = 500
 jump_velocity = 275.0
@@ -481,6 +509,7 @@ states = {
 "air_attack": NodePath("AirAttack"),
 "attack": NodePath("GroundAttack"),
 "crouch": NodePath("CrouchState"),
+"dead": NodePath("DeadState"),
 "ground": NodePath("GroundMoveState"),
 "hurt": NodePath("HurtState")
 }
@@ -513,6 +542,11 @@ metadata/_custom_type_script = ExtResource("11_afbqv")
 
 [node name="HurtState" type="LimboState" parent="LimboHSM" index="5"]
 script = ExtResource("16_b2kln")
+
+[node name="DeadState" type="LimboState" parent="LimboHSM" index="6"]
+script = ExtResource("11_afbqv")
+animation_name = &"dead"
+metadata/_custom_type_script = ExtResource("11_afbqv")
 
 [node name="PlayerInput" type="Node" parent="." index="6" node_paths=PackedStringArray("limbo_hsm", "character")]
 script = ExtResource("9_bp2km")

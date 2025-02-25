@@ -12,15 +12,9 @@ class_name Player
 @onready var input_handler: PlayerInput = $PlayerInput
 
 
-@export_group('move')
-@export var speed := 110 # := is the data type of first value is the only data type this var can accept.
-@export var acceleration := 1200
-@export var friction := 2000
 var direction := Vector2.ZERO
 var can_move := false
-var dash := false
-var crouching := false
-@export_range(0.1,2) var dash_cooldown := 0.5
+
 
 @export_group('jump')
 @export var gravity := 600
@@ -45,7 +39,6 @@ var entry_state: String = ""
 func _ready() -> void:
 	sword_collision.disabled = true
 	on_enter()
-	$Timers/DashCooldown.wait_time = dash_cooldown
 	$Timers/AttackCooldown.wait_time = attack_cooldown
 	input_handler.can_move = can_move
 
@@ -95,16 +88,16 @@ func _physics_process(delta: float) -> void:
 	#if direction.x < 0:
 		#$PlayerGraphics/Sword.position.x = -50
 		
-func apply_movement(delta):
-	# Left / Right movement
-	if direction.x:
-		velocity.x = move_toward(velocity.x, direction.x * speed, acceleration * delta)
-	else:
-		velocity.x = move_toward(velocity.x, 0, friction * delta)
-		
-	if crouching:
-		velocity.x = 0
-		jump = false
+#func apply_movement(delta):
+	## Left / Right movement
+	#if direction.x:
+		#velocity.x = move_toward(velocity.x, direction.x * speed, acceleration * delta)
+	#else:
+		#velocity.x = move_toward(velocity.x, 0, friction * delta)
+		#
+	#if crouching:
+		#velocity.x = 0
+		#jump = false
 		
 	# Jump
 	#if jump:# or $Timers/JumpBuffer.time_left and is_on_floor():
@@ -124,8 +117,8 @@ func apply_movement(delta):
 	#if is_on_floor() and $PlayerGraphics/AnimationPlayer.current_animation == 'jump_attack':
 		#attacking = false
 	
-	if faster_fall and attacking:
-		$Timers/AttackCooldown.start()
+	#if faster_fall and attacking:
+		#$Timers/AttackCooldown.start()
 	
 	#if is_knocked_back:
 		#return # Stop movement while in knockback
@@ -134,7 +127,7 @@ func apply_movement(delta):
 		#invulnerability_timer.start(invulnerability_duration)
 		
 	#var on_floor = is_on_floor()
-	move_and_slide()
+	#move_and_slide()
 
 func apply_gravity(delta):
 	velocity.y += gravity * delta
