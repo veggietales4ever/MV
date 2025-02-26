@@ -7,12 +7,4 @@ res://world/world 1/forest area/testworld_3.tscn
 res://entities/enemy/slime enemy/slime_enemy.tscn
 res://world/AreaTransition.tscn
 res://entities/player/player.tscn
-res://control/can_move_areas/can_move.tscn
-res://global/global_level_manager.gd
-res://world/area_transition.gd
 res://entities/objects/lantern.tscn
-res://entities/player/states/air_state.gd
-res://entities/player/states/ground_state.gd
-res://entities/player/states/player_state.gd
-res://entities/player/player_input.gd
-res://entities/objects/lantern.gd
