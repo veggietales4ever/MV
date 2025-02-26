@@ -3,6 +3,8 @@
 extends Character
 class_name Player
 
+
+signal health_depleted
 #@export var sprite_2d: Sprite2D
 #@export var animation_player: AnimationPlayer
 #@export var stats : PlayerStats
@@ -35,6 +37,16 @@ var gravity_multiplier := 1
 @export_group('weapon')
 var attacking := false
 @export_range(0.1,2) var attack_cooldown := 0.5
+
+#@export var health : int = 20.0 :
+	#set(value):
+		#var old_value = health
+		#health = value
+		#
+		#if health <= 0 && old_value > 0:
+			#health_depleted.emit()
+@export var damage : int = 10
+
 
 var reset_position: Vector2
 var event: bool

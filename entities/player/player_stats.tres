@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_8g61y")
-jump_velocity = -275.0
-speed = 100
+run_speed = 100.0
 acceleration = 1200
 friction = 1800
+jump_velocity = -275.0
+health = 3
 metadata/_custom_type_script = ExtResource("1_8g61y")

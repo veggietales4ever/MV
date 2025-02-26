@@ -8,3 +8,12 @@ res://entities/enemy/slime enemy/slime_enemy.tscn
 res://world/AreaTransition.tscn
 res://entities/player/player.tscn
 res://entities/objects/lantern.tscn
+res://UI/ui.gd
+res://UI/ui.tscn
+res://entities/character_stats.gd
+res://entities/player/player.gd
+res://entities/player/states/ground_state.gd
+res://entities/attack_area_2d.gd
+res://entities/character.gd
+res://entities/player/states/limbo_hsm.gd
+res://entities/player/player_stats.tres

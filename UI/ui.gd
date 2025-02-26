@@ -7,16 +7,18 @@ const HEART_OFFSET = 16
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in player_data.life:
-		var new_heart = Sprite2D.new()
-		new_heart.texture = player_health.texture
-		new_heart.hframes = player_health.hframes
-		player_health.add_child(new_heart)
+	pass
+	#for i in player_data.life:
+		#var new_heart = Sprite2D.new()
+		#new_heart.texture = player_health.texture
+		#new_heart.hframes = player_health.hframes
+		#player_health.add_child(new_heart)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	display_heart()
+	pass
+	#display_heart()
 	
 func display_heart():
 	for heart in player_health.get_children():
