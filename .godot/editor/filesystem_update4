@@ -14,3 +14,5 @@ res://entities/player/player_stats.tres
 res://entities/objects/coin.tscn
 res://entities/objects/crate.tscn
 res://entities/enemy/slime enemy/detection_zone.gd
+res://entities/player/sword_attack_area.gd
+res://entities/player/player.gd

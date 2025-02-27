@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://5kad6qtokh2b" path="res://entities/player/player_stats.tres" id="3_wvtmh"]
 [ext_resource type="Resource" uid="uid://dxgnvq5pa6ra3" path="res://entities/player/player_actions.tres" id="4_a1qjk"]
 [ext_resource type="Script" uid="uid://djq3eset4y6pk" path="res://entities/player/facing.gd" id="5_afbqv"]
-[ext_resource type="Script" uid="uid://csyljcxrlua5e" path="res://entities/attack_area_2d.gd" id="7_we0b7"]
+[ext_resource type="Script" uid="uid://dva2uig2wy36t" path="res://entities/weapons/sword_attack_area.gd" id="7_we0b7"]
 [ext_resource type="Script" uid="uid://45vec58f3bjw" path="res://entities/player/state_debug_label.gd" id="8_11kuo"]
 [ext_resource type="LabelSettings" uid="uid://clo0nfvok1ly7" path="res://fonts/default_label_settings.tres" id="8_j0dv7"]
 [ext_resource type="Script" uid="uid://ckj7jx46hgm8b" path="res://entities/player/states/ground_move_state.gd" id="9_7thud"]
@@ -446,6 +446,7 @@ max_air_speed = 90.0
 air_acceleration = 85.0
 attack_cooldown = 0.5
 damage = 10
+invulnerability_duration = 2.0
 animation_player = NodePath("Facing/AnimationPlayer")
 sprite_2d = NodePath("Facing/Sprite2D")
 stats = ExtResource("3_wvtmh")

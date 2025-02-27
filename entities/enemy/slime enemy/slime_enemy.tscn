@@ -220,7 +220,6 @@ debug_color = Color(0.877846, 0.291741, 0.463077, 0.42)
 [node name="InvulnerabilityTimer" type="Timer" parent="Timers" index="0"]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="6"]
-debug_enabled = true
 
 [node name="BTPlayer" type="BTPlayer" parent="." index="7"]
 behavior_tree = ExtResource("4_5300l")

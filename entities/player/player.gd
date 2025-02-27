@@ -8,6 +8,10 @@ signal health_depleted
 #@export var sprite_2d: Sprite2D
 #@export var animation_player: AnimationPlayer
 #@export var stats : PlayerStats
+
+@onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
+
+
 @export var player_actions: PlayerActions
 
 @onready var sword_collision: CollisionShape2D = $Facing/Sword/CollisionShape2D
@@ -34,7 +38,7 @@ var jump := false
 var faster_fall := false
 var gravity_multiplier := 1
 
-@export_group('weapon')
+@export_group('damage')
 var attacking := false
 @export_range(0.1,2) var attack_cooldown := 0.5
 
@@ -46,6 +50,7 @@ var attacking := false
 		#if health <= 0 && old_value > 0:
 			#health_depleted.emit()
 @export var damage : int = 10
+@export var invulnerability_duration : float = 2.0
 
 
 var reset_position: Vector2
@@ -53,6 +58,7 @@ var event: bool
 var abilities: Array[StringName]
 var double_jump: bool
 var entry_state: String = ""
+var invulnerable : bool
 
 func _ready() -> void:
 	sword_collision.disabled = true
@@ -118,19 +124,7 @@ func apply_movement(delta):
 		velocity.x = 0
 		jump = false
 		
-	# Jump
-	#if jump:# or $Timers/JumpBuffer.time_left and is_on_floor():
-		#velocity.y = -jump_strength
-		#jump = false
-		#faster_fall = false
-	
-	# Dash
-	#if dash:
-		#dash = false
-		#var dash_tween = create_tween()
-		#dash_tween.tween_property(self, 'velocity:x', velocity.x + direction.x * 300, 0.3)
-		#dash_tween.connect("finished", on_dash_finish)
-		#gravity_multiplier = 0
+
 		
 	## Attacking
 	#if is_on_floor() and $PlayerGraphics/AnimationPlayer.current_animation == 'jump_attack':
@@ -142,10 +136,9 @@ func apply_movement(delta):
 	#if is_knocked_back:
 		#return # Stop movement while in knockback
 		#
-	#if invulnerable:
-		#invulnerability_timer.start(invulnerability_duration)
-		
-	#var on_floor = is_on_floor()
+	if invulnerable:
+		invulnerability_timer.start(invulnerability_duration)
+	
 	move_and_slide()
 
 func apply_gravity(delta):
@@ -157,12 +150,6 @@ func apply_gravity(delta):
 	if is_on_floor():
 		faster_fall = false
 
-#func on_dash_finish():
-	#velocity.x = move_toward(velocity.x, 0, 900)
-	#gravity_multiplier = 1
-
-#func _on_attack_finished():
-	#attacking = false
 
 func _on_can_move_area_intro_body_entered(_body: Node2D) -> void:
 	can_move = true
@@ -179,12 +166,6 @@ func can_now_move():
 	can_move = true
 	input_handler.can_move = true
 
-
-#func _on_cannot_move_area_intro_body_entered(_body: Node2D) -> void:
-	#can_move = false
-	#
-#func set_entry_state(state: String):
-	#entry_state = state
 
 func disable_control(duration: float) -> void:
 	cant_move()
