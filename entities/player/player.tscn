@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=38 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" uid="uid://w1vgj2tiuuey" path="res://entities/player/player.gd" id="2_xgaa1"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://bp3o8he5a7miv" path="res://entities/player/states/attack_state.gd" id="14_yqrof"]
 [ext_resource type="Script" uid="uid://u6xph71sqpqh" path="res://entities/player/states/air_attack.gd" id="15_3wlsy"]
 [ext_resource type="Script" uid="uid://blc46ch6qsv0q" path="res://entities/player/states/hurt_state.gd" id="16_b2kln"]
+[ext_resource type="Script" uid="uid://dohce7odmep1k" path="res://entities/player/states/dead_state.gd" id="18_mtric"]
 
 [sub_resource type="Animation" id="Animation_arp08"]
 length = 0.001
@@ -552,7 +553,7 @@ metadata/_custom_type_script = ExtResource("11_afbqv")
 script = ExtResource("16_b2kln")
 
 [node name="DeadState" type="LimboState" parent="LimboHSM" index="6"]
-script = ExtResource("11_afbqv")
+script = ExtResource("18_mtric")
 animation_name = &"dead"
 metadata/_custom_type_script = ExtResource("11_afbqv")
 

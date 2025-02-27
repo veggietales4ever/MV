@@ -16,3 +16,6 @@ res://entities/objects/crate.tscn
 res://entities/enemy/slime enemy/detection_zone.gd
 res://entities/player/sword_attack_area.gd
 res://entities/player/player.gd
+res://ai/tasks/navigation/navigation_to_point.gd
+res://entities/player/states/limbo_hsm.gd
+res://entities/player/states/dead_state.gd

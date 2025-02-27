@@ -82,6 +82,7 @@ position = Vector2(283, 131)
 limit_left = 0
 limit_right = 1380
 limit_bottom = 200
+camera = 1
 
 [node name="AreaTransition" parent="." instance=ExtResource("16_qss65")]
 position = Vector2(1392, 104)
