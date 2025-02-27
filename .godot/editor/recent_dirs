@@ -1,6 +1,9 @@
+res://entities/items/
+res://entities/items
+res://resources
+res://entities/objects
 res://entities/player/states
 res://entities
-res://entities/objects
 res://entities/enemy/slime enemy
 res://world/world 1/forest area
 res://control/can_move_areas
@@ -17,6 +20,3 @@ res://shaders
 res://UI
 res://control/move_area
 res://entities/enemy
-res://test
-res://entities/enemy/gold enemy
-res://background

@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b01m1ujtexeix"]
+[gd_scene load_steps=8 format=3 uid="uid://b01m1ujtexeix"]
 
 [ext_resource type="Texture2D" uid="uid://cgvv8ic0o46c0" path="res://background/parallax_forest/1920x1080/layers/layer5.png" id="1_fkhvs"]
+[ext_resource type="Texture2D" uid="uid://sa7bnlhp3s8i" path="res://background/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/1.png" id="2_163oh"]
 [ext_resource type="Texture2D" uid="uid://bju7hiq88bui0" path="res://background/parallax_forest/1920x1080/layers/layer4.png" id="2_rrr8e"]
+[ext_resource type="Texture2D" uid="uid://bmaeuju10ptc" path="res://background/pixel_ocean_and_sky_background/3.png" id="3_163oh"]
 [ext_resource type="Texture2D" uid="uid://dw2qx7wuvxkvk" path="res://background/parallax_forest/1920x1080/layers/layer3.png" id="3_s03b2"]
 [ext_resource type="Texture2D" uid="uid://bevxrdidsi141" path="res://background/parallax_forest/1920x1080/layers/layer2.png" id="4_dnjdo"]
 [ext_resource type="Texture2D" uid="uid://x1lvdei3r4cg" path="res://background/parallax_forest/1920x1080/layers/layer1.png" id="5_bq7kk"]
@@ -11,6 +13,7 @@ z_index = -2
 position = Vector2(-1, -1)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+visible = false
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.01, 0)
 repeat_size = Vector2(241.38, 0)
@@ -21,7 +24,45 @@ position = Vector2(121.5, 68)
 scale = Vector2(0.125716, 0.12519)
 texture = ExtResource("1_fkhvs")
 
+[node name="Parallax2D6" type="Parallax2D" parent="."]
+scale = Vector2(2, 2)
+scroll_scale = Vector2(0.01, 0)
+repeat_size = Vector2(241.38, 0)
+repeat_times = 3
+
+[node name="FarBack" type="Sprite2D" parent="Parallax2D6"]
+position = Vector2(121.5, 68)
+scale = Vector2(0.420791, 0.501868)
+texture = ExtResource("2_163oh")
+
+[node name="Parallax2D8" type="Parallax2D" parent="."]
+scale = Vector2(2, 2)
+scroll_scale = Vector2(0.01, 0)
+repeat_size = Vector2(241.38, 0)
+autoscroll = Vector2(-6, 0)
+repeat_times = 3
+
+[node name="clouds2" type="Sprite2D" parent="Parallax2D8"]
+modulate = Color(1, 1, 1, 0.6)
+position = Vector2(53, 34.5)
+scale = Vector2(0.102635, 0.12241)
+texture = ExtResource("3_163oh")
+
+[node name="Parallax2D7" type="Parallax2D" parent="."]
+scale = Vector2(2, 2)
+scroll_scale = Vector2(0.02, 0)
+repeat_size = Vector2(241.38, 0)
+autoscroll = Vector2(-6, 0)
+repeat_times = 3
+
+[node name="clouds" type="Sprite2D" parent="Parallax2D7"]
+modulate = Color(1, 1, 1, 0.6)
+position = Vector2(167, 64.5)
+scale = Vector2(0.203427, 0.242623)
+texture = ExtResource("3_163oh")
+
 [node name="Parallax2D2" type="Parallax2D" parent="."]
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.03, 0)
 repeat_size = Vector2(240.33, 0)
@@ -44,6 +85,7 @@ scale = Vector2(0.0955317, 0.126621)
 texture = ExtResource("3_s03b2")
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
+visible = false
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.4, 0)
 repeat_size = Vector2(240.99, 0)
@@ -55,8 +97,11 @@ scale = Vector2(0.125521, 0.104916)
 texture = ExtResource("4_dnjdo")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
+modulate = Color(0.196078, 0.196078, 0.196078, 1)
+z_index = 4
 scale = Vector2(2, 2)
-scroll_scale = Vector2(0.5, 0)
+scroll_scale = Vector2(1.4, 0.5)
+scroll_offset = Vector2(0, -32.67)
 repeat_size = Vector2(243.12, 0)
 repeat_times = 3
 

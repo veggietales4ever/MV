@@ -19,7 +19,7 @@ signal health_depleted
 
 
 @export_group('move')
-@export var speed := 110 # := is the data type of first value is the only data type this var can accept.
+@export var speed := 120 # := is the data type of first value is the only data type this var can accept.
 @export var acceleration := 1200
 @export var friction := 2000
 var direction := Vector2.ZERO
@@ -29,9 +29,9 @@ var crouching := false
 @export_range(0.1,2) var dash_cooldown := 0.5
 
 @export_group('jump')
-@export var gravity := 600
+@export var gravity := 800
 @export var terminal_velocity := 500
-@export var jump_velocity : float = 275
+@export var jump_velocity : float = 325
 @export var max_air_speed : float = 90.0
 @export var air_acceleration : float = 85.0
 var jump := false

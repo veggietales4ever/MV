@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dnfwmu05ax2vb"]
+[gd_scene load_steps=29 format=3 uid="uid://dnfwmu05ax2vb"]
 
 [ext_resource type="PackedScene" uid="uid://4ll2hc81b066" path="res://entities/enemy/enemy.tscn" id="1_r6fw5"]
 [ext_resource type="Script" uid="uid://by44oryhxve57" path="res://entities/npc.gd" id="2_5300l"]
@@ -8,14 +8,19 @@
 [ext_resource type="Texture2D" uid="uid://d2vq74edipi66" path="res://Aseprite Assets/greenslime/slime-Sheet.png" id="5_r863y"]
 [ext_resource type="Script" uid="uid://cwpoefserqo5b" path="res://entities/enemy/slime enemy/detection_zone.gd" id="6_r863y"]
 [ext_resource type="Script" uid="uid://csyljcxrlua5e" path="res://entities/attack_area_2d.gd" id="7_ead0r"]
+[ext_resource type="Script" uid="uid://b8fqt8af86l80" path="res://addons/item_drops/drops/random_drops.gd" id="9_6y3xp"]
+[ext_resource type="Script" uid="uid://cqmxiok1cwu5s" path="res://addons/item_drops/drops/drops_table.gd" id="10_80y73"]
+[ext_resource type="Script" uid="uid://cttuwmb0e0k2k" path="res://addons/item_drops/scene_spawner/2d/launch_force_scene_spawner_2d.gd" id="11_6y3xp"]
+[ext_resource type="Script" uid="uid://daksr3jumc0af" path="res://addons/item_drops/drops/droppable.gd" id="11_immwr"]
+[ext_resource type="Script" uid="uid://gm1tcxr1506r" path="res://addons/item_drops/settings/spawn_group.gd" id="12_80y73"]
 
-[sub_resource type="Resource" id="Resource_r863y"]
+[sub_resource type="Resource" id="Resource_e8v7t"]
 script = ExtResource("3_msrsq")
-run_speed = 70.0
+run_speed = 50.0
 acceleration = 1200
 friction = 1800
 jump_velocity = 275.0
-health = 2
+health = 1
 metadata/_custom_type_script = ExtResource("3_msrsq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w244n"]
@@ -96,11 +101,25 @@ tracks/1/path = NodePath("../..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.2),
+"times": PackedFloat32Array(0.05),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../RandomDrops")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0, 1.0],
+"method": &"spawn_drops"
 }]
 }
 
@@ -155,6 +174,24 @@ radius = 13.75
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_cln1x"]
 
+[sub_resource type="Resource" id="Resource_b4rwy"]
+script = ExtResource("11_immwr")
+drop_path = "uid://dq71bxtc5enin"
+odds = 1.0
+metadata/_custom_type_script = ExtResource("11_immwr")
+
+[sub_resource type="Resource" id="Resource_eoit1"]
+script = ExtResource("10_80y73")
+possible_drops = Array[ExtResource("11_immwr")]([SubResource("Resource_b4rwy")])
+guaranteed_drops = 1
+combined_odds = false
+metadata/_custom_type_script = ExtResource("10_80y73")
+
+[sub_resource type="Resource" id="Resource_immwr"]
+script = ExtResource("12_80y73")
+name = &"spawned_parent"
+metadata/_custom_type_script = ExtResource("12_80y73")
+
 [node name="SlimeEnemy" node_paths=PackedStringArray("navigation", "bt_player", "animation_player", "sprite_2d") instance=ExtResource("1_r6fw5")]
 scale = Vector2(0.8, 0.8)
 collision_layer = 32
@@ -164,7 +201,7 @@ navigation = NodePath("NavigationAgent2D")
 bt_player = NodePath("BTPlayer")
 animation_player = NodePath("AnimationPlayer")
 sprite_2d = NodePath("Facing/Sprite2D")
-stats = SubResource("Resource_r863y")
+stats = SubResource("Resource_e8v7t")
 
 [node name="Facing" type="Node2D" parent="." index="0" node_paths=PackedStringArray("bt_player")]
 script = ExtResource("4_w244n")
@@ -224,6 +261,18 @@ debug_color = Color(0.877846, 0.291741, 0.463077, 0.42)
 [node name="BTPlayer" type="BTPlayer" parent="." index="7"]
 behavior_tree = ExtResource("4_5300l")
 blackboard_plan = SubResource("BlackboardPlan_cln1x")
+
+[node name="RandomDrops" type="Node" parent="." index="8" node_paths=PackedStringArray("scene_spawner")]
+script = ExtResource("9_6y3xp")
+drops_table = SubResource("Resource_eoit1")
+scene_spawner = NodePath("../LaunchForceSceneSpawner2D")
+metadata/_custom_type_script = ExtResource("9_6y3xp")
+
+[node name="LaunchForceSceneSpawner2D" type="Node2D" parent="." index="9"]
+position = Vector2(-1.25, -6.25)
+script = ExtResource("11_6y3xp")
+spawn_group = SubResource("Resource_immwr")
+metadata/_custom_type_script = ExtResource("11_6y3xp")
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

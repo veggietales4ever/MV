@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b4qmvaiqdjimv" path="res://world/tilemap/forest_tile_map.tscn" id="3_qss65"]
 [ext_resource type="Shader" uid="uid://dfq6q1ooo7qpi" path="res://shaders/palette_limiter_shader.gdshader" id="6_tn06u"]
 [ext_resource type="Texture2D" uid="uid://b4un251a3ymxs" path="res://palettes/cc-29-1x.png" id="7_ej5wr"]
-[ext_resource type="PackedScene" uid="uid://dc28t7tiqn540" path="res://entities/objects/coin.tscn" id="8_selu3"]
-[ext_resource type="PackedScene" uid="uid://lfu4j7l58qi7" path="res://entities/objects/crate.tscn" id="9_qr76i"]
+[ext_resource type="PackedScene" uid="uid://dc28t7tiqn540" path="res://entities/objects/pickup/coin.tscn" id="8_selu3"]
+[ext_resource type="PackedScene" uid="uid://lfu4j7l58qi7" path="res://entities/objects/interact/crate.tscn" id="9_qr76i"]
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_240mi"]
 [ext_resource type="PackedScene" uid="uid://cgchpyyc37dtr" path="res://control/can_move_areas/can_move.tscn" id="12_sx0ld"]
 [ext_resource type="PackedScene" uid="uid://p4u8c0yp3dnp" path="res://entities/player/player_spawn.tscn" id="14_p2vfc"]
@@ -36,7 +36,7 @@ layer_0/tile_data = PackedInt32Array(-1703936, 196609, 2, -1638400, 196609, 2, -
 [node name="playerspawn" type="Node" parent="."]
 
 [node name="PlayerSpawn" parent="playerspawn" instance=ExtResource("14_p2vfc")]
-position = Vector2(596, 22)
+position = Vector2(536, 36)
 
 [node name="can_move" parent="playerspawn/PlayerSpawn" instance=ExtResource("12_sx0ld")]
 position = Vector2(-19, 124)
@@ -73,16 +73,12 @@ position = Vector2(107, 367)
 position = Vector2(544, 368)
 
 [node name="SlimeEnemy" parent="." instance=ExtResource("10_240mi")]
-position = Vector2(455, 161)
-
-[node name="SlimeEnemy2" parent="." instance=ExtResource("10_240mi")]
-position = Vector2(283, 131)
+position = Vector2(440, 157)
 
 [node name="Camera" parent="." instance=ExtResource("15_6raki")]
 limit_left = 0
 limit_right = 1380
 limit_bottom = 200
-camera = 1
 
 [node name="AreaTransition" parent="." instance=ExtResource("16_qss65")]
 position = Vector2(1392, 104)
@@ -92,3 +88,11 @@ side = 1
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_sx0ld")
+
+[node name="SunsetLighting" type="DirectionalLight2D" parent="."]
+visible = false
+color = Color(0.54902, 0.72549, 0.309804, 1)
+energy = 0.29
+blend_mode = 1
+
+[node name="PickupsGroupNode2D" type="Node2D" parent="." groups=["spawned_parent"]]

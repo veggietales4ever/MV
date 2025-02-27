@@ -46,13 +46,14 @@ window/layer_8=""
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/MetroidvaniaSystem/EditorExtension/plugin.cfg", "res://addons/MetroidvaniaSystem/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/MetroidvaniaSystem/EditorExtension/plugin.cfg", "res://addons/MetroidvaniaSystem/plugin.cfg", "res://addons/item_drops/plugin.cfg")
 
 [global_group]
 
 Player=""
 Enemy=""
 navigation=""
+spawned_parent=""
 
 [input]
 
