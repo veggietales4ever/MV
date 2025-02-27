@@ -7,7 +7,7 @@ var blackboard : Blackboard
 var target : Character :
 	set(value):
 		target = value
-		prints("New target %s on %s" % [target, name])
+		# prints("New target %s on %s" % [target, name])
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)

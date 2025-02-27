@@ -8,5 +8,6 @@ func _ready() -> void:
 	
 func _on_body_entered(p_body : Node2D):
 	if p_body is Character:
-		var damage_dealth = p_body.hit(damage)
-		print("dealt %s damage to %s" % [damage_dealth, p_body.name])
+		p_body.hit(damage)
+		#var damage_dealth = p_body.hit(damage)
+		#print("dealt %s damage to %s" % [damage_dealth, p_body.name])

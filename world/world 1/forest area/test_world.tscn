@@ -74,8 +74,9 @@ position = Vector2(544, 368)
 
 [node name="SlimeEnemy" parent="." instance=ExtResource("10_240mi")]
 position = Vector2(455, 161)
-collision_layer = 0
-collision_mask = 256
+
+[node name="SlimeEnemy2" parent="." instance=ExtResource("10_240mi")]
+position = Vector2(283, 131)
 
 [node name="Camera" parent="." instance=ExtResource("15_6raki")]
 limit_left = 0

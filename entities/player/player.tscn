@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=37 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" uid="uid://w1vgj2tiuuey" path="res://entities/player/player.gd" id="2_xgaa1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://5kad6qtokh2b" path="res://entities/player/player_stats.tres" id="3_wvtmh"]
 [ext_resource type="Resource" uid="uid://dxgnvq5pa6ra3" path="res://entities/player/player_actions.tres" id="4_a1qjk"]
 [ext_resource type="Script" uid="uid://djq3eset4y6pk" path="res://entities/player/facing.gd" id="5_afbqv"]
+[ext_resource type="Script" uid="uid://csyljcxrlua5e" path="res://entities/attack_area_2d.gd" id="7_we0b7"]
 [ext_resource type="Script" uid="uid://45vec58f3bjw" path="res://entities/player/state_debug_label.gd" id="8_11kuo"]
 [ext_resource type="LabelSettings" uid="uid://clo0nfvok1ly7" path="res://fonts/default_label_settings.tres" id="8_j0dv7"]
 [ext_resource type="Script" uid="uid://ckj7jx46hgm8b" path="res://entities/player/states/ground_move_state.gd" id="9_7thud"]
@@ -108,7 +109,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(6, -8), Vector2(6, -8), Vector2(22, -11)]
+"values": [Vector2(16, -8), Vector2(19, -8), Vector2(29, -10)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -120,7 +121,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(0.5, 1), Vector2(0.92, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_2gel8"]
@@ -161,7 +162,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(6, -8), Vector2(6, -8), Vector2(22, -11)]
+"values": [Vector2(25, -12), Vector2(20.14, -8), Vector2(28.59, -8.49)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -173,7 +174,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(0.58, 0.47), Vector2(0.93, 0.9)]
 }
 
 [sub_resource type="Animation" id="Animation_qjupc"]
@@ -209,6 +210,37 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_b2kln"]
+resource_name = "dead"
+length = 10.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Facing/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [9, 10]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(10),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_h6ajb"]
@@ -332,37 +364,6 @@ tracks/0/keys = {
 "values": [30, 31]
 }
 
-[sub_resource type="Animation" id="Animation_b2kln"]
-resource_name = "dead"
-length = 0.15
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Facing/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.08),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [9, 10]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.15),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yx67n"]
 _data = {
 &"RESET": SubResource("Animation_arp08"),
@@ -380,7 +381,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqrof"]
-size = Vector2(39.25, 14)
+size = Vector2(36.9847, 19.6388)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mck4p"]
 radius = 7.0
@@ -429,7 +430,7 @@ attack = &"attack"
 metadata/_custom_type_script = ExtResource("11_7thud")
 
 [node name="Player" node_paths=PackedStringArray("animation_player", "sprite_2d") groups=["Player"] instance=ExtResource("1_fdhh2")]
-collision_mask = 274
+collision_mask = 280
 floor_constant_speed = true
 floor_snap_length = 10.0
 script = ExtResource("2_xgaa1")
@@ -466,7 +467,10 @@ libraries = {
 }
 
 [node name="Sword" type="Area2D" parent="Facing" index="2"]
-collision_layer = 2
+collision_layer = 4
+collision_mask = 40
+script = ExtResource("7_we0b7")
+damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/Sword" index="0"]
 position = Vector2(17, -7.5)

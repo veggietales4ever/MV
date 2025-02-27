@@ -3,9 +3,15 @@ class_name NPC
 
 @export var navigation : NavigationAgent2D
 @export var idle_anim : StringName = "idle"
+@export var bt_player : BTPlayer
 
+var blackboard : Blackboard
 var locked_animation = false
 
+func _ready() -> void:
+	blackboard = bt_player.blackboard
+	blackboard.bind_var_to_property(BBNames.health_var, stats, "health")
+	
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
 	select_movement_animation()

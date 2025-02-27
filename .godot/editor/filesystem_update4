@@ -2,18 +2,15 @@ res://default_bus_layout.tres
 res://world/world 1/forest area/test_world.tscn
 res://shaders/palette_limiter_shader.gdshader
 res://entities/enemy/slime enemy/slime_ai.tres
+res://entities/character.gd
 res://world/world 1/forest area/test_world2.tscn
 res://world/world 1/forest area/testworld_3.tscn
 res://entities/enemy/slime enemy/slime_enemy.tscn
 res://world/AreaTransition.tscn
 res://entities/player/player.tscn
-res://entities/objects/lantern.tscn
-res://UI/ui.gd
-res://UI/ui.tscn
-res://entities/character_stats.gd
-res://entities/player/player.gd
-res://entities/player/states/ground_state.gd
+res://control/camera/camera_2dold.gd
 res://entities/attack_area_2d.gd
-res://entities/character.gd
-res://entities/player/states/limbo_hsm.gd
 res://entities/player/player_stats.tres
+res://entities/objects/coin.tscn
+res://entities/objects/crate.tscn
+res://entities/enemy/slime enemy/detection_zone.gd
