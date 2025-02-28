@@ -502,6 +502,7 @@ one_shot = true
 [node name="Stats" type="Node" parent="." index="3"]
 
 [node name="StateDebugLabel" type="Label" parent="." index="4" node_paths=PackedStringArray("limbo_hsm")]
+visible = false
 offset_left = -44.0
 offset_top = -48.0
 offset_right = 44.0

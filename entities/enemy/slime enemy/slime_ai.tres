@@ -1,7 +1,8 @@
-[gd_resource type="BehaviorTree" load_steps=13 format=3 uid="uid://cg2xvua4lo6hn"]
+[gd_resource type="BehaviorTree" load_steps=18 format=3 uid="uid://cg2xvua4lo6hn"]
 
 [ext_resource type="Script" uid="uid://b7hm02p41h5np" path="res://ai/tasks/choose_random_pos.gd" id="1_ncjki"]
 [ext_resource type="Script" uid="uid://xvepker724fw" path="res://ai/tasks/move_to_position.gd" id="2_nn2mf"]
+[ext_resource type="Script" uid="uid://dmf5fynnd3dnu" path="res://ai/tasks/find_target.gd" id="3_2icub"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_5300l"]
 var/direction/name = &"direction"
@@ -18,6 +19,11 @@ var/health/type = 2
 var/health/value = 0
 var/health/hint = 0
 var/health/hint_string = "Health of character"
+var/dir/name = &"dir"
+var/dir/type = 5
+var/dir/value = Vector2(0, 0)
+var/dir/hint = 0
+var/dir/hint_string = "direction"
 
 [sub_resource type="BTConsolePrint" id="BTConsolePrint_nn2mf"]
 text = "random move"
@@ -32,7 +38,6 @@ dir_var = &"dir"
 [sub_resource type="BTAction" id="BTAction_4eia6"]
 script = ExtResource("2_nn2mf")
 target_pos_var = &"pos"
-dir_var = &"dir"
 speed_var = 40
 tolerance = 10
 
@@ -50,12 +55,28 @@ children = [SubResource("BTRandomWait_nn2mf")]
 custom_name = "Random Move Sequence"
 children = [SubResource("BTConsolePrint_nn2mf"), SubResource("BTAction_2icub"), SubResource("BTAction_4eia6"), SubResource("BTWait_4eia6"), SubResource("BTSequence_2icub")]
 
+[sub_resource type="BTProbability" id="BTProbability_2icub"]
+children = [SubResource("BTSequence_npfd7")]
+
+[sub_resource type="BTAction" id="BTAction_npfd7"]
+script = ExtResource("3_2icub")
+group = &"Player"
+target_var = &"target"
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_2icub"]
+text = "moving to enemy"
+
 [sub_resource type="BTSequence" id="BTSequence_nn2mf"]
 custom_name = "Move To Enemy Sequence"
+children = [SubResource("BTAction_npfd7"), SubResource("BTConsolePrint_2icub")]
+
+[sub_resource type="BTProbability" id="BTProbability_4eia6"]
+run_chance = 1.0
+children = [SubResource("BTSequence_nn2mf")]
 
 [sub_resource type="BTDynamicSelector" id="BTDynamicSelector_ncjki"]
 custom_name = "Slime AI"
-children = [SubResource("BTSequence_npfd7"), SubResource("BTSequence_nn2mf")]
+children = [SubResource("BTProbability_2icub"), SubResource("BTProbability_4eia6")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_5300l")

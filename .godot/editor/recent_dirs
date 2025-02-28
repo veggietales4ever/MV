@@ -1,3 +1,5 @@
+res://entities
+res://entities/enemy/slime enemy
 res://entities/items
 res://entities/objects/pickup
 res://resources
@@ -6,8 +8,6 @@ res://entities/inventory
 res://entities/items/
 res://entities/objects
 res://entities/player/states
-res://entities
-res://entities/enemy/slime enemy
 res://world/world 1/forest area
 res://control/can_move_areas
 res://control/transitions

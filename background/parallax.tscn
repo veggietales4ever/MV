@@ -1,12 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://b01m1ujtexeix"]
+[gd_scene load_steps=14 format=3 uid="uid://b01m1ujtexeix"]
 
 [ext_resource type="Texture2D" uid="uid://cgvv8ic0o46c0" path="res://background/parallax_forest/1920x1080/layers/layer5.png" id="1_fkhvs"]
 [ext_resource type="Texture2D" uid="uid://sa7bnlhp3s8i" path="res://background/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/1.png" id="2_163oh"]
-[ext_resource type="Texture2D" uid="uid://bju7hiq88bui0" path="res://background/parallax_forest/1920x1080/layers/layer4.png" id="2_rrr8e"]
 [ext_resource type="Texture2D" uid="uid://bmaeuju10ptc" path="res://background/pixel_ocean_and_sky_background/3.png" id="3_163oh"]
 [ext_resource type="Texture2D" uid="uid://dw2qx7wuvxkvk" path="res://background/parallax_forest/1920x1080/layers/layer3.png" id="3_s03b2"]
 [ext_resource type="Texture2D" uid="uid://bevxrdidsi141" path="res://background/parallax_forest/1920x1080/layers/layer2.png" id="4_dnjdo"]
+[ext_resource type="Texture2D" uid="uid://c8oc7kl1uhga6" path="res://background/parallax_forest/1920x1080/separate_assets/layer4_a.png" id="5_4yqce"]
 [ext_resource type="Texture2D" uid="uid://x1lvdei3r4cg" path="res://background/parallax_forest/1920x1080/layers/layer1.png" id="5_bq7kk"]
+[ext_resource type="Texture2D" uid="uid://cevsxwmb2bq3l" path="res://background/parallax_forest/1920x1080/separate_assets/layer4_e.png" id="6_6qldg"]
+[ext_resource type="Texture2D" uid="uid://brhk2gg3o0ps2" path="res://background/parallax_forest/1920x1080/separate_assets/layer4_f.png" id="7_ft8v5"]
+[ext_resource type="Texture2D" uid="uid://d31lqs7tvf5dl" path="res://background/parallax_forest/1920x1080/separate_assets/layer4_b.png" id="8_ft8v5"]
+[ext_resource type="Texture2D" uid="uid://b7ohqu8n1cd0e" path="res://background/parallax_forest/1920x1080/separate_assets/layer4_d.png" id="9_5eobw"]
+
+[sub_resource type="Gradient" id="Gradient_163oh"]
+colors = PackedColorArray(0.423529, 0.278431, 0.207843, 1, 0.388235, 0.443137, 0.556863, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_obv5l"]
+gradient = SubResource("Gradient_163oh")
+fill_from = Vector2(1, 1)
 
 [node name="Parallax" type="Node2D"]
 z_index = -2
@@ -20,11 +31,13 @@ repeat_size = Vector2(241.38, 0)
 repeat_times = 3
 
 [node name="FarBack" type="Sprite2D" parent="Parallax2D"]
+visible = false
 position = Vector2(121.5, 68)
 scale = Vector2(0.125716, 0.12519)
 texture = ExtResource("1_fkhvs")
 
 [node name="Parallax2D6" type="Parallax2D" parent="."]
+visible = false
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.01, 0)
 repeat_size = Vector2(241.38, 0)
@@ -34,6 +47,17 @@ repeat_times = 3
 position = Vector2(121.5, 68)
 scale = Vector2(0.420791, 0.501868)
 texture = ExtResource("2_163oh")
+
+[node name="Parallax2D9" type="Parallax2D" parent="."]
+scale = Vector2(2, 2)
+scroll_scale = Vector2(0.01, 0)
+repeat_size = Vector2(241.38, 0)
+repeat_times = 3
+
+[node name="gradient" type="Sprite2D" parent="Parallax2D9"]
+position = Vector2(121.5, 68)
+scale = Vector2(3.90625, 2.5625)
+texture = SubResource("GradientTexture2D_obv5l")
 
 [node name="Parallax2D8" type="Parallax2D" parent="."]
 scale = Vector2(2, 2)
@@ -61,19 +85,40 @@ position = Vector2(167, 64.5)
 scale = Vector2(0.203427, 0.242623)
 texture = ExtResource("3_163oh")
 
-[node name="Parallax2D2" type="Parallax2D" parent="."]
+[node name="Parallax2D10" type="Parallax2D" parent="."]
 modulate = Color(0.784314, 0.784314, 0.784314, 1)
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.03, 0)
 repeat_size = Vector2(240.33, 0)
 repeat_times = 3
 
-[node name="TreesBack" type="Sprite2D" parent="Parallax2D2"]
-position = Vector2(120.715, 67.8125)
+[node name="TreesBackIndividuallight" type="Sprite2D" parent="Parallax2D10"]
+position = Vector2(183.5, 73)
 scale = Vector2(0.0983521, 0.127199)
-texture = ExtResource("2_rrr8e")
+texture = ExtResource("5_4yqce")
+
+[node name="TreesBackIndividuallight2" type="Sprite2D" parent="Parallax2D10"]
+position = Vector2(183, 86)
+scale = Vector2(0.0983521, 0.127199)
+texture = ExtResource("6_6qldg")
+
+[node name="TreesBackIndividuallight3" type="Sprite2D" parent="Parallax2D10"]
+position = Vector2(105, 93)
+scale = Vector2(0.0983521, 0.127199)
+texture = ExtResource("7_ft8v5")
+
+[node name="TreesBackIndividuallight4" type="Sprite2D" parent="Parallax2D10"]
+position = Vector2(210.5, 56)
+scale = Vector2(0.0983521, 0.127199)
+texture = ExtResource("8_ft8v5")
+
+[node name="TreesBackIndividuallight5" type="Sprite2D" parent="Parallax2D10"]
+position = Vector2(59.5, 53.5)
+scale = Vector2(0.0983521, 0.127199)
+texture = ExtResource("9_5eobw")
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
+visible = false
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.1, 0)
 repeat_size = Vector2(240.18, 0)
@@ -85,14 +130,14 @@ scale = Vector2(0.0955317, 0.126621)
 texture = ExtResource("3_s03b2")
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
-visible = false
+modulate = Color(0, 0, 0, 1)
 scale = Vector2(2, 2)
-scroll_scale = Vector2(0.4, 0)
+scroll_scale = Vector2(0.3, 0)
 repeat_size = Vector2(240.99, 0)
 repeat_times = 3
 
 [node name="Foreground" type="Sprite2D" parent="Parallax2D4"]
-position = Vector2(121, 114.875)
+position = Vector2(125, 105)
 scale = Vector2(0.125521, 0.104916)
 texture = ExtResource("4_dnjdo")
 

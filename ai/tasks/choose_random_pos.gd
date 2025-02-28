@@ -6,7 +6,7 @@ extends BTAction
 @export var position_var : StringName = &"pos"
 @export var dir_var : StringName = &"dir"
 
-func _tick(delta: float) -> Status:
+func _tick(_delta: float) -> Status:
 	var pos: Vector2
 	var dir = rand_dir()
 	

@@ -11,7 +11,7 @@ func _enter() -> void:
 func _exit() -> void:
 	character.animation_player.animation_finished.disconnect(_on_animation_finished)
 	
-func _on_animation_finished(p_animation : StringName):
+func _on_animation_finished(_p_animation : StringName):
 	if not blackboard.get_var(BBNames.attack_var):
 		dispatch("finished")
 		return

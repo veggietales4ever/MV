@@ -70,7 +70,8 @@ position = Vector2(94, -223)
 position = Vector2(533, 359)
 
 [node name="SlimeEnemy" parent="." instance=ExtResource("10_240mi")]
-position = Vector2(440, 157)
+position = Vector2(369, 80)
+stats = null
 
 [node name="Camera" parent="." instance=ExtResource("15_6raki")]
 limit_left = 0
@@ -88,11 +89,20 @@ navigation_polygon = SubResource("NavigationPolygon_sx0ld")
 
 [node name="SunsetLighting" type="DirectionalLight2D" parent="."]
 visible = false
-color = Color(0.54902, 0.72549, 0.309804, 1)
-energy = 0.29
-blend_mode = 1
+color = Color(0.87451, 0.72549, 0.309804, 1)
+energy = 0.27
+blend_mode = 2
+
+[node name="SunsetLighting2" type="DirectionalLight2D" parent="."]
+visible = false
+color = Color(0.87451, 0.72549, 0.309804, 0.431373)
+blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
 
 [node name="SlimeEnemy2" parent="." instance=ExtResource("10_240mi")]
 position = Vector2(723, 141)
+stats = null
 
 [node name="PickupsGroupNode2D" type="Node2D" parent="." groups=["item"]]

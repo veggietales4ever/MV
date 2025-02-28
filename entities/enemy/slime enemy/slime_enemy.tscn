@@ -9,13 +9,13 @@
 [ext_resource type="Script" uid="uid://cwpoefserqo5b" path="res://entities/enemy/slime enemy/detection_zone.gd" id="6_r863y"]
 [ext_resource type="Script" uid="uid://csyljcxrlua5e" path="res://entities/attack_area_2d.gd" id="7_ead0r"]
 
-[sub_resource type="Resource" id="Resource_e8v7t"]
+[sub_resource type="Resource" id="Resource_ead0r"]
 script = ExtResource("3_msrsq")
-run_speed = 40.0
+run_speed = 100.0
 acceleration = 1200
 friction = 1800
 jump_velocity = 275.0
-health = 1
+health = 100
 metadata/_custom_type_script = ExtResource("3_msrsq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w244n"]
@@ -149,7 +149,7 @@ navigation = NodePath("NavigationAgent2D")
 bt_player = NodePath("BTPlayer")
 animation_player = NodePath("AnimationPlayer")
 sprite_2d = NodePath("Facing/Sprite2D")
-stats = SubResource("Resource_e8v7t")
+stats = SubResource("Resource_ead0r")
 
 [node name="Facing" type="Node2D" parent="." index="0" node_paths=PackedStringArray("bt_player")]
 script = ExtResource("4_w244n")
