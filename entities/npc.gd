@@ -15,22 +15,25 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
 	select_movement_animation()
+	move_and_slide()
 
 # Horizontal walk / move action
-func move(p_desired_direction : Vector2):
-	var move_direction = Vector2(
-		p_desired_direction.x,
-		0
-	)
-	
-	#var move_direction = npc.global_position.direction_to(next_path) for flying enemies
-	var move_velocity = Vector2(
-		move_direction.x * stats.run_speed,
-		velocity.y)
+#func move(p_desired_direction : Vector2):
+	#var move_direction = Vector2(
+		#p_desired_direction.x,
+		#0
+	#)
+	#
+	##var move_direction = npc.global_position.direction_to(next_path) for flying enemies
+	#var move_velocity = Vector2(
+		#move_direction.x * stats.run_speed,
+		#velocity.y)
+#
+	#velocity = move_velocity
+	#move_and_slide()
 
-	velocity = move_velocity
-	move_and_slide()
-	
+func move(dir, speed):
+	velocity.x = dir * speed
 
 func select_movement_animation():
 	if locked_animation:

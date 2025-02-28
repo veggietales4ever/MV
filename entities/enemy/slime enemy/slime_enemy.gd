@@ -46,7 +46,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		player_inside = true
 		#var player = PlayerManager.player
 		if not player.invulnerable:
-			player_data.life -= 1
+			#player_data.life -= 1
 			player.take_damage(global_position)
 			
 		

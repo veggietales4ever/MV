@@ -1,6 +1,7 @@
-[gd_resource type="BehaviorTree" load_steps=18 format=3 uid="uid://cg2xvua4lo6hn"]
+[gd_resource type="BehaviorTree" load_steps=13 format=3 uid="uid://cg2xvua4lo6hn"]
 
-[ext_resource type="Script" uid="uid://bqiajynvffwjj" path="res://ai/tasks/navigation/navigation_to_point.gd" id="1_ncjki"]
+[ext_resource type="Script" uid="uid://b7hm02p41h5np" path="res://ai/tasks/choose_random_pos.gd" id="1_ncjki"]
+[ext_resource type="Script" uid="uid://xvepker724fw" path="res://ai/tasks/move_to_position.gd" id="2_nn2mf"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_5300l"]
 var/direction/name = &"direction"
@@ -18,68 +19,43 @@ var/health/value = 0
 var/health/hint = 0
 var/health/hint_string = "Health of character"
 
-[sub_resource type="BBVariant" id="BBVariant_ncjki"]
-type = 2
-saved_value = 0
-resource_name = "0"
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_nn2mf"]
+text = "random move"
 
-[sub_resource type="BTCheckVar" id="BTCheckVar_nn2mf"]
-variable = &"health"
-check_type = 2
-value = SubResource("BBVariant_ncjki")
-
-[sub_resource type="BBNode" id="BBNode_nn2mf"]
-saved_value = NodePath("AnimationPlayer")
-resource_name = "AnimationPlayer"
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_2icub"]
-animation_player = SubResource("BBNode_nn2mf")
-animation_name = &"damaged"
-
-[sub_resource type="BTSequence" id="BTSequence_npfd7"]
-custom_name = "DefeatedSequence"
-children = [SubResource("BTCheckVar_nn2mf"), SubResource("BTPlayAnimation_2icub")]
-
-[sub_resource type="BBVariant" id="BBVariant_4eia6"]
-saved_value = null
-resource_name = "<null>"
-
-[sub_resource type="BTCheckVar" id="BTCheckVar_npfd7"]
-variable = &"target"
-check_type = 5
-value = SubResource("BBVariant_4eia6")
-
-[sub_resource type="BBNode" id="BBNode_ncjki"]
-saved_value = NodePath("AnimationPlayer")
-resource_name = "AnimationPlayer"
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_nn2mf"]
-animation_player = SubResource("BBNode_ncjki")
-animation_name = &"attack"
-
-[sub_resource type="BTSequence" id="BTSequence_ncjki"]
-children = [SubResource("BTPlayAnimation_nn2mf")]
-
-[sub_resource type="BTCooldown" id="BTCooldown_2icub"]
-duration = 1.0
-start_cooled = true
-children = [SubResource("BTSequence_ncjki")]
-
-[sub_resource type="BTSequence" id="BTSequence_ikecv"]
-custom_name = "Attack Target Sequence"
-children = [SubResource("BTCheckVar_npfd7"), SubResource("BTCooldown_2icub")]
-
-[sub_resource type="BTAction" id="BTAction_nn2mf"]
+[sub_resource type="BTAction" id="BTAction_2icub"]
 script = ExtResource("1_ncjki")
-max_distance = 200.0
+range_min_in_dir = 100.0
+range_max_in_dir = 100.0
+position_var = &"pos"
+dir_var = &"dir"
+
+[sub_resource type="BTAction" id="BTAction_4eia6"]
+script = ExtResource("2_nn2mf")
+target_pos_var = &"pos"
+dir_var = &"dir"
+speed_var = 40
+tolerance = 10
+
+[sub_resource type="BTWait" id="BTWait_4eia6"]
+duration = 2.0
+
+[sub_resource type="BTRandomWait" id="BTRandomWait_nn2mf"]
+max_duration = 4.0
 
 [sub_resource type="BTSequence" id="BTSequence_2icub"]
-custom_name = "Find Targets Sequence"
-children = [SubResource("BTAction_nn2mf")]
+custom_name = "Idle Sequence"
+children = [SubResource("BTRandomWait_nn2mf")]
+
+[sub_resource type="BTSequence" id="BTSequence_npfd7"]
+custom_name = "Random Move Sequence"
+children = [SubResource("BTConsolePrint_nn2mf"), SubResource("BTAction_2icub"), SubResource("BTAction_4eia6"), SubResource("BTWait_4eia6"), SubResource("BTSequence_2icub")]
+
+[sub_resource type="BTSequence" id="BTSequence_nn2mf"]
+custom_name = "Move To Enemy Sequence"
 
 [sub_resource type="BTDynamicSelector" id="BTDynamicSelector_ncjki"]
 custom_name = "Slime AI"
-children = [SubResource("BTSequence_npfd7"), SubResource("BTSequence_ikecv"), SubResource("BTSequence_2icub")]
+children = [SubResource("BTSequence_npfd7"), SubResource("BTSequence_nn2mf")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_5300l")
