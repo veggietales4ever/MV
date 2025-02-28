@@ -1,15 +1,15 @@
 res://default_bus_layout.tres
-res://entities/objects/test_currency.tscn
+res://entities/enemy/slime enemy/slime_enemy.tscn
 res://shaders/palette_limiter_shader.gdshader
 res://entities/enemy/slime enemy/slime_ai.tres
-res://entities/items/item.gd
-res://entities/items/item.tscn
-res://entities/items/testcurrency.tres
-res://entities/player/player.tscn
 res://world/world 1/forest area/test_world.tscn
 res://world/world 1/forest area/test_world2.tscn
-res://entities/enemy/slime enemy/slime_enemy.tscn
 res://world/world 1/forest area/testworld_3.tscn
-res://world/AreaTransition.tscn
-res://background/parallax.tscn
+res://entities/player/player.tscn
 res://entities/objects/pickup/test_currency.tscn
+res://world/tilemap/forest_tile_map.tscn
+res://entities/enemy/enemy.tscn
+res://entities/npc.gd
+res://entities/objects/pickup/coin.tscn
+res://entities/player/player_stats.tres
+res://entities/enemy/slime enemy/slime_ai_2.tres

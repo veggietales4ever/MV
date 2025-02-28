@@ -1,6 +1,9 @@
-res://entities/items/
 res://entities/items
+res://entities/objects/pickup
 res://resources
+res://data/
+res://entities/inventory
+res://entities/items/
 res://entities/objects
 res://entities/player/states
 res://entities
@@ -17,6 +20,3 @@ res://global
 res://player
 res://particles
 res://shaders
-res://UI
-res://control/move_area
-res://entities/enemy

@@ -1,7 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://lfu4j7l58qi7"]
+[gd_scene load_steps=17 format=3 uid="uid://lfu4j7l58qi7"]
 
 [ext_resource type="Texture2D" uid="uid://28a806p4ofiq" path="res://assets/metroid_asset_1_2/Sprites/Interactables/Crate-animated.png" id="1_ae45a"]
 [ext_resource type="Script" uid="uid://c7sa0hv1p6pe7" path="res://entities/objects/interact/crate.gd" id="1_onxl6"]
+[ext_resource type="Script" uid="uid://cttuwmb0e0k2k" path="res://addons/item_drops/scene_spawner/2d/launch_force_scene_spawner_2d.gd" id="3_te7r3"]
+[ext_resource type="Script" uid="uid://gm1tcxr1506r" path="res://addons/item_drops/settings/spawn_group.gd" id="4_r8wf7"]
+[ext_resource type="Script" uid="uid://b8fqt8af86l80" path="res://addons/item_drops/drops/random_drops.gd" id="5_d7t7a"]
+[ext_resource type="Script" uid="uid://cqmxiok1cwu5s" path="res://addons/item_drops/drops/drops_table.gd" id="6_gfgjb"]
+[ext_resource type="Script" uid="uid://daksr3jumc0af" path="res://addons/item_drops/drops/droppable.gd" id="7_ysdsr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oycm0"]
 size = Vector2(24, 24)
@@ -127,6 +132,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true, true]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RandomDrops")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0, 1.0],
+"method": &"spawn_drops"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_55mmk"]
 _data = {
@@ -134,6 +153,24 @@ _data = {
 &"active": SubResource("Animation_77png"),
 &"destroyed": SubResource("Animation_i44jo")
 }
+
+[sub_resource type="Resource" id="Resource_o6vfc"]
+script = ExtResource("7_ysdsr")
+drop_path = "uid://dq71bxtc5enin"
+odds = 1.0
+metadata/_custom_type_script = ExtResource("7_ysdsr")
+
+[sub_resource type="Resource" id="Resource_rgil0"]
+script = ExtResource("6_gfgjb")
+possible_drops = Array[ExtResource("7_ysdsr")]([SubResource("Resource_o6vfc")])
+guaranteed_drops = 1
+combined_odds = false
+metadata/_custom_type_script = ExtResource("6_gfgjb")
+
+[sub_resource type="Resource" id="Resource_te7r3"]
+script = ExtResource("4_r8wf7")
+name = &"item"
+metadata/_custom_type_script = ExtResource("4_r8wf7")
 
 [node name="crate" type="StaticBody2D"]
 collision_layer = 8
@@ -144,6 +181,7 @@ script = ExtResource("1_onxl6")
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_ae45a")
 hframes = 11
+frame = 1
 
 [node name="CrateCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -155,6 +193,7 @@ collision_mask = 4
 
 [node name="HitboxCollider" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_va4yk")
+disabled = true
 debug_color = Color(0.8744, 0.260316, 0.579507, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -163,5 +202,18 @@ libraries = {
 &"": SubResource("AnimationLibrary_55mmk")
 }
 autoplay = "active"
+
+[node name="RandomDrops" type="Node" parent="." node_paths=PackedStringArray("scene_spawner")]
+script = ExtResource("5_d7t7a")
+drops_table = SubResource("Resource_rgil0")
+scene_spawner = NodePath("../LaunchForceSceneSpawner2D")
+metadata/_custom_type_script = ExtResource("5_d7t7a")
+
+[node name="LaunchForceSceneSpawner2D" type="Node2D" parent="."]
+z_index = 5
+script = ExtResource("3_te7r3")
+force = 23800.0
+spawn_group = SubResource("Resource_te7r3")
+metadata/_custom_type_script = ExtResource("3_te7r3")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

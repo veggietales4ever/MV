@@ -1,7 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://cem7r4j8s7g4n"]
+[gd_scene load_steps=40 format=3 uid="uid://cem7r4j8s7g4n"]
 
 [ext_resource type="PackedScene" uid="uid://vl613h1q7jq" path="res://entities/entity.tscn" id="1_fdhh2"]
 [ext_resource type="Script" uid="uid://w1vgj2tiuuey" path="res://entities/player/player.gd" id="2_xgaa1"]
+[ext_resource type="Resource" uid="uid://iw861sd7x7bo" path="res://data/player_1_data.tres" id="3_eyb6c"]
 [ext_resource type="Texture2D" uid="uid://b7o5qtn82u1ur" path="res://Aseprite Assets/player/maincharacterMV1-Sheet.png" id="3_k1sps"]
 [ext_resource type="Resource" uid="uid://5kad6qtokh2b" path="res://entities/player/player_stats.tres" id="3_wvtmh"]
 [ext_resource type="Resource" uid="uid://dxgnvq5pa6ra3" path="res://entities/player/player_actions.tres" id="4_a1qjk"]
@@ -20,6 +21,7 @@
 [ext_resource type="Script" uid="uid://u6xph71sqpqh" path="res://entities/player/states/air_attack.gd" id="15_3wlsy"]
 [ext_resource type="Script" uid="uid://blc46ch6qsv0q" path="res://entities/player/states/hurt_state.gd" id="16_b2kln"]
 [ext_resource type="Script" uid="uid://dohce7odmep1k" path="res://entities/player/states/dead_state.gd" id="18_mtric"]
+[ext_resource type="Script" uid="uid://m6cc6tc66fkg" path="res://entities/player/inventory.gd" id="22_221hk"]
 
 [sub_resource type="Animation" id="Animation_arp08"]
 length = 0.001
@@ -435,6 +437,7 @@ collision_mask = 280
 floor_constant_speed = true
 floor_snap_length = 10.0
 script = ExtResource("2_xgaa1")
+player_data = ExtResource("3_eyb6c")
 player_actions = ExtResource("4_a1qjk")
 speed = 120
 acceleration = 1200
@@ -562,5 +565,8 @@ script = ExtResource("9_bp2km")
 limbo_hsm = NodePath("../LimboHSM")
 player_actions = SubResource("Resource_a1qjk")
 character = NodePath("..")
+
+[node name="Inventory" type="Node" parent="." index="7"]
+script = ExtResource("22_221hk")
 
 [connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

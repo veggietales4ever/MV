@@ -20,17 +20,3 @@ func _process(_delta: float) -> void:
 	pass
 	#display_heart()
 	
-func display_heart():
-	for heart in player_health.get_children():
-		var index = heart.get_index()
-		var x = (index % HEART_ROW_SIZE) * HEART_OFFSET
-		var y = (index / HEART_ROW_SIZE) * HEART_OFFSET
-		heart.position = Vector2(x, y)
-		
-		var last_heart = floor(player_data.life)
-		if index > last_heart:
-			heart.frame = 0
-		if index == last_heart:
-			heart.frame = (player_data.life - last_heart) * 4
-		if index < last_heart:
-			heart.frame = 4

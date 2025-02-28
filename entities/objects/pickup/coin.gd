@@ -10,7 +10,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		$AnimationPlayer.play("Destroyed")
 		$AudioStreamPlayer.play()
-		player_data.coin += 10
-		print("amount of coins collected : ", player_data.coin)
 		await $AnimationPlayer.animation_finished
 		queue_free()

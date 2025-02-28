@@ -28,17 +28,17 @@ variable = &"health"
 check_type = 2
 value = SubResource("BBVariant_ncjki")
 
-[sub_resource type="BBNode" id="BBNode_2icub"]
+[sub_resource type="BBNode" id="BBNode_nn2mf"]
 saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_4eia6"]
-animation_player = SubResource("BBNode_2icub")
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_2icub"]
+animation_player = SubResource("BBNode_nn2mf")
 animation_name = &"damaged"
 
 [sub_resource type="BTSequence" id="BTSequence_npfd7"]
 custom_name = "DefeatedSequence"
-children = [SubResource("BTCheckVar_nn2mf"), SubResource("BTPlayAnimation_4eia6")]
+children = [SubResource("BTCheckVar_nn2mf"), SubResource("BTPlayAnimation_2icub")]
 
 [sub_resource type="BBVariant" id="BBVariant_4eia6"]
 saved_value = null
@@ -54,7 +54,6 @@ saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_nn2mf"]
-await_completion = 1.0
 animation_player = SubResource("BBNode_ncjki")
 animation_name = &"attack"
 

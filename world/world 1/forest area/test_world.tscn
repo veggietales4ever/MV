@@ -67,10 +67,7 @@ position = Vector2(864, 116)
 position = Vector2(94, -223)
 
 [node name="crate" parent="Objects/crates" instance=ExtResource("9_qr76i")]
-position = Vector2(107, 367)
-
-[node name="crate2" parent="Objects/crates" instance=ExtResource("9_qr76i")]
-position = Vector2(544, 368)
+position = Vector2(533, 359)
 
 [node name="SlimeEnemy" parent="." instance=ExtResource("10_240mi")]
 position = Vector2(440, 157)
@@ -95,4 +92,7 @@ color = Color(0.54902, 0.72549, 0.309804, 1)
 energy = 0.29
 blend_mode = 1
 
-[node name="PickupsGroupNode2D" type="Node2D" parent="." groups=["spawned_parent"]]
+[node name="SlimeEnemy2" parent="." instance=ExtResource("10_240mi")]
+position = Vector2(723, 141)
+
+[node name="PickupsGroupNode2D" type="Node2D" parent="." groups=["item"]]
