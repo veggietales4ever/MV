@@ -36,7 +36,7 @@ layer_0/tile_data = PackedInt32Array(-1703936, 196609, 2, -1638400, 196609, 2, -
 [node name="playerspawn" type="Node" parent="."]
 
 [node name="PlayerSpawn" parent="playerspawn" instance=ExtResource("14_p2vfc")]
-position = Vector2(536, 36)
+position = Vector2(94, 19)
 
 [node name="can_move" parent="playerspawn/PlayerSpawn" instance=ExtResource("12_sx0ld")]
 position = Vector2(-19, 124)
@@ -56,6 +56,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qglxy")
 [node name="Objects" type="Node" parent="."]
 
 [node name="coins" type="Node2D" parent="Objects"]
+visible = false
 
 [node name="Coin" parent="Objects/coins" instance=ExtResource("8_selu3")]
 position = Vector2(152, 103)
@@ -67,11 +68,12 @@ position = Vector2(864, 116)
 position = Vector2(94, -223)
 
 [node name="crate" parent="Objects/crates" instance=ExtResource("9_qr76i")]
-position = Vector2(533, 359)
+position = Vector2(1088, 365)
 
-[node name="SlimeEnemy" parent="." instance=ExtResource("10_240mi")]
-position = Vector2(369, 80)
-stats = null
+[node name="Enemies" type="Node" parent="."]
+
+[node name="SlimeEnemy" parent="Enemies" instance=ExtResource("10_240mi")]
+position = Vector2(250, 137)
 
 [node name="Camera" parent="." instance=ExtResource("15_6raki")]
 limit_left = 0
@@ -100,9 +102,5 @@ blend_mode = 2
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 1
-
-[node name="SlimeEnemy2" parent="." instance=ExtResource("10_240mi")]
-position = Vector2(723, 141)
-stats = null
 
 [node name="PickupsGroupNode2D" type="Node2D" parent="." groups=["item"]]

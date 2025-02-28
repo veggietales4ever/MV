@@ -37,9 +37,6 @@ dir_var = &"dir"
 
 [sub_resource type="BTAction" id="BTAction_4eia6"]
 script = ExtResource("2_nn2mf")
-target_pos_var = &"pos"
-speed_var = 40
-tolerance = 10
 
 [sub_resource type="BTWait" id="BTWait_4eia6"]
 duration = 2.0

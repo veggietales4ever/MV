@@ -1,28 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://dnfwmu05ax2vb"]
+[gd_scene load_steps=17 format=3 uid="uid://dnfwmu05ax2vb"]
 
 [ext_resource type="PackedScene" uid="uid://4ll2hc81b066" path="res://entities/enemy/enemy.tscn" id="1_r6fw5"]
-[ext_resource type="Script" uid="uid://by44oryhxve57" path="res://entities/npc.gd" id="2_5300l"]
-[ext_resource type="Script" uid="uid://2clx8t1aup3n" path="res://entities/character_stats.gd" id="3_msrsq"]
+[ext_resource type="Script" uid="uid://ben43kfvhc2gj" path="res://entities/enemy/slime enemy/enemy_slime.gd" id="2_r863y"]
 [ext_resource type="BehaviorTree" uid="uid://cg2xvua4lo6hn" path="res://entities/enemy/slime enemy/slime_ai.tres" id="4_5300l"]
-[ext_resource type="Script" uid="uid://djq3eset4y6pk" path="res://entities/player/facing.gd" id="4_w244n"]
 [ext_resource type="Texture2D" uid="uid://d2vq74edipi66" path="res://Aseprite Assets/greenslime/slime-Sheet.png" id="5_r863y"]
 [ext_resource type="Script" uid="uid://cwpoefserqo5b" path="res://entities/enemy/slime enemy/detection_zone.gd" id="6_r863y"]
 [ext_resource type="Script" uid="uid://csyljcxrlua5e" path="res://entities/attack_area_2d.gd" id="7_ead0r"]
 
-[sub_resource type="Resource" id="Resource_ead0r"]
-script = ExtResource("3_msrsq")
-run_speed = 100.0
-acceleration = 1200
-friction = 1800
-jump_velocity = 275.0
-health = 100
-metadata/_custom_type_script = ExtResource("3_msrsq")
+[sub_resource type="CircleShape2D" id="CircleShape2D_ead0r"]
+radius = 12.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w244n"]
 size = Vector2(223.75, 111.25)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ead0r"]
-radius = 12.5
 
 [sub_resource type="Animation" id="Animation_r863y"]
 resource_name = "attack"
@@ -140,58 +129,49 @@ radius = 13.75
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_cln1x"]
 
-[node name="SlimeEnemy" node_paths=PackedStringArray("navigation", "bt_player", "animation_player", "sprite_2d") instance=ExtResource("1_r6fw5")]
+[node name="SlimeEnemy" instance=ExtResource("1_r6fw5")]
 scale = Vector2(0.8, 0.8)
 collision_layer = 32
 collision_mask = 260
-script = ExtResource("2_5300l")
-navigation = NodePath("NavigationAgent2D")
-bt_player = NodePath("BTPlayer")
-animation_player = NodePath("AnimationPlayer")
-sprite_2d = NodePath("Facing/Sprite2D")
-stats = SubResource("Resource_ead0r")
+script = ExtResource("2_r863y")
 
-[node name="Facing" type="Node2D" parent="." index="0" node_paths=PackedStringArray("bt_player")]
-script = ExtResource("4_w244n")
-bt_player = NodePath("../BTPlayer")
-metadata/_custom_type_script = ExtResource("4_w244n")
-
-[node name="Sprite2D" type="Sprite2D" parent="Facing" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 rotation = 3.14159
 scale = Vector2(1.3, -1.3)
 texture = ExtResource("5_r863y")
 hframes = 6
 vframes = 4
-frame = 12
 
-[node name="DetectionZone" type="Area2D" parent="Facing" index="1" node_paths=PackedStringArray("bt_player")]
-visible = false
-script = ExtResource("6_r863y")
-bt_player = NodePath("../../BTPlayer")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/DetectionZone" index="0"]
-position = Vector2(61.875, -0.625002)
-shape = SubResource("RectangleShape2D_w244n")
-
-[node name="AttackArea2D" type="Area2D" parent="Facing" index="2"]
+[node name="AttackArea2D" type="Area2D" parent="." index="1"]
+scale = Vector2(1, 1)
 collision_layer = 0
 script = ExtResource("7_ead0r")
 damage = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/AttackArea2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea2D" index="0"]
 shape = SubResource("CircleShape2D_ead0r")
 debug_color = Color(0.876848, 0.287645, 0.484216, 0.42)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
-root_node = NodePath("../Facing/Sprite2D")
+[node name="DetectionZone" type="Area2D" parent="." index="2" node_paths=PackedStringArray("bt_player")]
+visible = false
+scale = Vector2(1, 1)
+script = ExtResource("6_r863y")
+bt_player = NodePath("../BTPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone" index="0"]
+position = Vector2(61.875, -0.625002)
+shape = SubResource("RectangleShape2D_w244n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+root_node = NodePath("../Sprite2D")
 libraries = {
 &"": SubResource("AnimationLibrary_f7x3h")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 shape = SubResource("CircleShape2D_tdkep")
 
-[node name="hitbox" parent="." index="3"]
+[node name="hitbox" parent="." index="5"]
 collision_layer = 32
 collision_mask = 5
 
@@ -199,17 +179,19 @@ collision_mask = 5
 shape = SubResource("CircleShape2D_3mhv0")
 debug_color = Color(0.877846, 0.291741, 0.463077, 0.42)
 
-[node name="Stats" type="Node" parent="." index="4"]
-
-[node name="Timers" type="Node" parent="." index="5"]
+[node name="Timers" type="Node" parent="." index="6"]
 
 [node name="InvulnerabilityTimer" type="Timer" parent="Timers" index="0"]
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="6"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7"]
 
-[node name="BTPlayer" type="BTPlayer" parent="." index="7"]
+[node name="BTPlayer" type="BTPlayer" parent="." index="8"]
 behavior_tree = ExtResource("4_5300l")
 blackboard_plan = SubResource("BlackboardPlan_cln1x")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="9"]
+emitting = false
+amount = 1
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

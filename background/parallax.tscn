@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b01m1ujtexeix"]
+[gd_scene load_steps=13 format=3 uid="uid://b01m1ujtexeix"]
 
 [ext_resource type="Texture2D" uid="uid://cgvv8ic0o46c0" path="res://background/parallax_forest/1920x1080/layers/layer5.png" id="1_fkhvs"]
 [ext_resource type="Texture2D" uid="uid://sa7bnlhp3s8i" path="res://background/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/1.png" id="2_163oh"]
 [ext_resource type="Texture2D" uid="uid://bmaeuju10ptc" path="res://background/pixel_ocean_and_sky_background/3.png" id="3_163oh"]
-[ext_resource type="Texture2D" uid="uid://dw2qx7wuvxkvk" path="res://background/parallax_forest/1920x1080/layers/layer3.png" id="3_s03b2"]
 [ext_resource type="Texture2D" uid="uid://bevxrdidsi141" path="res://background/parallax_forest/1920x1080/layers/layer2.png" id="4_dnjdo"]
 [ext_resource type="Texture2D" uid="uid://c8oc7kl1uhga6" path="res://background/parallax_forest/1920x1080/separate_assets/layer4_a.png" id="5_4yqce"]
 [ext_resource type="Texture2D" uid="uid://x1lvdei3r4cg" path="res://background/parallax_forest/1920x1080/layers/layer1.png" id="5_bq7kk"]
@@ -60,6 +59,7 @@ scale = Vector2(3.90625, 2.5625)
 texture = SubResource("GradientTexture2D_obv5l")
 
 [node name="Parallax2D8" type="Parallax2D" parent="."]
+modulate = Color(0.752941, 0.623529, 0.27451, 1)
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.01, 0)
 repeat_size = Vector2(241.38, 0)
@@ -73,6 +73,7 @@ scale = Vector2(0.102635, 0.12241)
 texture = ExtResource("3_163oh")
 
 [node name="Parallax2D7" type="Parallax2D" parent="."]
+modulate = Color(0.745098, 0.6, 0.717647, 1)
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.02, 0)
 repeat_size = Vector2(241.38, 0)
@@ -86,19 +87,19 @@ scale = Vector2(0.203427, 0.242623)
 texture = ExtResource("3_163oh")
 
 [node name="Parallax2D10" type="Parallax2D" parent="."]
-modulate = Color(0.784314, 0.784314, 0.784314, 1)
+modulate = Color(0.94902, 0.760784, 0.34902, 1)
 scale = Vector2(2, 2)
 scroll_scale = Vector2(0.03, 0)
 repeat_size = Vector2(240.33, 0)
 repeat_times = 3
 
-[node name="TreesBackIndividuallight" type="Sprite2D" parent="Parallax2D10"]
-position = Vector2(183.5, 73)
-scale = Vector2(0.0983521, 0.127199)
-texture = ExtResource("5_4yqce")
-
 [node name="TreesBackIndividuallight2" type="Sprite2D" parent="Parallax2D10"]
 position = Vector2(183, 86)
+scale = Vector2(0.0983521, 0.127199)
+texture = ExtResource("6_6qldg")
+
+[node name="TreesBackIndividuallight7" type="Sprite2D" parent="Parallax2D10"]
+position = Vector2(49.5, 86.5)
 scale = Vector2(0.0983521, 0.127199)
 texture = ExtResource("6_6qldg")
 
@@ -107,12 +108,20 @@ position = Vector2(105, 93)
 scale = Vector2(0.0983521, 0.127199)
 texture = ExtResource("7_ft8v5")
 
+[node name="TreesBackIndividuallight6" type="Sprite2D" parent="Parallax2D10"]
+position = Vector2(243, 98)
+scale = Vector2(0.0983521, 0.127199)
+texture = ExtResource("7_ft8v5")
+
 [node name="TreesBackIndividuallight4" type="Sprite2D" parent="Parallax2D10"]
+visible = false
+modulate = Color(0.392157, 0.392157, 0.392157, 1)
 position = Vector2(210.5, 56)
 scale = Vector2(0.0983521, 0.127199)
 texture = ExtResource("8_ft8v5")
 
 [node name="TreesBackIndividuallight5" type="Sprite2D" parent="Parallax2D10"]
+visible = false
 position = Vector2(59.5, 53.5)
 scale = Vector2(0.0983521, 0.127199)
 texture = ExtResource("9_5eobw")
@@ -124,10 +133,10 @@ scroll_scale = Vector2(0.1, 0)
 repeat_size = Vector2(240.18, 0)
 repeat_times = 3
 
-[node name="TreesClose" type="Sprite2D" parent="Parallax2D3"]
+[node name="sunray" type="Sprite2D" parent="Parallax2D3"]
 position = Vector2(120.417, 68.1249)
 scale = Vector2(0.0955317, 0.126621)
-texture = ExtResource("3_s03b2")
+texture = ExtResource("5_4yqce")
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
 modulate = Color(0, 0, 0, 1)

@@ -1,5 +1,5 @@
-res://entities
 res://entities/enemy/slime enemy
+res://entities
 res://entities/items
 res://entities/objects/pickup
 res://resources
