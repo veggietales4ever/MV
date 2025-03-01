@@ -1,5 +1,4 @@
 extends NPC
-class_name Enemy
 
 signal direction_changed(new_direction: Vector2)
 signal enemy_damaged()

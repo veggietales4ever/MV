@@ -19,3 +19,9 @@ res://background/parallax.tscn
 res://entities/enemy/slime enemy/enemy_slime.gd
 res://entities/player/states/attack_state.gd
 res://ai/tasks/choose_random_pos.gd
+res://entities/enemy/enemy.gd
+res://entities/enemy/slime enemy/slime_enemy.gd
+res://ai/trees/slime_ai.tres
+res://ai/tasks/choose_random_position_new.gd
+res://ai/tasks/simple/move_to_position_new.gd
+res://ai/tasks/simple/choose_random_position_new.gd

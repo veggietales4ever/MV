@@ -10,7 +10,7 @@ func _tick(_delta: float) -> Status:
 		target = get_enemy_node()
 	elif group == "Player":
 		target = get_player_node()
-	print(target)
+	#print(agent, " has found ", target)
 	blackboard.set_var(target_var, target)
 	return SUCCESS
 		

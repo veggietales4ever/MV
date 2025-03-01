@@ -1,8 +1,9 @@
 extends BTAction
 
-@export var range_min_in_dir : float = 100.0
-@export var range_max_in_dir : float = 100.0
+@export var range_min_in_dir : float = 70.0
+@export var range_max_in_dir : float = 70.0
 
+@export var stats : CharacterStats
 @export var position_var : StringName = &"pos"
 @export var dir_var : StringName = &"dir"
 
@@ -13,7 +14,7 @@ func _tick(_delta: float) -> Status:
 	pos = rand_pos(dir)
 	blackboard.set_var(position_var, pos)
 	
-	print(dir, "     ", pos, "   agent pos: ", agent.global_position.x)
+	#print(dir, "     ", pos, "   agent pos: ", agent.global_position.x)
 
 	return SUCCESS
 
