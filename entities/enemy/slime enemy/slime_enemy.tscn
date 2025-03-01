@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_r863y"]
 script = ExtResource("3_msrsq")
-run_speed = 40.0
+run_speed = 5.0
 acceleration = 1200
 friction = 1800
 jump_velocity = 400.0

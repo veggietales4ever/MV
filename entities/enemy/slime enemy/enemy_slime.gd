@@ -14,11 +14,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	#handle_animation()
 	
-func update_flip(dir):
-	if abs(dir) == dir:
-		sprite_2d.flip_h = false
-	else:
-		sprite_2d.flip_h = true
+#func update_flip(dir):
+	#if abs(dir) == dir:
+		#sprite_2d.flip_h = false
+	#else:
+		#sprite_2d.flip_h = true
 
 #func move(dir, speed):
 	#velocity.x = dir * speed
@@ -52,5 +52,5 @@ func check_for_self(node):
 	else:
 		return false
 
-#func update_flip(dir : float):
-	#sprite_2d.flip_h = dir < 0
+func update_flip(dir : float):
+	sprite_2d.flip_h = dir < 0

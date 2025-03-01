@@ -6,7 +6,7 @@ func _tick(delta: float) -> Status:
 	
 	agent.move(target_pos, delta)
 	
-	if Vector2(current_pos.x, 0).distance_to(Vector2(target_pos.x, 0)) <= 0.5:
+	if Vector2(current_pos.x, 0).distance_to(Vector2(target_pos.x, 0)) <= 1.5:
 		agent.velocity = Vector2.ZERO
 		return SUCCESS
 		
