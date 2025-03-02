@@ -1,9 +1,9 @@
-[gd_resource type="BehaviorTree" load_steps=35 format=3 uid="uid://cg2xvua4lo6hn"]
+[gd_resource type="BehaviorTree" load_steps=36 format=3 uid="uid://cg2xvua4lo6hn"]
 
 [ext_resource type="Script" uid="uid://bikf134tdsiij" path="res://ai/tasks/simple/choose_random_position_new.gd" id="1_t05l3"]
 [ext_resource type="Script" uid="uid://djo3mj4x0nxec" path="res://ai/tasks/simple/move_to_position_new.gd" id="2_y22fi"]
 [ext_resource type="Script" uid="uid://deph4yt3txoal" path="res://ai/tasks/simple/choose_random_position_walk.gd" id="3_cb0o2"]
-[ext_resource type="Script" uid="uid://8yjnfi0v1fr6" path="res://ai/tasks/move_to_target.gd" id="5_bj8vr"]
+[ext_resource type="Script" uid="uid://2clx8t1aup3n" path="res://entities/character_stats.gd" id="5_cb0o2"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_5300l"]
 var/direction/name = &"direction"
@@ -26,13 +26,13 @@ var/state/value = ""
 var/state/hint = 0
 var/state/hint_string = ""
 
-[sub_resource type="BTAlwaysFail" id="BTAlwaysFail_y22fi"]
+[sub_resource type="BBVariant" id="BBVariant_bj8vr"]
+saved_value = null
 
-[sub_resource type="BTAction" id="BTAction_bj8vr"]
-script = ExtResource("5_bj8vr")
-target_var = &"target"
-speed_var = 10
-tolerance = 20
+[sub_resource type="BTCheckVar" id="BTCheckVar_cb0o2"]
+variable = &"target"
+check_type = 5
+value = SubResource("BBVariant_bj8vr")
 
 [sub_resource type="BBNode" id="BBNode_cb0o2"]
 saved_value = NodePath("AnimationPlayer")
@@ -44,7 +44,7 @@ animation_name = &"attack"
 
 [sub_resource type="BTSequence" id="BTSequence_cb0o2"]
 custom_name = "Attack Sequence"
-children = [SubResource("BTAlwaysFail_y22fi"), SubResource("BTAction_bj8vr"), SubResource("BTPlayAnimation_picx7")]
+children = [SubResource("BTCheckVar_cb0o2"), SubResource("BTPlayAnimation_picx7")]
 
 [sub_resource type="BBNode" id="BBNode_bj8vr"]
 saved_value = NodePath("AnimationPlayer")
@@ -107,10 +107,20 @@ resource_name = "AnimationPlayer"
 animation_player = SubResource("BBNode_t05l3")
 animation_name = &"idle"
 
+[sub_resource type="Resource" id="Resource_picx7"]
+script = ExtResource("5_cb0o2")
+run_speed = 40.0
+acceleration = 1200
+friction = 1800
+jump_velocity = 275.0
+health = 1
+metadata/_custom_type_script = ExtResource("5_cb0o2")
+
 [sub_resource type="BTAction" id="BTAction_hhw6v"]
 script = ExtResource("3_cb0o2")
-range_min_in_dir = 70.0
-range_max_in_dir = 70.0
+range_min_in_dir = 10.0
+range_max_in_dir = 20.0
+stats = SubResource("Resource_picx7")
 position_var = &"pos"
 dir_var = &"dir"
 
@@ -132,10 +142,10 @@ children = [SubResource("BTSequence_bj8vr")]
 custom_name = "Walk"
 children = [SubResource("BTProbability_bj8vr"), SubResource("BTProbability_cb0o2"), SubResource("BTProbability_t05l3")]
 
-[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_y22fi"]
+[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_bj8vr"]
 custom_name = "Slime AI"
 children = [SubResource("BTSequence_cb0o2"), SubResource("BTSelector_y22fi")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_5300l")
-root_task = SubResource("BTDynamicSelector_y22fi")
+root_task = SubResource("BTDynamicSelector_bj8vr")
