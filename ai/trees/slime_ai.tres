@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=36 format=3 uid="uid://cg2xvua4lo6hn"]
+[gd_resource type="BehaviorTree" load_steps=33 format=3 uid="uid://cg2xvua4lo6hn"]
 
 [ext_resource type="Script" uid="uid://bikf134tdsiij" path="res://ai/tasks/simple/choose_random_position_new.gd" id="1_t05l3"]
 [ext_resource type="Script" uid="uid://djo3mj4x0nxec" path="res://ai/tasks/simple/move_to_position_new.gd" id="2_y22fi"]
@@ -54,23 +54,17 @@ resource_name = "AnimationPlayer"
 animation_player = SubResource("BBNode_bj8vr")
 animation_name = &"idle"
 
-[sub_resource type="BTConsolePrint" id="BTConsolePrint_cb0o2"]
-text = "idle"
-
 [sub_resource type="BTRandomWait" id="BTRandomWait_nn2mf"]
 min_duration = 0.5
 max_duration = 1.0
 
 [sub_resource type="BTSequence" id="BTSequence_2icub"]
 custom_name = "Idle Sequence"
-children = [SubResource("BTPlayAnimation_cb0o2"), SubResource("BTConsolePrint_cb0o2"), SubResource("BTRandomWait_nn2mf")]
+children = [SubResource("BTPlayAnimation_cb0o2"), SubResource("BTRandomWait_nn2mf")]
 
 [sub_resource type="BTProbability" id="BTProbability_bj8vr"]
 run_chance = 0.1
 children = [SubResource("BTSequence_2icub")]
-
-[sub_resource type="BTConsolePrint" id="BTConsolePrint_t05l3"]
-text = "random hop"
 
 [sub_resource type="BBNode" id="BBNode_y22fi"]
 saved_value = NodePath("AnimationPlayer")
@@ -91,13 +85,10 @@ duration = 0.2
 
 [sub_resource type="BTSequence" id="BTSequence_npfd7"]
 custom_name = "Random Move Sequence"
-children = [SubResource("BTConsolePrint_t05l3"), SubResource("BTPlayAnimation_bj8vr"), SubResource("BTAction_y22fi"), SubResource("BTAction_8g4h7"), SubResource("BTWait_y22fi")]
+children = [SubResource("BTPlayAnimation_bj8vr"), SubResource("BTAction_y22fi"), SubResource("BTAction_8g4h7"), SubResource("BTWait_y22fi")]
 
 [sub_resource type="BTProbability" id="BTProbability_cb0o2"]
 children = [SubResource("BTSequence_npfd7")]
-
-[sub_resource type="BTConsolePrint" id="BTConsolePrint_y22fi"]
-text = "random walk"
 
 [sub_resource type="BBNode" id="BBNode_t05l3"]
 saved_value = NodePath("AnimationPlayer")
@@ -132,7 +123,7 @@ duration = 0.2
 
 [sub_resource type="BTSequence" id="BTSequence_bj8vr"]
 custom_name = "Random Walk Sequence"
-children = [SubResource("BTConsolePrint_y22fi"), SubResource("BTPlayAnimation_y22fi"), SubResource("BTAction_hhw6v"), SubResource("BTAction_cb0o2"), SubResource("BTWait_picx7")]
+children = [SubResource("BTPlayAnimation_y22fi"), SubResource("BTAction_hhw6v"), SubResource("BTAction_cb0o2"), SubResource("BTWait_picx7")]
 
 [sub_resource type="BTProbability" id="BTProbability_t05l3"]
 run_chance = 0.9

@@ -1,5 +1,7 @@
 extends BTAction
 
+@export var target_var := &"target"
+
 @export var speed_var = 40
 @export var tolerance = 20
 
@@ -14,23 +16,16 @@ need to get the agent's global position and we need to face in the direction tha
 and move towards the target.
 """
 
-#func _tick(delta: float) -> Status:
-	#var target: CharacterBody2D = blackboard.get_var(target_var)
-	#if target != null:
-		#var target_position = target.global_position
-		#var dir = agent.global_position.direction_to(target_position)
-		#
-		#if abs(agent.global_position.x - target_position.x) < tolerance:
-			#agent.move(dir, 0)
-			#return SUCCESS
-		#else:
-			#print(dir.x, "   ", dir)
-			#agent.move(dir, speed_var)
-			#return RUNNING
-	#return FAILURE
-
 func _tick(delta: float) -> Status:
-	var target_pos : Vector2 = blackboard.get_var("target")
-	var current_pos : Vector2 = agent.global_position
-	
-	agent.move(target_pos, delta)
+	var target: CharacterBody2D = blackboard.get_var(target_var)
+	if target != null:
+		var target_position = target.global_position
+		var dir = agent.global_position.direction_to(target_position)
+		if abs(agent.global_position.x - target_position.x) < tolerance:
+			agent.move(dir, 0)
+			return SUCCESS
+		else:
+			print(dir.x, "   ", dir)
+			agent.move(dir, speed_var)
+			return RUNNING
+	return FAILURE

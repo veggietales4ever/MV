@@ -16,11 +16,12 @@ func _physics_process(_delta: float) -> void:
 	#handle_animation()
 	
 	
+
 func move(target_pos : Vector2, _delta : float):
 	var direction = Vector2(
 		target_pos.x - global_position.x,
 		0
-	)
+	).normalized()
 	
 	velocity.x = direction.x * stats.run_speed
 	

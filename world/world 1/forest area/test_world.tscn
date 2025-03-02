@@ -36,7 +36,7 @@ layer_0/tile_data = PackedInt32Array(-1703936, 196609, 2, -1638400, 196609, 2, -
 [node name="playerspawn" type="Node" parent="."]
 
 [node name="PlayerSpawn" parent="playerspawn" instance=ExtResource("14_p2vfc")]
-position = Vector2(861, 27)
+position = Vector2(760, 23)
 
 [node name="can_move" parent="playerspawn/PlayerSpawn" instance=ExtResource("12_sx0ld")]
 position = Vector2(-19, 124)
@@ -73,7 +73,7 @@ position = Vector2(1088, 365)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="SlimeEnemy" parent="Enemies" instance=ExtResource("10_240mi")]
-position = Vector2(596, 129)
+position = Vector2(589, 134)
 
 [node name="Camera" parent="." instance=ExtResource("15_6raki")]
 limit_left = 0

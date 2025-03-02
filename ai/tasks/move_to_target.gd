@@ -21,9 +21,8 @@ func _tick(delta: float) -> Status:
 	if target != null:
 		var target_position = target.global_position
 		var dir = agent.global_position.direction_to(target_position)
-		
 		if abs(agent.global_position.x - target_position.x) < tolerance:
-			agent.move(dir, 0)
+			agent.move(dir, speed_var)
 			return SUCCESS
 		else:
 			print(dir.x, "   ", dir)
