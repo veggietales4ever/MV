@@ -3,6 +3,7 @@ class_name DetectionZone
 
 @export var bt_player : BTPlayer
 
+
 var blackboard : Blackboard
 var target : Character :
 	set(value):
@@ -13,12 +14,15 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 	blackboard = bt_player.blackboard
-	blackboard.bind_var_to_property(BBNames.target_var, self, "target", true)
+	
 	
 # When any node enters, this event triggers. check if character
 func _on_body_entered(p_body : Node2D):
 	if p_body is Character:
 		target = p_body
+		blackboard.bind_var_to_property(BBNames.target_var, self, "target", true)
+		print(BBNames.target_var)
+		print(target, "is in the detection zone")
 		
 func _on_body_exited(p_body : Node2D):
 	if target == p_body:

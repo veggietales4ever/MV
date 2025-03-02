@@ -3,9 +3,10 @@ class_name SlimeEnemy
 
 const gravity = 30 
 #var speed : float = 100
+@onready var detection_zone: DetectionZone = $DetectionZone
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_on_wall() and is_on_floor():
 		velocity.y = -stats.jump_velocity
 	else:
@@ -14,18 +15,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	#handle_animation()
 	
-#func update_flip(dir):
-	#if abs(dir) == dir:
-		#sprite_2d.flip_h = false
-	#else:
-		#sprite_2d.flip_h = true
-
-#func move(dir, speed):
-	#velocity.x = dir * speed
-	##handle_animation()
-	#update_flip(dir)
 	
-func move(target_pos : Vector2, delta : float):
+func move(target_pos : Vector2, _delta : float):
 	var direction = Vector2(
 		target_pos.x - global_position.x,
 		0
@@ -36,15 +27,14 @@ func move(target_pos : Vector2, delta : float):
 	update_flip(direction.x)
 	
 	
-func handle_animation():
+#func handle_animation():
 	#falling out of a jump
 	#if !is_on_floor():
 		#animation_player.play("fall")
-		
-	if velocity.x != 0:
-		animation_player.play("idle")
-	else:
-		animation_player.play("idle")
+	#if velocity.x != 0:
+		#animation_player.play("idle")
+	#else:
+		#animation_player.play("idle")
 
 func check_for_self(node):
 	if node == self:
@@ -54,3 +44,6 @@ func check_for_self(node):
 
 func update_flip(dir : float):
 	sprite_2d.flip_h = dir < 0
+	detection_zone.scale.x = -1 if dir < 0 else 1
+	
+	

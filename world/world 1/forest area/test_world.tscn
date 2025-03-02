@@ -73,16 +73,16 @@ position = Vector2(1088, 365)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="SlimeEnemy" parent="Enemies" instance=ExtResource("10_240mi")]
-position = Vector2(815, 118)
+position = Vector2(619, 123)
 
 [node name="SlimeEnemy2" parent="Enemies" instance=ExtResource("10_240mi")]
-position = Vector2(763, 134)
+position = Vector2(426, 138)
 
 [node name="SlimeEnemy3" parent="Enemies" instance=ExtResource("10_240mi")]
-position = Vector2(895, 110)
+position = Vector2(797, 123)
 
 [node name="SlimeEnemy4" parent="Enemies" instance=ExtResource("10_240mi")]
-position = Vector2(857, 131)
+position = Vector2(723, 129)
 
 [node name="Camera" parent="." instance=ExtResource("15_6raki")]
 limit_left = 0
