@@ -8,7 +8,7 @@ signal health_depleted
 @export var friction := 1800
 @export var jump_velocity : float = 275
 
-@export var health : int = 100.0 :
+@export var health : int = 100 :
 	set(value):
 		var old_value = health
 		health = value

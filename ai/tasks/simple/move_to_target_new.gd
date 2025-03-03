@@ -1,9 +1,9 @@
 extends BTAction
 
 @export var target_var := &"target"
-
-@export var speed_var = 40
+@export var speed_var : int
 @export var tolerance = 20
+
 
 
 """
@@ -21,11 +21,16 @@ func _tick(delta: float) -> Status:
 	if target != null:
 		var target_position = target.global_position
 		var dir = agent.global_position.direction_to(target_position)
+
+		# Update the agent's speed dynamically
+		agent.stats.run_speed = speed_var  
+
+		# Check if close enough to the target
 		if abs(agent.global_position.x - target_position.x) < tolerance:
-			agent.move(dir, 0)
+			agent.move(agent.global_position, delta)  # Stay in place
 			return SUCCESS
 		else:
-			print(dir.x, "   ", dir)
-			agent.move(dir, speed_var)
+			#print("Direction:", dir, " Speed:", agent.stats.run_speed)
+			agent.move(target_position, delta)  # Move towards target
 			return RUNNING
 	return FAILURE

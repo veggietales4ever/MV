@@ -1,5 +1,6 @@
-[gd_resource type="BehaviorTree" load_steps=33 format=3 uid="uid://cg2xvua4lo6hn"]
+[gd_resource type="BehaviorTree" load_steps=39 format=3 uid="uid://cg2xvua4lo6hn"]
 
+[ext_resource type="Script" uid="uid://bmo2cv70tjikx" path="res://ai/tasks/simple/move_to_target_new.gd" id="1_bj8vr"]
 [ext_resource type="Script" uid="uid://bikf134tdsiij" path="res://ai/tasks/simple/choose_random_position_new.gd" id="1_t05l3"]
 [ext_resource type="Script" uid="uid://djo3mj4x0nxec" path="res://ai/tasks/simple/move_to_position_new.gd" id="2_y22fi"]
 [ext_resource type="Script" uid="uid://deph4yt3txoal" path="res://ai/tasks/simple/choose_random_position_walk.gd" id="3_cb0o2"]
@@ -42,9 +43,15 @@ resource_name = "AnimationPlayer"
 animation_player = SubResource("BBNode_cb0o2")
 animation_name = &"attack"
 
+[sub_resource type="BTAction" id="BTAction_bj8vr"]
+script = ExtResource("1_bj8vr")
+target_var = &"target"
+speed_var = 50
+tolerance = 2
+
 [sub_resource type="BTSequence" id="BTSequence_cb0o2"]
 custom_name = "Attack Sequence"
-children = [SubResource("BTCheckVar_cb0o2"), SubResource("BTPlayAnimation_picx7")]
+children = [SubResource("BTCheckVar_cb0o2"), SubResource("BTPlayAnimation_picx7"), SubResource("BTAction_bj8vr")]
 
 [sub_resource type="BBNode" id="BBNode_bj8vr"]
 saved_value = NodePath("AnimationPlayer")
@@ -133,9 +140,25 @@ children = [SubResource("BTSequence_bj8vr")]
 custom_name = "Walk"
 children = [SubResource("BTProbability_bj8vr"), SubResource("BTProbability_cb0o2"), SubResource("BTProbability_t05l3")]
 
+[sub_resource type="BBVariant" id="BBVariant_cb0o2"]
+type = 2
+saved_value = 0
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_picx7"]
+variable = &"health"
+check_type = 2
+value = SubResource("BBVariant_cb0o2")
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_hhw6v"]
+text = "dead"
+
+[sub_resource type="BTSequence" id="BTSequence_picx7"]
+custom_name = "Health Depleted Sequence"
+children = [SubResource("BTCheckVar_picx7"), SubResource("BTConsolePrint_hhw6v")]
+
 [sub_resource type="BTDynamicSelector" id="BTDynamicSelector_bj8vr"]
 custom_name = "Slime AI"
-children = [SubResource("BTSequence_cb0o2"), SubResource("BTSelector_y22fi")]
+children = [SubResource("BTSequence_cb0o2"), SubResource("BTSelector_y22fi"), SubResource("BTSequence_picx7")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_5300l")

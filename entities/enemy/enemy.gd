@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
+@export var bt_player : BTPlayer
 @export var animation_player : AnimationPlayer
 @export var sprite_2d : Sprite2D
 @export var stats : CharacterStats :
@@ -13,5 +14,5 @@ func _ready():
 		stats = CharacterStats.new()  # Initialize a new instance if stats isn't assigned
 
 
-#func hit(p_damage : int):
-	#stats.health -= p_damage
+func hit(p_damage : int):
+	stats.health -= p_damage

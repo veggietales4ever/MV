@@ -33,3 +33,5 @@ res://entities/player/player.gd
 res://control/transitions/transitions.gd
 res://ai/tasks/simple/move_to_target_new.gd
 res://ai/tasks/simple/attack_mode_slime.gd
+res://entities/enemy/enemy.gd
+res://entities/weapons/sword_attack_area.gd

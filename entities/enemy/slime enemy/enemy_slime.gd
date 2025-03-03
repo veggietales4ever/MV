@@ -1,10 +1,19 @@
 extends Enemy
 class_name SlimeEnemy
 
+signal enemy_damaged()
+
 const gravity = 30 
-#var speed : float = 100
+
+@onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
 @onready var detection_zone: DetectionZone = $DetectionZone
 
+var invulnerable : bool = false
+var is_hurt := false
+var is_knocked_back := false
+var knockback_force := 1000
+var knockback_duration := 0.7
+var invulnerability_duration := 3.0
 
 func _physics_process(_delta: float) -> void:
 	if is_on_wall() and is_on_floor():
@@ -15,6 +24,8 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	#handle_animation()
 	
+
+
 	
 
 func move(target_pos : Vector2, _delta : float):
@@ -48,3 +59,29 @@ func update_flip(dir : float):
 	detection_zone.scale.x = -1 if dir < 0 else 1
 	
 	
+#func damage(amount: int):
+	#print("Enemy Took damage:", amount)
+	#if invulnerable or is_knocked_back:
+		#return # Don't take damage if invulnerable
+		#
+		#
+	#stats.health -= amount # Subtract health
+	#emit_signal("enemy_damaged") # Emit signal if needed
+	#
+	#if stats.health <= 0:
+		#emit_signal(stats.health_depleted)
+		#explode()
+		#queue_free()
+		#return
+	## States
+	#is_knocked_back = true
+	#invulnerable = true
+	#
+#func explode():
+	#var explosion_scene = preload("res://particles/explosion.tscn")
+	#var explosion_instance = explosion_scene.instantiate()
+	#get_parent().add_child(explosion_instance)
+	#explosion_instance.global_position = global_position
+	#
+	##Pass enemy color to the explosion effect
+	#explosion_instance.set_explosion_color(sprite_2d.modulate)
