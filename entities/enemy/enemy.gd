@@ -16,13 +16,24 @@ var health : CharacterStats :
 
 
 func _ready():
+	blackboard = bt_player.blackboard
+	# Bind the blackboard variable to the health property
+	blackboard.bind_var_to_property(BBNames.health_var, stats, "health", true)
+	
 	if stats == null:
 		print("Error: stats is null!")
 		stats = CharacterStats.new()  # Initialize a new instance if stats isn't assigned
 
-	blackboard = bt_player.blackboard
-	blackboard.bind_var_to_property(BBNames.health_var, stats, "health", true)
 	
+	if blackboard == null:
+		print("Error: blackboard is null in _ready()!")
+		return  # Stop execution if the blackboard isn't available
+	
+
+	# Force update in case binding doesn't immediately propagate
+	blackboard.set(BBNames.health_var, stats.health)
+	print("Initial health set in blackboard:", blackboard.get(BBNames.health_var))
+
 
 
 func hit(p_damage : int):

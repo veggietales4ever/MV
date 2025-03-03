@@ -14,7 +14,7 @@ run_speed = 40.0
 acceleration = 1200
 friction = 1800
 jump_velocity = 400.0
-health = 2
+health = 1
 metadata/_custom_type_script = ExtResource("3_msrsq")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ead0r"]

@@ -28,6 +28,26 @@ var/state/value = ""
 var/state/hint = 0
 var/state/hint_string = ""
 
+[sub_resource type="BBVariant" id="BBVariant_cb0o2"]
+type = 2
+saved_value = 0
+resource_name = "0"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_picx7"]
+variable = &"health"
+check_type = 2
+value = SubResource("BBVariant_cb0o2")
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_hhw6v"]
+text = "dead"
+
+[sub_resource type="BTAction" id="BTAction_picx7"]
+script = ExtResource("6_cb0o2")
+
+[sub_resource type="BTSequence" id="BTSequence_picx7"]
+custom_name = "Health Depleted Sequence"
+children = [SubResource("BTCheckVar_picx7"), SubResource("BTConsolePrint_hhw6v"), SubResource("BTAction_picx7")]
+
 [sub_resource type="BBVariant" id="BBVariant_bj8vr"]
 saved_value = null
 
@@ -141,29 +161,9 @@ children = [SubResource("BTSequence_bj8vr")]
 custom_name = "Walk"
 children = [SubResource("BTProbability_bj8vr"), SubResource("BTProbability_cb0o2"), SubResource("BTProbability_t05l3")]
 
-[sub_resource type="BBVariant" id="BBVariant_cb0o2"]
-type = 2
-saved_value = 0
-
-[sub_resource type="BTCheckVar" id="BTCheckVar_picx7"]
-variable = &"health"
-check_type = 2
-value = SubResource("BBVariant_cb0o2")
-
-[sub_resource type="BTConsolePrint" id="BTConsolePrint_hhw6v"]
-text = "dead"
-
-[sub_resource type="BTAction" id="BTAction_picx7"]
-script = ExtResource("6_cb0o2")
-health_var = 0
-
-[sub_resource type="BTSequence" id="BTSequence_picx7"]
-custom_name = "Health Depleted Sequence"
-children = [SubResource("BTCheckVar_picx7"), SubResource("BTConsolePrint_hhw6v"), SubResource("BTAction_picx7")]
-
 [sub_resource type="BTDynamicSelector" id="BTDynamicSelector_bj8vr"]
 custom_name = "Slime AI"
-children = [SubResource("BTSequence_cb0o2"), SubResource("BTSelector_y22fi"), SubResource("BTSequence_picx7")]
+children = [SubResource("BTSequence_picx7"), SubResource("BTSequence_cb0o2"), SubResource("BTSelector_y22fi")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_5300l")

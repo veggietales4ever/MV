@@ -15,9 +15,6 @@ var knockback_force := 1000
 var knockback_duration := 0.7
 var invulnerability_duration := 3.0
 
-
-func _ready() -> void:
-	pass
 		
 func _physics_process(_delta: float) -> void:
 	if is_on_wall() and is_on_floor():

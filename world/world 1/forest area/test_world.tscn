@@ -75,6 +75,12 @@ position = Vector2(1088, 365)
 [node name="SlimeEnemy" parent="Enemies" instance=ExtResource("10_240mi")]
 position = Vector2(589, 134)
 
+[node name="SlimeEnemy3" parent="Enemies" instance=ExtResource("10_240mi")]
+position = Vector2(153, 133)
+
+[node name="SlimeEnemy2" parent="Enemies" instance=ExtResource("10_240mi")]
+position = Vector2(405, 143)
+
 [node name="Camera" parent="." instance=ExtResource("15_6raki")]
 limit_left = 0
 limit_right = 1380
