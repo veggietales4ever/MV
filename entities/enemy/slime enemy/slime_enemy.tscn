@@ -156,7 +156,6 @@ bt_player = NodePath("../BTPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone" index="0"]
 position = Vector2(68.75, -18.75)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_w244n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]

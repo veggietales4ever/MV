@@ -50,6 +50,7 @@ children = [SubResource("BTCheckVar_picx7"), SubResource("BTConsolePrint_hhw6v")
 
 [sub_resource type="BBVariant" id="BBVariant_bj8vr"]
 saved_value = null
+resource_name = "<null>"
 
 [sub_resource type="BTCheckVar" id="BTCheckVar_cb0o2"]
 variable = &"target"
