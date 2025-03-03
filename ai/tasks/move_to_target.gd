@@ -25,7 +25,7 @@ func _tick(delta: float) -> Status:
 			agent.move(dir, speed_var)
 			return SUCCESS
 		else:
-			print(dir.x, "   ", dir)
+			#print(dir.x, "   ", dir)
 			agent.move(dir, speed_var)
 			return RUNNING
 	return FAILURE

@@ -14,7 +14,7 @@ run_speed = 40.0
 acceleration = 1200
 friction = 1800
 jump_velocity = 400.0
-health = 1
+health = 2
 metadata/_custom_type_script = ExtResource("3_msrsq")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ead0r"]
@@ -122,11 +122,12 @@ radius = 13.75
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_cln1x"]
 
-[node name="SlimeEnemy" node_paths=PackedStringArray("animation_player", "sprite_2d") instance=ExtResource("1_r6fw5")]
+[node name="SlimeEnemy" node_paths=PackedStringArray("bt_player", "animation_player", "sprite_2d") instance=ExtResource("1_r6fw5")]
 scale = Vector2(0.8, 0.8)
 collision_layer = 32
 collision_mask = 260
 script = ExtResource("2_r863y")
+bt_player = NodePath("BTPlayer")
 animation_player = NodePath("AnimationPlayer")
 sprite_2d = NodePath("Sprite2D")
 stats = SubResource("Resource_r863y")

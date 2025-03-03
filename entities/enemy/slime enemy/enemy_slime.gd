@@ -15,6 +15,10 @@ var knockback_force := 1000
 var knockback_duration := 0.7
 var invulnerability_duration := 3.0
 
+
+func _ready() -> void:
+	pass
+		
 func _physics_process(_delta: float) -> void:
 	if is_on_wall() and is_on_floor():
 		velocity.y = -stats.jump_velocity
@@ -22,11 +26,8 @@ func _physics_process(_delta: float) -> void:
 		velocity.y += gravity
 		
 	move_and_slide()
-	#handle_animation()
 	
 
-
-	
 
 func move(target_pos : Vector2, _delta : float):
 	var direction = Vector2(
@@ -38,15 +39,6 @@ func move(target_pos : Vector2, _delta : float):
 	
 	update_flip(direction.x)
 	
-	
-#func handle_animation():
-	#falling out of a jump
-	#if !is_on_floor():
-		#animation_player.play("fall")
-	#if velocity.x != 0:
-		#animation_player.play("idle")
-	#else:
-		#animation_player.play("idle")
 
 func check_for_self(node):
 	if node == self:
@@ -77,11 +69,11 @@ func update_flip(dir : float):
 	#is_knocked_back = true
 	#invulnerable = true
 	#
-#func explode():
-	#var explosion_scene = preload("res://particles/explosion.tscn")
-	#var explosion_instance = explosion_scene.instantiate()
-	#get_parent().add_child(explosion_instance)
-	#explosion_instance.global_position = global_position
-	#
-	##Pass enemy color to the explosion effect
-	#explosion_instance.set_explosion_color(sprite_2d.modulate)
+func explode():
+	var explosion_scene = preload("res://particles/explosion.tscn")
+	var explosion_instance = explosion_scene.instantiate()
+	get_parent().add_child(explosion_instance)
+	explosion_instance.global_position = global_position
+	
+	#Pass enemy color to the explosion effect
+	explosion_instance.set_explosion_color(sprite_2d.modulate)

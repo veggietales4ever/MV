@@ -35,3 +35,5 @@ res://ai/tasks/simple/move_to_target_new.gd
 res://ai/tasks/simple/attack_mode_slime.gd
 res://entities/enemy/enemy.gd
 res://entities/weapons/sword_attack_area.gd
+res://control/can_move_areas/can_move.gd
+res://ai/tasks/simple/health_depleted.gd

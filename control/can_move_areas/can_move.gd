@@ -11,5 +11,5 @@ func _on_body_entered(p_body : Node2D):
 	if p_body is Character:
 		PlayerManager.player.can_move = true
 		PlayerManager.player.input_handler.can_move = true
-		print(p_body)
+		#print(p_body)
 		

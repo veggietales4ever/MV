@@ -1,10 +1,11 @@
-[gd_resource type="BehaviorTree" load_steps=39 format=3 uid="uid://cg2xvua4lo6hn"]
+[gd_resource type="BehaviorTree" load_steps=41 format=3 uid="uid://cg2xvua4lo6hn"]
 
 [ext_resource type="Script" uid="uid://bmo2cv70tjikx" path="res://ai/tasks/simple/move_to_target_new.gd" id="1_bj8vr"]
 [ext_resource type="Script" uid="uid://bikf134tdsiij" path="res://ai/tasks/simple/choose_random_position_new.gd" id="1_t05l3"]
 [ext_resource type="Script" uid="uid://djo3mj4x0nxec" path="res://ai/tasks/simple/move_to_position_new.gd" id="2_y22fi"]
 [ext_resource type="Script" uid="uid://deph4yt3txoal" path="res://ai/tasks/simple/choose_random_position_walk.gd" id="3_cb0o2"]
 [ext_resource type="Script" uid="uid://2clx8t1aup3n" path="res://entities/character_stats.gd" id="5_cb0o2"]
+[ext_resource type="Script" uid="uid://ctyiv0qjy10d4" path="res://ai/tasks/simple/health_depleted.gd" id="6_cb0o2"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_5300l"]
 var/direction/name = &"direction"
@@ -152,9 +153,13 @@ value = SubResource("BBVariant_cb0o2")
 [sub_resource type="BTConsolePrint" id="BTConsolePrint_hhw6v"]
 text = "dead"
 
+[sub_resource type="BTAction" id="BTAction_picx7"]
+script = ExtResource("6_cb0o2")
+health_var = 0
+
 [sub_resource type="BTSequence" id="BTSequence_picx7"]
 custom_name = "Health Depleted Sequence"
-children = [SubResource("BTCheckVar_picx7"), SubResource("BTConsolePrint_hhw6v")]
+children = [SubResource("BTCheckVar_picx7"), SubResource("BTConsolePrint_hhw6v"), SubResource("BTAction_picx7")]
 
 [sub_resource type="BTDynamicSelector" id="BTDynamicSelector_bj8vr"]
 custom_name = "Slime AI"
