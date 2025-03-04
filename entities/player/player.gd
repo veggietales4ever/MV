@@ -12,7 +12,7 @@ class_name Player
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
 
 @export var player_data : PlayerData
-@export var inventory : Inventory
+#@export var inventory : Inventory
 @export var player_actions: PlayerActions
 
 @onready var sword_collision: CollisionShape2D = $Facing/Sword/CollisionShape2D

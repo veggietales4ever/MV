@@ -18,3 +18,6 @@ res://UI/PauseMenu/Inventory/slot_data.gd
 res://UI/PauseMenu/Inventory/inventory_data.gd
 res://UI/PauseMenu/Inventory/player_inventory.tres
 res://UI/PauseMenu/Inventory/inventory_slot.tscn
+res://entities/player/player.gd
+res://data/PlayerData.gd
+res://UI/PauseMenu/Inventory/inventory_ui.gd

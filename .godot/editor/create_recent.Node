@@ -1,8 +1,10 @@
+Label
+Control
+TextureRect
 Button
 GridContainer
 PanelContainer
 HBoxContainer
-Label
 VBoxContainer
 ColorRect
 CanvasLayer
@@ -10,5 +12,3 @@ CollisionShape2D
 StaticBody2D
 Sprite2D
 Pickup
-ShapeEdgeSceneSpawner2D
-SceneSpawner2D

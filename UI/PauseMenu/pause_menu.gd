@@ -1,7 +1,11 @@
 extends CanvasLayer
 
-@onready var button_save: Button = $VBoxContainer/Button_Save
-@onready var button_load: Button = $VBoxContainer/Button_Load
+signal shown
+signal hidden
+
+@onready var button_load: Button = $Control/VBoxContainer/Button_Load
+@onready var button_save: Button = $Control/VBoxContainer/Button_Save
+
 
 var is_paused : bool = false
 var player: Player = null
@@ -28,12 +32,13 @@ func show_pause_menu() -> void:
 	get_tree().paused = true
 	visible = true
 	is_paused = true
-	button_save.grab_focus()
+	shown.emit()
 
 func hide_pause_menu() -> void:
 	get_tree().paused = false
 	visible = false
 	is_paused = false
+	hidden.emit()
 
 func _on_save_pressed() -> void:
 	if is_paused == false:
