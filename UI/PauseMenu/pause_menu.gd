@@ -5,6 +5,7 @@ signal hidden
 
 @onready var button_load: Button = $Control/VBoxContainer/Button_Load
 @onready var button_save: Button = $Control/VBoxContainer/Button_Save
+@onready var item_description: Label = $Control/ItemDescription
 
 
 var is_paused : bool = false
@@ -51,3 +52,6 @@ func _on_load_pressed() -> void:
 		return
 	SaveManager.load_game()
 	hide_pause_menu()
+
+func update_item_description(new_text : String) -> void:
+	item_description.text = new_text

@@ -21,3 +21,4 @@ res://UI/PauseMenu/Inventory/inventory_slot.tscn
 res://entities/player/player.gd
 res://data/PlayerData.gd
 res://UI/PauseMenu/Inventory/inventory_ui.gd
+res://UI/PauseMenu/Inventory/inventory_slot_UI.gd

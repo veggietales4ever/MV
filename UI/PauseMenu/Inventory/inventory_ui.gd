@@ -21,5 +21,6 @@ func update_inventory() -> void:
 	for s in data.slots:
 		var new_slot = INVENTORY_SLOT.instantiate()
 		add_child(new_slot)
+		new_slot.slot_data = s
 		
 	get_child(0).grab_focus() # Highlights the first item in inventory
