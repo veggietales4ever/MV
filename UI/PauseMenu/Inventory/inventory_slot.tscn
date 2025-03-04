@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bow2ni03ltjro"]
+[gd_scene load_steps=4 format=3 uid="uid://bow2ni03ltjro"]
 
 [ext_resource type="Script" uid="uid://m6wse6dc0o4a" path="res://UI/PauseMenu/Inventory/inventory_slot_UI.gd" id="1_itom8"]
 [ext_resource type="Texture2D" uid="uid://1j3ls0uwroxo" path="res://Aseprite Assets/objects/currency/currency.png" id="1_pw7c4"]
+[ext_resource type="FontFile" uid="uid://bmo3m751mx6bd" path="res://fonts/title_label_settings.tres" id="3_itom8"]
 
 [node name="InventorySlot" type="Button"]
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(32, 32)
 offset_right = 16.0
 offset_bottom = 16.0
 script = ExtResource("1_itom8")
@@ -16,10 +17,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -3.5
-offset_top = -4.0
-offset_right = 3.5
-offset_bottom = 4.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_pw7c4")
@@ -27,10 +28,9 @@ stretch_mode = 3
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -12.0
-offset_top = -5.0
-offset_right = 18.0
-offset_bottom = 18.0
+offset_right = 30.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_itom8")
 theme_override_font_sizes/font_size = 8
 text = "99"
 horizontal_alignment = 2

@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://c5hg3prhe018" path="res://UI/PauseMenu/pause_menu.gd" id="1_t3iro"]
 [ext_resource type="FontFile" uid="uid://bmo3m751mx6bd" path="res://fonts/title_label_settings.tres" id="2_jesmc"]
-[ext_resource type="Texture2D" uid="uid://0thhkom4vny2" path="res://Aseprite Assets/UI/inventory.png" id="2_lq2tb"]
 [ext_resource type="PackedScene" uid="uid://bow2ni03ltjro" path="res://UI/PauseMenu/Inventory/inventory_slot.tscn" id="3_af6kt"]
 [ext_resource type="LabelSettings" uid="uid://cxo4uw81gp1gy" path="res://fonts/title_label.tres" id="3_lq2tb"]
+[ext_resource type="Texture2D" uid="uid://bexnpoyjic0rj" path="res://Aseprite Assets/UI/inventorybackgrounds/invbackground1big.png" id="4_i14rv"]
 [ext_resource type="Script" uid="uid://kx0b0twm2mly" path="res://UI/PauseMenu/Inventory/inventory_ui.gd" id="5_s0ulm"]
 [ext_resource type="Resource" uid="uid://bptnp8ny8uk4d" path="res://UI/PauseMenu/Inventory/player_inventory.tres" id="6_i14rv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_af6kt"]
-atlas = ExtResource("2_lq2tb")
+atlas = ExtResource("4_i14rv")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_af6kt"]
 content_margin_left = 13.0
@@ -17,10 +17,12 @@ content_margin_top = 20.0
 content_margin_right = 60.0
 content_margin_bottom = 13.0
 texture = SubResource("AtlasTexture_af6kt")
-texture_margin_left = 14.0
-texture_margin_top = 14.0
-texture_margin_right = 14.0
-texture_margin_bottom = 14.0
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -52,48 +54,25 @@ theme_override_font_sizes/font_size = 0
 text = "Paused"
 label_settings = ExtResource("3_lq2tb")
 
-[node name="Label2" type="Label" parent="Control"]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -163.0
-offset_top = -14.0
-offset_right = -103.0
-offset_bottom = 9.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_jesmc")
-theme_override_font_sizes/font_size = 8
-text = "hi"
-label_settings = ExtResource("3_lq2tb")
+color = Color(0.160784, 0.160784, 0.160784, 0.564706)
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.160784, 0.160784, 0.160784, 0.564706)
-
-[node name="PanelContainer" type="PanelContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -205.0
-offset_top = -120.0
-offset_right = -67.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2.96104, 2.96104)
 theme_override_styles/panel = SubResource("StyleBoxTexture_af6kt")
 
 [node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
@@ -114,10 +93,10 @@ layout_mode = 2
 [node name="VBoxContainer" type="HBoxContainer" parent="Control"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 0
-offset_left = 387.0
-offset_top = 100.0
-offset_right = 491.0
-offset_bottom = 140.0
+offset_left = 313.0
+offset_top = 194.0
+offset_right = 417.0
+offset_bottom = 234.0
 
 [node name="Button_Save" type="Button" parent="Control/VBoxContainer"]
 custom_minimum_size = Vector2(50, 5)
@@ -140,15 +119,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 72.0
-offset_top = -33.0
-offset_right = 184.0
-offset_bottom = 102.0
+offset_left = 78.0
+offset_top = -104.0
+offset_right = 223.0
+offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.833763, 0.833763)
 theme_override_fonts/font = ExtResource("2_jesmc")
 theme_override_font_sizes/font_size = 8
-text = "test"
+text = "test askjd alskjd alkjd alsdj asda hello"
 label_settings = ExtResource("3_lq2tb")
 autowrap_mode = 2
+
+[node name="Inventory" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -122.0
+offset_right = -116.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jesmc")
+theme_override_font_sizes/font_size = 8
+text = "inventory"
+label_settings = ExtResource("3_lq2tb")

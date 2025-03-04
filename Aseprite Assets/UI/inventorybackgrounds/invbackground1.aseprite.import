@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://clu01dd62clxv"
+path="res://.godot/imported/invbackground1.aseprite-9c49fdb9871168a59c9cca13a5eacd2d.res"
+
+[deps]
+
+source_file="res://Aseprite Assets/UI/inventorybackgrounds/invbackground1.aseprite"
+dest_files=["res://.godot/imported/invbackground1.aseprite-9c49fdb9871168a59c9cca13a5eacd2d.res"]
+
+[params]
+
