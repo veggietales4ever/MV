@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://cexrt7vgvuddk"]
+
+[ext_resource type="Script" uid="uid://c5hg3prhe018" path="res://UI/PauseMenu/pause_menu.gd" id="1_t3iro"]
+[ext_resource type="FontFile" uid="uid://bmo3m751mx6bd" path="res://fonts/title_label_settings.tres" id="2_jesmc"]
+[ext_resource type="Texture2D" uid="uid://0thhkom4vny2" path="res://Aseprite Assets/UI/inventory.png" id="2_lq2tb"]
+[ext_resource type="LabelSettings" uid="uid://cxo4uw81gp1gy" path="res://fonts/title_label.tres" id="3_lq2tb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_af6kt"]
+texture = ExtResource("2_lq2tb")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_t3iro")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.160784, 0.160784, 0.160784, 0.564706)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = -317.0
+offset_top = -446.0
+offset_right = -277.0
+offset_bottom = -406.0
+scale = Vector2(31.5189, 31.5189)
+theme_override_styles/panel = SubResource("StyleBoxTexture_af6kt")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -109.0
+offset_right = 36.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Paused"
+label_settings = ExtResource("3_lq2tb")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = 98.0
+offset_right = 77.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Save" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jesmc")
+text = "Save"
+
+[node name="Button_Load" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jesmc")
+text = "Load"

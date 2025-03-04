@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bm1qjtc3a6jdb"]
+
+[ext_resource type="Script" uid="uid://dgmkdvvcc0wmw" path="res://entities/objects/items/item_data.gd" id="1_yuq14"]
+[ext_resource type="Texture2D" uid="uid://ci12s7xgalldp" path="res://Aseprite Assets/objects/testcurrency/test_currency.png" id="2_xmune"]
+
+[resource]
+script = ExtResource("1_yuq14")
+name = "Currency"
+description = "A valuable currency used in this world."
+texture = ExtResource("2_xmune")
+metadata/_custom_type_script = ExtResource("1_yuq14")

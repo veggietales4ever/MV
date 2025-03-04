@@ -1,9 +1,20 @@
 res://default_bus_layout.tres
-res://world/world 1/forest area/test_world.tscn
+res://entities/enemy/slime enemy/slime_enemy.tscn
+res://fonts/title_label_settings.tres
 res://shaders/palette_limiter_shader.gdshader
 res://ai/trees/slime_ai.tres
+res://world/world 1/forest area/test_world.tscn
 res://world/world 1/forest area/test_world2.tscn
 res://world/world 1/forest area/testworld_3.tscn
-res://entities/enemy/slime enemy/slime_enemy.tscn
 res://entities/player/player.tscn
-res://background/parallax.tscn
+res://UI/PauseMenu/pause_menu.tscn
+res://ai/tasks/simple/health_depleted.gd
+res://UI/PauseMenu/pause_menu.gd
+res://global/global_save_manager.gd
+res://entities/objects/items/item_data.gd
+res://entities/objects/pickup/pickup_currency.tscn
+res://entities/objects/pickup/currency.tres
+res://UI/PauseMenu/Inventory/slot_data.gd
+res://UI/PauseMenu/Inventory/inventory_data.gd
+res://UI/PauseMenu/Inventory/player_inventory.tres
+res://UI/PauseMenu/Inventory/inventory_slot.tscn

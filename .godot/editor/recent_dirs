@@ -1,11 +1,12 @@
+res://UI/PauseMenu/Inventory/
+res://entities/objects/pickup
+res://global
+res://UI/PauseMenu
+res://entities/objects/resources
+res://resources
 res://entities/enemy/slime enemy
 res://entities
-res://entities/items
-res://entities/objects/pickup
-res://resources
 res://data/
-res://entities/inventory
-res://entities/items/
 res://entities/objects
 res://entities/player/states
 res://world/world 1/forest area
@@ -16,7 +17,4 @@ res://world/tilemap
 res://world
 res://control
 res://entities/player
-res://global
 res://player
-res://particles
-res://shaders

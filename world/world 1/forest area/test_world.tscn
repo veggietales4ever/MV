@@ -36,7 +36,7 @@ layer_0/tile_data = PackedInt32Array(-1703936, 196609, 2, -1638400, 196609, 2, -
 [node name="playerspawn" type="Node" parent="."]
 
 [node name="PlayerSpawn" parent="playerspawn" instance=ExtResource("14_p2vfc")]
-position = Vector2(1315, 18)
+position = Vector2(616, 15)
 
 [node name="can_move" parent="playerspawn/PlayerSpawn" instance=ExtResource("12_sx0ld")]
 position = Vector2(-19, 124)
@@ -108,5 +108,3 @@ blend_mode = 2
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 1
-
-[node name="PickupsGroupNode2D" type="Node2D" parent="." groups=["item"]]

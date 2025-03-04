@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=41 format=3 uid="uid://cg2xvua4lo6hn"]
+[gd_resource type="BehaviorTree" load_steps=42 format=3 uid="uid://cg2xvua4lo6hn"]
 
 [ext_resource type="Script" uid="uid://bmo2cv70tjikx" path="res://ai/tasks/simple/move_to_target_new.gd" id="1_bj8vr"]
 [ext_resource type="Script" uid="uid://bikf134tdsiij" path="res://ai/tasks/simple/choose_random_position_new.gd" id="1_t05l3"]
@@ -44,9 +44,11 @@ text = "dead"
 [sub_resource type="BTAction" id="BTAction_picx7"]
 script = ExtResource("6_cb0o2")
 
+[sub_resource type="BTWait" id="BTWait_cb0o2"]
+
 [sub_resource type="BTSequence" id="BTSequence_picx7"]
 custom_name = "Health Depleted Sequence"
-children = [SubResource("BTCheckVar_picx7"), SubResource("BTConsolePrint_hhw6v"), SubResource("BTAction_picx7")]
+children = [SubResource("BTCheckVar_picx7"), SubResource("BTConsolePrint_hhw6v"), SubResource("BTAction_picx7"), SubResource("BTWait_cb0o2")]
 
 [sub_resource type="BBVariant" id="BBVariant_bj8vr"]
 saved_value = null

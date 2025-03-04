@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cup8wvqevplpt"]
+
+[ext_resource type="Script" uid="uid://dnijdncd71rge" path="res://entities/objects/pickup/pickup.gd" id="1_pupc3"]
+[ext_resource type="Texture2D" uid="uid://ci12s7xgalldp" path="res://Aseprite Assets/objects/testcurrency/test_currency.png" id="2_smtx4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q1s1x"]
+radius = 4.0
+
+[node name="Pickup_Currency" type="StaticBody2D"]
+script = ExtResource("1_pupc3")
+metadata/_custom_type_script = ExtResource("1_pupc3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_smtx4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q1s1x")
