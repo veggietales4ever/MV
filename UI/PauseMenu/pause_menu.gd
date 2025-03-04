@@ -26,20 +26,35 @@ func _unhandled_input(event: InputEvent) -> void:
 		if is_paused == false:
 			show_pause_menu()
 		else:
-			hide_pause_menu()
+			end_pause_menu()
 		get_viewport().set_input_as_handled()
 		
 func show_pause_menu() -> void:
 	get_tree().paused = true
+	await SceneTransition.fade_out()
 	visible = true
 	is_paused = true
 	shown.emit()
+	
+	await get_tree().create_timer(0.1).timeout
+	await SceneTransition.fade_in()
 
 func hide_pause_menu() -> void:
 	get_tree().paused = false
 	visible = false
 	is_paused = false
 	hidden.emit()
+	
+func end_pause_menu() -> void:
+	await SceneTransition.fade_out()
+	visible = false
+	get_tree().paused = false
+	is_paused = false
+	hidden.emit()
+	PlayerManager.player.input_handler.reset_input_states()
+	
+	await get_tree().create_timer(0.1).timeout
+	await SceneTransition.fade_in()
 
 func _on_save_pressed() -> void:
 	if is_paused == false:

@@ -4,6 +4,7 @@
 
 [sub_resource type="Animation" id="Animation_hidkd"]
 length = 0.001
+step = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

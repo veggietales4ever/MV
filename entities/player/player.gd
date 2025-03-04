@@ -4,15 +4,9 @@ extends Character
 class_name Player
 
 
-#signal health_depleted
-#@export var sprite_2d: Sprite2D
-#@export var animation_player: AnimationPlayer
-#@export var stats : PlayerStats
-
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
 
 @export var player_data : PlayerData
-#@export var inventory : Inventory
 @export var player_actions: PlayerActions
 
 @onready var sword_collision: CollisionShape2D = $Facing/Sword/CollisionShape2D
