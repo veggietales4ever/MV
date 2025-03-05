@@ -17,3 +17,6 @@ res://entities/objects/pickup/item_pickup.gd
 res://global/global_player_manager.gd
 res://entities/objects/items/Item_Resources/currency.tres
 res://entities/objects/items/item.tscn
+res://entities/enemy/drop_data.gd
+res://ai/tasks/simple/drop_item_enemy.gd
+res://ai/tasks/simple/health_depleted.gd

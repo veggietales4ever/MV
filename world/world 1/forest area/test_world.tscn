@@ -59,7 +59,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qglxy")
 [node name="coins" type="Node2D" parent="Objects"]
 
 [node name="Coin1" parent="Objects/coins" instance=ExtResource("12_ysk6a")]
-position = Vector2(778, 137)
+position = Vector2(1134, 102)
 item_data = ExtResource("13_p2vfc")
 
 [node name="Coin2" parent="Objects/coins" instance=ExtResource("12_ysk6a")]
@@ -67,7 +67,7 @@ position = Vector2(940, 144)
 item_data = ExtResource("13_p2vfc")
 
 [node name="Coin3" parent="Objects/coins" instance=ExtResource("12_ysk6a")]
-position = Vector2(833, 130)
+position = Vector2(1055, 133)
 item_data = ExtResource("13_p2vfc")
 
 [node name="crates" type="Node2D" parent="Objects"]
@@ -79,18 +79,16 @@ position = Vector2(1088, 365)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="SlimeEnemy" parent="Enemies" instance=ExtResource("10_240mi")]
-position = Vector2(303, 131)
-
-[node name="SlimeEnemy3" parent="Enemies" instance=ExtResource("10_240mi")]
-position = Vector2(153, 133)
+position = Vector2(177, 131)
 
 [node name="SlimeEnemy2" parent="Enemies" instance=ExtResource("10_240mi")]
-position = Vector2(405, 143)
+position = Vector2(90, 136)
 
 [node name="Camera" parent="." instance=ExtResource("15_6raki")]
 limit_left = 0
 limit_right = 1380
 limit_bottom = 200
+camera = 1
 
 [node name="AreaTransition" parent="." instance=ExtResource("16_qss65")]
 position = Vector2(1392, 104)

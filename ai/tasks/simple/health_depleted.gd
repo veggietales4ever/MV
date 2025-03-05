@@ -1,5 +1,11 @@
 extends BTAction
 
+
+const PICKUP = preload("res://entities/objects/pickup/item_pickup.tscn")
+
+@export_category("Item Drops")
+@export var drops : Array[DropData]
+
 #@export var stats : CharacterStats
 var health_var : int
 
@@ -7,8 +13,26 @@ func _tick(_delta: float) -> Status:
 	agent.stats.health = health_var
 	if health_var >= 0:
 		agent.animation_player.play("damaged")
+		drop_items()
 		#await agent.get_tree().create_timer(1.0).timeout
 		#agent.explode()
 		#agent.queue_free()
 	return SUCCESS
 		
+
+#func enter() -> void:
+	#drop_items()
+
+func drop_items() -> void:
+	if drops.size() == 0:
+		return
+		
+	for i in drops.size():
+		if drops[i] == null or drops[i].item == null:
+			continue
+		var drop_count : int = drops[i].get_drop_count()
+		for j in drop_count:
+			var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
+			drop.item_data = drops[i].item
+			agent.get_parent().call_deferred("add_child", drop)
+			drop.global_position = agent.global_position + Vector2(randf() * 16, randf() * 16)
