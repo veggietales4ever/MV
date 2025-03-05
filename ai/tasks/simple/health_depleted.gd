@@ -35,4 +35,5 @@ func drop_items() -> void:
 			var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
 			drop.item_data = drops[i].item
 			agent.get_parent().call_deferred("add_child", drop)
-			drop.global_position = agent.global_position + Vector2(randf() * 16, 0)
+			drop.global_position = agent.global_position
+			drop.velocity = agent.velocity.rotated(randf_range(-1.5, 1.5)) * randf_range(0.9, 1.5)

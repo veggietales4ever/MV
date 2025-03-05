@@ -59,15 +59,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qglxy")
 [node name="coins" type="Node2D" parent="Objects"]
 
 [node name="Coin1" parent="Objects/coins" instance=ExtResource("12_ysk6a")]
-position = Vector2(1134, 102)
+position = Vector2(1134, 101.881)
+velocity = Vector2(0, -2.86108)
 item_data = ExtResource("13_p2vfc")
 
 [node name="Coin2" parent="Objects/coins" instance=ExtResource("12_ysk6a")]
-position = Vector2(940, 144)
+position = Vector2(940, 165.953)
+velocity = Vector2(0, 3.5225)
 item_data = ExtResource("13_p2vfc")
 
 [node name="Coin3" parent="Objects/coins" instance=ExtResource("12_ysk6a")]
-position = Vector2(1055, 133)
+position = Vector2(1055, 149.945)
+velocity = Vector2(0, 3.5225)
 item_data = ExtResource("13_p2vfc")
 
 [node name="crates" type="Node2D" parent="Objects"]
@@ -79,7 +82,7 @@ position = Vector2(1088, 365)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="SlimeEnemy" parent="Enemies" instance=ExtResource("10_240mi")]
-position = Vector2(177, 131)
+position = Vector2(691, 137)
 
 [node name="SlimeEnemy2" parent="Enemies" instance=ExtResource("10_240mi")]
 position = Vector2(90, 136)

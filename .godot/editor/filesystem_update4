@@ -34,3 +34,4 @@ res://UI/PauseMenu/Inventory/slot_data.gd
 res://entities/enemy/slime enemy/enemy_slime.gd
 res://ai/tasks/simple/move_to_target_new.gd
 res://addons/item_drops/drops/droppable.gd
+res://entities/objects/items/Item_drop/drop_item.gd

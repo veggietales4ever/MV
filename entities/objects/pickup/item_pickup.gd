@@ -1,8 +1,10 @@
 @tool
-extends Node2D
+extends CharacterBody2D
 class_name ItemPickup
 
-const gravity = 30 
+const GRAVITY = 200  # Adjust based on your game
+const BOUNCE_FACTOR = 0.5  # Controls how much items bounce when they hit the floor
+const FRICTION = 0.9  # Controls how much the horizontal movement slows down
 
 @export var item_data : ItemData : set = _set_item_data
 
@@ -16,6 +18,25 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	area_2d.body_entered.connect(_on_body_entered)
+	
+
+func _physics_process(delta: float) -> void:
+	# Apply gravity
+	velocity.y += GRAVITY * delta
+	
+	# Move and check for collisions
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal())
+		
+	# Apply friction over time
+	velocity -= velocity * delta * 4
+		
+"""
+collision_info.get_normal gives you the direction of the collision
+bounce is going to set the velocity opposite of that
+"""
+
 
 
 func _on_body_entered(b) -> void:
