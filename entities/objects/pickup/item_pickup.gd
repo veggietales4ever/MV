@@ -2,8 +2,8 @@
 extends CharacterBody2D
 class_name ItemPickup
 
-const GRAVITY = 200  # Adjust based on your game
-const BOUNCE_FACTOR = 0.5  # Controls how much items bounce when they hit the floor
+const GRAVITY = 300  # Adjust based on your game
+const BOUNCE_FACTOR = 0.9  # Controls how much items bounce when they hit the floor
 const FRICTION = 0.9  # Controls how much the horizontal movement slows down
 
 @export var item_data : ItemData : set = _set_item_data
@@ -27,7 +27,16 @@ func _physics_process(delta: float) -> void:
 	# Move and check for collisions
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
-		velocity = velocity.bounce(collision_info.get_normal())
+		var normal = collision_info.get_normal()
+		
+		# Check if we hit the floor
+		if normal.y < 0:  
+			velocity.y = -velocity.y * BOUNCE_FACTOR  # Make it bounce
+			velocity.x *= FRICTION  # Apply friction when landing
+			if abs(velocity.y) < 10:  # Stop bouncing if below threshold
+				velocity.y = 0
+		else:
+			velocity = velocity.bounce(normal)
 		
 	# Apply friction over time
 	velocity -= velocity * delta * 4
