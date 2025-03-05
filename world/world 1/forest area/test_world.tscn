@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://ccf4fo81c1pls"]
+[gd_scene load_steps=16 format=3 uid="uid://ccf4fo81c1pls"]
 
 [ext_resource type="PackedScene" uid="uid://b01m1ujtexeix" path="res://background/parallax.tscn" id="3_owa8j"]
 [ext_resource type="PackedScene" uid="uid://b4qmvaiqdjimv" path="res://world/tilemap/forest_tile_map.tscn" id="3_qss65"]
 [ext_resource type="Shader" uid="uid://dfq6q1ooo7qpi" path="res://shaders/palette_limiter_shader.gdshader" id="6_tn06u"]
 [ext_resource type="Texture2D" uid="uid://b4un251a3ymxs" path="res://palettes/cc-29-1x.png" id="7_ej5wr"]
-[ext_resource type="PackedScene" uid="uid://dc28t7tiqn540" path="res://entities/objects/pickup/coin.tscn" id="8_selu3"]
 [ext_resource type="PackedScene" uid="uid://lfu4j7l58qi7" path="res://entities/objects/interact/crate.tscn" id="9_qr76i"]
 [ext_resource type="PackedScene" uid="uid://dnfwmu05ax2vb" path="res://entities/enemy/slime enemy/slime_enemy.tscn" id="10_240mi"]
 [ext_resource type="PackedScene" uid="uid://cgchpyyc37dtr" path="res://control/can_move_areas/can_move.tscn" id="12_sx0ld"]
+[ext_resource type="PackedScene" uid="uid://ditmii0kox6ip" path="res://entities/objects/pickup/item_pickup.tscn" id="12_ysk6a"]
+[ext_resource type="Resource" uid="uid://bm1qjtc3a6jdb" path="res://entities/objects/items/Item_Resources/currency.tres" id="13_p2vfc"]
 [ext_resource type="PackedScene" uid="uid://p4u8c0yp3dnp" path="res://entities/player/player_spawn.tscn" id="14_p2vfc"]
 [ext_resource type="PackedScene" uid="uid://cmp03ai2iqgnx" path="res://control/camera/camera.tscn" id="15_6raki"]
 [ext_resource type="PackedScene" uid="uid://c7ej8ilgaw7yo" path="res://world/AreaTransition.tscn" id="16_qss65"]
@@ -56,13 +57,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qglxy")
 [node name="Objects" type="Node" parent="."]
 
 [node name="coins" type="Node2D" parent="Objects"]
-visible = false
 
-[node name="Coin" parent="Objects/coins" instance=ExtResource("8_selu3")]
-position = Vector2(152, 103)
+[node name="Coin1" parent="Objects/coins" instance=ExtResource("12_ysk6a")]
+position = Vector2(778, 137)
+item_data = ExtResource("13_p2vfc")
 
-[node name="Coin2" parent="Objects/coins" instance=ExtResource("8_selu3")]
-position = Vector2(864, 116)
+[node name="Coin2" parent="Objects/coins" instance=ExtResource("12_ysk6a")]
+position = Vector2(940, 144)
+item_data = ExtResource("13_p2vfc")
+
+[node name="Coin3" parent="Objects/coins" instance=ExtResource("12_ysk6a")]
+position = Vector2(833, 130)
+item_data = ExtResource("13_p2vfc")
 
 [node name="crates" type="Node2D" parent="Objects"]
 position = Vector2(94, -223)

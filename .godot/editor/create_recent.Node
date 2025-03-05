@@ -1,3 +1,7 @@
+AudioStreamPlayer2D
+Sprite2D
+CollisionShape2D
+Area2D
 Label
 Control
 TextureRect
@@ -8,7 +12,4 @@ HBoxContainer
 VBoxContainer
 ColorRect
 CanvasLayer
-CollisionShape2D
 StaticBody2D
-Sprite2D
-Pickup

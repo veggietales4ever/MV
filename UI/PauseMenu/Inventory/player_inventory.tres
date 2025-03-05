@@ -1,16 +1,9 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=5 format=3 uid="uid://bptnp8ny8uk4d"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=3 format=3 uid="uid://bptnp8ny8uk4d"]
 
 [ext_resource type="Script" uid="uid://b8ug42r83n42j" path="res://UI/PauseMenu/Inventory/inventory_data.gd" id="1_a3xob"]
 [ext_resource type="Script" uid="uid://wgwbj0ag6uay" path="res://UI/PauseMenu/Inventory/slot_data.gd" id="2_ticus"]
-[ext_resource type="Resource" uid="uid://bm1qjtc3a6jdb" path="res://entities/objects/items/Item_Resources/currency.tres" id="3_ticus"]
-
-[sub_resource type="Resource" id="Resource_ticus"]
-script = ExtResource("2_ticus")
-item_data = ExtResource("3_ticus")
-quantity = 0
-metadata/_custom_type_script = ExtResource("2_ticus")
 
 [resource]
 script = ExtResource("1_a3xob")
-slots = Array[ExtResource("2_ticus")]([SubResource("Resource_ticus"), null, null])
+slots = Array[ExtResource("2_ticus")]([null, null, null, null, null, null])
 metadata/_custom_type_script = ExtResource("1_a3xob")
