@@ -20,3 +20,17 @@ res://entities/objects/items/item.tscn
 res://entities/enemy/drop_data.gd
 res://ai/tasks/simple/drop_item_enemy.gd
 res://ai/tasks/simple/health_depleted.gd
+res://world/area_transition.gd
+res://entities/character_stats.gd
+res://UI/PauseMenu/Inventory/inventory_slot_UI.gd
+res://UI/PauseMenu/Inventory/inventory_ui.gd
+res://entities/objects/items/item_data.gd
+res://addons/item_drops/scene_spawner/2d/launch_force_scene_spawner_2d.gd
+res://UI/PauseMenu/pause_menu.gd
+res://addons/item_drops/pickups/pickup_2d.gd
+res://entities/player/player.gd
+res://addons/item_drops/scene_spawner/2d/scene_spawner_2d.gd
+res://UI/PauseMenu/Inventory/slot_data.gd
+res://entities/enemy/slime enemy/enemy_slime.gd
+res://ai/tasks/simple/move_to_target_new.gd
+res://addons/item_drops/drops/droppable.gd

@@ -1,7 +1,7 @@
 extends Enemy
 class_name SlimeEnemy
 
-signal enemy_damaged()
+#signal enemy_damaged()
 
 const gravity = 30 
 

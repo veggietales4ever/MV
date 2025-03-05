@@ -20,7 +20,7 @@ func _tick(delta: float) -> Status:
 	var target: CharacterBody2D = blackboard.get_var(target_var)
 	if target != null:
 		var target_position = target.global_position
-		var dir = agent.global_position.direction_to(target_position)
+		#var dir = agent.global_position.direction_to(target_position)
 
 		# Update the agent's speed dynamically
 		agent.stats.run_speed = speed_var  

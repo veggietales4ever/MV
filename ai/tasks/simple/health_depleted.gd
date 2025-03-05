@@ -12,9 +12,9 @@ var health_var : int
 func _tick(_delta: float) -> Status:
 	agent.stats.health = health_var
 	if health_var >= 0:
-		agent.animation_player.play("damaged")
+		agent.animation_player.play("dead")
 		drop_items()
-		#await agent.get_tree().create_timer(1.0).timeout
+		#await agent.get_tree().create_timer(1.0).timeout 
 		#agent.explode()
 		#agent.queue_free()
 	return SUCCESS
@@ -35,4 +35,4 @@ func drop_items() -> void:
 			var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
 			drop.item_data = drops[i].item
 			agent.get_parent().call_deferred("add_child", drop)
-			drop.global_position = agent.global_position + Vector2(randf() * 16, randf() * 16)
+			drop.global_position = agent.global_position + Vector2(randf() * 16, 0)
