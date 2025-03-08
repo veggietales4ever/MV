@@ -47,3 +47,5 @@ res://world/tilemap/cave_parallax.tscn
 res://world/parallax/trees.tscn
 res://entities/enemy/slime enemy/hit_flash.tres
 res://entities/enemy/enemy.gd
+res://entities/enemy/slime enemy/slime_hitbox.gd
+res://entities/bb_names.gd

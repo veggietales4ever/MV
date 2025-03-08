@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=47 format=3 uid="uid://cg2xvua4lo6hn"]
+[gd_resource type="BehaviorTree" load_steps=53 format=3 uid="uid://cg2xvua4lo6hn"]
 
 [ext_resource type="Script" uid="uid://bmo2cv70tjikx" path="res://ai/tasks/simple/move_to_target_new.gd" id="1_bj8vr"]
 [ext_resource type="Script" uid="uid://bikf134tdsiij" path="res://ai/tasks/simple/choose_random_position_new.gd" id="1_t05l3"]
@@ -29,12 +29,44 @@ var/state/type = 4
 var/state/value = ""
 var/state/hint = 0
 var/state/hint_string = ""
+var/hurt/name = &"hurt"
+var/hurt/type = 1
+var/hurt/value = false
+var/hurt/hint = 0
+var/hurt/hint_string = "hurt state or not hurt"
 
-[sub_resource type="BTAlwaysFail" id="BTAlwaysFail_hhw6v"]
+[sub_resource type="BBVariant" id="BBVariant_hhw6v"]
+type = 1
+saved_value = true
+resource_name = "true"
 
-[sub_resource type="BTSequence" id="BTSequence_hhw6v"]
+[sub_resource type="BTCheckVar" id="BTCheckVar_dw188"]
+variable = &"hurt"
+value = SubResource("BBVariant_hhw6v")
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_8g4h7"]
+text = "enemy is HURT"
+
+[sub_resource type="BBNode" id="BBNode_hhw6v"]
+saved_value = NodePath("HitFlashAnimationPlayer")
+resource_name = "HitFlashAnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_dw188"]
+animation_player = SubResource("BBNode_hhw6v")
+animation_name = &"hit_flash"
+
+[sub_resource type="BBVariant" id="BBVariant_dw188"]
+type = 1
+saved_value = false
+resource_name = "false"
+
+[sub_resource type="BTSetVar" id="BTSetVar_8g4h7"]
+variable = &"hurt"
+value = SubResource("BBVariant_dw188")
+
+[sub_resource type="BTSequence" id="BTSequence_dw188"]
 custom_name = "Hurt Sequence"
-children = [SubResource("BTAlwaysFail_hhw6v")]
+children = [SubResource("BTCheckVar_dw188"), SubResource("BTConsolePrint_8g4h7"), SubResource("BTPlayAnimation_dw188"), SubResource("BTSetVar_8g4h7")]
 
 [sub_resource type="BBVariant" id="BBVariant_cb0o2"]
 type = 2
@@ -184,7 +216,7 @@ children = [SubResource("BTProbability_bj8vr"), SubResource("BTProbability_cb0o2
 
 [sub_resource type="BTDynamicSelector" id="BTDynamicSelector_bj8vr"]
 custom_name = "Slime AI"
-children = [SubResource("BTSequence_hhw6v"), SubResource("BTSequence_picx7"), SubResource("BTSequence_cb0o2"), SubResource("BTSelector_y22fi")]
+children = [SubResource("BTSequence_dw188"), SubResource("BTSequence_picx7"), SubResource("BTSequence_cb0o2"), SubResource("BTSelector_y22fi")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_5300l")

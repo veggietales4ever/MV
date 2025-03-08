@@ -145,14 +145,6 @@ _data = {
 &"run": SubResource("Animation_5300l")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tdkep"]
-radius = 13.75
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_3mhv0"]
-radius = 13.75
-
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_cln1x"]
-
 [sub_resource type="Animation" id="Animation_i0ouv"]
 resource_name = "hit_flash"
 length = 0.2
@@ -190,6 +182,14 @@ _data = {
 &"RESET": SubResource("Animation_ead0r"),
 &"hit_flash": SubResource("Animation_i0ouv")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdkep"]
+radius = 13.75
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mhv0"]
+radius = 13.75
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_cln1x"]
 
 [node name="SlimeEnemy" node_paths=PackedStringArray("bt_player", "animation_player", "sprite_2d") instance=ExtResource("1_r6fw5")]
 scale = Vector2(0.8, 0.8)
@@ -236,11 +236,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_f7x3h")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_6y3xp")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
 visible = false
 shape = SubResource("CircleShape2D_tdkep")
 
-[node name="hitbox" parent="." index="5"]
+[node name="hitbox" parent="." index="6"]
 collision_layer = 32
 collision_mask = 4
 
@@ -249,17 +254,17 @@ visible = false
 shape = SubResource("CircleShape2D_3mhv0")
 debug_color = Color(0.877846, 0.291741, 0.463077, 0.42)
 
-[node name="Timers" type="Node" parent="." index="6"]
+[node name="Timers" type="Node" parent="." index="7"]
 
 [node name="InvulnerabilityTimer" type="Timer" parent="Timers" index="0"]
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8"]
 
-[node name="BTPlayer" type="BTPlayer" parent="." index="8"]
+[node name="BTPlayer" type="BTPlayer" parent="." index="9"]
 behavior_tree = ExtResource("4_5300l")
 blackboard_plan = SubResource("BlackboardPlan_cln1x")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="9"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="10"]
 emitting = false
 amount = 500
 lifetime = 0.2
@@ -269,10 +274,3 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 50.0
 initial_velocity_max = 150.0
 scale_amount_max = 4.0
-
-[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="." index="10"]
-libraries = {
-&"": SubResource("AnimationLibrary_6y3xp")
-}
-
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

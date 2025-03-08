@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Enemy
 
-signal damaged
 
 @export var bt_player : BTPlayer
 @export var animation_player : AnimationPlayer
@@ -21,6 +20,8 @@ func _ready():
 	blackboard = bt_player.blackboard
 	# Bind the blackboard variable to the health property
 	blackboard.bind_var_to_property(BBNames.health_var, stats, "health", true)
+	blackboard.bind_var_to_property(BBNames.hurt_var, Enemy, "hurt", true)
+	
 	
 	if stats == null:
 		print("Error: stats is null!")
@@ -40,8 +41,7 @@ func _ready():
 
 func hit(p_damage : int):
 	stats.health -= p_damage
-	damaged.emit()
-
+	blackboard.set_var(BBNames.hurt_var, true)
 	# Check if blackboard is valid before setting health
 	if blackboard == null:
 		print("Error: blackboard is null in hit()!")

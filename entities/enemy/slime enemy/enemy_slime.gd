@@ -16,6 +16,7 @@ var knockback_force := 1000
 var knockback_duration := 0.7
 var invulnerability_duration := 3.0
 
+
 		
 func _physics_process(_delta: float) -> void:
 	if is_on_wall() and is_on_floor():
@@ -57,9 +58,3 @@ func explode():
 	
 	#Pass enemy color to the explosion effect
 	explosion_instance.set_explosion_color(sprite_2d.modulate)
-
-
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	if damaged:
-		print("sword has hit enemy")
-		hit_flash_anim_player.play("hit_flash")
