@@ -7,6 +7,7 @@ const gravity = 30
 
 @onready var invulnerability_timer: Timer = $Timers/InvulnerabilityTimer
 @onready var detection_zone: DetectionZone = $DetectionZone
+@onready var hit_flash_anim_player: AnimationPlayer = $HitFlashAnimationPlayer
 
 var invulnerable : bool = false
 var is_hurt := false
@@ -47,25 +48,7 @@ func update_flip(dir : float):
 	sprite_2d.flip_h = dir < 0
 	detection_zone.scale.x = -1 if dir < 0 else 1
 	
-	
-#func damage(amount: int):
-	#print("Enemy Took damage:", amount)
-	#if invulnerable or is_knocked_back:
-		#return # Don't take damage if invulnerable
-		#
-		#
-	#stats.health -= amount # Subtract health
-	#emit_signal("enemy_damaged") # Emit signal if needed
-	#
-	#if stats.health <= 0:
-		#emit_signal(stats.health_depleted)
-		#explode()
-		#queue_free()
-		#return
-	## States
-	#is_knocked_back = true
-	#invulnerable = true
-	#
+
 func explode():
 	var explosion_scene = preload("res://particles/explosion.tscn")
 	var explosion_instance = explosion_scene.instantiate()
@@ -74,3 +57,9 @@ func explode():
 	
 	#Pass enemy color to the explosion effect
 	explosion_instance.set_explosion_color(sprite_2d.modulate)
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if damaged:
+		print("sword has hit enemy")
+		hit_flash_anim_player.play("hit_flash")

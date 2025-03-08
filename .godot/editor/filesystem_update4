@@ -35,3 +35,15 @@ res://entities/enemy/slime enemy/enemy_slime.gd
 res://ai/tasks/simple/move_to_target_new.gd
 res://addons/item_drops/drops/droppable.gd
 res://entities/objects/items/Item_drop/drop_item.gd
+res://world/world 1/forest area/testworld_4.tscn
+res://world/AreaTransition.tscn
+res://world/world 1/forest area/objects.gd
+res://entities/objects/visual/lantern.gd
+res://world/tilemap/forest_platforms.tscn
+res://world/tilemap/forest_tile_map.tscn
+res://background/parallax.tscn
+res://world/tilemap/cave_tileback.tscn
+res://world/tilemap/cave_parallax.tscn
+res://world/parallax/trees.tscn
+res://entities/enemy/slime enemy/hit_flash.tres
+res://entities/enemy/enemy.gd

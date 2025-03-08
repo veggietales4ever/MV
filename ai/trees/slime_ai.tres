@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=45 format=3 uid="uid://cg2xvua4lo6hn"]
+[gd_resource type="BehaviorTree" load_steps=47 format=3 uid="uid://cg2xvua4lo6hn"]
 
 [ext_resource type="Script" uid="uid://bmo2cv70tjikx" path="res://ai/tasks/simple/move_to_target_new.gd" id="1_bj8vr"]
 [ext_resource type="Script" uid="uid://bikf134tdsiij" path="res://ai/tasks/simple/choose_random_position_new.gd" id="1_t05l3"]
@@ -29,6 +29,12 @@ var/state/type = 4
 var/state/value = ""
 var/state/hint = 0
 var/state/hint_string = ""
+
+[sub_resource type="BTAlwaysFail" id="BTAlwaysFail_hhw6v"]
+
+[sub_resource type="BTSequence" id="BTSequence_hhw6v"]
+custom_name = "Hurt Sequence"
+children = [SubResource("BTAlwaysFail_hhw6v")]
 
 [sub_resource type="BBVariant" id="BBVariant_cb0o2"]
 type = 2
@@ -178,7 +184,7 @@ children = [SubResource("BTProbability_bj8vr"), SubResource("BTProbability_cb0o2
 
 [sub_resource type="BTDynamicSelector" id="BTDynamicSelector_bj8vr"]
 custom_name = "Slime AI"
-children = [SubResource("BTSequence_picx7"), SubResource("BTSequence_cb0o2"), SubResource("BTSelector_y22fi")]
+children = [SubResource("BTSequence_hhw6v"), SubResource("BTSequence_picx7"), SubResource("BTSequence_cb0o2"), SubResource("BTSelector_y22fi")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_5300l")

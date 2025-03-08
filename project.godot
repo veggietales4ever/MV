@@ -57,6 +57,7 @@ Enemy=""
 navigation=""
 item=""
 spawned_parent=""
+Sword=""
 
 [input]
 

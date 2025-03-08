@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn5spufe88nqq"]
+
+[ext_resource type="Texture2D" uid="uid://c8d2hs1cixwsc" path="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="1_1x034"]
+
+[node name="CaveParallax" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(99.72, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("1_1x034")
+hframes = 4
+vframes = 2

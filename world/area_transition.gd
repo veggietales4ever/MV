@@ -23,9 +23,9 @@ anytime value is set on the size, set size our value to _v, call update area
 		side = _v
 		_update_area()
 		
-@export var snap_to_grid : bool = false
-	#set(_v):
-		#_snap_to_grid()
+@export var snap_to_grid : bool = false :
+	set(_v):
+		_snap_to_grid()
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
@@ -100,7 +100,7 @@ func _update_area() -> void:
 	collision_shape.shape.size = new_rect
 	collision_shape.position = new_position
 	
-#func _snap_to_grid() -> void:
-	#position.x = round(position.x / 16) * 16
-	#position.y = round(position.x / 16) * 16
+func _snap_to_grid() -> void:
+	position.x = round(position.x / 16) * 16
+	position.y = round(position.x / 16) * 16
 	

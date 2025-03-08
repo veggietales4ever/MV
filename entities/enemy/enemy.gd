@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Enemy
 
+signal damaged
+
 @export var bt_player : BTPlayer
 @export var animation_player : AnimationPlayer
 @export var sprite_2d : Sprite2D
@@ -38,7 +40,7 @@ func _ready():
 
 func hit(p_damage : int):
 	stats.health -= p_damage
-	
+	damaged.emit()
 
 	# Check if blackboard is valid before setting health
 	if blackboard == null:

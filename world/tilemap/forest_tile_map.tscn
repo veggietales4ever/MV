@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://md7yr10poe6y" path="res://assets/tilemap/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_xrljq"]
 [ext_resource type="Script" uid="uid://b24hgasaepu0y" path="res://world/level_tile_map.gd" id="2_qemln"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qemln"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ehxy"]
 texture = ExtResource("1_xrljq")
 0:0/0 = 0
 1:0/0 = 0
@@ -215,14 +215,19 @@ texture = ExtResource("1_xrljq")
 24:5/0 = 0
 0:6/0 = 0
 0:6/0/terrain_set = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 8, -8, 8, 8, -4, 8)
 1:6/0 = 0
 1:6/0/terrain_set = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:6/0 = 0
 2:6/0/terrain_set = 0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:6/0 = 0
 3:6/0/terrain_set = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:6/0 = 0
 4:6/0/terrain_set = 0
+4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(6, -8, -8, -8, -8, 8, 5, 8)
 5:6/0 = 0
 6:6/0 = 0
 7:6/0 = 0
@@ -566,7 +571,7 @@ physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Path"
 terrain_set_0/terrain_0/color = Color(0.275559, 0.434032, 0.210953, 1)
-sources/1 = SubResource("TileSetAtlasSource_qemln")
+sources/1 = SubResource("TileSetAtlasSource_8ehxy")
 
 [node name="Forest01" type="TileMap"]
 z_index = -1
