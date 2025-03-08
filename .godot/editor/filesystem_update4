@@ -49,3 +49,4 @@ res://entities/enemy/slime enemy/hit_flash.tres
 res://entities/enemy/enemy.gd
 res://entities/enemy/slime enemy/slime_hitbox.gd
 res://entities/bb_names.gd
+res://ai/tasks/simple/hurt.gd

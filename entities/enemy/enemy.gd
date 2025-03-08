@@ -20,7 +20,7 @@ func _ready():
 	blackboard = bt_player.blackboard
 	# Bind the blackboard variable to the health property
 	blackboard.bind_var_to_property(BBNames.health_var, stats, "health", true)
-	blackboard.bind_var_to_property(BBNames.hurt_var, Enemy, "hurt", true)
+	#blackboard.bind_var_to_property(BBNames.hurt_var, Enemy, "hurt", true)
 	
 	
 	if stats == null:
