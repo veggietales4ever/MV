@@ -15,3 +15,5 @@ signal health_depleted
 		
 		if health <= 0 && old_value > 0:
 			health_depleted.emit()
+
+@export var max_health : int = 500

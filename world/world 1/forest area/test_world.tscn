@@ -67,12 +67,12 @@ position = Vector2(1133.52, 102)
 item_data = ExtResource("13_p2vfc")
 
 [node name="Coin2" parent="Objects/coins" instance=ExtResource("12_ysk6a")]
-position = Vector2(934.061, 157728)
+position = Vector2(934.061, 163908)
 velocity = Vector2(0, 69.9999)
 item_data = ExtResource("13_p2vfc")
 
 [node name="Coin3" parent="Objects/coins" instance=ExtResource("12_ysk6a")]
-position = Vector2(1046.01, 157712)
+position = Vector2(1046.01, 163892)
 velocity = Vector2(0, 69.9999)
 item_data = ExtResource("13_p2vfc")
 

@@ -1,58 +1,26 @@
 res://default_bus_layout.tres
 res://world/world 1/forest area/test_world.tscn
-res://fonts/title_label_settings.tres
 res://UI/PauseMenu/Inventory/player_inventory.tres
+res://fonts/title_label_settings.tres
 res://shaders/palette_limiter_shader.gdshader
-res://ai/trees/slime_ai.tres
-res://world/world 1/forest area/test_world2.tscn
-res://world/world 1/forest area/testworld_3.tscn
-res://entities/enemy/slime enemy/slime_enemy.tscn
-res://entities/player/player.tscn
-res://UI/PauseMenu/pause_menu.tscn
-res://UI/PauseMenu/Inventory/inventory_slot.tscn
-res://control/transitions/scene_transition.tscn
-res://UI/PauseMenu/Inventory/inventory_data.gd
-res://entities/objects/pickup/item_pickup.tscn
-res://entities/objects/pickup/item_pickup.gd
-res://global/global_player_manager.gd
 res://entities/objects/items/Item_Resources/currency.tres
-res://entities/objects/items/item.tscn
-res://entities/enemy/drop_data.gd
-res://ai/tasks/simple/drop_item_enemy.gd
-res://ai/tasks/simple/health_depleted.gd
-res://world/area_transition.gd
-res://entities/character_stats.gd
-res://UI/PauseMenu/Inventory/inventory_slot_UI.gd
-res://UI/PauseMenu/Inventory/inventory_ui.gd
-res://entities/objects/items/item_data.gd
-res://addons/item_drops/scene_spawner/2d/launch_force_scene_spawner_2d.gd
-res://UI/PauseMenu/pause_menu.gd
-res://addons/item_drops/pickups/pickup_2d.gd
-res://entities/player/player.gd
-res://addons/item_drops/scene_spawner/2d/scene_spawner_2d.gd
-res://UI/PauseMenu/Inventory/slot_data.gd
-res://entities/enemy/slime enemy/enemy_slime.gd
-res://ai/tasks/simple/move_to_target_new.gd
-res://addons/item_drops/drops/droppable.gd
-res://entities/objects/items/Item_drop/drop_item.gd
-res://world/world 1/forest area/testworld_4.tscn
-res://world/AreaTransition.tscn
-res://world/world 1/forest area/objects.gd
-res://entities/objects/visual/lantern.gd
-res://world/tilemap/forest_platforms.tscn
-res://world/tilemap/forest_tile_map.tscn
-res://background/parallax.tscn
-res://world/tilemap/cave_tileback.tscn
-res://world/tilemap/cave_parallax.tscn
-res://world/parallax/trees.tscn
+res://ai/trees/slime_ai.tres
 res://entities/enemy/slime enemy/hit_flash.tres
-res://entities/enemy/enemy.gd
-res://entities/enemy/slime enemy/slime_hitbox.gd
-res://entities/bb_names.gd
-res://ai/tasks/simple/hurt.gd
-res://control/transitions/camera_change.gd
+res://global/global_save_manager.gd
+res://world/world 1/forest area/test_world2.tscn
+res://entities/player/player.tscn
+res://entities/enemy/slime enemy/slime_enemy.tscn
 res://control/transitions/camera_change.tscn
-res://control/camera/camera_switch.gd
-res://control/camera/camera_2dold.gd
-res://entities/player/player_input.gd
+res://world/AreaTransition.tscn
 res://world/world 1/forest area/test_world_5.tscn
+res://UI/PauseMenu/pause_menu.tscn
+res://UI/PauseMenu/pause_menu.gd
+res://world/world 1/forest area/test_world_5.gd
+res://world/world 1/forest area/test_world_2.gd
+res://world/world 1/forest area/test_world.gd
+res://global/global_player_manager.gd
+res://entities/player/player_stats.gd
+res://entities/character_stats.gd
+res://entities/objects/interact/savepoint.tscn
+res://entities/objects/interact/savepoint.gd
+res://world/tilemap/forest_tile_map.tscn

@@ -16,6 +16,7 @@ acceleration = 1200
 friction = 1800
 jump_velocity = 400.0
 health = 5
+max_health = 500
 metadata/_custom_type_script = ExtResource("3_msrsq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_thn1p"]
@@ -145,6 +146,21 @@ _data = {
 &"run": SubResource("Animation_5300l")
 }
 
+[sub_resource type="Animation" id="Animation_ead0r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_i0ouv"]
 resource_name = "hit_flash"
 length = 0.2
@@ -160,21 +176,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_ead0r"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6y3xp"]

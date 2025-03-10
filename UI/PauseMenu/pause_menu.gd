@@ -59,13 +59,14 @@ func end_pause_menu() -> void:
 func _on_save_pressed() -> void:
 	if is_paused == false:
 		return
-	SaveManager.save_game(player)
+	SaveManager.save_game()
 	hide_pause_menu()
 	
 func _on_load_pressed() -> void:
 	if is_paused == false:
 		return
 	SaveManager.load_game()
+	await LevelManager.level_load_started
 	hide_pause_menu()
 
 func update_item_description(new_text : String) -> void:
