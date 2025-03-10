@@ -30,9 +30,10 @@ level = "uid://cjd8hmelfnyj8"
 target_transition_area = &"AreaTransition4"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_w24hf")]
-position = Vector2(32, -120)
+position = Vector2(40, -112)
 
 [node name="can_move" parent="PlayerSpawn" instance=ExtResource("6_3wjum")]
+position = Vector2(0, 48)
 
 [node name="Area2D" parent="." instance=ExtResource("8_4l76f")]
 position = Vector2(288, -80)

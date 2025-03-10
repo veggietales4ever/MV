@@ -24,3 +24,4 @@ res://entities/character_stats.gd
 res://entities/objects/interact/savepoint.tscn
 res://entities/objects/interact/savepoint.gd
 res://world/tilemap/forest_tile_map.tscn
+res://entities/player/player_input.gd
