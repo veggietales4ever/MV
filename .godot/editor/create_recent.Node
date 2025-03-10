@@ -1,3 +1,5 @@
+CollisionShape2D
+Area2D
 AnimationPlayer
 TileMap
 Parallax2D
@@ -7,9 +9,6 @@ Node2D
 Node
 CharacterBody2D
 AudioStreamPlayer2D
-CollisionShape2D
-Area2D
 Label
 Control
 TextureRect
-Button

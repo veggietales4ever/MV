@@ -15,6 +15,7 @@ var crouch : bool
 var faster_fall : bool
 var attack : bool
 var can_move : bool = true
+var has_sword : bool = false
 
 func _ready() -> void:
 	blackboard = limbo_hsm.blackboard
@@ -41,7 +42,7 @@ func _process(_delta: float) -> void:
 			crouch = true
 		elif Input.is_action_just_released(player_actions.down):
 			crouch = false
-		
+		#if has_sword:
 		if Input.is_action_just_pressed(player_actions.attack):
 			attack = true
 			

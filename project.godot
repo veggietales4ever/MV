@@ -58,6 +58,7 @@ navigation=""
 item=""
 spawned_parent=""
 Sword=""
+camera_change_area=""
 
 [input]
 

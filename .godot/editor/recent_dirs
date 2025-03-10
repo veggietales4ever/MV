@@ -1,6 +1,7 @@
+res://world/world 1/forest area
+res://control/transitions
 res://world/parallax
 res://world/tilemap
-res://world/world 1/forest area
 res://world
 res://UI/PauseMenu/Inventory/
 res://entities/objects/pickup
@@ -13,7 +14,6 @@ res://data/
 res://entities/objects
 res://entities/player/states
 res://control/can_move_areas
-res://control/transitions
 res://control/camera
 res://control
 res://entities/player

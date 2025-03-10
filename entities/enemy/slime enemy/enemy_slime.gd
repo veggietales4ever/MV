@@ -119,7 +119,7 @@ func _on_invulnerability_timer_timeout():
 	invulnerable = false
 	self.modulate = Color(1, 1, 1, 1) # Reset opacity
 	
-	var player = PlayerManager.player
+	#var player = PlayerManager.player
 	if player == null:
 		print("Error: Playermanager.player is not set")
 		return

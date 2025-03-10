@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm8n51a1cla56"]
+
+[ext_resource type="Script" uid="uid://daygr3gbyudj2" path="res://control/transitions/camera_change.gd" id="1_7kpkf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kpkf"]
+size = Vector2(64, 128)
+
+[node name="CameraChange" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_7kpkf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7kpkf")

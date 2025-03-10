@@ -50,3 +50,9 @@ res://entities/enemy/enemy.gd
 res://entities/enemy/slime enemy/slime_hitbox.gd
 res://entities/bb_names.gd
 res://ai/tasks/simple/hurt.gd
+res://control/transitions/camera_change.gd
+res://control/transitions/camera_change.tscn
+res://control/camera/camera_switch.gd
+res://control/camera/camera_2dold.gd
+res://entities/player/player_input.gd
+res://world/world 1/forest area/test_world_5.tscn

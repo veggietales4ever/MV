@@ -3,6 +3,8 @@ extends Camera2D
 
 #@export var player = CharacterBody2D
 @export var camera: camera_state
+#var camera_change : CameraChange
+
 enum camera_state {FOLLOW, PANNING}
 
 var player = PlayerManager.player
@@ -14,6 +16,10 @@ var rng := RandomNumberGenerator.new()
 func _ready() -> void:
 	make_current()
 	
+	#var camera_change_area = get_tree().get_nodes_in_group("camera_change_area")
+	#if camera_change_area.size() > 0:
+		#camera_change = camera_change_area[0] as CameraChange
+		#camera_change.cameraswitch.connect(_on_camera_switch)
 
 
 #Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,6 +30,7 @@ func _process(delta: float) -> void:
 			camera_follow()
 		camera_state.PANNING:
 			camera_panning()
+
 			
 	if shake_intensity > 0:
 		offset = Vector2(rng.randf_range(-shake_intensity, shake_intensity), rng.randf_range(-shake_intensity, shake_intensity))
@@ -47,3 +54,12 @@ func camera_follow():
 	
 func apply_screen_shake(intensity: float):
 	shake_intensity = intensity
+
+#func _on_camera_switch():
+	#if camera == camera_state.FOLLOW:
+		#camera = camera_state.PANNING
+		#print(camera)
+	#elif camera == camera_state.PANNING:
+		#camera = camera_state.FOLLOW
+		#print(camera)
+		
